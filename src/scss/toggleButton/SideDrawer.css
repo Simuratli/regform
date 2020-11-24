@@ -1,0 +1,116 @@
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: #757689;
+  letter-spacing: 0.5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #E05E2B;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+
+.p-150 {
+  padding: 0 150px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.sideDrawer {
+  height: 100%;
+  background-color: white;
+  box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 40%;
+  max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+}
+.sideDrawer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.sideDrawer li {
+  color: #dc5b16;
+  margin: 1rem 0;
+}
+.sideDrawer .bookACall {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #E05E2B;
+  color: #FFFFFF;
+  background-color: #E05E2B;
+  padding: 0.2rem 0.4rem;
+  transition: 0.2s;
+  letter-spacing: 0.5px;
+}
+.sideDrawer .bookACall :after {
+  content: url("../../assets/images/arrow.png");
+  position: relative;
+  bottom: 1.5px;
+  left: 7px;
+  border-radius: 4px;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+@media screen and (min-width: 769px) {
+  .sideDrawer {
+    display: none;
+  }
+}
+@media screen and (max-width: 415px) {
+  .sideDrawer {
+    width: 60%;
+  }
+}
+
+/*# sourceMappingURL=SideDrawer.css.map */

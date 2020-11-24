@@ -1,0 +1,82 @@
+$orange: #E05E2B;
+$blue: #212886;
+$gray: #757689;
+$card-text-color: #61626A;
+$light-blue: #f2f3f9;
+$light-grey: #f9fafc;
+$bright-orange: #dc5b16;
+$card-text-color-2: #ed6e2a;
+
+$padding-1024px: 0 200px;
+$padding-less-1024px: 0 20px;
+
+//NAVLINK STYLES
+
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: $gray;
+  letter-spacing: .5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: $orange;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+
+.p-150 {
+  padding: 0 150px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+
+  &:hover {
+    -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+    -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+    box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  }
+}
+
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul li{
+  list-style-type: none;
+}
+.downloadButton {
+  max-width: 130px;
+  width: 100%;
+  height: 40px;
+  border: 1px solid $card-text-color-2;
+  background-color: $card-text-color-2;
+  font-family: Montserrat;
+  color: #FFFFFF;
+  outline: none;
+  font-weight: 600;
+  transition: ease-in-out .3s;}

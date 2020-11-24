@@ -1,0 +1,265 @@
+@import "../utils/utils";
+
+.main_container {
+  font-family: Montserrat;
+  margin-bottom: 20px;
+
+  .generalTitleBlock {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    color: $blue;
+    padding: 4rem 200px;
+
+    .headingParagraph {
+      width: 50%;
+      font-weight: 900;
+      font-size: 3vw;
+      line-height: 70px;
+      text-align: left;
+      margin: 2rem 0;
+      padding-right: 1rem;
+    }
+
+    .orangeElement {
+      width: 5%;
+      max-width: 56px;
+      max-height: 86px;
+      position: relative;
+      top: 42px;
+      left: 0px;
+      margin-right: 1rem;
+
+    }
+
+    .paragraph {
+      width: 45%;
+      text-align: left;
+      font-size: 1.4vw;
+      font-weight: 500;
+      line-height: 35px;
+      margin-top: 2.5rem;
+
+
+    }
+  }
+
+  //Responsive card's position
+  .card {
+    //display: flex;
+    //justify-content: space-between;
+    //flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: start;
+    grid-gap: 4vw;
+    padding: 0 200px;
+    @media screen and (max-width: 1670px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1450px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1300px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6vw;
+    }
+    @media screen and (max-width: 769px) {
+      grid-template-columns: repeat(2, 1fr);
+      //overflow: hidden;
+    }
+    @media screen and (max-width: 420px) {
+      grid-template-columns: repeat(1, 1fr);
+      //overflow: hidden;
+    }
+
+
+  }
+
+
+}
+
+//Responsive design
+
+@media screen and (max-width: 1700px) {
+  .main_container {
+
+    .generalTitleBlock {
+      padding: 4rem 100px;
+    }
+
+    .card {
+      padding: 0 100px;
+    }
+
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .main_container {
+    padding: 0 50px;
+
+    .generalTitleBlock {
+      padding: 0 100px;
+    }
+    .card{
+      grid-gap: 1vw;
+      padding: 0 100px;
+    }
+
+
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .main_container {
+    padding: 0;
+
+    .generalTitleBlock {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      line-height: 20px;
+      padding: 30px 0;
+
+      .headingParagraph {
+        line-height: 55px;
+        font-size: 4vw;
+        width: 80%;
+        margin: 1rem;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .orangeElement {
+        display: none;
+      }
+
+      .paragraph {
+        line-height: 25px;
+        width: 80%;
+        padding: 0;
+        font-size: 2vw;
+        font-weight: 600;
+        margin: 1rem;
+        text-align: center;
+
+      }
+
+    }
+
+  }
+}
+@media screen and (max-width: 1024px) {
+  .main_container {
+
+    .generalTitleBlock {
+      padding: 0 50px;
+    }
+    .card {
+      padding: 0 50px;
+    }
+
+  }
+}
+
+// Medium devices (landscape tablets, 768px and up)
+@media only screen and (max-width: 768px) {
+  .main_container {
+
+    .generalTitleBlock {
+
+      .headingParagraph {
+        line-height: 35px;
+        font-size: 4.5vw;
+        width: 80%;
+        margin: 0.2rem;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .orangeElement {
+        display: none;
+      }
+
+      .paragraph {
+        line-height: 18px;
+        width: 80%;
+        padding: 0;
+        font-size: 2.5vw;
+        font-weight: 500;
+        margin: 1rem;
+        text-align: justify;
+
+      }
+    }
+
+    .navigationBar .logOut {
+      margin-right: 3rem;
+    }
+
+    .card {
+      padding: 0 30px;
+      grid-gap: 2vw;
+    }
+
+  }
+  .main_container .generalTitleBlock {
+    padding: 50px 50px;
+  }
+}
+
+//Extra small devices (phones, 600px and down)
+@media only screen and (max-width: 600px) {
+  .main_container {
+
+    .generalTitleBlock {
+
+      .headingParagraph {
+        line-height: 20px;
+        font-size: 5vw;
+        width: 80%;
+        margin: 0.2rem;
+        text-align: center;
+        border-radius: 4px;
+      }
+
+      .orangeElement {
+        display: none;
+      }
+
+      .paragraph {
+        line-height: 18px;
+        width: 80%;
+        padding: 0;
+        font-size: 3vw;
+        font-weight: 600;
+        margin: 1rem;
+        text-align: justify;
+
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .main_container .generalTitleBlock {
+    padding: 50px 35px;
+  }
+  .headingParagraph {
+   font-size: 22px;
+  }
+
+  .paragraph {
+    font-size: 18vw;
+  }
+}

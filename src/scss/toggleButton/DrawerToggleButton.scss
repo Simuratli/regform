@@ -1,0 +1,22 @@
+@import "../utils/utils";
+
+.burger{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 36px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 2rem 2.6rem;
+}
+.burger:focus{
+    outline: none;
+}
+.line{
+    width: 30px;
+    height: 2px;
+    background: red;
+}

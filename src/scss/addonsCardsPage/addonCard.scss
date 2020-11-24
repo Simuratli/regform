@@ -1,0 +1,262 @@
+
+@import "../utils/utils";
+
+.addonsCard {
+  background-image: url("../../assets/images/addons_card_bg.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  border: 10px solid $light-blue;
+  font-family: Montserrat;
+  padding: 15px 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all .3s ease-in-out;
+
+  &:hover {
+    top: -2px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75%;
+  }
+
+  .cardLogo {
+    height: 25%;
+  }
+
+  .cardDescription {
+    h3 {
+      color: $blue;
+      font-size: 25px;
+    }
+
+    p {
+      color: $card-text-color;
+      font-size: 21px;
+    }
+  }
+
+  .cardAction {
+    position: relative;
+    bottom: 34px;
+
+    h5 {
+      font-size: 22px;
+      text-transform: uppercase;
+      color: $card-text-color-2;
+      position: relative;
+      top: 40px;
+    }
+
+    .description {
+      display: flex;
+      justify-content: space-between;
+      font-size: 19px;
+      color: $card-text-color;
+      font-weight: lighter;
+    }
+  }
+
+  .cardsButtons {
+    display: flex;
+    justify-content: space-between;
+
+    .downloadButton {
+      width: 130px;
+
+      &:after {
+        content: url("../../assets/images/download_button_icon.png");
+        position: relative;
+        top: 2px;
+        left: 5px;
+        border-radius: 4px;
+      }
+    }
+
+    .openButton {
+      width: 130px;
+      height: 40px;
+      border: 1px solid $card-text-color-2;
+      background-color: $card-text-color-2;
+      font-family: Montserrat;
+      color: #FFFFFF;
+      outline: none;
+      font-weight: 600;
+      transition: ease-in-out .3s;
+      text-align: center;
+    }
+
+    .moreInfoButton {
+      width: 130px;
+      height: 40px;
+      border: 2px solid $card-text-color-2;
+      color: $card-text-color-2;
+      font-family: Montserrat;
+      font-weight: 600;
+      background-color: #FFFFFF;
+      outline: none;
+      transition: ease-in-out .3s;
+
+      &:after {
+        content: url("../../assets/images/more_info_icon.png");
+        position: relative;
+        top: 2px;
+        left: 5px;
+        border-radius: 4px;
+      }
+
+      &:hover {
+        -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+        -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+        box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+      }
+    }
+
+    .fullPageLink {
+      width: 122px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .addonsCard {
+    border: 10px solid $light-blue;
+
+    .cardLogo {
+      .logo {
+        width: 80px;
+        height: auto;
+      }
+    }
+
+    .cardDescription {
+      h3 {
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 15px;
+        text-align: justify;
+      }
+    }
+
+    .cardAction {
+
+      h5 {
+        font-size: 16px;
+      }
+
+      .description {
+        font-size: 10px;
+        font-weight: 600;
+      }
+    }
+
+    .cardsButtons {
+
+      .downloadButton {
+        font-size: 12px;
+        margin-right: 5px;
+      }
+
+      .moreInfoButton {
+        font-size: 12px;
+      }
+
+      .open {
+        width: 105px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1350px) {
+  .addonsCard {
+    //max-width: 376px;
+    //width: 100%;
+    //height: 485px;
+    .cardDescription {
+      h3 {
+        color: $blue;
+        font-size: 22px;
+      }
+
+      p {
+        color: $card-text-color;
+        font-size: 18px;
+      }
+    }
+
+    .cardAction {
+      position: relative;
+      bottom: 34px;
+
+      h5 {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $card-text-color-2;
+        position: relative;
+        top: 40px;
+      }
+
+      .description {
+        display: flex;
+        justify-content: space-between;
+        font-size: 15px;
+        color: $card-text-color;
+        font-weight: lighter;
+      }
+    }
+
+    .cardsButtons {
+      display: flex;
+      justify-content: space-between;
+
+      .downloadButton {
+        width: 122px;
+      }
+
+      .openButton {
+        width: 122px;
+      }
+
+      .moreInfoButton {
+        width: 122px;
+
+      }
+      .fullPageLink {
+        width: 122px;
+      }
+    }
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  .addonsCard {
+
+    .cardsButtons {
+
+      .downloadButton {
+        font-size: 12px;
+        margin-right: 5px;
+        width: 105px;
+      }
+
+      .moreInfoButton {
+        font-size: 12px;
+      }
+    }
+  }
+
+}
+
+
+
+
+

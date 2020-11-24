@@ -1,0 +1,47 @@
+@import "../utils/utils";
+
+.privacyContainer{
+  border-radius: 4px;
+  padding: 2rem 3rem;
+  color: $card-text-color;
+  text-align: justify;
+}
+
+.termsContainer{
+  border-radius: 4px;
+  padding: 2rem 3rem;
+  color: $card-text-color;
+  text-align: justify;
+}
+
+@media screen and (max-width: 1600px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 100px;
+  }
+}
+@media screen and (max-width: 1500px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 200px;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 100px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 70px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 35px;
+  }
+}
+@media screen and (max-width: 415px) {
+  .privacyContainer, .termsContainer {
+    padding: 2rem 35px;
+  }
+}
+

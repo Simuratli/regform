@@ -1,0 +1,76 @@
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI-Light.eot');
+	src: local('./SegoeUI/Segoe UI Light'), local('SegoeUI-Light'),
+		url('./SegoeUI/SegoeUI-Light.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI-Light.woff') format('woff'),
+		url('./SegoeUI/SegoeUI-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI-BoldItalic.eot');
+	src: local('Segoe UI Bold Italic'), local('SegoeUI-BoldItalic'),
+		url('./SegoeUI/SegoeUI-BoldItalic.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI-BoldItalic.woff') format('woff'),
+		url('./SegoeUI/SegoeUI-BoldItalic.ttf') format('truetype');
+	font-weight: bold;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI-SemiBold.eot');
+	src: local('Segoe UI Semibold'), local('SegoeUI-SemiBold'),
+		url('./SegoeUI/SegoeUI-SemiBold.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI-SemiBold.woff') format('woff'),
+		url('./SegoeUI/SegoeUI-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI.eot');
+	src: local('Segoe UI'), local('SegoeUI'),
+		url('./SegoeUI/SegoeUI.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI.woff') format('woff'),
+		url('./SegoeUI/SegoeUI.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI-Bold.eot');
+	src: local('Segoe UI Bold'), local('SegoeUI-Bold'),
+		url('./SegoeUI/SegoeUI-Bold.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI-Bold.woff') format('woff'),
+		url('./SegoeUI/SegoeUI-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Segoe UI';
+	src: url('./SegoeUI/SegoeUI-Italic.eot');
+	src: local('Segoe UI Italic'), local('SegoeUI-Italic'),
+		url('./SegoeUI/SegoeUI-Italic.eot?#iefix') format('embedded-opentype'),
+		url('./SegoeUI/SegoeUI-Italic.woff') format('woff'),
+		url('./SegoeUI/SegoeUI-Italic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Gilroy';
+	src: url('./Gilroy/Gilroy-Black.eot');
+	src: local('Gilroy Black'), local('Gilroy-Black'),
+			url('./Gilroy/Gilroy-Black.eot?#iefix') format('embedded-opentype'),
+			url('./Gilroy/Gilroy-Black.woff') format('woff'),
+			url('./Gilroy/Gilroy-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}

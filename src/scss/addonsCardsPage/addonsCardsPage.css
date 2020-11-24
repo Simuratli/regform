@@ -1,0 +1,194 @@
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: #757689;
+  letter-spacing: 0.5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #E05E2B;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+
+.p-150 {
+  padding: 0 150px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.main_container {
+  font-family: Montserrat;
+  padding: 0 150px;
+}
+.main_container .generalTitleBlock {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  color: #212886;
+  padding: 4rem 0;
+}
+.main_container .generalTitleBlock .headingParagraph {
+  width: 50%;
+  font-weight: 900;
+  font-size: 3vw;
+  line-height: 70px;
+  text-align: left;
+  margin: 2rem 0;
+}
+.main_container .generalTitleBlock .orangeElement {
+  width: 5%;
+  max-width: 56px;
+  max-height: 86px;
+  position: relative;
+  top: 42px;
+  left: 45px;
+}
+.main_container .generalTitleBlock .paragraph {
+  width: 45%;
+  text-align: left;
+  font-size: 1.4vw;
+  font-weight: 500;
+  line-height: 35px;
+  margin: 2rem 5rem;
+}
+.main_container .card {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+@media screen and (max-width: 1670px) {
+  .main_container .card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 1300px) {
+  .main_container .card {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media screen and (max-width: 1000px) {
+  .main_container .card {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 600px) {
+  .main_container .card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .main_container {
+    padding: 0 20px;
+  }
+  .main_container .generalTitleBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 20px;
+  }
+  .main_container .generalTitleBlock .headingParagraph {
+    line-height: 40px;
+    font-size: 4vw;
+    width: 80%;
+    margin: 1rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .main_container .generalTitleBlock .orangeElement {
+    display: none;
+  }
+  .main_container .generalTitleBlock .paragraph {
+    line-height: 25px;
+    width: 80%;
+    padding: 0;
+    font-size: 2vw;
+    font-weight: 600;
+    margin: 1rem;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    line-height: 35px;
+    font-size: 4.5vw;
+    width: 80%;
+    margin: 0.2rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .main_container .generalTitleBlock .orangeElement {
+    display: none;
+  }
+  .main_container .generalTitleBlock .paragraph {
+    line-height: 18px;
+    width: 80%;
+    padding: 0;
+    font-size: 2.5vw;
+    font-weight: 500;
+    margin: 1rem;
+    text-align: justify;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    line-height: 20px;
+    font-size: 5vw;
+    width: 80%;
+    margin: 0.2rem;
+    text-align: center;
+    border-radius: 4px;
+  }
+  .main_container .generalTitleBlock .orangeElement {
+    display: none;
+  }
+  .main_container .generalTitleBlock .paragraph {
+    line-height: 18px;
+    width: 80%;
+    padding: 0;
+    font-size: 3vw;
+    font-weight: 600;
+    margin: 1rem;
+    text-align: justify;
+  }
+}
+
+/*# sourceMappingURL=addonsCardsPage.css.map */

@@ -1,0 +1,596 @@
+@import "../utils/utils";
+
+$color-primary: #ed6e2a;
+$color-dim: #6c6d6d;
+$spacing: 50px;
+$radius: 4px;
+$date: 120px;
+$dotborder: 4px;
+$dot: 11px;
+$line: 4px;
+
+.commonStyles {
+  padding: 1rem;
+  text-align: center;
+}
+
+.addonFullPage {
+  p {
+    color: $card-text-color;
+    font-size: 19px;
+  }
+
+  h2 {
+    font-size: 44px;
+    text-align: center;
+    margin: 0;
+  }
+
+  color: $blue;
+  font-family: Montserrat;
+}
+
+
+.useInfoMobile {
+  display: none;
+}
+
+.headerWrapper {
+  background-image: url("../../assets/images/addon_full_page_header_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: space-between;
+  align-content: start;
+  grid-gap: 6vw;
+  //position: relative;
+  //top: 130px;
+  color: #f2f2f2;
+  padding: 150px 200px;
+
+  .headerLeftSide {
+    display: flex;
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+
+    .virtualMashineWarning {
+      .downloadButton {
+        margin-bottom: 2rem;
+      }
+
+      .virtualMashineWarningparagraph {
+        padding-bottom: 2rem;
+        font-weight: bolder;
+      }
+    }
+
+    h1 {
+      width: 100%;
+      font-weight: 900;
+      font-size: 3vw;
+      line-height: 70px;
+      margin: 2rem 0;
+      color: #FFFFFF;
+      text-align: left;
+
+    }
+
+    p {
+      color: #FFFFFF;
+    }
+
+    a {
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .headerRightSide {
+    position: relative;
+
+    .videoTutorial {
+      border: 10px solid #202d62;
+      border-radius: 10px;
+      background-color: #FFFFFF;
+      box-shadow: 1px 0px 4px rgba(0, 0, 0, 0.3);
+
+      img {
+        position: relative;
+        top: 20px;
+        left: 23%;
+        width: 50%;
+      }
+    }
+
+    img {
+      width: 100%;
+      max-width: 450px;
+    }
+  }
+}
+
+.downloadButton {
+  width: 122px;
+}
+
+.openButton {
+  width: 122px;
+  height: 40px;
+  border: 1px solid $card-text-color-2;
+  background-color: $card-text-color-2;
+  font-family: Montserrat;
+  color: #FFFFFF;
+  outline: none;
+  font-weight: 600;
+  transition: ease-in-out .3s;
+  text-align: center;
+}
+
+.topInfo {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 30px;
+  //padding: $padding-1024px;
+  padding: 0 300px;
+
+}
+
+.aboutInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  //margin: 1rem 0;
+  padding: 1rem 10rem;
+  background-color: #F2F3F9;
+}
+
+.installInfo {
+  background-color: #F2F3F9;
+  padding: 1rem 10rem;
+}
+
+.installationGuide {
+  color: $orange;
+}
+
+.rowKey {
+  color: $card-text-color-2;
+}
+
+.pageTables {
+  text-align: left;
+}
+
+.useInfo {
+  margin: 2rem 0;
+  font-family: Montserrat;
+  padding: 0 300px;
+
+  h2 {
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .timeline {
+    border-left: $line solid $color-primary;
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+    margin: 2rem 120px;
+    //margin: auto;
+    letter-spacing: 0.5px;
+    position: relative;
+    line-height: 1.4em;
+    font-size: 1.03em;
+    padding: 0 50px;
+    list-style: none;
+    text-align: left;
+    font-weight: 100;
+    max-width: 70%;
+
+    .event {
+      padding-bottom: ($spacing * 0.5);
+      margin-bottom: $spacing;
+      position: relative;
+      display: flex;
+
+      &:last-of-type {
+        padding-bottom: 0;
+        margin-bottom: 0;
+        border: none;
+      }
+
+      &:before, &:after {
+        color: $color-primary;
+        text-transform: uppercase;
+        position: absolute;
+        display: block;
+        top: 0;
+      }
+
+
+      &:before {
+        box-shadow: 0 0 0 4px $color-primary;
+        left: -61.85px;
+        background: #FFFFFF;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        content: "";
+        top: 5px;
+      }
+
+      img {
+        width: 700px;
+      }
+
+      .stepDescription {
+        width: 40%;
+
+        .stepDescP {
+          margin-right: 1rem;
+        }
+      }
+
+      .stepTitle {
+        color: $color-primary;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: bold;
+
+      }
+
+      .stepImage {
+        width: 60%;
+      }
+    }
+  }
+
+}
+
+//.bottomWrapper {
+//  background-image: url("../../assets/images/bottom_info_bg.svg");
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  width: 100%;
+//  height: auto;
+//  margin: 0;
+//  padding: 0;
+//}
+.additionalInfo{
+  padding: 0 300px;
+}
+
+.technicalInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem 0;
+  background-color: #F2F3F9;
+  ul {
+    padding: 0;
+  }
+
+}
+
+.creditionalInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 2rem 0;
+  background-color: #F2F3F9;
+
+  ul {
+    padding: 0;
+  }
+}
+
+.bottomInfo {
+  padding: 20rem 300px;
+  background-image: url("../../assets/images/bottom_info_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+
+.downloadInfo {
+  margin-bottom: 15rem;
+  h2 {
+    margin-bottom: 1rem;
+  }
+
+
+  .down {
+    max-width: 250px;
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    margin-bottom: 1rem;
+  }
+}
+
+.helpInfo {
+
+  h2 {
+    margin-bottom: 1rem;
+  }
+  a {
+    margin: 1rem;
+    color: $card-text-color-2;
+    font-size: 19px;
+  }
+  img{
+    width: 31px;
+  }
+
+
+}
+.helpInfo ul{
+  display: flex;
+  justify-content: center;
+}
+.helpInfo ul li{
+  display: flex;
+}
+
+
+
+
+
+@media screen and (max-width: 1700px) {
+
+  .headerWrapper {
+    //height: 50vh;
+  }
+  .header {
+    padding: 120px 200px;
+  }
+  .header .headerLeftSide h1 {
+    font-size: 4vw;
+  }
+  .header .headerLeftSide .virtualMashineWarning .virtualMashineWarningparagraph {
+    font-size: 19px;
+  }
+  .useInfo {
+    padding: 0 200px;
+
+    h2 {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .timeline {
+      margin: 2rem 110px;
+    }
+
+  }
+  .bottomWrapper {
+    //height: 60vh;
+  }
+
+}
+
+@media screen and (max-width: 1600px) {
+  .useInfo {
+    padding: 0px 327px;
+  }
+  .useInfo .timeline {
+    margin: 2rem -20px;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .useInfo .timeline {
+    margin: 3rem 44px;
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .headerWrapper {
+    //height: 30vh;
+    //height: 52vh;
+  }
+  .header {
+    padding: 120px 100px;
+  }
+  .topInfo {
+    padding: 0 100px;
+  }
+  .useInfo .timeline {
+    margin: 2rem -30px;
+  }
+  .bottomInfo {
+    padding: 1rem 100px;
+    //top:17rem;
+  }
+  .bottomWrapper {
+    //height: 90vh;
+  }
+
+}
+
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 100px 70px;
+  }
+  .topInfo {
+    padding: 0 70px;
+  }
+  .useInfo {
+    padding: 0 70px;
+  }
+
+  .useInfo .timeline {
+    margin: 2rem 94px;
+  }
+  .useInfo .timeline .event img {
+    width: 450px;
+  }
+  .bottomInfo {
+    padding: 0 70px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    padding: 50px 35px;
+  }
+  .bottomInfo {
+    padding: 0 35px;
+  }
+  .topInfo {
+    padding: 0 35px;
+  }
+  .aboutInfo {
+    padding: 1rem 3rem;
+  }
+  .installInfo {
+    padding: 1rem 3rem;
+  }
+  .useInfo {
+    display: none;
+  }
+  .useInfoMobile {
+    display: block;
+    padding: 0 35px;
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    .stepTitle {
+      color: $color-primary;
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 630px;
+    }
+    ul {
+      padding: 0px;
+      margin: 20px 35px;
+    }
+  }
+  .blockWithPlayer {
+    .reactPlayer {
+      width: 230px;
+      height: auto;
+    }
+  }
+
+  .additionalInfo {
+    padding: 0 50px;
+  }
+  .downloadInfo {
+    margin-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 415px) {
+
+  .addonFullPage {
+    p {
+      font-size: 14px;
+    }
+
+    h2 {
+      font-size: 22px;
+    }
+  }
+  .header {
+    grid-template-columns: 1fr;
+    align-content: start;
+
+    .headerRightSide {
+      display: none;
+    }
+
+  }
+  .header .headerLeftSide h1 {
+    font-size: 6vw;
+    text-align: center;
+  }
+  .header .headerLeftSide {
+    align-items: center;
+  }
+  .header .headerLeftSide a {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .virtualMashineWarning {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .useInfo {
+    display: none;
+  }
+  .useInfoMobile {
+    display: block;
+    padding: 0 20px;
+
+    li {
+      margin-bottom: 1rem;
+    }
+
+    .stepTitle {
+      color: $color-primary;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    img {
+      max-width: 300px;
+    }
+
+
+  }
+  .topInfo {
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .helpInfo {
+    a {
+      margin: 1rem;
+      color: $card-text-color-2;
+      font-size: 12px;
+    }
+    ul {
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin-left: 18px;
+    }
+  }
+  .bottomInfo {
+
+    background-image: none;
+
+  }
+  .downloadInfo {
+    margin-bottom: 0rem;
+  }
+  .additionalInfo {
+    padding: 0;
+  }
+
+}

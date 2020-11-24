@@ -1,0 +1,140 @@
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: #757689;
+  letter-spacing: 0.5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: #E05E2B;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+
+.p-150 {
+  padding: 0 150px;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+  box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul li {
+  list-style-type: none;
+}
+
+.navigationBar {
+  font-family: Montserrat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1.2rem 0;
+  width: 100%;
+  padding: 0 150px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.navigationBar .rightBlock {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigationBar .active {
+  border-bottom: 3px solid #E05E2B;
+}
+.navigationBar .navItems .navLinks {
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+}
+.navigationBar .navItems .navLinks .bookACall {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #E05E2B;
+  color: #FFFFFF;
+  background-color: #E05E2B;
+  padding: 0.2rem 0.4rem;
+  transition: 0.2s;
+  letter-spacing: 0.5px;
+}
+.navigationBar .navItems .navLinks .bookACall :after {
+  content: url("../assets/images/arrow.png");
+  position: relative;
+  bottom: 1.5px;
+  left: 7px;
+  border-radius: 4px;
+}
+.navigationBar .logOut {
+  width: 17px;
+  height: 16px;
+  cursor: pointer;
+  color: #757689;
+  transition: ease-out 0.2s;
+  margin: 0 2rem;
+}
+.navigationBar .logOut:hover {
+  -webkit-box-shadow: 6px 9px 5px 0px #e6e6e6;
+  -moz-box-shadow: 6px 9px 5px 0px #e6e6e6;
+  box-shadow: 6px 9px 5px 0px #e6e6e6;
+}
+
+@media only screen and (max-width: 1024px) {
+  .navigationBar {
+    padding: 0 20px;
+  }
+
+  .headerLogo {
+    width: 100px;
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navigationBar {
+    padding: 0;
+    margin: 0;
+  }
+
+  .navItems {
+    display: none;
+  }
+}
+@media screen and (min-width: 769px) {
+  .mainNavToggleButton {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=mainNavigation.css.map */
