@@ -21,6 +21,56 @@
 .scrollTop:hover {
   opacity: 1;
 }
+.cookieContainer{
+  background-color: #ffffff !important;
+  color: #61626A !important;
+  border-top: 1px solid #dee2e6;
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 3rem;
+}
+.cookieContent{
+  flex: 0 1 10px !important;
+  padding: 0 3rem;
+}
+.buttons{
+  display: flex;
+  align-self: flex-end;
+  padding-right: 3rem;
+}
+
+.acceptButton{
+  width: 100px;
+  height: 35px;
+  background-color: #E05E2B !important;
+  color: #ffffff !important;
+  font-family: Montserrat;
+  transition: all 0.3s;
+  &:hover {
+    -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+    -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+    box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+  }
+}
+.declineButton{
+  width: 100px;
+  height: 35px;
+  background-color: #ffffff !important;
+  border: 2px solid #E05E2B !important;
+  color: #E05E2B !important;
+  transition: all 0.3s;
+  &:hover {
+    -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+    -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+    box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cookieContainer{
+    padding: 0;
+  }
+}
 
 @keyframes fadeIn {
   0% {
