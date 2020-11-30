@@ -13,8 +13,9 @@ import ScrollArrow from "./components/ScrollArrow/ScrollArrow";
 import authentication from "./b2c";
 import ReactGa from "react-ga";
 import ReactPixel from 'react-facebook-pixel';
-import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-import Cookie from "./components/Cookie/Coockie";
+// import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
+// import Cookie from "./components/Cookie/Coockie";
+import CookieConsent from "react-cookie-consent";
 
 
 function App() {
@@ -42,7 +43,23 @@ function App() {
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {backdrop}
             {/*<ModalMobileNotification active={modalActive} setActive={setModalActive}/>*/}
-            <Cookie/>
+            <CookieConsent enableDeclineButton flipButtons
+                           location="bottom"
+                           buttonText="Accept"
+                           declineButtonText="Decline"
+                           buttonClasses={"acceptButton"}
+                           declineButtonClasses={"declineButton"}
+                           cookieName="myAwesomeCookieName2"
+                           containerClasses={"cookieContainer"}
+                           contentClasses={"cookieContent"}
+                           buttonWrapperClasses={"buttons"}
+                           buttonStyle={{color: "#4e503b", fontSize: "13px"}}
+                           expires={150}
+            >
+                We use cookies on this site to enhance your user experience.
+                By continuing to use the service, you agree to our use of cookies as described in the{" "}
+                <Link to={'/privacy'} style={{color: "#F46036", textDecoration: "underline"}}>Privacy Policy.</Link>
+            </CookieConsent>
 
             <Switch>
                 <Route path={'/'} exact component={AddonsCardsPage}>
