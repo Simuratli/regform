@@ -14,10 +14,12 @@ import authentication from "./b2c";
 import ReactGa from "react-ga";
 import ReactPixel from 'react-facebook-pixel';
 import Cookie from "./components/Cookie/Coockie";
+import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
 
 function App() {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
-    const accessToken = authentication.getAccessToken()
+    const accessToken = authentication.getAccessToken();
+    const [modalActive, setModalActive] = useState(true);
 
     let backdrop;
 
@@ -37,6 +39,7 @@ function App() {
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {backdrop}
             <Cookie/>
+            <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
             <Switch>
                 <Route path={'/'} exact component={AddonsCardsPage}>
                     <Redirect to={'/add-ons'}/>
