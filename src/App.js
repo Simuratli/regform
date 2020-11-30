@@ -13,7 +13,7 @@ import ScrollArrow from "./components/ScrollArrow/ScrollArrow";
 import authentication from "./b2c";
 import ReactGa from "react-ga";
 import ReactPixel from 'react-facebook-pixel';
-import CookieConsent from "react-cookie-consent";
+import Cookie from "./components/Cookie/Coockie";
 
 function App() {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -36,31 +36,7 @@ function App() {
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {backdrop}
-            <CookieConsent enableDeclineButton flipButtons
-                           location="bottom"
-                           buttonText="Accept"
-                           declineButtonText="Decline"
-                           buttonClasses={"acceptButton"}
-                           declineButtonClasses={"declineButton"}
-                           cookieName="myAwesomeCookieName2"
-                           containerClasses={"cookieContainer"}
-                           contentClasses={"cookieContent"}
-                           buttonWrapperClasses={"buttons"}
-                           // style={{
-                           //     background: "#ffffff",
-                           //     color: "#61626A",
-                           //     padding: "1rem 8rem 3rem 8rem",
-                           //     borderTop: "1px solid #dee2e6",
-                           //     fontFamily: "Montserrat",
-                           // }}
-
-                           buttonStyle={{color: "#4e503b", fontSize: "13px"}}
-                           expires={150}
-            >
-                We use cookies on this site to enhance your user experience.
-                By continuing to use the service, you agree to our use of cookies as described in the{" "}
-                <Link to={'/privacy'} style={{color: "#F46036", textDecoration: "underline"}}>Privacy Policy.</Link>
-            </CookieConsent>
+            <Cookie/>
             <Switch>
                 <Route path={'/'} exact component={AddonsCardsPage}>
                     <Redirect to={'/add-ons'}/>
