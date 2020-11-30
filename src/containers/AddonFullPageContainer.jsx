@@ -16,7 +16,7 @@ class AddonFullPageContainer extends React.Component {
     }
 
     render() {
-        // console.log(this.props.fullAddonPage, "container")
+        console.log(this.props.fullAddonPage, "container")
         return (
             <>
                 {

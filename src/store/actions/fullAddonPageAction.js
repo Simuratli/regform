@@ -8,7 +8,7 @@ export const getFullAddonPage = (slug) => {
     return (dispatch) => {
         dispatch({ type: START_LOADING_DATA });
 
-        // console.log(slug);
+        console.log(slug);
 
         httpClient.get(`addons/${slug}`)
             .then(res => {

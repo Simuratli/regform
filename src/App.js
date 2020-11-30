@@ -13,17 +13,11 @@ import ScrollArrow from "./components/ScrollArrow/ScrollArrow";
 import authentication from "./b2c";
 import ReactGa from "react-ga";
 import ReactPixel from 'react-facebook-pixel';
-// import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-// import Cookie from "./components/Cookie/Coockie";
 import CookieConsent from "react-cookie-consent";
-
 
 function App() {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
-    // const [notificationOpen, setNotificationOpen] = useState(false);
-    // const accessToken = authentication.getAccessToken();
-    // const [modalActive, setModalActive] = useState(true);
-
+    const accessToken = authentication.getAccessToken()
 
     let backdrop;
 
@@ -42,7 +36,6 @@ function App() {
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {backdrop}
-            {/*<ModalMobileNotification active={modalActive} setActive={setModalActive}/>*/}
             <CookieConsent enableDeclineButton flipButtons
                            location="bottom"
                            buttonText="Accept"
@@ -53,6 +46,14 @@ function App() {
                            containerClasses={"cookieContainer"}
                            contentClasses={"cookieContent"}
                            buttonWrapperClasses={"buttons"}
+                           // style={{
+                           //     background: "#ffffff",
+                           //     color: "#61626A",
+                           //     padding: "1rem 8rem 3rem 8rem",
+                           //     borderTop: "1px solid #dee2e6",
+                           //     fontFamily: "Montserrat",
+                           // }}
+
                            buttonStyle={{color: "#4e503b", fontSize: "13px"}}
                            expires={150}
             >
@@ -60,7 +61,6 @@ function App() {
                 By continuing to use the service, you agree to our use of cookies as described in the{" "}
                 <Link to={'/privacy'} style={{color: "#F46036", textDecoration: "underline"}}>Privacy Policy.</Link>
             </CookieConsent>
-
             <Switch>
                 <Route path={'/'} exact component={AddonsCardsPage}>
                     <Redirect to={'/add-ons'}/>
@@ -70,6 +70,7 @@ function App() {
                 <Route path={'/privacy'} component={Privacy}/>
                 <Route path={'/terms'} component={Terms}/>
             </Switch>
+
             <Footer/>
 
         </div>

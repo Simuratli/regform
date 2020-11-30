@@ -38,7 +38,7 @@ function acquireToken(successCallback) {
 
       // TODO: Remove later
       if(process.env.NODE_ENV !== 'production')
-          // console.log(accessToken);
+          console.log(accessToken);
 
       if (state.launchApp) {
         state.launchApp()
