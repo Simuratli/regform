@@ -21,7 +21,7 @@ function App() {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
     // const [notificationOpen, setNotificationOpen] = useState(false);
     // const accessToken = authentication.getAccessToken();
-    const [modalActive, setModalActive] = useState(true);
+    // const [modalActive, setModalActive] = useState(true);
 
 
     let backdrop;
@@ -41,7 +41,7 @@ function App() {
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {backdrop}
-            <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
+            {/*<ModalMobileNotification active={modalActive} setActive={setModalActive}/>*/}
             <Cookie/>
 
             <Switch>
@@ -53,7 +53,6 @@ function App() {
                 <Route path={'/privacy'} component={Privacy}/>
                 <Route path={'/terms'} component={Terms}/>
             </Switch>
-
             <Footer/>
 
         </div>
