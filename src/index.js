@@ -41,6 +41,5 @@ authentication.run(async () => {
 
     const store = await import('./store');
 
-    console.log(App)
     initializeApp(App.default, store.default);
 })

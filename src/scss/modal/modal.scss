@@ -1,0 +1,68 @@
+.modal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 2000;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+  display: none;
+
+}
+
+.modalContent {
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #f8f9fb;
+  transform: scale(0.5);
+  transition: 0.4s all;
+  width: 70vw;
+  font-family: Montserrat;
+}
+.modalContent.active{
+  transform: scale(1);
+}
+.agreeButton{
+  outline: none;
+  border: none;
+  background-color: #f8f9fb;
+  color: #3f51b5;
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2rem;
+  font-weight: bold;
+  border-radius: 4px;
+  &:hover{
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+p{
+  margin-bottom: 3.5rem;
+}
+.boldText{
+  font-weight: bold;
+}
+@media only screen and (max-width: 768px) {
+
+  .modal.active{
+    display: flex;
+    opacity: 1;
+    pointer-events: all;
+  }
+}

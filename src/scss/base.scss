@@ -32,7 +32,7 @@
 }
 .cookieContent{
   flex: 0 1 10px !important;
-  padding: 0 3rem;
+  padding: 0;
 }
 .buttons{
   display: flex;
@@ -66,11 +66,51 @@
     box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
   }
 }
-@media only screen and (max-width: 768px) {
+.mobileNotification{
+  display: none;
+}
+@media screen and (max-width: 1700px){
   .cookieContainer{
-    padding: 0;
+    padding: 0 100px;
   }
 }
+@media screen and (max-width: 1500px){
+  .cookieContainer{
+    padding: 0 185px;
+  }
+}
+@media screen and (max-width: 1350px){
+  .cookieContainer{
+    padding: 0 85px;
+  }
+}
+@media screen and (max-width: 1024px){
+  .cookieContainer{
+    padding: 0 55px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .cookieContainer{
+    padding: 0 20px;
+  }
+  .mobileNotification{
+    display: block;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .cookieContainer{
+    padding: 0 20px;
+  }
+  .mobileNotification{
+    display: block;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .cookieContainer{
+    padding: 0 20px;
+  }
+}
+
 
 @keyframes fadeIn {
   0% {

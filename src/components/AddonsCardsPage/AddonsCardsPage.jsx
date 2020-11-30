@@ -4,7 +4,10 @@ import orangeElement from '../../assets/images/orange_element.png';
 import AddonCard from "./AddonCard";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 
+
 function AddonsCardsPage(props) {
+
+
     return (
         <div className={'main_container'}>
             <div className={'generalTitleBlock'}>
