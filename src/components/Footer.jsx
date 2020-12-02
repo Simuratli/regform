@@ -6,7 +6,7 @@ import facebookIcon from '../assets/images/footer_icons/f.png';
 import twitterIcon from '../assets/images/footer_icons/t.png';
 import linkedInIcon from '../assets/images/footer_icons/l.png';
 import {Link, NavLink} from "react-router-dom";
-import logo from "../assets/images/footer_logo.png";
+import logo from "../assets/images/footer_logo.svg";
 import logoDynamic365 from "../assets/images/d365-logo.png";
 import logoMicrosoft from "../assets/images/microsoft_logo.png";
 

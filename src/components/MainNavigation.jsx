@@ -3,7 +3,7 @@ import '../scss/mainNavigation.scss';
 import '../scss/utils/utils.scss';
 import {Link, NavLink} from "react-router-dom";
 import authentication from '../b2c';
-import logo from '../assets/images/header_logo.png';
+import logo from '../assets/images/header_logo.svg';
 import logout from '../assets/images/logout.png';
 import '../../src/scss/toggleButton/DrawerToggleButton.scss';
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";

@@ -94,7 +94,7 @@ function AddonCard(props) {
                         <h5>{isFree ? 'FREE' : price}</h5>
                         <div className={'description'}>
                             <p>{applicationType}</p>
-                            {applicationType === "Dynamics 365" ? <p>{downloads} downloads</p> : ''}
+                            {applicationType === "Dynamics 365" ? <p>{downloads} downloads</p> : <p>{downloads} openings</p>}
                         </div>
                     </NavLink>
 

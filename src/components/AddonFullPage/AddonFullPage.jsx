@@ -2,8 +2,6 @@ import React from "react";
 import '../../scss/addonFullPage/addonfullpage.scss';
 import YouTube from 'react-youtube';
 import ReactGa from "react-ga";
-import skype from "../../assets/images/skype.svg";
-import mail from "../../assets/images/mail.svg";
 import ReactPixel from "react-facebook-pixel";
 
 function AddonFullPage(props) {
@@ -262,9 +260,9 @@ function AddonFullPage(props) {
                     <section className={'helpInfo commonStyles'}>
                         <h2>Need help?</h2>
                         <p>Are you experiencing any difficulties? - Be sure that we are ready to help you.</p>
-                        <ul>
-                            <li><img src={mail}/><a className={'mail'} href={'mailto:portal@uds.systems'}>portal@uds.systems</a></li>
-                            <li><img src={skype}/><a className={'skype'} href={'skype:live:uds_ddt?chat'}>uds.systems</a></li>
+                        <ul className={"helpList"}>
+                            <li className={'mailItem'}><a className={'mail'} href={'mailto:portal@uds.systems'}>portal@uds.systems</a></li>
+                            <li className={'skypeItem'}><a className={'skype'} href={'skype:live:uds_ddt?chat'}>uds.systems</a></li>
                         </ul>
 
                     </section>

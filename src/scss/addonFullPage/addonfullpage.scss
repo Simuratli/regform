@@ -258,15 +258,6 @@ $line: 4px;
 
 }
 
-//.bottomWrapper {
-//  background-image: url("../../assets/images/bottom_info_bg.svg");
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  width: 100%;
-//  height: auto;
-//  margin: 0;
-//  padding: 0;
-//}
 .additionalInfo{
   padding: 0 300px;
 }
@@ -275,7 +266,7 @@ $line: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  padding-left: 20%;
   margin: 2rem 0;
   background-color: #F2F3F9;
   ul {
@@ -288,7 +279,7 @@ $line: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
+  padding-left: 20%;
   margin: 2rem 0;
   background-color: #F2F3F9;
 
@@ -337,6 +328,28 @@ $line: 4px;
   img{
     width: 31px;
   }
+  .helpList{
+    list-style-type: none;
+    & .mailItem{
+      padding-left: 25px;
+      background-image: url("../../assets/images/mail.svg");
+      background-position: 0 0;
+      background-size: 2rem;
+      background-repeat: no-repeat;
+      font-weight: normal;
+      padding-bottom: 25px;
+    }
+    & .skypeItem{
+      padding-left: 19px;
+      background-image: url("../../assets/images/skype.svg");
+      background-position: 0 0;
+      background-size: 1.8rem;
+      background-repeat: no-repeat;
+      font-weight: normal;
+      padding-bottom: 25px;
+    }
+
+  }
 
 
 }
@@ -344,9 +357,7 @@ $line: 4px;
   display: flex;
   justify-content: center;
 }
-.helpInfo ul li{
-  display: flex;
-}
+
 
 
 
