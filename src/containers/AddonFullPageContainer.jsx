@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import {connect} from "react-redux";
 import AddonFullPage from "../components/AddonFullPage/AddonFullPage";
 import {getFullAddonPage} from "../store/actions/fullAddonPageAction";
@@ -10,7 +10,6 @@ import {resetData} from "../store/actions/resetData";
 class AddonFullPageContainer extends React.Component {
 
     componentDidMount() {
-        // console.log(this.props.match.params.slug, 'slug')
         const slug = this.props.match.params.slug;
         this.props.getFullAddonPage(slug)
     }
@@ -40,9 +39,6 @@ const mapStateToProps = (state) => {
         file: state.file
     }
 }
-// const mapDispatchToProps = {
-//     getFullAddonPage
-// }
 const mapDispatchToProps = (dispatch) => {
     return {
         getFullAddonPage: (slug) => dispatch(getFullAddonPage(slug)),

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1454px" height="470px" viewBox="0 0 1454 470" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>bg4000 without screen@1,5x</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1454" height="470"></rect>
+        <rect id="path-3" x="0" y="0" width="1453" height="739"></rect>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-5">
+            <stop stop-color="#F9A844" offset="0%"></stop>
+            <stop stop-color="#E05D2A" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="0%" y2="50%" id="linearGradient-6">
+            <stop stop-color="#E05D2A" stop-opacity="0.338204764" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <radialGradient cx="50%" cy="50%" fx="50%" fy="50%" r="50%" id="radialGradient-7">
+            <stop stop-color="#FCFCFC" offset="0%"></stop>
+            <stop stop-color="#25398E" stop-opacity="0" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="bg4000-without-screen" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <g id="Mask"></g>
+        <g id="bg4000" mask="url(#mask-2)">
+            <g transform="translate(0.000000, -269.000000)">
+                <mask id="mask-4" fill="white">
+                    <use xlink:href="#path-3"></use>
+                </mask>
+                <use id="Mask" stroke="none" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <polygon id="Path-2" stroke="none" fill="#383680" fill-rule="evenodd" mask="url(#mask-4)" transform="translate(804.663694, 266.536535) rotate(4.000000) translate(-804.663694, -266.536535) " points="-95.3757283 820.69772 -41.4288952 30.0882685 1704.68372 -287.62465 1704.70312 357.645291"></polygon>
+                <polygon id="Path-2-Copy" stroke="none" fill="#364B9B" fill-rule="evenodd" opacity="0.232235863" style="mix-blend-mode: multiply;" mask="url(#mask-4)" transform="translate(672.845472, 40.815675) rotate(25.000000) translate(-672.845472, -40.815675) " points="-227.230175 594.813363 -175.274705 -127.800687 1572.81436 -513.182012 1572.92112 132.039504"></polygon>
+                <polygon id="Path-2-Copy-2" stroke="none" fill="#364B9B" fill-rule="evenodd" opacity="0.0686151414" style="mix-blend-mode: multiply;" mask="url(#mask-4)" transform="translate(473.310002, 296.673879) rotate(25.000000) translate(-473.310002, -296.673879) " points="-430.628571 716.173362 -378.6731 -6.44068785 1265.39047 -122.825604 1377.24858 280.605399"></polygon>
+                <polygon id="Path-2-Copy-4" stroke="none" fill="url(#linearGradient-5)" fill-rule="evenodd" mask="url(#mask-4)" points="238.069473 739 237 688.330301 419.434781 655 421 705.182951"></polygon>
+                <polygon id="Path-2-Copy-6" stroke="none" fill="url(#linearGradient-6)" fill-rule="evenodd" opacity="0.465285528" style="mix-blend-mode: screen;" mask="url(#mask-4)" transform="translate(144.939046, 678.661827) rotate(-1.000000) translate(-144.939046, -678.661827) " points="52.2136054 720.443197 52.8361413 670.698782 237.664487 636.880458 236.745602 690.825729"></polygon>
+                <circle id="Oval-Copy" stroke="none" fill-opacity="0.99" fill="url(#radialGradient-7)" fill-rule="evenodd" opacity="0.3" mask="url(#mask-4)" cx="308" cy="103" r="468"></circle>
+            </g>
+        </g>
+    </g>
+</svg>

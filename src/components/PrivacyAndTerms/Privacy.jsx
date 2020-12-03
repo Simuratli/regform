@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../../scss/privacyAndTerms/privacyAndTerms.scss';
 
 function Privacy(props) {
+    useEffect(() => {
+        document.title = "UDS Portal - Privacy Policy"
+    }, []);
     return (
         <div className={'privacyContainer'}>
             <section>

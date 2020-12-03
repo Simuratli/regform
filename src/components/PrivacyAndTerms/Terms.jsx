@@ -1,7 +1,10 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../../scss/privacyAndTerms/privacyAndTerms.scss';
 
 function Terms(props) {
+    useEffect(() => {
+        document.title = "UDS Portal - Terms and Conditions"
+    }, []);
     return (
         <div className={'termsContainer'}>
             <section>

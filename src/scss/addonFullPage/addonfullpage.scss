@@ -121,6 +121,7 @@ $line: 4px;
 
 .downloadButton {
   width: 122px;
+  font-weight: bold;
 }
 
 .openButton {
@@ -131,9 +132,9 @@ $line: 4px;
   font-family: Montserrat;
   color: #FFFFFF;
   outline: none;
-  font-weight: 600;
   transition: ease-in-out .3s;
   text-align: center;
+  font-weight: bold;
 }
 
 .topInfo {

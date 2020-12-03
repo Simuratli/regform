@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../../scss/addonFullPage/addonfullpage.scss';
 import YouTube from 'react-youtube';
 import ReactGa from "react-ga";
@@ -19,6 +19,9 @@ function AddonFullPage(props) {
         troubleshootGuidePath,
         cardLogo
     } = addon;
+    useEffect(() => {
+        document.title = "UDS Add-ons - " + name.slice(4)
+    }, []);
 
     addOnPageSteps.sort((a, b) => (a.stepIndex > b.stepIndex) ? 1 : ((b.stepIndex > a.stepIndex) ? -1 : 0));
 

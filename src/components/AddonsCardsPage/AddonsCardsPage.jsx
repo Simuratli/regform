@@ -1,10 +1,12 @@
 import React, {useEffect} from "react";
 import '../../scss/addonsCardsPage/addonsCardsPage.scss';
 import orangeElement from '../../assets/images/orange_element.png';
-import AddonCard from "./AddonCard";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 
 function AddonsCardsPage(props) {
+    useEffect(() => {
+        document.title = " UDS Portal - Add-ons"
+    }, []);
     return (
         <div className={'main_container'}>
             <div className={'generalTitleBlock'}>

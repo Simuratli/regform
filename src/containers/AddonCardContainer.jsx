@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import AddonCard from "../components/AddonsCardsPage/AddonCard";
 import {connect} from "react-redux";
 import {getAddonCard} from "../store/actions/addonCardAction";
@@ -9,21 +9,12 @@ import {getDownloadFileCard} from "../store/actions/downloadFileCardAction";
 
 
 class AddonCardContainer extends React.Component {
-    // fetch('http://localhost:5000/api/v1/addons')
-    //     .then(response => response.json())
-    //     .then(response => console.log(response));
-
-    // useEffect(() => {
-    //     getAddonCard();
-    // });
 
     componentDidMount() {
         this.props.getAddonCard()
     }
 
     render() {
-        // console.log(this.props, "container")
-
         this.props.addonCard.cards.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
         return (
             <>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import "../../scss/modal/modal.scss";
 
 import Modal from "./Modal"

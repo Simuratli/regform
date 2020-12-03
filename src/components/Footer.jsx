@@ -18,23 +18,22 @@ function Footer(props) {
                 <div className={'leftSide'}>
                     <Link className={'footerLogo'} to={'/'}><img src={logo} alt={'logo'} /></Link>
                     <div className={'iconsBar'}>
-                        {/*<h3 className={'footerTitle'}>Stay in Touch</h3>*/}
                         <ul>
                             <li className={'iconsItem'}>
                                 <a href={"https://twitter.com/UDS_systems"} target={'_blank'} rel="noopener noreferrer">
-                                    <img src={twitterIcon}/></a>
+                                    <img src={twitterIcon} alt={"Twitter"}/></a>
                             </li>
                             <li className={'iconsItem'}>
                                 <a href={"https://www.linkedin.com/company/uds-systems"} target={'_blank'} rel="noopener noreferrer">
-                                    <img src={linkedInIcon}/></a>
+                                    <img src={linkedInIcon} alt={"LinkedIn"}/></a>
                             </li>
                             <li className={'iconsItem'}>
                                 <a href={"https://www.facebook.com/UDS.systems/"} target={'_blank'} rel="noopener noreferrer">
-                                    <img src={facebookIcon}/></a>
+                                    <img src={facebookIcon} alt={'Facebook'}/></a>
                             </li>
                             <li className={'iconsItem'}>
                                 <a href={"https://www.youtube.com/channel/UCx443BQ2U4gGXLPYB8Nu3bg"} target={'_blank'}
-                                   rel="noopener noreferrer"><img src={youTubeIcon}/></a>
+                                   rel="noopener noreferrer"><img src={youTubeIcon} alt={"YouTube"}/></a>
                             </li>
                         </ul>
                     </div>
