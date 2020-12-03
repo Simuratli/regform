@@ -5,7 +5,7 @@ import AddonCardContainer from "../../containers/AddonCardContainer";
 
 function AddonsCardsPage(props) {
     useEffect(() => {
-        document.title = " UDS Portal - Add-ons"
+        document.title = " UDS Add-ons"
     }, []);
     return (
         <div className={'main_container'}>
