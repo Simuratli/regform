@@ -21,7 +21,7 @@ function AddonFullPage(props) {
     } = addon;
     useEffect(() => {
         document.title = "UDS Add-ons - " + name.slice(4)
-    }, []);
+    }, [name]);
 
     addOnPageSteps.sort((a, b) => (a.stepIndex > b.stepIndex) ? 1 : ((b.stepIndex > a.stepIndex) ? -1 : 0));
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../../scss/addonsCardsPage/addonCard.scss';
 import {NavLink} from "react-router-dom";
 import ReactGa from "react-ga";
@@ -67,7 +67,6 @@ function AddonCard(props) {
             })
 
     }
-
     const handleMethodsForDownload = () => {
         handleDownload();
         HandlerTrackerCardDownloads();
