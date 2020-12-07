@@ -1,12 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="360px" height="120px" viewBox="0 0 360 120" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>DF1BF8E6-686E-4C7F-9D22-B70DC2E9AEAD@1,5x</title>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.5">
-        <g id="Portal_UDS_Addons_List_4" transform="translate(-150.000000, -553.000000)">
-            <g id="Group-11" transform="translate(150.000000, 553.000000)">
-                <polyline id="Path-10" fill="#F2F3F9" transform="translate(180.000000, 59.573344) scale(-1, 1) translate(-180.000000, -59.573344) " points="0 119.146688 360 51.139654 360 5.29117584e-14 0 5.29117584e-14"></polyline>
-                <polygon id="Path-11" fill="#FFFFFF" points="149 10.1296291 349.833307 10.1296291 349.833307 55.4183396"></polygon>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="360" height="120" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd" opacity=".5"><path fill="#F2F3F9" d="M360 119.147L0 51.14V0h360"/><path fill="#FFF" d="M149 10.13h200.833v45.288z"/></g></svg>

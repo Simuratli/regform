@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import '../../scss/addonsCardsPage/addonsCardsPage.scss';
-import orangeElement from '../../assets/images/orange_element.png';
+import orangeElement from '../../assets/images/orange_element.svg';
 import AddonCardContainer from "../../containers/AddonCardContainer";
 
 function AddonsCardsPage(props) {
