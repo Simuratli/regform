@@ -267,7 +267,6 @@ function AddonFullPage(props) {
                             <li className={'mailItem'}><a className={'mail'} href={'mailto:portal@uds.systems'}>portal@uds.systems</a></li>
                             <li className={'skypeItem'}><a className={'skype'} href={'skype:live:uds_ddt?chat'}>uds.systems</a></li>
                         </ul>
-
                     </section>
                 </div>
             </div>

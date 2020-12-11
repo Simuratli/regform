@@ -44,46 +44,6 @@
     }
   }
 
-  //Responsive card's position
-  .card {
-    //display: flex;
-    //justify-content: space-between;
-    //flex-wrap: wrap;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-content: center;
-    align-content: start;
-    grid-gap: 4vw;
-    padding: 0 200px;
-    @media screen and (max-width: 1670px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (max-width: 1450px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (max-width: 1300px) {
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    @media screen and (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 6vw;
-    }
-    @media screen and (max-width: 769px) {
-      grid-template-columns: repeat(2, 1fr);
-      //overflow: hidden;
-    }
-    @media screen and (max-width: 420px) {
-      grid-template-columns: repeat(1, 1fr);
-      //overflow: hidden;
-    }
-
-
-  }
-
-
 }
 
 //Responsive design
@@ -166,13 +126,16 @@
     }
     .card {
       padding: 0 50px;
+      grid-row-gap: 2vw;
+      grid-column-gap: 15vw;
     }
 
   }
 }
 
+
 // Medium devices (landscape tablets, 768px and up)
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 880px) {
   .main_container {
 
     .generalTitleBlock {
@@ -215,6 +178,9 @@
   .main_container .generalTitleBlock {
     padding: 50px 50px;
   }
+  .addonsCard .cardTitle {
+    font-size: 22px;
+  }
 }
 
 //Extra small devices (phones, 600px and down)
@@ -247,7 +213,15 @@
 
       }
     }
+    .card {
+      padding: 0 91px;
+    }
+  }
 
+}
+@media screen and (max-width: 450px) {
+  .main_container .card{
+    padding: 0 30px;
   }
 }
 
@@ -263,3 +237,44 @@
     font-size: 18vw;
   }
 }
+
+//Responsive card's position
+
+  .card {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+    align-content: start;
+    grid-gap: 4vw;
+    padding: 0 200px;
+    @media screen and (max-width: 1670px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1450px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1300px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 6vw;
+    }
+    @media screen and (max-width: 1000px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media screen and (max-width: 769px) {
+      grid-template-columns: repeat(2, 1fr);
+      //overflow: hidden;
+    }
+    @media screen and (max-width: 580px) {
+      grid-template-columns: repeat(1, 1fr);
+      //overflow: hidden;
+    }
+
+
+  }
+
