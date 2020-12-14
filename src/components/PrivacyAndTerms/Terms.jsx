@@ -13,7 +13,7 @@ function Terms(props) {
                 <p>UDS Systems is located at:</p>
                 <ul>
                     <li>UDS Systems</li>
-                    <li>Lobanovsky prosp. Kyiv city</li>
+                    <li>Lobanovsky Ave. Kyiv city</li>
                     <li>03118 - Kyiv , Ukraine</li>
                     <li>380953839341</li>
                 </ul>

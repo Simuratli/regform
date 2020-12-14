@@ -12,7 +12,7 @@
     padding: 4rem 200px;
 
     .headingParagraph {
-      width: 50%;
+      width: 48%;
       font-weight: 900;
       font-size: 3vw;
       line-height: 70px;
@@ -33,7 +33,7 @@
     }
 
     .paragraph {
-      width: 45%;
+      width:47%;
       text-align: left;
       font-size: 1.4vw;
       font-weight: 500;
@@ -53,6 +53,9 @@
 
     .generalTitleBlock {
       padding: 4rem 100px;
+      .headingParagraph{
+        width: 42%;
+      }
     }
 
     .card {
@@ -67,11 +70,11 @@
     padding: 0 50px;
 
     .generalTitleBlock {
-      padding: 0 100px;
+      padding: 20px 50px;
     }
     .card{
       grid-gap: 1vw;
-      padding: 0 100px;
+      padding: 0 50px;
     }
 
 
@@ -79,6 +82,22 @@
 }
 
 @media screen and (max-width: 1300px) {
+  .main_container {
+    padding: 0 100px;
+    .generalTitleBlock {
+      padding: 20px 0;
+      .headingParagraph{
+        width: 46%;
+      }
+    }
+    .card {
+      padding: 0;
+    }
+  }
+
+
+}
+@media screen and (max-width: 1024px) {
   .main_container {
     padding: 0;
 
@@ -88,7 +107,7 @@
       align-items: center;
       justify-content: space-between;
       line-height: 20px;
-      padding: 30px 0;
+      padding: 20px 70px;
 
       .headingParagraph {
         line-height: 55px;
@@ -115,69 +134,27 @@
       }
 
     }
-
-  }
-}
-@media screen and (max-width: 1024px) {
-  .main_container {
-
-    .generalTitleBlock {
-      padding: 0 50px;
-    }
     .card {
-      padding: 0 50px;
+      padding: 0 70px;
       grid-row-gap: 2vw;
       grid-column-gap: 15vw;
     }
-
   }
+
 }
 
 
 // Medium devices (landscape tablets, 768px and up)
 @media only screen and (max-width: 880px) {
   .main_container {
-
-    .generalTitleBlock {
-
-      .headingParagraph {
-        line-height: 35px;
-        font-size: 4.5vw;
-        width: 80%;
-        margin: 0.2rem;
-        text-align: center;
-        border-radius: 4px;
-      }
-
-      .orangeElement {
-        display: none;
-      }
-
-      .paragraph {
-        line-height: 18px;
-        width: 80%;
-        padding: 0;
-        font-size: 2.5vw;
-        font-weight: 500;
-        margin: 1rem;
-        text-align: justify;
-
-      }
-    }
-
     .navigationBar .logOut {
       margin-right: 3rem;
     }
-
     .card {
-      padding: 0 30px;
-      grid-gap: 2vw;
+      grid-column-gap: 2vw;
     }
+  }
 
-  }
-  .main_container .generalTitleBlock {
-    padding: 50px 50px;
-  }
   .addonsCard .cardTitle {
     font-size: 22px;
   }
@@ -188,9 +165,9 @@
   .main_container {
 
     .generalTitleBlock {
-
+      padding: 20px 52px;
       .headingParagraph {
-        line-height: 20px;
+        line-height: 30px;
         font-size: 5vw;
         width: 80%;
         margin: 0.2rem;
@@ -222,6 +199,9 @@
 @media screen and (max-width: 450px) {
   .main_container .card{
     padding: 0 30px;
+  }
+  .main_container .generalTitleBlock {
+    padding: 20px 10px;
   }
 }
 

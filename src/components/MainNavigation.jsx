@@ -12,7 +12,7 @@ import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 function MainNavigation(props) {
 
     return (
-        <div style={{paddingBottom: "15px"}} className={'navigationBar'}>
+        <div className={'navigationBar'}>
             <div className={'mainNavToggleButton'}>
                 <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen}/>
             </div>
@@ -33,7 +33,7 @@ function MainNavigation(props) {
                     </ul>
                 </nav>
                 <div>
-                    <a className={'logOut'} onClick={() => authentication.signOut()}><img src={logout}/></a>
+                    <a className={'logOut'} onClick={() => authentication.signOut()}><img alt={'logout'} src={logout}/></a>
                 </div>
 
             </div>
