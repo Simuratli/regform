@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import '../../scss/addonsCardsPage/addonCard.scss';
 import {NavLink} from "react-router-dom";
 import ReactGa from "react-ga";
@@ -7,7 +7,6 @@ import ReactPixel from 'react-facebook-pixel';
 function AddonCard(props) {
     const {file} = props.file
     const {addon} = props;
-    const {addOnPortalLink} = props.addOnPortalLink;
 
     const {
         slug,
@@ -34,6 +33,7 @@ function AddonCard(props) {
         document.body.removeChild(link);
         props.resetData()
     }
+
 
     const HandlerTrackerCardDownloads = () => {
         ReactGa.event({
@@ -67,9 +67,10 @@ function AddonCard(props) {
                 category: "Button",
                 action: `${slug}_OpenPortalCardView`
             })
-        props.getLink(slug);
 
+        props.getLink(slug)
     }
+
     const handleMethodsForDownload = () => {
         handleDownload();
         HandlerTrackerCardDownloads();
@@ -104,10 +105,8 @@ function AddonCard(props) {
                         {
                             applicationType === "Dynamics 365" ?
                                 <button onClick={handleMethodsForDownload} className={'downloadButton'}>Download</button> :
-                                <a href={addOnPortalLink} target={'_blank'}
-                                   rel="noopener noreferrer">
-                                    <button onClick={HandlerTrackerCardOpen} className={'openButton'}>Open</button>
-                                </a>
+                                <button onClick={HandlerTrackerCardOpen} className={'openButton'}>Open</button>
+
                         }
                     </div>
             </div>

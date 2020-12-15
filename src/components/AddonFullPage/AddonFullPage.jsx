@@ -6,7 +6,7 @@ import ReactPixel from "react-facebook-pixel";
 
 function AddonFullPage(props) {
     const {addon} = props;
-    const {file} = props.file
+    const {file} = props.file;
 
     const {
         name,
@@ -96,6 +96,7 @@ function AddonFullPage(props) {
                 category: "Button",
                 action: `${slug}_OpenPageViewTopPortal`
             })
+        props.getLink(slug)
     }
     const HandlerTrackerForBottomOpen = () => {
         ReactGa.event({
@@ -107,6 +108,7 @@ function AddonFullPage(props) {
                 category: "Button",
                 action: `${slug}_OpenPageViewBottomPortal`
             })
+        props.getLink(slug)
     }
 
     return (
@@ -126,11 +128,8 @@ function AddonFullPage(props) {
                                     <button onClick={handleDownload} className={'downloadButton'}>Download</button>
                                 :
                                 <>
-                                    <a href={'https://my.uds.systems/migration/'} target={'_blank'}
-                                       rel="noopener noreferrer">
                                         <button onClick={HandlerTrackerForTopOpen} className={'openButton'}>Open</button>
                                         <p>Free of charge until December 31, 2020</p>
-                                    </a>
                                 </>
 
                         }
@@ -253,10 +252,7 @@ function AddonFullPage(props) {
                                             className={'downloadButton'}>Download
                                     </button>
                                 </> :
-                                <a href={'https://my.uds.systems/migration/'} target={'_blank'}
-                                   rel="noopener noreferrer">
                                     <button onClick={HandlerTrackerForBottomOpen} className={'openButton'}>Open</button>
-                                </a>
 
                         }
                     </section>

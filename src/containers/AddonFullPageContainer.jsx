@@ -5,6 +5,8 @@ import {getFullAddonPage} from "../store/actions/fullAddonPageAction";
 import {getDownloadFile} from "../store/actions/downloadFileAction";
 import {getFile} from "../store/actions/fileAction";
 import {resetData} from "../store/actions/resetData";
+import {getLink} from "../store/actions/openButtonAction";
+import AddonCard from "../components/AddonsCardsPage/AddonCard";
 
 
 class AddonFullPageContainer extends React.Component {
@@ -25,6 +27,9 @@ class AddonFullPageContainer extends React.Component {
                                        getDownloadFile={this.props.getFile}
                                        file={this.props.file}
                                        resetData={this.props.resetData}
+                                       getLink={this.props.getLink}
+                                       addOnPortalLink={this.props.addOnPortalLink}
+
                         /> : ''
                 }
             </>
@@ -50,7 +55,8 @@ const mapDispatchToProps = (dispatch) => {
         },
         resetData: () => {
             dispatch(resetData())
-        }
+        },
+        getLink
     }
 
 }
