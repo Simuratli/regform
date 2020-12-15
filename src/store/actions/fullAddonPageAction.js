@@ -10,7 +10,7 @@ export const getFullAddonPage = (slug) => {
 
         console.log(slug);
 
-        httpClient.get(`addons/${slug}`)
+        httpClient.get(`add-ons/page-content/${slug}`)
             .then(res => {
                 dispatch({ type: DATA_LOADED, payload: res.data })
             })

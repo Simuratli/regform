@@ -26,7 +26,7 @@ function AddonCard(props) {
 
     if (file && file.rootAddOnFilePathWithAccessToken) {
         const link = document.createElement("a");
-        link.download = 'addon';//name;
+        link.download = 'add-on';//name;
         link.href = file.rootAddOnFilePathWithAccessToken;
         document.body.appendChild(link);
         link.click();
