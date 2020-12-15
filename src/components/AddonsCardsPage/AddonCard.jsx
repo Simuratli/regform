@@ -7,6 +7,7 @@ import ReactPixel from 'react-facebook-pixel';
 function AddonCard(props) {
     const {file} = props.file
     const {addon} = props;
+    const {addOnPortalLink} = props.addOnPortalLink;
 
     const {
         slug,
@@ -56,6 +57,7 @@ function AddonCard(props) {
             })
     }
     const HandlerTrackerCardOpen = () => {
+
         ReactGa.event({
             category: "Button",
             action: `${slug}_open_portal`
@@ -65,6 +67,7 @@ function AddonCard(props) {
                 category: "Button",
                 action: `${slug}_OpenPortalCardView`
             })
+        props.getLink(slug);
 
     }
     const handleMethodsForDownload = () => {
@@ -101,58 +104,14 @@ function AddonCard(props) {
                         {
                             applicationType === "Dynamics 365" ?
                                 <button onClick={handleMethodsForDownload} className={'downloadButton'}>Download</button> :
-                                <a href={'https://my.uds.systems/migration/'} target={'_blank'}
+                                <a href={addOnPortalLink} target={'_blank'}
                                    rel="noopener noreferrer">
                                     <button onClick={HandlerTrackerCardOpen} className={'openButton'}>Open</button>
                                 </a>
                         }
                     </div>
-
             </div>
-
         </div>
-        // <div key={slug} className={'addonsCard'}>
-        //
-        //     <NavLink to={'/add-ons/' + slug}>
-        //         <div className={'cardLogo'}>
-        //             <img className={'logo'} src={cardLogo.imageSource} alt={cardLogo.alternateText}/>
-        //         </div>
-        //     </NavLink>
-        //     <div className={'cardBody'}>
-        //         <NavLink to={'/add-ons/' + slug}>
-        //             <div className={'cardDescription'}>
-        //                 <h3>{name}</h3>
-        //                 <p>{shortDescription}</p>
-        //             </div>
-        //         </NavLink>
-        //         <div className={'cardAction'}>
-        //             <NavLink to={'/add-ons/' + slug}>
-        //                 <h5>{isFree ? 'FREE' : price}</h5>
-        //                 <div className={'description'}>
-        //                     <p>{applicationType}</p>
-        //                     {applicationType === "Dynamics 365" ? <p>{downloads} downloads</p> : <p>{downloads} openings</p>}
-        //                 </div>
-        //             </NavLink>
-        //
-        //             <div className={'cardsButtons'}>
-        //                 <NavLink className={'fullPageLink'} to={'/add-ons/' + slug}>
-        //                     <button onClick={HandlerTrackerCardMoreInfo} className={'moreInfoButton'}>More info</button>
-        //                 </NavLink>
-        //                 {
-        //                     applicationType === "Dynamics 365" ?
-        //                         <button onClick={handleMethodsForDownload} className={'downloadButton'}>Download</button> :
-        //                         <a href={'https://my.uds.systems/migration/'} target={'_blank'}
-        //                            rel="noopener noreferrer">
-        //                             <button onClick={HandlerTrackerCardOpen} className={'openButton'}>Open</button>
-        //                         </a>
-        //                 }
-        //             </div>
-        //         </div>
-        //
-        //     </div>
-        //
-        // </div>
-
 
     )
 }

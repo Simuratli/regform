@@ -6,6 +6,7 @@ import {getDownloadFile} from "../store/actions/downloadFileAction";
 import {getFile} from "../store/actions/fileAction";
 import {resetData} from "../store/actions/resetData";
 import {getDownloadFileCard} from "../store/actions/downloadFileCardAction";
+import {getLink} from "../store/actions/openButtonAction";
 
 
 class AddonCardContainer extends React.Component {
@@ -25,6 +26,8 @@ class AddonCardContainer extends React.Component {
                                file={this.props.file}
                                resetData={this.props.resetData}
                                getDownloadFileCard={this.props.getDownloadFileCard}
+                               getLink={this.props.getLink}
+                               addOnPortalLink={this.props.addOnPortalLink}
                     />)}
             </>
         )
@@ -34,7 +37,8 @@ class AddonCardContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         addonCard: state.addonCard,
-        file: state.file
+        file: state.file,
+        addOnPortalLink: state.addOnPortalLink.addOnPortalLink,
     }
 }
 
@@ -43,7 +47,8 @@ const mapDispatchToProps = {
     getDownloadFile,
     getFile,
     resetData,
-    getDownloadFileCard
+    getDownloadFileCard,
+    getLink
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddonCardContainer);
