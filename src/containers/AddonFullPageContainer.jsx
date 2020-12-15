@@ -8,7 +8,6 @@ import {resetData} from "../store/actions/resetData";
 import {getLink} from "../store/actions/openButtonAction";
 import AddonCard from "../components/AddonsCardsPage/AddonCard";
 
-
 class AddonFullPageContainer extends React.Component {
 
     componentDidMount() {
@@ -39,6 +38,7 @@ class AddonFullPageContainer extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
+        addOnPortalLink: state.addOnPortalLink.addOnPortalLink,
         fullAddonPage: state.fullAddonPage.fullAddonPage,
         fullAddonPageError: state.fullAddonPage.error,
         file: state.file
@@ -56,7 +56,9 @@ const mapDispatchToProps = (dispatch) => {
         resetData: () => {
             dispatch(resetData())
         },
-        getLink
+        getLink: (slug) => {
+            dispatch(getLink(slug))
+        }
     }
 
 }

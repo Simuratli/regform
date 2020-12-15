@@ -96,6 +96,7 @@ function AddonFullPage(props) {
                 category: "Button",
                 action: `${slug}_OpenPageViewTopPortal`
             })
+
         props.getLink(slug)
     }
     const HandlerTrackerForBottomOpen = () => {
