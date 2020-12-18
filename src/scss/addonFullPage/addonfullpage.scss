@@ -12,6 +12,7 @@ $line: 4px;
 .commonStyles {
   padding: 1rem;
   text-align: center;
+  margin-bottom: 3rem;
 }
 
 .addonFullPage {
@@ -29,7 +30,6 @@ $line: 4px;
   color: $blue;
   font-family: Montserrat;
 }
-
 
 .useInfoMobile {
   display: none;
@@ -51,8 +51,6 @@ $line: 4px;
   justify-content: space-between;
   align-content: start;
   grid-gap: 6vw;
-  //position: relative;
-  //top: 130px;
   color: #f2f2f2;
   padding: 150px 200px;
 
@@ -141,7 +139,7 @@ $line: 4px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 30px;
-  //padding: $padding-1024px;
+  margin-top: 4rem;
   padding: 0 300px;
 
 }
@@ -151,7 +149,6 @@ $line: 4px;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  //margin: 1rem 0;
   padding: 1rem 10rem;
   background-color: #F2F3F9;
 }
@@ -180,24 +177,21 @@ $line: 4px;
 
   h2 {
     text-align: center;
-    margin: 2rem 0;
+    margin: 2rem 0 2.5rem;
   }
 
   .timeline {
     border-left: $line solid $color-primary;
     border-bottom-right-radius: $radius;
     border-top-right-radius: $radius;
-    margin: 2rem 120px;
-    //margin: auto;
     letter-spacing: 0.5px;
     position: relative;
     line-height: 1.4em;
     font-size: 1.03em;
-    padding: 0 50px;
+    padding-left: 50px;
     list-style: none;
     text-align: left;
     font-weight: 100;
-    max-width: 70%;
 
     .event {
       padding-bottom: ($spacing * 0.5);
@@ -219,7 +213,6 @@ $line: 4px;
         top: 0;
       }
 
-
       &:before {
         box-shadow: 0 0 0 4px $color-primary;
         left: -61.85px;
@@ -231,12 +224,9 @@ $line: 4px;
         top: 5px;
       }
 
-      img {
-        width: 700px;
-      }
-
       .stepDescription {
-        width: 40%;
+        max-width: 25rem;
+        width: 100%;
 
         .stepDescP {
           margin-right: 1rem;
@@ -252,24 +242,31 @@ $line: 4px;
       }
 
       .stepImage {
-        width: 60%;
+        width: 100%;
+        max-width: 875px;
+        height: auto;
       }
     }
   }
 
 }
 
-.additionalInfo{
+.additionalInfo {
   padding: 0 300px;
+
+  h2 {
+    margin-top: 5rem;
+  }
 }
 
 .technicalInfo {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding-left: 20%;
+  align-items: center;
   margin: 2rem 0;
   background-color: #F2F3F9;
+
   ul {
     padding: 0;
   }
@@ -280,12 +277,13 @@ $line: 4px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding-left: 20%;
+  align-items: center;
   margin: 2rem 0;
   background-color: #F2F3F9;
 
   ul {
     padding: 0;
+    margin-left: -2rem;
   }
 }
 
@@ -299,9 +297,9 @@ $line: 4px;
   margin: 0;
 }
 
-
 .downloadInfo {
   margin-bottom: 15rem;
+
   h2 {
     margin-bottom: 1rem;
   }
@@ -321,17 +319,21 @@ $line: 4px;
   h2 {
     margin-bottom: 1rem;
   }
+
   a {
     margin: 1rem;
     color: $card-text-color-2;
     font-size: 19px;
   }
-  img{
+
+  img {
     width: 31px;
   }
-  .helpList{
+
+  .helpList {
     list-style-type: none;
-    & .mailItem{
+
+    & .mailItem {
       padding-left: 25px;
       background-image: url("../../assets/images/mail.svg");
       background-position: 0 0;
@@ -340,7 +342,8 @@ $line: 4px;
       font-weight: normal;
       padding-bottom: 25px;
     }
-    & .skypeItem{
+
+    & .skypeItem {
       padding-left: 19px;
       background-image: url("../../assets/images/skype.svg");
       background-position: 0 0;
@@ -353,18 +356,13 @@ $line: 4px;
   }
 
 }
-.helpInfo ul{
+
+.helpInfo ul {
   display: flex;
   justify-content: center;
 }
 
-
-
 @media screen and (max-width: 1700px) {
-
-  .headerWrapper {
-    //height: 50vh;
-  }
   .header {
     padding: 120px 200px;
   }
@@ -374,64 +372,43 @@ $line: 4px;
   .header .headerLeftSide .virtualMashineWarning .virtualMashineWarningparagraph {
     font-size: 19px;
   }
-  .useInfo {
-    padding: 0 200px;
-
-    h2 {
-      text-align: center;
-      margin: 2rem 0;
-    }
-
-    .timeline {
-      margin: 2rem 110px;
-    }
-
-  }
-  .bottomWrapper {
-    //height: 60vh;
-  }
-
-}
-
-@media screen and (max-width: 1600px) {
-  .useInfo {
-    padding: 0px 327px;
-  }
-  .useInfo .timeline {
-    margin: 2rem -20px;
-  }
 }
 
 @media screen and (max-width: 1500px) {
-  .useInfo .timeline {
-    margin: 3rem 44px;
+  .topInfo {
+    padding: 0 100px;
+  }
+  .useInfo {
+    padding: 0 100px;
+  }
+  .additionalInfo {
+    padding: 0 100px;
   }
 }
 
 @media screen and (max-width: 1350px) {
-  .headerWrapper {
-    //height: 30vh;
-    //height: 52vh;
-  }
+
   .header {
     padding: 120px 100px;
   }
   .topInfo {
     padding: 0 100px;
   }
-  .useInfo .timeline {
-    margin: 2rem -30px;
+  .useInfo {
+    padding: 0 100px;
+  }
+  .additionalInfo {
+    padding: 0 100px;
+  }
+  .downloadInfo {
+    padding-top: 12rem;
+    margin-bottom: 6rem;
   }
   .bottomInfo {
     padding: 1rem 100px;
-    //top:17rem;
-  }
-  .bottomWrapper {
-    //height: 90vh;
   }
 
 }
-
 
 @media screen and (max-width: 1024px) {
   .header {
@@ -443,21 +420,38 @@ $line: 4px;
   .useInfo {
     padding: 0 70px;
   }
-
-  .useInfo .timeline {
-    margin: 2rem 94px;
-  }
-  .useInfo .timeline .event img {
-    width: 450px;
+  .additionalInfo {
+    padding: 0 70px;
   }
   .bottomInfo {
     padding: 0 70px;
+  }
+  .helpInfo {
+    margin-bottom: 0;
+    padding-bottom: 10rem;
+  }
+  .downloadInfo {
+    margin-bottom: 2rem;
+
   }
 }
 
 @media screen and (max-width: 768px) {
   .header {
-    padding: 50px 35px;
+    padding: 50px 35px 125px;
+    grid-template-columns: 1fr;
+
+    .headerLeftSide {
+      align-items: center;
+
+      h1 {
+        text-align: center;
+      }
+    }
+
+    .headerRightSide {
+      padding: 5rem;
+    }
   }
   .bottomInfo {
     padding: 0 35px;
@@ -479,21 +473,24 @@ $line: 4px;
     padding: 0 35px;
 
     li {
-      margin-bottom: 1rem;
+      margin-bottom: 5rem;
     }
 
     .stepTitle {
       color: $color-primary;
-      font-size: 25px;
+      font-size: 30px;
       font-weight: bold;
     }
 
     img {
-      max-width: 630px;
+      width: 100%;
+      height: auto;
+      max-width: 690px;
     }
+
     ul {
-      padding: 0px;
-      margin: 20px 35px;
+      padding: 0;
+      margin: 20px 0;
     }
   }
   .blockWithPlayer {
@@ -502,12 +499,20 @@ $line: 4px;
       height: auto;
     }
   }
+  .helpInfo {
+    a {
+      font-size: 17px;
+    }
+  }
 
-  .additionalInfo {
-    padding: 0 50px;
+  .additionalInfo, .creditionalInfo {
+    padding: 0 35px;
   }
   .downloadInfo {
     margin-bottom: 4rem;
+  }
+  .bottomInfo {
+    background-image: none;
   }
 }
 
@@ -565,10 +570,6 @@ $line: 4px;
       font-weight: bold;
     }
 
-    img {
-      max-width: 300px;
-    }
-
 
   }
   .topInfo {
@@ -582,6 +583,7 @@ $line: 4px;
       color: $card-text-color-2;
       font-size: 12px;
     }
+
     ul {
       display: flex;
       justify-content: center;
@@ -590,15 +592,17 @@ $line: 4px;
     }
   }
   .bottomInfo {
-
     background-image: none;
-
   }
   .downloadInfo {
-    margin-bottom: 0rem;
+    margin-bottom: 0;
   }
   .additionalInfo {
     padding: 0;
+  }
+  .creditionalInfo ul {
+    padding: 0;
+    margin-left: 0;
   }
 
 }

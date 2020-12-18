@@ -219,8 +219,7 @@ function AddonFullPage(props) {
                         <ul>
                             {
                                 addOnPageTables[0].addOnPageTableRows.map(row => <li className={'pageTables'}>
-                                    <p>
-                                        <span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
+                                    <p><span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
                             }
                         </ul>
                     </div>
