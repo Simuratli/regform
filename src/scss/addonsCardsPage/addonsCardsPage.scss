@@ -9,10 +9,10 @@
     justify-content: space-around;
     flex-direction: row;
     color: $blue;
-    padding: 4rem 200px;
+    padding: 4rem 150px;
 
     .headingParagraph {
-      width: 48%;
+      width: 45%;
       font-weight: 900;
       font-size: 3vw;
       line-height: 70px;
@@ -32,7 +32,7 @@
     }
 
     .paragraph {
-      width: 47%;
+      width: 50%;
       text-align: left;
       font-size: 1.4vw;
       font-weight: 500;
@@ -50,16 +50,16 @@
   .main_container {
 
     .generalTitleBlock {
-      padding: 4rem 100px;
+      padding: 2rem 150px;
 
       .headingParagraph {
-        width: 43%;
+        //width: 43%;
       }
     }
 
-    .card {
-      padding: 0 100px;
-    }
+    //.card {
+    //  padding: 0 100px;
+    //}
 
   }
 }
@@ -233,7 +233,7 @@
   justify-content: center;
   align-content: start;
   grid-gap: 4vw;
-  padding: 0 200px;
+  padding: 0 150px 50px;
   @media screen and (max-width: 1670px) {
     grid-template-columns: repeat(3, 1fr);
   }

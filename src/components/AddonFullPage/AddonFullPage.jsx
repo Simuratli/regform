@@ -129,8 +129,8 @@ function AddonFullPage(props) {
                                     <button onClick={handleDownload} className={'downloadButton'}>Download</button>
                                 :
                                 <>
-                                        <button onClick={HandlerTrackerForTopOpen} className={'openButton'}>Open</button>
-                                        <p>Free of charge until December 31, 2020</p>
+                                    <button onClick={HandlerTrackerForTopOpen} className={'openButton'}>Open</button>
+                                    <p>Free of charge until December 31, 2020</p>
                                 </>
 
                         }
@@ -141,14 +141,13 @@ function AddonFullPage(props) {
                     </div>
                 </section>
             </div>
-
-            <div className={'topInfo'}>
-                <h2>About add-on</h2>
-                <section className={'aboutInfo commonStyles'}>
+            <div className={'fullPageContent'}>
+                <section className={'aboutInfo'}>
+                    <h2>About add-on</h2>
                     <p>{description}</p>
                 </section>
-                <h2>How to install and uninstall</h2>
-                <section className={'installInfo commonStyles'}>
+                <section className={'installInfo'}>
+                    <h2>How to install and uninstall</h2>
 
                     {
                         slug === "uds-data-migration-tool" ?
@@ -167,105 +166,108 @@ function AddonFullPage(props) {
                                 <p>Download <a className={'installationGuide'}
                                                href={installationGuidePath} target={'_blank'}
                                                rel="noopener noreferrer">{name} Installation guide </a> for a
-                                    faultless user experience.</p>
-                                <p>Download <a className={'installationGuide'}
-                                               href={troubleshootGuidePath} target={'_blank'}
-                                               rel="noopener noreferrer">hints</a> for Safari users. </p>
+                                    faultless user experience. <br/>
+                                    Download <a className={'installationGuide'}
+                                                href={troubleshootGuidePath} target={'_blank'}
+                                                rel="noopener noreferrer">hints</a> for Safari users. </p>
 
                             </>
                     }
 
                 </section>
-            </div>
-
-            <section className={'useInfo'}>
-                <h2>How to use</h2>
-                <ul className="timeline">
-                    {
-                        addOnPageSteps.map(item =>
-                            <li className={'event'}>
-                                <div className={'stepDescription'}>
-                                    <span className={'stepTitle'}>{item.stepTitle}</span>
-                                    <p className={'stepDescP'}>{item.stepDescription}</p>
-                                </div>
-                                <div className={'stepImage'}>
-                                    <img src={item.stepImage.imageSource} alt={item.stepImage.alternateText}/>
-                                </div>
-
-                            </li>
-                        )
-                    }
-                </ul>
-            </section>
-            <section className={'useInfoMobile'}>
-                <h2>How to use</h2>
-                <ul>
-                    {
-                        addOnPageSteps.map(item =>
-                            <li>
-                                <span className={'stepTitle'}>{item.stepTitle}</span>
-                                <p>{item.stepDescription}</p>
-                                <div className={'stepImage'}><img src={item.stepImage.imageSource}
-                                                                  alt={item.stepImage.alternateText}/></div>
-                            </li>
-                        )
-                    }
-                </ul>
-            </section>
-            <section className={'additionalInfo'}>
-                <h2>{addOnPageTables[0].addOnPageTableCategory}</h2>
-                <section className={'technicalInfo commonStyles'}>
-                    <div>
-                        <ul>
-                            {
-                                addOnPageTables[0].addOnPageTableRows.map(row => <li className={'pageTables'}>
-                                    <p><span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
-                            }
-                        </ul>
-                    </div>
-                </section>
-                {
-                    creditionalInfo ?
-                        <section className={'creditionalInfo commonStyles'}>
-                            <div>
-                                <ul>
-                                    {
-                                        creditionalInfo ? creditionalInfo.map(row => <li className={'pageTables'}>
-                                                <p><span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
-                                            : " "
-                                    }
-                                </ul>
-                            </div>
-                        </section>
-                        : ""
-
-                }
-            </section>
-            <div className={'bottomWrapper'}>
-                <div className={'bottomInfo'}>
-                    <section className={'downloadInfo commonStyles'}>
-                        <h2>Ready to get started? </h2>
+                <section className={'useInfo'}>
+                    <h2>How to use</h2>
+                    <ul className="timeline">
                         {
-                            applicationType === "Dynamics 365" ?
+                            addOnPageSteps.map(item =>
+                                <li className={'event'}>
+                                    <div className={'stepDescription'}>
+                                        <span className={'stepTitle'}>{item.stepTitle}</span>
+                                        <p className={'stepDescP'}>{item.stepDescription}</p>
+                                    </div>
+                                    <div className={'stepImage'}>
+                                        <img src={item.stepImage.imageSource} alt={item.stepImage.alternateText}/>
+                                    </div>
+
+                                </li>
+                            )
+                        }
+                    </ul>
+                </section>
+                <section className={'useInfoMobile'}>
+                    <h2>How to use</h2>
+                    <ul>
+                        {
+                            addOnPageSteps.map(item =>
+                                <li>
+                                    <span className={'stepTitle'}>{item.stepTitle}</span>
+                                    <p>{item.stepDescription}</p>
+                                    <div className={'stepImage'}><img src={item.stepImage.imageSource}
+                                                                      alt={item.stepImage.alternateText}/></div>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </section>
+                <section className={'additionalInfo'}>
+                    <h2>{addOnPageTables[0].addOnPageTableCategory}</h2>
+                    <section className={'technicalInfo commonStyles'}>
+                            <ul>
+                                {
+                                    addOnPageTables[0].addOnPageTableRows.map(row => <li className={'pageTables'}>
+                                        <p><span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
+                                }
+                            </ul>
+                    </section>
+                    <section className={'creditionalInfo commonStyles'}>
+                        {
+                            creditionalInfo ?
                                 <>
-                                    <button onClick={handleMethodsForBottomDownload}
-                                            className={'downloadButton'}>Download
-                                    </button>
-                                </> :
-                                    <button onClick={HandlerTrackerForBottomOpen} className={'openButton'}>Open</button>
+                                    <ul>
+                                        {
+                                            creditionalInfo ? creditionalInfo.map(row => <li
+                                                    className={'pageTables'}>
+                                                    <p><span className={'rowKey'}>{row.key}</span> {row.value}</p></li>)
+                                                : " "
+                                        }
+                                    </ul>
+                                </>
+                                : ""
 
                         }
                     </section>
-                    <section className={'helpInfo commonStyles'}>
-                        <h2>Need help?</h2>
-                        <p>Are you experiencing any difficulties? - Be sure that we are ready to help you.</p>
-                        <ul className={"helpList"}>
-                            <li className={'mailItem'}><a className={'mail'} href={'mailto:portal@uds.systems'}>portal@uds.systems</a></li>
-                            <li className={'skypeItem'}><a className={'skype'} href={'skype:live:uds_ddt?chat'}>uds.systems</a></li>
-                        </ul>
-                    </section>
-                </div>
+                </section>
+                <section className={'bottomWrapper'}>
+                    <div className={'bottomInfo'}>
+                        <section className={'downloadInfo'}>
+                            <h2>Ready to get started? </h2>
+                            {
+                                applicationType === "Dynamics 365" ?
+                                    <>
+                                        <button onClick={handleMethodsForBottomDownload}
+                                                className={'downloadButton'}>Download
+                                        </button>
+                                    </> :
+                                    <button onClick={HandlerTrackerForBottomOpen}
+                                            className={'openButton'}>Open</button>
+
+                            }
+                        </section>
+                        <section className={'helpInfo'}>
+                            <h2>Need help?</h2>
+                            <p>Are you experiencing any difficulties? - Be sure that we are ready to help you.</p>
+                            <ul className={"helpList"}>
+                                <li className={'mailItem'}><a className={'mail'}
+                                                              href={'mailto:portal@uds.systems'}>portal@uds.systems</a>
+                                </li>
+                                <li className={'skypeItem'}><a className={'skype'}
+                                                               href={'skype:live:uds_ddt?chat'}>uds.systems</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
             </div>
+
 
         </div>
     )

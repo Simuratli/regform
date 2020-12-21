@@ -78,24 +78,11 @@
     top: 13rem;
   }
 
-  .openButton {
-    width: 130px;
-    height: 40px;
-    border: 1px solid $card-text-color-2;
-    background-color: $card-text-color-2;
-    font-family: Montserrat;
-    color: #FFFFFF;
-    outline: none;
-    font-weight: 600;
-    transition: ease-in-out .3s;
-    text-align: center;
-  }
-
   .moreInfoButton {
     width: 130px;
     height: 40px;
-    border: 2px solid $card-text-color-2;
-    color: $card-text-color-2;
+    border: 2px solid $orange;
+    color: $orange;
     font-family: Montserrat;
     font-weight: bold;
     background-color: #FFFFFF;
