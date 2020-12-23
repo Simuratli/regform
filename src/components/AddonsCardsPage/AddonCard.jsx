@@ -83,7 +83,9 @@ function AddonCard(props) {
                 <div className={'cardLogo'}>
                     <img className={'logo'} src={cardLogo.imageSource} alt={cardLogo.alternateText}/>
                 </div>
+            </NavLink>
             <div className={'cardBody'}>
+                <NavLink to={'/add-ons/' + slug}>
                         <h3 className={'cardTitle'}>{name}</h3>
                         <p className={'cardDescription'}>{shortDescription}</p>
                         <h5 className={'cardSubTitle'}>{isFree ? 'FREE' : price}</h5>
@@ -91,6 +93,7 @@ function AddonCard(props) {
                             <p className={'applicationType'}>{applicationType}</p>
                             {applicationType === "Dynamics 365" ? <p>{downloads} downloads</p> : <p>{downloads} openings</p>}
                         </div>
+                </NavLink>
 
                     <div className={'cardsButtons'}>
                             <button onClick={HandlerTrackerCardMoreInfo} className={'moreInfoButton'}>More info</button>
@@ -103,7 +106,7 @@ function AddonCard(props) {
                         }
                     </div>
             </div>
-            </NavLink>
+
         </div>
 
     )
