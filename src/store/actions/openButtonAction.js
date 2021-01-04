@@ -8,7 +8,8 @@ export const getLink = (slug) => {
 
     return (dispatch) => {
         dispatch({ type: START_LOADING_DATA });
-        httpClient.get(`add-ons/${slug}`)
+
+        httpClient.get(`add-ons/${slug}/web-resource`)
             .then(res => {
                 dispatch({ type: DATA_LOADED, payload: res.data })
                 window.location.href = res.data.addOnPortalLink;

@@ -29,6 +29,7 @@ function AddonFullPage(props) {
         props.getDownloadFile();
         props.getDownloadHashFile();
     }
+
     if (file && file.rootAddOnFilePathWithAccessToken) {
         const link = document.createElement("a");
         link.download = 'addon';//name;
@@ -38,6 +39,7 @@ function AddonFullPage(props) {
         document.body.removeChild(link);
         props.resetData()
     }
+
     const opts = {
 
         playerVars: {
@@ -47,6 +49,7 @@ function AddonFullPage(props) {
     };
 
     let creditionalInfo;
+
     addOnPageTables.forEach(item => {
         if (item.addOnPageTableCategory === "Credential info") {
             creditionalInfo = item.addOnPageTableRows
@@ -267,7 +270,6 @@ function AddonFullPage(props) {
                     </div>
                 </section>
             </div>
-
 
         </div>
     )

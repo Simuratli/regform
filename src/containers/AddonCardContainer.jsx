@@ -8,7 +8,6 @@ import {resetData} from "../store/actions/resetData";
 import {getDownloadFileCard} from "../store/actions/downloadFileCardAction";
 import {getLink} from "../store/actions/openButtonAction";
 
-
 class AddonCardContainer extends React.Component {
 
     componentDidMount() {

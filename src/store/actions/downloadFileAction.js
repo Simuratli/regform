@@ -6,11 +6,11 @@ export const ERROR_LOADING_DATA = 'DOWNLOAD FILE  FULL PAGE OF ADDON ERROR LOADI
 
 export const getDownloadFile = () => {
     return (dispatch, getState) => {
-        const { filePath } = getState().fullAddonPage.fullAddonPage;
+        const { resourcePath } = getState().fullAddonPage.fullAddonPage;
 
         dispatch({ type: START_LOADING_DATA });
 
-        httpClient.get(filePath)
+        httpClient.get(resourcePath)
             .then(res => {
                 dispatch({ type: DATA_LOADED, payload: res.data })
             })

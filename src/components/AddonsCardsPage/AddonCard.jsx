@@ -20,7 +20,7 @@ function AddonCard(props) {
     } = addon;
 
     const handleDownload = () => {
-        props.getDownloadFileCard(addon.filePath);
+        props.getDownloadFileCard(addon.resourcePath);
         props.getDownloadHashFile();
     }
 
@@ -33,7 +33,6 @@ function AddonCard(props) {
         document.body.removeChild(link);
         props.resetData()
     }
-
 
     const HandlerTrackerCardDownloads = () => {
         ReactGa.event({
@@ -96,8 +95,9 @@ function AddonCard(props) {
                 </NavLink>
 
                     <div className={'cardsButtons'}>
+                        <NavLink to={'/add-ons/' + slug}>
                             <button onClick={HandlerTrackerCardMoreInfo} className={'moreInfoButton'}>More info</button>
-
+                        </NavLink>
                         {
                             applicationType === "Dynamics 365" ?
                                 <button onClick={handleMethodsForDownload} className={'downloadButton'}>Download</button> :
@@ -106,9 +106,7 @@ function AddonCard(props) {
                         }
                     </div>
             </div>
-
         </div>
-
     )
 }
 

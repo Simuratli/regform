@@ -8,7 +8,7 @@ export const getAddonCard = () => {
     return (dispatch) => {
         dispatch({ type: START_LOADING_DATA });
 
-        httpClient.get('add-ons/page-content')
+        httpClient.get('add-ons/cards')
             .then(res => {
                 dispatch({ type: DATA_LOADED, payload: res.data })
             })
