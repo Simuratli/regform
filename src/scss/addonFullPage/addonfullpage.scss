@@ -44,8 +44,6 @@
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: space-between;
-  align-content: start;
   grid-gap: 6vw;
   color: #f2f2f2;
   padding: 150px;
@@ -102,8 +100,7 @@
         position: relative;
         top: 18%;
         left: 10%;
-        /* width: 50%; */
-        max-width: 500px;
+        max-width: 540px;
         width: 100%;
         height: 65%;
       }
@@ -149,6 +146,7 @@
   p {
     background-color: #F2F3F9;
     padding: 2rem 10rem;
+    margin-top: 0;
   }
 
   .blockWithPlayer {
@@ -216,14 +214,8 @@
       }
 
       &:before {
-        box-shadow: 0 0 0 4px $color-primary;
-        left: -61.85px;
-        background: #FFFFFF;
-        border-radius: 50%;
-        height: 20px;
-        width: 20px;
-        content: "";
-        top: 5px;
+        left: -67px;
+        content: url("../../assets/images/point.svg");
       }
 
       .stepDescription {
@@ -245,7 +237,7 @@
 
       .stepImage {
         width: 100%;
-        max-width: 1069px;
+        max-width: 1700px;
         height: auto;
       }
     }
@@ -354,6 +346,11 @@
   display: flex;
   justify-content: center;
 }
+@media screen and (max-width: 2000px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 45%;
+  }
+}
 
 @media screen and (max-width: 1700px) {
   .header {
@@ -366,12 +363,15 @@
     font-size: 19px;
   }
   .header .headerRightSide .videoTutorial img {
-    top: 12%;
-    left: 5%;
+    top: 8%;
+    left: 3%;
   }
 }
 
 @media screen and (max-width: 1500px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 48%;
+  }
   .topInfo, .useInfo, .additionalInfo, .aboutInfo, .installInfo {
     @include paddingsForMiddleScreen;
   }
@@ -407,6 +407,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 90%;
+  }
   .header {
     padding: 100px 70px;
   }
@@ -490,6 +493,10 @@
     a {
       font-size: 17px;
     }
+
+    p {
+      margin-top: 0;
+    }
   }
   .header .headerRightSide .videoTutorial {
     display: none;
@@ -498,12 +505,21 @@
     margin-bottom: 4rem;
   }
 }
+@media screen and (max-width: 570px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 76%;
+  }
+}
 
 @media screen and (max-width: 520px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 80%;
+  }
 
   .addonFullPage {
     p {
       font-size: 14px;
+      margin-top: 0;
     }
 
     h2 {
@@ -573,8 +589,9 @@
       color: $card-text-color-2;
       font-size: 12px;
     }
-    .helpList{
-      .skypeItem, .mailItem{
+
+    .helpList {
+      .skypeItem, .mailItem {
         padding-left: 0;
       }
     }
@@ -590,8 +607,8 @@
   .downloadInfo {
     margin-bottom: 0;
   }
-  .technicalInfo{
-    ul{
+  .technicalInfo {
+    ul {
       padding: 0 19px;
     }
   }
@@ -600,7 +617,7 @@
     padding-top: 56px;
   }
   .creditionalInfo {
-    ul{
+    ul {
       margin-left: -1rem;
     }
 
