@@ -243,7 +243,7 @@ const AddonFullPage = ({ addon }) => {
           <ul>
             {sortedAddOnPageSteps.map(
               ({ stepTitle, stepDescription, stepImage }) => (
-                <li>
+                <li key={stepTitle + stepImage}>
                   <span className="stepTitle">{stepTitle}</span>
                   <p>{stepDescription}</p>
                   <div className="stepImage">
@@ -276,7 +276,7 @@ const AddonFullPage = ({ addon }) => {
                 <ul>
                   {creditionalInfo
                     ? creditionalInfo.map((row) => (
-                        <li className="pageTables">
+                        <li className="pageTables" key={row.key}>
                           <p>
                             <span className="rowKey">{row.key}</span>{" "}
                             {row.value}
