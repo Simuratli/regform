@@ -148,7 +148,7 @@ const AddonFullPage = ({ addon }) => {
                 >
                   Open
                 </button>
-                <p>Free of charge until December 31, 2020</p>
+                <p className={'chargeMessage'}>Free of charge until April, 2021</p>
               </>
             )}
           </div>
