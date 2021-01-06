@@ -16,8 +16,10 @@ const AddonCardContainer = () => {
     if (!get(addonCard, "cards", []).length) {
       dispatch(getAddonCard());
       setIsLoading(false);
+    } else {
+      setIsLoading(false);
     }
-  }, [get(addonCard, "cards", []).length]);
+  }, [get(addonCard, "cards", []).length, isLoading]);
 
   if (isLoading) {
     return <div>Loading...</div>;
