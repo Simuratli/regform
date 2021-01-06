@@ -1,53 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AddonCard from "../components/AddonsCardsPage/AddonCard";
-import {connect} from "react-redux";
-import {getAddonCard} from "../store/actions/addonCardAction";
-import {getDownloadFile} from "../store/actions/downloadFileAction";
-import {getFile} from "../store/actions/fileAction";
-import {resetData} from "../store/actions/resetData";
-import {getDownloadFileCard} from "../store/actions/downloadFileCardAction";
-import {getLink} from "../store/actions/openButtonAction";
+import { useDispatch, useSelector } from "react-redux";
+import { getAddonCard } from "../store/actions/addonCardAction";
 
-class AddonCardContainer extends React.Component {
+import get from "lodash/get";
 
-    componentDidMount() {
-        this.props.getAddonCard()
+const AddonCardContainer = () => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { addonCard } = state;
+
+  useEffect(() => {
+    if (!get(addonCard, "cards", []).length) {
+      dispatch(getAddonCard());
+      setIsLoading(false);
     }
+  }, [get(addonCard, "cards", []).length]);
 
-    render() {
-        this.props.addonCard.cards.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
-        return (
-            <>
-                {this.props.addonCard && this.props.addonCard.cards && this.props.addonCard.cards.map(item =>
-                    <AddonCard addon={item}
-                               getDownloadHashFile={this.props.getFile}
-                               getDownloadFile={this.props.getDownloadFile}
-                               file={this.props.file}
-                               resetData={this.props.resetData}
-                               getDownloadFileCard={this.props.getDownloadFileCard}
-                               getLink={this.props.getLink}
-                               addOnPortalLink={this.props.addOnPortalLink}
-                    />)}
-            </>
-        )
-    }
-}
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-const mapStateToProps = (state) => {
-    return {
-        addonCard: state.addonCard,
-        file: state.file,
-        addOnPortalLink: state.addOnPortalLink.addOnPortalLink,
-    }
-}
+  return (
+    <>
+      {get(addonCard, "cards", []).map((addon) => (
+        <AddonCard key={addon.id} addon={addon} />
+      ))}
+    </>
+  );
+};
 
-const mapDispatchToProps = {
-    getAddonCard,
-    getDownloadFile,
-    getFile,
-    resetData,
-    getDownloadFileCard,
-    getLink
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(AddonCardContainer);
+export default AddonCardContainer;
