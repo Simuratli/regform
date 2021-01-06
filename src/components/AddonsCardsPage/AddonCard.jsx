@@ -80,8 +80,8 @@ const AddonCard = ({ addon }) => {
   };
 
   const handleMethodsForDownload = () => {
-    dispatch(handleDownload());
-    dispatch(HandlerTrackerCardDownloads());
+    handleDownload();
+    HandlerTrackerCardDownloads();
   };
 
   return (

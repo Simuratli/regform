@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -10,27 +9,23 @@ import isEmpty from "lodash/isEmpty";
 import get from "lodash/get";
 
 const AddonFullPageContainer = () => {
-  const [isLoading, setIsLoading] = useState(true);
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { fullAddonPage } = state;
+  const { isLoading } = fullAddonPage;
+
   const { slug } = useParams();
 
-  console.log(fullAddonPage, "fullAddonPage");
-
   useEffect(() => {
-    if (isLoading) {
-      dispatch(getFullAddonPage(slug));
-      setIsLoading(false);
-    }
-  }, [isEmpty(fullAddonPage)]);
+    dispatch(getFullAddonPage(slug));
+  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
   return (
-    !isEmpty(fullAddonPage) && (
+    !isEmpty(get(fullAddonPage, "fullAddonPage")) && (
       <AddonFullPage addon={get(fullAddonPage, "fullAddonPage")} />
     )
   );

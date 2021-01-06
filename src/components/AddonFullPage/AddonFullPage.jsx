@@ -32,6 +32,7 @@ const AddonFullPage = ({ addon }) => {
   } = addon;
 
   let creditionalInfo;
+
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );

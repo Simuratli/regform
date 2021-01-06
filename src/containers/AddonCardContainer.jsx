@@ -25,9 +25,11 @@ const AddonCardContainer = () => {
     return <div>Loading...</div>;
   }
 
+  const a = get(addonCard, "cards", []).sort((a, b) => a?.name - b?.name);
+
   return (
     <>
-      {get(addonCard, "cards", []).map((addon) => (
+      {a.map((addon) => (
         <AddonCard key={addon.id} addon={addon} />
       ))}
     </>

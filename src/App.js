@@ -14,8 +14,19 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import Cookie from "./components/Cookie/Coockie";
 import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
+import Error404Comp from "./components/ErrorComponents/Error404Comp";
 
-function App() {
+import styled from "styled-components";
+import ErrorModal from "./components/Modal/ErrorModal";
+
+const GeneralWrapper = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   // const accessToken = authentication.getAccessToken();
   const [modalActive, setModalActive] = useState(true);
@@ -49,7 +60,7 @@ function App() {
   }, []);
 
   return (
-    <div className={"generalWrapper"}>
+    <GeneralWrapper>
       <ScrollArrow />
       <MainNavigation setSideDrawerOpen={setSideDrawerOpen} />
       <SideDrawer
@@ -74,11 +85,14 @@ function App() {
         />
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/terms"} component={Terms} />
+        <Route path={"/404"} component={Error404Comp} />
+        <Route render={() => <Error404Comp />} />
       </Switch>
 
       <Footer />
-    </div>
+      <ErrorModal />
+    </GeneralWrapper>
   );
-}
+};
 
 export default App;
