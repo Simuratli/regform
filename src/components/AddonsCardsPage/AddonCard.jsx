@@ -26,7 +26,7 @@ const AddonCard = ({ addon }) => {
     applicationType,
     downloads = 0,
     price = 0,
-    resourcePath = "",
+    resourcePath,
   } = addon;
 
   const handleDownload = () => {

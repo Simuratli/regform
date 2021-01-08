@@ -11,6 +11,10 @@ const BASE_URL = process.env.NODE_ENV === 'development'
 //     ? 'http://localhost:5000/api/v1/'
 //     : `https://my.uds.systems/api/v1/`;
 
+
+
+// https://my-uds-systems-website-development.azurewebsites.net/api/v1/add-ons/uds-interface-switcher/file-resources/uds-portal/uds-interface-switcher_1_0_0_4.zip
+
 const httpClient = axios.create({
     baseURL: BASE_URL,
     headers: {
