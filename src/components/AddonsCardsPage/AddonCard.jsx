@@ -34,10 +34,10 @@ const AddonCard = ({ addon }) => {
     dispatch(getFile());
   };
 
-  if (get(file, "rootAddOnFilePathWithAccessToken")) {
+  if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
     const link = document.createElement("a");
     link.download = "add-on"; //name;
-    link.href = get(file, "rootAddOnFilePathWithAccessToken");
+    link.href = get(file, "file.rootAddOnFilePathWithAccessToken");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

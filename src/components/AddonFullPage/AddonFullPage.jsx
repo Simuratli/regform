@@ -52,10 +52,10 @@ const AddonFullPage = ({ addon }) => {
     dispatch(getFile());
   };
 
-  if (get(file, "rootAddOnFilePathWithAccessToken")) {
+  if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
     const link = document.createElement("a");
     link.download = "addon"; //name;
-    link.href = get(file, "rootAddOnFilePathWithAccessToken");
+    link.href = get(file, "file.rootAddOnFilePathWithAccessToken");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -149,7 +149,9 @@ const AddonFullPage = ({ addon }) => {
                 >
                   Open
                 </button>
-                <p className={'chargeMessage'}>Free of charge until April, 2021</p>
+                <p className={"chargeMessage"}>
+                  Free of charge until April, 2021
+                </p>
               </>
             )}
           </div>
