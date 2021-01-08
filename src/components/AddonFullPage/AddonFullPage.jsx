@@ -13,6 +13,7 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
+import AnimatedComponent from "../AuxiliaryComponents/AnimatedComponent";
 
 const AddonFullPage = ({ addon }) => {
   const state = useSelector((state) => state);
@@ -72,6 +73,7 @@ const AddonFullPage = ({ addon }) => {
       action: `${slug}_DownloadPageViewTopPortal`,
     });
   };
+
   const HandlerTrackerBottomDownloads = () => {
     ReactGa.event({
       category: "Button",
@@ -120,41 +122,43 @@ const AddonFullPage = ({ addon }) => {
     <div className="addonFullPage">
       <div className="headerWrapper">
         <section className="header">
-          <div className="headerLeftSide">
-            <h1>{name}</h1>
-            {applicationType === "Dynamics 365" ? (
-              slug === "uds-virtual-machine" ? (
-                <span className="virtualMashineWarning">
-                  <button
-                    onClick={handleMethodsForTopDownload}
-                    className="downloadButton"
-                  >
+          <AnimatedComponent>
+            <div className="headerLeftSide">
+              <h1>{name}</h1>
+              {applicationType === "Dynamics 365" ? (
+                slug === "uds-virtual-machine" ? (
+                  <span className="virtualMashineWarning">
+                    <button
+                      onClick={handleMethodsForTopDownload}
+                      className="downloadButton"
+                    >
+                      Download
+                    </button>
+                    <p className="virtualMashineWarningparagraph">
+                      *UDS Virtual Machine exceeds 15 GB. <br /> We recommend
+                      using Download Master to avoid breakdowns.
+                    </p>
+                  </span>
+                ) : (
+                  <button onClick={handleDownload} className="downloadButton">
                     Download
                   </button>
-                  <p className="virtualMashineWarningparagraph">
-                    *UDS Virtual Machine exceeds 15 GB. <br /> We recommend
-                    using Download Master to avoid breakdowns.
-                  </p>
-                </span>
+                )
               ) : (
-                <button onClick={handleDownload} className="downloadButton">
-                  Download
-                </button>
-              )
-            ) : (
-              <>
-                <button
-                  onClick={HandlerTrackerForTopOpen}
-                  className="openButton"
-                >
-                  Open
-                </button>
-                <p className={"chargeMessage"}>
-                  Free of charge until April, 2021
-                </p>
-              </>
-            )}
-          </div>
+                <>
+                  <button
+                    onClick={HandlerTrackerForTopOpen}
+                    className="openButton"
+                  >
+                    Open
+                  </button>
+                  <p className={"chargeMessage"}>
+                    Free of charge until April, 2021
+                  </p>
+                </>
+              )}
+            </div>
+          </AnimatedComponent>
           <div className="headerRightSide">
             <div className="videoTutorial">
               <img

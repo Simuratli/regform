@@ -14,11 +14,11 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import Cookie from "./components/Cookie/Coockie";
 import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-import Error404Comp from "./components/ErrorComponents/Error404Comp";
+import Error404Comp from "./components/AuxiliaryComponents/Error404Comp";
 
 import styled from "styled-components";
 import ErrorModal from "./components/Modal/ErrorModal";
-import Loader from "./components/Modal/Loader";
+import Loader from "./components/AuxiliaryComponents/Loader";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;

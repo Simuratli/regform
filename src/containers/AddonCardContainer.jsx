@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import AddonCard from "../components/AddonsCardsPage/AddonCard";
 import { useDispatch, useSelector } from "react-redux";
+
+// COMPONENTS
+
+import AnimatedComponent from "../components/AuxiliaryComponents/AnimatedComponent";
 import { getAddonCard } from "../store/actions/addonCardAction";
+
+// LODASH
 
 import get from "lodash/get";
 
@@ -21,7 +27,9 @@ const AddonCardContainer = () => {
       {get(addonCard, "cards", [])
         .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
         .map((addon) => (
-          <AddonCard key={addon.id} addon={addon} />
+          <AnimatedComponent withScale>
+            <AddonCard key={addon.id} addon={addon} />
+          </AnimatedComponent>
         ))}
     </>
   );
