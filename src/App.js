@@ -18,6 +18,7 @@ import Error404Comp from "./components/ErrorComponents/Error404Comp";
 
 import styled from "styled-components";
 import ErrorModal from "./components/Modal/ErrorModal";
+import Loader from "./components/Modal/Loader";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;
@@ -90,6 +91,7 @@ const App = () => {
       </Switch>
 
       <Footer />
+      <Loader />
       <ErrorModal />
     </GeneralWrapper>
   );

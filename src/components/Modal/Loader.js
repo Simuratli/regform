@@ -1,0 +1,280 @@
+import React, { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { useSelector } from "react-redux";
+
+import styled from "styled-components";
+
+const LoaderComponent = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(51, 51, 51, 0.7);
+  z-index: 100000;
+
+  .container {
+    width: 112px;
+    height: 112px;
+  }
+
+  .box1,
+  .box2,
+  .box3 {
+    border: 16px solid #f5f5f5;
+    box-sizing: border-box;
+    position: absolute;
+    display: block;
+  }
+
+  .box1 {
+    width: 112px;
+    height: 48px;
+    margin-top: 64px;
+    margin-left: 0;
+    animation: ${({ animationConfig }) =>
+      `anime1 ${animationConfig?.duration} ${animationConfig?.delay} forwards ${animationConfig?.timeFunction} infinite;`};
+  }
+
+  .box2 {
+    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    margin-left: 0;
+    animation: ${({ animationConfig }) =>
+      `anime2 ${animationConfig?.duration} ${animationConfig?.delay} forwards ${animationConfig?.timeFunction} infinite;`};
+  }
+  .box3 {
+    width: 48px;
+    height: 48px;
+    margin-top: 0;
+    margin-left: 64px;
+    animation: ${({ animationConfig }) =>
+      `anime3 ${animationConfig?.duration} ${animationConfig?.delay} forwards ${animationConfig?.timeFunction} infinite;`};
+  }
+
+  @keyframes anime1 {
+    0% {
+      width: 112px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    12.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    25% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    37.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    50% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    62.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+
+    75% {
+      width: 48px;
+      height: 112px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    87.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    100% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+  }
+
+  @keyframes anime2 {
+    0% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    12.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    25% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    37.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+    50% {
+      width: 112px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 0;
+    }
+
+    62.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    75% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    87.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    100% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+  }
+
+  @keyframes anime3 {
+    0% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    12.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    25% {
+      width: 48px;
+      height: 112px;
+      margin-top: 0;
+      margin-left: 64px;
+    }
+
+    37.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 64px;
+    }
+
+    50% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 64px;
+    }
+
+    62.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 64px;
+    }
+
+    75% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 64px;
+    }
+
+    87.5% {
+      width: 48px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 64px;
+    }
+    100% {
+      width: 112px;
+      height: 48px;
+      margin-top: 64px;
+      margin-left: 0;
+    }
+  }
+`;
+
+const animationConfig = {
+  timeFunction: "ease-in-out",
+  duration: "2s",
+  delay: "0s",
+};
+
+const Loader = () => {
+  const state = useSelector((state) => state);
+
+  const { app } = state;
+  const { isLoading } = app;
+
+  useEffect(() => {
+    document.body.style.overflow = isLoading ? "hidden" : "auto";
+  }, [isLoading]);
+
+  return ReactDOM.createPortal(
+    isLoading && (
+      <LoaderComponent animationConfig={animationConfig}>
+        <div className="container">
+          <div className="box1" />
+          <div className="box2" />
+          <div className="box3" />
+        </div>
+      </LoaderComponent>
+    ),
+    document.getElementById("loader")
+  );
+};
+
+export default Loader;

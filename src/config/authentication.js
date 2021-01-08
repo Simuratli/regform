@@ -2,7 +2,7 @@ import authentication from '../b2c';
 
 const redirectUri = process.env.NODE_ENV === 'production'
     ? `https://my-uds-systems-website-development.azurewebsites.net`
-    : 'http://localhost:6420'
+    : 'http://localhost:3000'
 
 // const redirectUri = process.env.NODE_ENV === 'production'
 //     ? `https://my.uds.systems`

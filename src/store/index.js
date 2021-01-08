@@ -5,8 +5,10 @@ import { fullAddonPageReducer } from "./reducers/fullAddonPageReducer";
 import { addonCardReducer } from "./reducers/addonCardReducer";
 import { getDownloadFileReducer } from "./reducers/downloadFileReducer";
 import { openButtonReducer } from "./reducers/openButtonReducer";
+import { appReducer } from "./reducers/appRerucer";
 
 const reducers = combineReducers({
+  app: appReducer,
   addonCard: addonCardReducer,
   fullAddonPage: fullAddonPageReducer,
   file: getDownloadFileReducer,

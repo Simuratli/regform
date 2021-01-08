@@ -46,8 +46,8 @@ const ErrorModal = () => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { fullAddonPage } = state;
-  const { errorLoadingData } = fullAddonPage;
+  const { app } = state;
+  const { errorLoadingData } = app;
   const { isError, message } = errorLoadingData;
 
   return ReactDOM.createPortal(

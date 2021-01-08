@@ -10,17 +10,11 @@ const AddonCardContainer = () => {
   const dispatch = useDispatch();
   const { addonCard } = state;
 
-  const { isLoading } = addonCard;
-
   useEffect(() => {
     if (!get(addonCard, "cards", []).length) {
       dispatch(getAddonCard());
     }
   }, [get(addonCard, "cards", []).length]);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <>
