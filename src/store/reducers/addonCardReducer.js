@@ -1,9 +1,13 @@
 import { DATA_LOADED } from "../actions/addonCardAction";
-import { ERROR_LOADING_DATA } from "../actions/addonCardAction";
+import {
+  ERROR_LOADING_DATA,
+  SET_LOADING_DATA,
+} from "../actions/addonCardAction";
 
 const initStore = {
   cards: [],
   error: null,
+  isLoading: true,
 };
 
 export const addonCardReducer = (initialState = initStore, action) => {
@@ -13,6 +17,10 @@ export const addonCardReducer = (initialState = initStore, action) => {
       return { ...initialState, cards: action.payload };
     case ERROR_LOADING_DATA:
       return { ...initialState, error: action.payload };
+
+    case SET_LOADING_DATA:
+      return { ...initialState, isLoading: action.payload };
+
     default:
       return initialState;
   }

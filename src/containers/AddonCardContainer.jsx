@@ -6,24 +6,21 @@ import { getAddonCard } from "../store/actions/addonCardAction";
 import get from "lodash/get";
 
 const AddonCardContainer = () => {
-  // const [isLoading, setIsLoading] = useState(true);
-
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { addonCard } = state;
 
+  const { isLoading } = addonCard;
+
   useEffect(() => {
     if (!get(addonCard, "cards", []).length) {
       dispatch(getAddonCard());
-      // setIsLoading(false);
-    } else {
-      // setIsLoading(false);
     }
   }, [get(addonCard, "cards", []).length]);
 
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
