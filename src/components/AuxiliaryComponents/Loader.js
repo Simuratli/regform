@@ -19,6 +19,7 @@ const LoaderComponent = styled.div`
   .container {
     width: 112px;
     height: 112px;
+    transform: scale(0.8);
   }
 
   .box1,

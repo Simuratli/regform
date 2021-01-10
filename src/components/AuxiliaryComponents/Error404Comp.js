@@ -13,7 +13,7 @@ const ErrorComp = styled.div`
   flex: 1;
   height: 100%;
   min-height: 720px;
-  margin: 60px;
+  margin: 60px 160px;
   background: #f2f3f9;
   font-family: Montserrat;
 
