@@ -10,6 +10,7 @@ debug.log
 /node_modules
 /.pnp
 .pnp.js
+/UDS-Portal-API
 
 # testing
 /coverage
