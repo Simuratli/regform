@@ -30,7 +30,7 @@
     "webfontloader": "^1.6.28"
   },
   "scripts": {
-    "start": "set \"PUBLIC_URL=/\" && set PORT=6420 && react-scripts start",
+    "start": "set \"PUBLIC_URL=/\" && react-scripts start",
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
