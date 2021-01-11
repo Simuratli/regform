@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
 
-import AnimatedComponent from "../components/AuxiliaryComponents/AnimatedComponent";
+import AnimatedComponent from "../components/views/AnimatedComponent";
 import { getAddonCard } from "../store/actions/addonCardAction";
+import { FakeCardRow } from "../components/views/FakeCardRow";
 
 // LODASH
 
 import get from "lodash/get";
+import range from "lodash/range";
 
 const AddonCardContainer = () => {
   const state = useSelector((state) => state);
@@ -24,13 +26,15 @@ const AddonCardContainer = () => {
 
   return (
     <>
-      {get(addonCard, "cards", [])
-        .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-        .map((addon) => (
-          <AnimatedComponent withScale>
-            <AddonCard key={addon.id} addon={addon} />
-          </AnimatedComponent>
-        ))}
+      {get(addonCard, "cards", []).length
+        ? get(addonCard, "cards", [])
+            .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+            .map((addon) => (
+              <AnimatedComponent withScale>
+                <AddonCard key={addon.id} addon={addon} />
+              </AnimatedComponent>
+            ))
+        : range(0, 6, 1).map((r) => <FakeCardRow key={r} />)}
     </>
   );
 };

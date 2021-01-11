@@ -10,8 +10,6 @@ import { getFile } from "../../store/actions/fileAction";
 import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
-import AnimatedComponent from "../AuxiliaryComponents/AnimatedComponent";
-
 import get from "lodash/get";
 
 const AddonCard = ({ addon }) => {
