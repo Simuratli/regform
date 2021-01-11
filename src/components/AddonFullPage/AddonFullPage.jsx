@@ -13,7 +13,7 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
-import AnimatedComponent from "../AuxiliaryComponents/AnimatedComponent";
+import AnimatedComponent from "../views/AnimatedComponent";
 
 const AddonFullPage = ({ addon }) => {
   const state = useSelector((state) => state);

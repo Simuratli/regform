@@ -8,7 +8,7 @@ const Animation = styled.div`
   @keyframes appearingComp {
     0% {
       opacity: 0;
-      ${({ withScale }) => withScale && "transform: scale(0.9);"}
+      ${({ withScale }) => withScale && "transform: scale(0.95);"}
     }
     100% {
       opacity: 1;

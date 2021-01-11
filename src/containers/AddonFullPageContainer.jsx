@@ -1,8 +1,7 @@
-import React, { useEffect } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import AddonFullPage from "../components/AddonFullPage/AddonFullPage";
 import {
   getFullAddonPage,
   resetFullAddonPage,
@@ -10,6 +9,10 @@ import {
 
 import isEmpty from "lodash/isEmpty";
 import get from "lodash/get";
+
+const AddonFullPage = lazy(() =>
+  import("../components/AddonFullPage/AddonFullPage")
+);
 
 const AddonFullPageContainer = () => {
   const state = useSelector((state) => state);
@@ -25,7 +28,9 @@ const AddonFullPageContainer = () => {
 
   return (
     !isEmpty(get(fullAddonPage, "fullAddonPage")) && (
-      <AddonFullPage addon={get(fullAddonPage, "fullAddonPage")} />
+      <Suspense fallback={null}>
+        <AddonFullPage addon={get(fullAddonPage, "fullAddonPage")} />
+      </Suspense>
     )
   );
 };
