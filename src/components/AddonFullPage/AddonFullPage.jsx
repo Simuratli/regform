@@ -135,7 +135,7 @@ const AddonFullPage = ({ addon }) => {
                       Download
                     </button>
                     <p className="virtualMashineWarningparagraph">
-                      *UDS Virtual Machine exceeds 15 GB. <br /> We recommend
+                      *UDS Virtual Machine exceeds 19 GB. <br /> We recommend
                       using Download Master to avoid breakdowns.
                     </p>
                   </span>
