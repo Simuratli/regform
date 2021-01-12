@@ -30,11 +30,6 @@
 .nav-link:hover::before {
   transform: scale(1, 1);
 }
-
-.p-150 {
-  padding: 0 150px;
-}
-
 button {
   cursor: pointer;
   outline: none;

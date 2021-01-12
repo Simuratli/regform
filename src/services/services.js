@@ -9,7 +9,7 @@ const { accessToken } = authentication.getAccessToken();
 //         : `https://my-uds-systems-website-development.azurewebsites.net/api/v1/`;
 
 const BASE_URL = process.env.NODE_ENV === 'development'
-    ? 'htp://localhost:5000/api/v1/'
+    ? 'http://localhost:5000/api/v1/'
     : `https://my.uds.systems/api/v1/`;
 
 const httpClient = axios.create({

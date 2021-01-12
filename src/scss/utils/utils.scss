@@ -1,64 +1,54 @@
-$orange: #E05E2B;
-$blue: #212886;
+$orange: #FF8F3E;
+$blue: #383680;
 $gray: #757689;
 $card-text-color: #61626A;
 $light-blue: #f2f3f9;
 $light-grey: #f9fafc;
-$bright-orange: #dc5b16;
-$card-text-color-2: #ed6e2a;
 
-$color-primary: #ed6e2a;
-$color-dim: #6c6d6d;
-$spacing: 50px;
-$radius: 4px;
-$date: 120px;
-$dotborder: 4px;
-$dot: 11px;
-$line: 4px;
-
-$padding-1024px: 0 200px;
-$padding-less-1024px: 0 20px;
-
-
-
-//NAVLINK STYLES
-
-
-.nav-link {
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-right: 2rem;
-  font-size: 14px;
-  font-weight: bold;
-  color: $gray;
-  letter-spacing: .5px;
-  transition: opacity 150ms ease-in-out;
-  position: relative;
+@mixin bigScreen {
+  width: 100%;
+  max-width: 1146px;
+  //padding-right: 10px;
+  //padding-left: 10px;
+  margin: auto;
+}
+@mixin screen1350 {
+  width: 1050px;
+  margin: auto;
+}
+@mixin screen1200 {
+  width: 950px;
+  margin: auto;
+}
+@mixin screen1024 {
+  width: 768px;
+  margin: auto;
+}
+@mixin screen880 {
+  width: 700px;
+  margin: auto;
+}
+@mixin screen768 {
+  width: 500px;
+  margin: auto;
+}
+@mixin screen500 {
+  width: 370px;
+  margin: auto;
+}
+@mixin screen400 {
+  width: 300px;
+  margin: auto;
 }
 
-.nav-link:not(.active)::before {
-  content: "";
-  display: block;
-  height: 3px;
-  background: $orange;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  right: 0;
-  transform: scale(0, 1);
-  transition: transform 250ms ease-in-out;
-}
-
-.nav-link-last:not(.active)::before {
-  display: none;
-}
-
-.nav-link:hover::before {
-  transform: scale(1, 1);
-}
-
-.p-150 {
-  padding: 0 150px;
+@mixin paragraphForBlocksOnFullPage{
+  padding: 2rem 10rem;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+  text-align: center;
+  letter-spacing: -0.1px;
+  background-color: $light-blue;
 }
 
 button {
@@ -72,14 +62,15 @@ button {
   }
 }
 
-a{
+a {
   text-decoration: none;
   cursor: pointer;
 }
 
-ul li{
+ul li {
   list-style-type: none;
 }
+
 .downloadButton {
   max-width: 130px;
   width: 100%;
@@ -92,6 +83,7 @@ ul li{
   font-weight: 600;
   transition: ease-in-out .3s;
 }
+
 .openButton {
   width: 130px;
   height: 40px;
@@ -105,15 +97,3 @@ ul li{
   text-align: center;
 }
 
-@mixin paddingsForBigScreen{
-  padding: 0 150px;
-}
-@mixin paddingsForMiddleScreen{
-  padding: 0 100px;
-}
-@mixin paddingsForSmallScreen{
-  padding: 0 70px;
-}
-@mixin paddingsForMobileScreen{
-  padding: 0 35px;
-}

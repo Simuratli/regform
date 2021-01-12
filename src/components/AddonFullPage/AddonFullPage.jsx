@@ -120,7 +120,7 @@ const AddonFullPage = ({ addon }) => {
 
   return (
     <div className="addonFullPage">
-      <div className="headerWrapper">
+      <div className="headerWrapper" style={{maxWidth: "3000px"}}>
         <section className="header">
           <AnimatedComponent>
             <div className="headerLeftSide">
@@ -264,19 +264,22 @@ const AddonFullPage = ({ addon }) => {
             )}
           </ul>
         </section>
-        <section className="additionalInfo">
-          <h2>{get(addOnPageTables, "[0].addOnPageTableCategory")}</h2>
-          <section className={"technicalInfo commonStyles"}>
-            <ul>
-              {get(addOnPageTables, "[0].addOnPageTableRows", []).map((row) => (
-                <li className="pageTables" key={row.key}>
-                  <p>
-                    <span className="rowKey">{row.key}</span> {row.value}
-                  </p>
-                </li>
-              ))}
-            </ul>
-          </section>
+        <div className={"wrapperForBottom"}>
+          <section className="additionalInfo">
+            <h2>{get(addOnPageTables, "[0].addOnPageTableCategory")}</h2>
+            <section className={"technicalInfo commonStyles"}>
+              <ul>
+                {get(addOnPageTables, "[0].addOnPageTableRows", []).map((row) => (
+                    <li className="pageTables" key={row.key}>
+                      <p>
+                        <span className="rowKey">{row.key}</span><span className={"rowValue"}> {row.value}</span>
+                      </p>
+                    </li>
+                ))}
+              </ul>
+            </section>
+
+
           <section className="creditionalInfo commonStyles">
             {creditionalInfo ? (
               <>
@@ -286,7 +289,7 @@ const AddonFullPage = ({ addon }) => {
                         <li className="pageTables" key={row.key}>
                           <p>
                             <span className="rowKey">{row.key}</span>{" "}
-                            {row.value}
+                           <span className={"rowValue"}>{row.value}</span>
                           </p>
                         </li>
                       ))
@@ -297,7 +300,9 @@ const AddonFullPage = ({ addon }) => {
               ""
             )}
           </section>
+
         </section>
+        </div>
         <section className="bottomWrapper">
           <div className="bottomInfo">
             <section className="downloadInfo">
