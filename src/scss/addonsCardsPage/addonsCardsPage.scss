@@ -47,56 +47,28 @@
 }
 
 
-//Responsive design
-@media screen and (max-width: 1700px) {
-  .main_container {
-
-    .generalTitleBlock {
-      //padding: 2rem 150px;
-
-      .headingParagraph {
-        //width: 43%;
-      }
-    }
-
-    //.card {
-    //  padding: 0 100px;
-    //}
-
-  }
-}
-
 @media screen and (max-width: 1350px) {
   .main_container {
-    //padding: 0 50px;
     @include screen1350;
-
     .generalTitleBlock {
-      //padding: 20px 50px;
+      .headingParagraph{
+        width: 48%;
+      }
+      .orangeElement{
+        left: 46px;
+      }
     }
-
     .card {
       grid-gap: 1vw;
-      //padding: 0 50px;
     }
-
-
   }
 }
 
 @media screen and (max-width: 1300px) {
   .main_container {
-    //padding: 0 100px;
-
-
     .generalTitleBlock {
       padding: 20px 0;
-
-      .headingParagraph {
-        //width: 46%;
-      }
     }
-
     .card {
       padding: 0;
     }
@@ -107,6 +79,14 @@
 @media screen and (max-width: 1200px) {
   .main_container {
     @include screen1200;
+    .generalTitleBlock{
+      .headingParagraph{
+          width: 58%;
+      }
+      .orangeElement{
+        left: 0;
+      }
+    }
   }
 }
 
@@ -121,7 +101,6 @@
       align-items: center;
       justify-content: space-between;
       line-height: 20px;
-      //padding: 20px 70px;
 
       .headingParagraph {
         line-height: 55px;
@@ -144,13 +123,11 @@
         font-weight: 600;
         margin: 1rem;
         text-align: center;
-
       }
 
     }
 
     .card {
-      //padding: 0 70px;
       grid-row-gap: 2vw;
       grid-column-gap: 5vw;
     }

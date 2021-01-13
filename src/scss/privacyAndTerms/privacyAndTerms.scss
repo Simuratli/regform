@@ -1,42 +1,45 @@
 @import "../utils/utils";
 
-.privacyContainer{
+.privacyContainer, .termsContainer{
   border-radius: 4px;
-  padding: 2rem 9rem;
+  @include bigScreen;
   color: $card-text-color;
   text-align: justify;
 }
 
-.termsContainer{
-  border-radius: 4px;
-  padding: 2rem 9rem;
-  color: $card-text-color;
-  text-align: justify;
-}
-
-@media screen and (max-width: 1600px) {
-  .privacyContainer, .termsContainer {
-    padding: 2rem 150px;
-  }
-}
 @media screen and (max-width: 1350px) {
   .privacyContainer, .termsContainer {
-    padding: 2rem 100px;
+    @include screen1350;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .privacyContainer, .termsContainer {
+    @include screen1200;
   }
 }
 @media screen and (max-width: 1024px) {
   .privacyContainer, .termsContainer {
-    padding: 2rem 70px;
+    @include screen1024;
+  }
+}
+@media screen and (max-width: 880px) {
+  .privacyContainer, .termsContainer {
+    @include screen880;
   }
 }
 @media screen and (max-width: 768px) {
   .privacyContainer, .termsContainer {
-    padding: 2rem 35px;
+    @include screen768;
   }
 }
-@media screen and (max-width: 415px) {
+@media screen and (max-width: 500px) {
   .privacyContainer, .termsContainer {
-    padding: 2rem 35px;
+    @include screen500;
+  }
+}
+@media screen and (max-width: 400px) {
+  .privacyContainer, .termsContainer {
+    @include screen400;
   }
 }
 
