@@ -75,7 +75,7 @@ export const FakeCardRow = () => {
 
       <div className="rows-container">
         <FaceLine height={20} width={40} />
-        <FaceLine height={40}  style={{margin: "15px 0"}}/>
+        <FaceLine height={40} style={{ margin: "15px 0" }} />
       </div>
     </FakeRow>
   );

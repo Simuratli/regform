@@ -1,4 +1,4 @@
-export const requiresInteraction = errorMessage => {
+export const requiresInteraction = (errorMessage) => {
   if (!errorMessage || !errorMessage.length) {
     return false;
   }
@@ -22,23 +22,23 @@ export const isIE = () => {
 };
 
 export const initializeConfig = (config) => {
-  const tenantSubdomain = config.tenant.split('.')[0]
-  const instance = `https://${tenantSubdomain}.b2clogin.com/`
-  const authority = `${instance}${config.tenant}/${config.signInPolicy}`
+  const tenantSubdomain = config.tenant.split(".")[0];
+  const instance = `https://${tenantSubdomain}.b2clogin.com/`;
+  const authority = `${instance}${config.tenant}/${config.signInPolicy}`;
 
-  msalAppConfig.auth.clientId = config.clientId
-  msalAppConfig.auth.authority = authority
-  msalAppConfig.auth.redirectUri = config.redirectUri
-  msalAppConfig.auth.postLogoutRedirectUri = config.postLogoutRedirectUri
-  msalAppConfig.cache.cacheLocation = config.cacheLocation
+  msalAppConfig.auth.clientId = config.clientId;
+  msalAppConfig.auth.authority = authority;
+  msalAppConfig.auth.redirectUri = config.redirectUri;
+  msalAppConfig.auth.postLogoutRedirectUri = config.postLogoutRedirectUri;
+  msalAppConfig.cache.cacheLocation = config.cacheLocation;
 
-  B2C_SCOPES.API_ACCESS.scopes = config.scopes
+  B2C_SCOPES.API_ACCESS.scopes = config.scopes;
 };
 
 export const B2C_SCOPES = {
   API_ACCESS: {
-    scopes: []
-  }
+    scopes: [],
+  },
 };
 
 export const msalAppConfig = {
@@ -47,10 +47,10 @@ export const msalAppConfig = {
     authority: "",
     redirectUri: "",
     validateAuthority: false,
-    postLogoutRedirectUri: ""
+    postLogoutRedirectUri: "",
   },
   cache: {
     cacheLocation: "",
-    storeAuthStateInCookie: isIE()
-  }
+    storeAuthStateInCookie: isIE(),
+  },
 };

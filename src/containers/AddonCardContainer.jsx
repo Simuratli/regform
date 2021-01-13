@@ -40,3 +40,10 @@ const AddonCardContainer = () => {
 };
 
 export default AddonCardContainer;
+
+//
+// <div
+//     dangerouslySetInnerHTML={{
+//       __html: "<p class='a'>First &middot; Second</p><b>Test</b>",
+//     }}
+// ></div>

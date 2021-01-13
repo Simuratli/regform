@@ -15,7 +15,10 @@ export const getAddonCard = () => {
         dispatch({ type: SET_IS_LOADING, payload: false });
       })
       .catch((err) => {
-        dispatch({ type: ERROR_LOADING_DATA, error: err });
+        dispatch({
+          type: ERROR_LOADING_DATA,
+          payload: { isError: true, message: err.message },
+        });
         dispatch({ type: SET_IS_LOADING, payload: false });
       });
   };
