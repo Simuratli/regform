@@ -7,10 +7,10 @@
 .fullPageContent {
   display: grid;
   grid-template-columns: 1fr;
-  //grid-row-gap: 3rem;
 }
-
 .addonFullPage {
+  color: $blue;
+  font-family: Montserrat;
   p {
     color: $card-text-color;
     font-size: 19px;
@@ -20,14 +20,10 @@
   h2 {
     font-size: 44px;
     text-align: center;
-    padding: 3rem 0;
+    padding: 41px 0;
     margin: 0;
   }
-
-  color: $blue;
-  font-family: Montserrat;
 }
-
 .useInfoMobile {
   display: none;
 }
@@ -45,43 +41,47 @@
 .header {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 6vw;
   color: #f2f2f2;
-  padding: 150px;
+  padding: 150px 0;
+  @include bigScreen;
+  grid-column-gap: 50px;
 
   .headerLeftSide {
     display: flex;
     align-items: baseline;
     flex-direction: column;
     position: relative;
-    .chargeMessage{
+    .chargeMessage {
       margin-top: 2rem;
     }
 
     .virtualMashineWarning {
+      text-align: left;
       .downloadButton {
         margin-bottom: 2rem;
       }
 
       .virtualMashineWarningparagraph {
         padding-bottom: 2rem;
-        font-weight: bolder;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 20px;
       }
     }
 
     h1 {
       width: 100%;
-      font-weight: 900;
-      font-size: 3vw;
-      line-height: 70px;
-      margin: 2rem 0;
-      color: #FFFFFF;
+      margin: 1rem 0 2rem;
+      color: #ffffff;
       text-align: left;
-
+      font-weight: 800;
+      font-size: 46px;
+      line-height: 56px;
+      letter-spacing: -1.09524px;
     }
 
     p {
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     a {
@@ -97,14 +97,14 @@
       background-image: url("../../assets/images/addon-white-square-with-border.svg");
       background-repeat: no-repeat;
       background-size: contain;
-      width: 100%;
-      height: 100%;
+      width: 554px;
+      height: 400px;
 
       img {
         position: relative;
-        top: 18%;
-        left: 10%;
-        max-width: 540px;
+        top: 19%;
+        left: 0;
+        max-width: 554px;
         width: 100%;
         height: 65%;
       }
@@ -130,27 +130,26 @@
 }
 
 .aboutInfo {
-  @include paddingsForBigScreen;
   @include generalSettingsForBlock;
+  @include bigScreen;
 
   p {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    padding: 2rem 10rem;
-    background-color: #F2F3F9;
+    @include paragraphForBlocksOnFullPage;
   }
 }
 
 .installInfo {
-  @include paddingsForBigScreen;
   @include generalSettingsForBlock;
-
+  @include bigScreen;
   p {
-    background-color: #F2F3F9;
-    padding: 2rem 10rem;
+    @include paragraphForBlocksOnFullPage;
     margin-top: 0;
+  }
+  .installationGuide {
+    color: $orange;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .blockWithPlayer {
@@ -162,12 +161,19 @@
   }
 }
 
-.installationGuide {
-  color: $color-primary;
-}
-
 .rowKey {
-  color: #FB641A;
+  color: $blue;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.1px;
+}
+.rowValue {
+  color: $blue;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.1px;
 }
 
 .pageTables {
@@ -177,17 +183,17 @@
 .useInfo {
   margin: 2rem 0;
   font-family: Montserrat;
-  padding: 0 150px;
+  padding-bottom: 90px;
+  @include bigScreen;
 
   h2 {
     text-align: center;
-    //margin: 2rem 0 2.5rem;
   }
 
   .timeline {
-    border-left: $line solid $color-primary;
-    border-bottom-right-radius: $radius;
-    border-top-right-radius: $radius;
+    border-left: 4px solid $orange;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
     letter-spacing: 0.5px;
     position: relative;
     line-height: 1.4em;
@@ -198,8 +204,8 @@
     font-weight: 100;
 
     .event {
-      padding-bottom: ($spacing * 0.5);
-      margin-bottom: $spacing;
+      padding-bottom: (50px * 0.5);
+      margin-bottom: 50px;
       position: relative;
       display: flex;
 
@@ -209,8 +215,9 @@
         border: none;
       }
 
-      &:before, &:after {
-        color: $color-primary;
+      &:before,
+      &:after {
+        color: $orange;
         text-transform: uppercase;
         position: absolute;
         display: block;
@@ -223,20 +230,23 @@
       }
 
       .stepDescription {
-        max-width: 30rem;
+        max-width: 22rem;
         width: 100%;
 
         .stepDescP {
           margin-right: 30px;
+          font-weight: normal;
+          font-size: 19px;
+          line-height: 23px;
+          letter-spacing: -0.2px;
         }
       }
 
       .stepTitle {
-        color: $color-primary;
+        color: $orange;
         text-transform: uppercase;
         font-size: 20px;
         font-weight: bold;
-
       }
 
       .stepImage {
@@ -246,18 +256,20 @@
       }
     }
   }
-
 }
-
-.additionalInfo {
-  padding: 80px 150px;
+.wrapperForBottom {
+  padding: 80px 0;
   background-image: url("../../assets/images/top-lines.svg");
-  background-color: #F2F3F9;
+  background-color: #f2f3f9;
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
   height: 100%;
+}
+
+.additionalInfo {
   margin: 0;
+  @include bigScreen;
 }
 
 .technicalInfo {
@@ -267,11 +279,17 @@
   align-items: center;
   margin-bottom: 2rem;
   background-color: #ffffff;
+  @include bigScreen;
 
   ul {
     padding: 0;
+    li {
+      padding: 3px 0 0 22px;
+      background-position: 3px 14px;
+      background-repeat: no-repeat;
+      background-image: url("../../assets/images/ellipse.svg");
+    }
   }
-
 }
 
 .creditionalInfo {
@@ -280,38 +298,50 @@
   justify-content: space-around;
   align-items: center;
   background-color: #ffffff;
+  margin-top: 2rem;
 
   ul {
     padding: 0;
-    margin-left: -2rem;
+    margin-left: -20px;
+    li {
+      padding: 3px 0 0 22px;
+      background-position: 3px 14px;
+      background-repeat: no-repeat;
+      background-image: url("../../assets/images/ellipse.svg");
+    }
   }
 }
-
-.bottomInfo {
+.bottomWrapper {
   background-image: url("../../assets/images/bottom-lines.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
   height: 100%;
-  margin: 0;
   background-position: bottom;
-  background-color: #F2F3F9;
+  background-color: #f2f3f9;
+}
+.bottomInfo {
+  @include bigScreen;
 }
 
 .downloadInfo {
   @include generalSettingsForBlock;
   padding-bottom: 24px;
+  @include bigScreen;
 }
-
 
 .helpInfo {
   @include generalSettingsForBlock;
-  padding-bottom: 14%;
+  padding-bottom: 20%;
+  @include bigScreen;
 
   a {
     margin: 1rem;
     color: $orange;
     font-size: 18px;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   img {
@@ -323,9 +353,9 @@
 
     & .mailItem {
       padding-left: 25px;
-      background-image: url("../../assets/images/mail.svg");
+      background-image: url("https://gist.githubusercontent.com/maxovsanyuk/c09c6a23f2cdc3fffd44dd8da37889b7/raw/0954ecf0eec0d93b18badabec260e6e140fc3412/main.svg");
       background-position: 0 0;
-      background-size: 2rem;
+      background-size: 11%;
       background-repeat: no-repeat;
       font-weight: normal;
       padding-bottom: 25px;
@@ -335,14 +365,12 @@
       padding-left: 19px;
       background-image: url("../../assets/images/skype.svg");
       background-position: 0 0;
-      background-size: 1.8rem;
+      background-size: 16%;
       background-repeat: no-repeat;
       font-weight: normal;
       padding-bottom: 25px;
     }
-
   }
-
 }
 
 .helpInfo ul {
@@ -350,85 +378,105 @@
   display: flex;
   justify-content: center;
 }
-@media screen and (max-width: 2000px) {
-  .main_container .generalTitleBlock .headingParagraph {
-    width: 45%;
-  }
-}
 
 @media screen and (max-width: 1700px) {
   .header {
-    padding: 120px 150px;
-  }
-  .header .headerLeftSide h1 {
-    font-size: 4vw;
-  }
-  .header .headerLeftSide .virtualMashineWarning .virtualMashineWarningparagraph {
-    font-size: 19px;
-  }
-  .header .headerRightSide .videoTutorial img {
-    top: 8%;
-    left: 3%;
+    .headerLeftSide {
+      h1 {
+        font-size: 4vw;
+      }
+      .virtualMashineWarning {
+        .virtualMashineWarningparagraph {
+          font-size: 19px;
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 1500px) {
-  .main_container .generalTitleBlock .headingParagraph {
-    width: 48%;
-  }
-  .topInfo, .useInfo, .additionalInfo, .aboutInfo, .installInfo {
-    @include paddingsForMiddleScreen;
-  }
-  .header .headerRightSide .videoTutorial img {
-    max-width: 438px;
+  .main_container {
+    .generalTitleBlock {
+      .headingParagraph {
+        width: 48%;
+      }
+    }
   }
 }
 
 @media screen and (max-width: 1350px) {
-
   .header {
-    padding: 120px 100px;
+    @include screen1350;
   }
-  .header .headerRightSide .videoTutorial img {
-    max-width: 350px;
-    top: 18%;
-    left: 11%;
+  .topInfo,
+  .useInfo,
+  .additionalInfo,
+  .aboutInfo,
+  .installInfo {
+    @include screen1350;
   }
   .bottomInfo {
-    padding: 1rem 100px;
+    padding: 1rem 0px;
   }
-
 }
-
-@media screen and (max-width: 1148px) {
-
-  .header .headerRightSide .videoTutorial img {
-    max-width: 350px;
-    top: 12%;
-    left: 5%;
+@media screen and (max-width: 1200px) {
+  .header {
+    @include screen1200;
   }
-
+  .topInfo,
+  .useInfo,
+  .additionalInfo,
+  .aboutInfo,
+  .installInfo {
+    @include screen1200;
+  }
 }
-
 @media screen and (max-width: 1024px) {
   .main_container .generalTitleBlock .headingParagraph {
     width: 90%;
   }
   .header {
-    padding: 100px 70px;
+    @include screen1024;
+    .headerRightSide {
+      .videoTutorial {
+        width: 384px;
+        height: 316px;
+      }
+    }
   }
-  .topInfo, .useInfo, .aboutInfo, .installInfo, .additionalInfo, .bottomInfo {
-    @include paddingsForSmallScreen;
+  .topInfo,
+  .useInfo,
+  .aboutInfo,
+  .installInfo,
+  .additionalInfo,
+  .bottomInfo {
+    @include screen1024;
   }
   .helpInfo {
     margin-bottom: 0;
   }
+  .header .headerRightSide .videoTutorial img {
+    top: 12%;
+  }
 }
-
+@media screen and (max-width: 880px) {
+  .header {
+    @include screen880;
+  }
+  .topInfo,
+  .useInfo,
+  .aboutInfo,
+  .installInfo,
+  .additionalInfo,
+  .bottomInfo {
+    @include screen880;
+  }
+}
 @media screen and (max-width: 768px) {
   .header {
     padding: 50px 35px 40px;
     grid-template-columns: 1fr;
+    @include screen768;
 
     .headerLeftSide {
       align-items: center;
@@ -437,27 +485,49 @@
         text-align: center;
         font-size: 5vw;
       }
+      .virtualMashineWarning {
+        text-align: center;
+      }
     }
 
     .headerRightSide {
       padding: 5rem;
     }
   }
-  .bottomInfo, .topInfo, .useInfoMobile, .additionalInfo, .creditionalInfo {
-    @include paddingsForMobileScreen;
+  .bottomInfo,
+  .topInfo,
+  .useInfoMobile,
+  .additionalInfo,
+  .creditionalInfo {
+    //@include paddingsForMobileScreen;
+    @include screen768;
   }
   .aboutInfo {
-    padding: 1rem 35px;
+    padding: 1rem 0;
+    @include screen768;
 
     p {
       padding: 2rem;
     }
   }
   .installInfo {
-    padding: 1rem 35px;
+    padding: 1rem 0;
+    @include screen768;
 
     p {
       padding: 2rem;
+    }
+  }
+  .technicalInfo {
+    ul {
+      margin-left: 1rem;
+    }
+  }
+  .creditionalInfo {
+    padding: 0;
+    margin-top: 2rem;
+    ul {
+      margin-left: 1rem;
     }
   }
   .useInfo {
@@ -465,14 +535,15 @@
   }
   .useInfoMobile {
     display: block;
+    @include screen768;
 
     li {
       margin-bottom: 5rem;
     }
 
     .stepTitle {
-      color: $color-primary;
-      font-size: 30px;
+      color: $orange;
+      font-size: 20px;
       font-weight: bold;
     }
 
@@ -513,28 +584,25 @@
   .main_container .generalTitleBlock .headingParagraph {
     width: 76%;
   }
-}
-
-@media screen and (max-width: 520px) {
-  .main_container .generalTitleBlock .headingParagraph {
-    width: 80%;
-  }
-
   .addonFullPage {
+    h2 {
+      font-size: 22px;
+      padding: 2rem 0 1rem;
+    }
     p {
       font-size: 14px;
       margin-top: 0;
     }
-
-    h2 {
-      font-size: 30px;
-      padding: 2rem 0 1rem;
-    }
+  }
+}
+@media screen and (max-width: 520px) {
+  .main_container .generalTitleBlock .headingParagraph {
+    width: 80%;
   }
   .header {
     grid-template-columns: 1fr;
     align-content: start;
-    padding: 50px 35px 90px;
+    padding: 50px 0px 90px;
 
     .headerRightSide {
       display: none;
@@ -552,9 +620,7 @@
         text-align: center;
         margin-bottom: 2rem;
       }
-
     }
-
   }
 
   .virtualMashineWarning {
@@ -568,19 +634,16 @@
   }
   .useInfoMobile {
     display: block;
-    @include paddingsForMobileScreen;
 
     li {
       margin-bottom: 1rem;
     }
 
     .stepTitle {
-      color: $color-primary;
+      color: $orange;
       font-size: 14px;
       font-weight: bold;
     }
-
-
   }
   .topInfo {
     padding: 0;
@@ -590,13 +653,21 @@
   .helpInfo {
     a {
       margin: 1rem;
-      color: $card-text-color-2;
+      color: $orange;
       font-size: 12px;
     }
 
     .helpList {
-      .skypeItem, .mailItem {
+      .skypeItem,
+      .mailItem {
         padding-left: 0;
+        background-size: 8%;
+      }
+      .mailItem {
+        background-position: 15% 0;
+      }
+      .skypeItem {
+        background-position: 26% 0;
       }
     }
 
@@ -617,15 +688,48 @@
     }
   }
   .additionalInfo {
-    @include paddingsForMobileScreen;
     padding-top: 56px;
   }
   .creditionalInfo {
     ul {
-      margin-left: -1rem;
+      padding: 0 19px;
     }
-
   }
-
 }
-
+@media only screen and (max-width: 500px) {
+  .header,
+  .bottomInfo,
+  .topInfo,
+  .useInfoMobile,
+  .additionalInfo,
+  .creditionalInfo,
+  .aboutInfo,
+  .installInfo {
+    @include screen500;
+  }
+  .creditionalInfo {
+    margin-top: 2rem;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .header,
+  .bottomInfo,
+  .topInfo,
+  .useInfoMobile,
+  .additionalInfo,
+  .creditionalInfo,
+  .aboutInfo,
+  .installInfo {
+    @include screen400;
+  }
+  .technicalInfo ul {
+    padding: 10px;
+  }
+  .creditionalInfo {
+    margin-top: 2rem;
+    ul {
+      margin-left: 17px;
+      padding: 10px;
+    }
+  }
+}

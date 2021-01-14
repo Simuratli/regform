@@ -6,6 +6,7 @@ import "../../scss/addonFullPage/addonfullpage.scss";
 import YouTube from "react-youtube";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
+import AnimatedComponent from "../views/AnimatedComponent";
 
 import { getDownloadFile } from "../../store/actions/downloadFileAction";
 import { getFile } from "../../store/actions/fileAction";
@@ -13,7 +14,6 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
-import AnimatedComponent from "../views/AnimatedComponent";
 
 const AddonFullPage = ({ addon }) => {
   const state = useSelector((state) => state);
@@ -120,7 +120,7 @@ const AddonFullPage = ({ addon }) => {
 
   return (
     <div className="addonFullPage">
-      <div className="headerWrapper">
+      <div className="headerWrapper" style={{ maxWidth: "3000px" }}>
         <section className="header">
           <AnimatedComponent>
             <div className="headerLeftSide">
@@ -135,7 +135,7 @@ const AddonFullPage = ({ addon }) => {
                       Download
                     </button>
                     <p className="virtualMashineWarningparagraph">
-                      *UDS Virtual Machine exceeds 15 GB. <br /> We recommend
+                      *UDS Virtual Machine exceeds 19 GB. <br /> We recommend
                       using Download Master to avoid breakdowns.
                     </p>
                   </span>
@@ -264,40 +264,46 @@ const AddonFullPage = ({ addon }) => {
             )}
           </ul>
         </section>
-        <section className="additionalInfo">
-          <h2>{get(addOnPageTables, "[0].addOnPageTableCategory")}</h2>
-          <section className={"technicalInfo commonStyles"}>
-            <ul>
-              {get(addOnPageTables, "[0].addOnPageTableRows", []).map((row) => (
-                <li className="pageTables" key={row.key}>
-                  <p>
-                    <span className="rowKey">{row.key}</span> {row.value}
-                  </p>
-                </li>
-              ))}
-            </ul>
+        <div className={"wrapperForBottom"}>
+          <section className="additionalInfo">
+            <h2>{get(addOnPageTables, "[0].addOnPageTableCategory")}</h2>
+            <section className={"technicalInfo commonStyles"}>
+              <ul>
+                {get(addOnPageTables, "[0].addOnPageTableRows", []).map(
+                  (row) => (
+                    <li className="pageTables" key={row.key}>
+                      <p>
+                        <span className="rowKey">{row.key}</span>
+                        <span className={"rowValue"}>{row.value}</span>
+                      </p>
+                    </li>
+                  )
+                )}
+              </ul>
+            </section>
+
+            <section className="creditionalInfo commonStyles">
+              {creditionalInfo ? (
+                <>
+                  <ul>
+                    {creditionalInfo
+                      ? creditionalInfo.map((row) => (
+                          <li className="pageTables" key={row.key}>
+                            <p>
+                              <span className="rowKey">{row.key}</span>{" "}
+                              <span className={"rowValue"}>{row.value}</span>
+                            </p>
+                          </li>
+                        ))
+                      : " "}
+                  </ul>
+                </>
+              ) : (
+                ""
+              )}
+            </section>
           </section>
-          <section className="creditionalInfo commonStyles">
-            {creditionalInfo ? (
-              <>
-                <ul>
-                  {creditionalInfo
-                    ? creditionalInfo.map((row) => (
-                        <li className="pageTables" key={row.key}>
-                          <p>
-                            <span className="rowKey">{row.key}</span>{" "}
-                            {row.value}
-                          </p>
-                        </li>
-                      ))
-                    : " "}
-                </ul>
-              </>
-            ) : (
-              ""
-            )}
-          </section>
-        </section>
+        </div>
         <section className="bottomWrapper">
           <div className="bottomInfo">
             <section className="downloadInfo">

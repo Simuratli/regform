@@ -4,6 +4,8 @@ import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import get from "lodash/get";
+
 import styled from "styled-components";
 
 const ErrorModalCont = styled.div`
@@ -48,7 +50,16 @@ const ErrorModal = () => {
   const dispatch = useDispatch();
   const { app } = state;
   const { errorLoadingData } = app;
-  const { isError, message } = errorLoadingData;
+  const { isError, message, err } = errorLoadingData;
+
+  if (get(err, "status") === 500) {
+    dispatch({
+      type: ERROR_LOADING_DATA,
+      payload: { isError: false, message: "", err: null },
+    });
+
+    return history.push("/");
+  }
 
   return ReactDOM.createPortal(
     isError && (

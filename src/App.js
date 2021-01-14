@@ -3,7 +3,7 @@ import MainNavigation from "./components/MainNavigation";
 import AddonsCardsPage from "./components/AddonsCardsPage/AddonsCardsPage";
 import "../src/scss/base.scss";
 import Footer from "./components/Footer";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route, Redirect, useHistory } from "react-router-dom";
 import SideDrawer from "./components/SideDrawer/SideDrawer";
 import Backdrop from "./components/Backdrop/Backdrop";
 import Privacy from "./components/PrivacyAndTerms/Privacy";
@@ -31,12 +31,18 @@ const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
   // const accessToken = authentication.getAccessToken();
   const [modalActive, setModalActive] = useState(true);
+  const history = useHistory();
 
   let backdrop;
 
   if (sideDrawerOpen) {
     backdrop = <Backdrop setSideDrawerOpen={setSideDrawerOpen} />;
   }
+
+  // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
+  //   history.push("/forgot");
+  // }
+
   useEffect(() => {
     // ReactGa.initialize([
     //     {
@@ -87,6 +93,13 @@ const App = () => {
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/terms"} component={Terms} />
         <Route path={"/404"} component={Error404Comp} />
+        {/*<Route*/}
+        {/*  path="/forgot"*/}
+        {/*  component={() => {*/}
+        {/*    window.location.href = "";*/}
+        {/*    return null;*/}
+        {/*  }}*/}
+        {/*/>*/}
         <Route render={() => <Error404Comp />} />
       </Switch>
 

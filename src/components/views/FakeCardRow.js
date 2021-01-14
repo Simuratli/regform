@@ -51,7 +51,6 @@ const FakeLine = styled.div`
   }
 }
 
-
 `;
 
 const FaceLine = ({ height = 10, width = "100%", style }) => {

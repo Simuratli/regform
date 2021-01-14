@@ -2,7 +2,6 @@ import { DATA_LOADED } from "../actions/fullAddonPageAction";
 
 const initStore = {
   fullAddonPage: {},
-  errorLoadingData: { isError: false, message: "" },
 };
 
 export const fullAddonPageReducer = (initialState = initStore, action) => {

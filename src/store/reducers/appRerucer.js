@@ -3,7 +3,7 @@ import { SET_IS_LOADING } from "../types";
 
 const initStore = {
   isLoading: false,
-  errorLoadingData: { isError: false, message: "" },
+  errorLoadingData: { isError: false, message: "", err: null },
 };
 
 export const appReducer = (initialState = initStore, action) => {

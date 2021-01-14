@@ -1,14 +1,51 @@
 @import "utils/utils";
 
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 2rem;
+  font-size: 14px;
+  font-weight: bold;
+  color: $gray;
+  letter-spacing: .5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: $orange;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+.fullWidthWrapper{
+  //width: 100vh;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #FFFFFF;
+}
 .navigationBar {
   font-family: Montserrat;
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 1.2rem 150px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  background-color: #FFFFFF;
+  padding: 1.2rem 0;
+
+  @include bigScreen;
 
   .rightBlock {
     display: flex;
@@ -60,7 +97,6 @@
     cursor: pointer;
     color: $gray;
     transition: ease-out .2s;
-    //margin: 0 2rem;
 
     &:hover {
       -webkit-box-shadow: 6px 9px 5px 0px rgba(230, 230, 230, 1);
@@ -71,27 +107,25 @@
 
 }
 
-//Responsive design
-@media only screen and (max-width: 1700px){
-  .navigationBar{
-    padding: 15px 150px;
-  }
-}
-
-
 @media only screen and (max-width: 1350px){
   .navigationBar{
-    padding: 15px 100px;
+    padding: 15px 0;
+    @include screen1350;
   }
   .logOut{
     margin-right: 2.5rem;
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .navigationBar {
+    @include screen1200;
+  }
+}
 
 @media only screen and (max-width: 1024px) {
   .navigationBar{
-    padding: 0 70px;
+    @include screen1024;
   }
 
   .headerLogo{
@@ -101,14 +135,22 @@
 
 }
 
-
+@media only screen and (max-width: 880px) {
+  .navigationBar {
+    @include screen880;
+  }
+}
 @media screen and (max-width: 768px) {
   .navigationBar{
     padding: 0;
-    margin: 0;
   }
   .navItems{
     display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .navigationBar{
+    @include screen768;
   }
 }
 @media screen and (min-width: 769px) {
@@ -116,6 +158,16 @@
     display: none;
   }
 
+}
+@media only screen and (max-width: 500px) {
+  .navigationBar{
+    @include screen500;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .navigationBar{
+    @include screen400;
+  }
 }
 
 

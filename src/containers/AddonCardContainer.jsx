@@ -22,7 +22,7 @@ const AddonCardContainer = () => {
     if (!get(addonCard, "cards", []).length) {
       dispatch(getAddonCard());
     }
-  }, [get(addonCard, "cards", []).length]);
+  }, []);
 
   return (
     <>
