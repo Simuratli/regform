@@ -51,7 +51,7 @@
     align-items: baseline;
     flex-direction: column;
     position: relative;
-    .chargeMessage {
+    .chargeMessage{
       margin-top: 2rem;
     }
 
@@ -72,16 +72,17 @@
     h1 {
       width: 100%;
       margin: 1rem 0 2rem;
-      color: #ffffff;
+      color: #FFFFFF;
       text-align: left;
       font-weight: 800;
       font-size: 46px;
       line-height: 56px;
       letter-spacing: -1.09524px;
+
     }
 
     p {
-      color: #ffffff;
+      color: #FFFFFF;
     }
 
     a {
@@ -147,7 +148,7 @@
   }
   .installationGuide {
     color: $orange;
-    &:hover {
+    &:hover{
       text-decoration: underline;
     }
   }
@@ -161,6 +162,8 @@
   }
 }
 
+
+
 .rowKey {
   color: $blue;
   font-weight: bold;
@@ -168,7 +171,7 @@
   line-height: 28px;
   letter-spacing: -0.1px;
 }
-.rowValue {
+.rowValue{
   color: $blue;
   font-weight: normal;
   font-size: 18px;
@@ -215,8 +218,7 @@
         border: none;
       }
 
-      &:before,
-      &:after {
+      &:before, &:after {
         color: $orange;
         text-transform: uppercase;
         position: absolute;
@@ -239,6 +241,7 @@
           font-size: 19px;
           line-height: 23px;
           letter-spacing: -0.2px;
+
         }
       }
 
@@ -247,6 +250,7 @@
         text-transform: uppercase;
         font-size: 20px;
         font-weight: bold;
+
       }
 
       .stepImage {
@@ -256,11 +260,12 @@
       }
     }
   }
+
 }
-.wrapperForBottom {
+.wrapperForBottom{
   padding: 80px 0;
   background-image: url("../../assets/images/top-lines.svg");
-  background-color: #f2f3f9;
+  background-color: #F2F3F9;
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
@@ -270,6 +275,7 @@
 .additionalInfo {
   margin: 0;
   @include bigScreen;
+
 }
 
 .technicalInfo {
@@ -283,13 +289,15 @@
 
   ul {
     padding: 0;
-    li {
+    margin-bottom: 0;
+    li{
       padding: 3px 0 0 22px;
       background-position: 3px 14px;
       background-repeat: no-repeat;
       background-image: url("../../assets/images/ellipse.svg");
     }
   }
+
 }
 
 .creditionalInfo {
@@ -303,7 +311,8 @@
   ul {
     padding: 0;
     margin-left: -20px;
-    li {
+    margin-bottom: 0;
+    li{
       padding: 3px 0 0 22px;
       background-position: 3px 14px;
       background-repeat: no-repeat;
@@ -311,14 +320,14 @@
     }
   }
 }
-.bottomWrapper {
+.bottomWrapper{
   background-image: url("../../assets/images/bottom-lines.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;
   height: 100%;
   background-position: bottom;
-  background-color: #f2f3f9;
+  background-color: #F2F3F9;
 }
 .bottomInfo {
   @include bigScreen;
@@ -330,6 +339,7 @@
   @include bigScreen;
 }
 
+
 .helpInfo {
   @include generalSettingsForBlock;
   padding-bottom: 20%;
@@ -339,7 +349,7 @@
     margin: 1rem;
     color: $orange;
     font-size: 18px;
-    &:hover {
+    &:hover{
       text-decoration: underline;
     }
   }
@@ -353,7 +363,7 @@
 
     & .mailItem {
       padding-left: 25px;
-      background-image: url("https://gist.githubusercontent.com/maxovsanyuk/c09c6a23f2cdc3fffd44dd8da37889b7/raw/0954ecf0eec0d93b18badabec260e6e140fc3412/main.svg");
+      background-image: url("../../assets/images/logo_mail.svg");
       background-position: 0 0;
       background-size: 11%;
       background-repeat: no-repeat;
@@ -370,7 +380,9 @@
       font-weight: normal;
       padding-bottom: 25px;
     }
+
   }
+
 }
 
 .helpInfo ul {
@@ -381,12 +393,12 @@
 
 @media screen and (max-width: 1700px) {
   .header {
-    .headerLeftSide {
-      h1 {
+    .headerLeftSide{
+      h1{
         font-size: 4vw;
       }
-      .virtualMashineWarning {
-        .virtualMashineWarningparagraph {
+      .virtualMashineWarning{
+        .virtualMashineWarningparagraph{
           font-size: 19px;
         }
       }
@@ -395,9 +407,9 @@
 }
 
 @media screen and (max-width: 1500px) {
-  .main_container {
-    .generalTitleBlock {
-      .headingParagraph {
+  .main_container{
+    .generalTitleBlock{
+      .headingParagraph{
         width: 48%;
       }
     }
@@ -408,11 +420,7 @@
   .header {
     @include screen1350;
   }
-  .topInfo,
-  .useInfo,
-  .additionalInfo,
-  .aboutInfo,
-  .installInfo {
+  .topInfo, .useInfo, .additionalInfo, .aboutInfo, .installInfo {
     @include screen1350;
   }
   .bottomInfo {
@@ -423,11 +431,7 @@
   .header {
     @include screen1200;
   }
-  .topInfo,
-  .useInfo,
-  .additionalInfo,
-  .aboutInfo,
-  .installInfo {
+  .topInfo, .useInfo, .additionalInfo, .aboutInfo, .installInfo {
     @include screen1200;
   }
 }
@@ -437,19 +441,14 @@
   }
   .header {
     @include screen1024;
-    .headerRightSide {
-      .videoTutorial {
+    .headerRightSide{
+      .videoTutorial{
         width: 384px;
         height: 316px;
       }
     }
   }
-  .topInfo,
-  .useInfo,
-  .aboutInfo,
-  .installInfo,
-  .additionalInfo,
-  .bottomInfo {
+  .topInfo, .useInfo, .aboutInfo, .installInfo, .additionalInfo, .bottomInfo {
     @include screen1024;
   }
   .helpInfo {
@@ -463,14 +462,10 @@
   .header {
     @include screen880;
   }
-  .topInfo,
-  .useInfo,
-  .aboutInfo,
-  .installInfo,
-  .additionalInfo,
-  .bottomInfo {
+  .topInfo, .useInfo, .aboutInfo, .installInfo, .additionalInfo, .bottomInfo {
     @include screen880;
   }
+
 }
 @media screen and (max-width: 768px) {
   .header {
@@ -485,7 +480,7 @@
         text-align: center;
         font-size: 5vw;
       }
-      .virtualMashineWarning {
+      .virtualMashineWarning{
         text-align: center;
       }
     }
@@ -494,11 +489,7 @@
       padding: 5rem;
     }
   }
-  .bottomInfo,
-  .topInfo,
-  .useInfoMobile,
-  .additionalInfo,
-  .creditionalInfo {
+  .bottomInfo, .topInfo, .useInfoMobile, .additionalInfo, .creditionalInfo {
     //@include paddingsForMobileScreen;
     @include screen768;
   }
@@ -518,17 +509,18 @@
       padding: 2rem;
     }
   }
-  .technicalInfo {
-    ul {
+  .technicalInfo{
+    ul{
       margin-left: 1rem;
     }
   }
-  .creditionalInfo {
-    padding: 0;
+  .creditionalInfo{
+    padding:0;
     margin-top: 2rem;
-    ul {
+    ul{
       margin-left: 1rem;
     }
+
   }
   .useInfo {
     display: none;
@@ -584,7 +576,7 @@
   .main_container .generalTitleBlock .headingParagraph {
     width: 76%;
   }
-  .addonFullPage {
+  .addonFullPage{
     h2 {
       font-size: 22px;
       padding: 2rem 0 1rem;
@@ -620,7 +612,9 @@
         text-align: center;
         margin-bottom: 2rem;
       }
+
     }
+
   }
 
   .virtualMashineWarning {
@@ -644,6 +638,8 @@
       font-size: 14px;
       font-weight: bold;
     }
+
+
   }
   .topInfo {
     padding: 0;
@@ -658,15 +654,14 @@
     }
 
     .helpList {
-      .skypeItem,
-      .mailItem {
+      .skypeItem, .mailItem {
         padding-left: 0;
         background-size: 8%;
       }
-      .mailItem {
-        background-position: 15% 0;
+      .mailItem{
+        background-position:15% 0;
       }
-      .skypeItem {
+      .skypeItem{
         background-position: 26% 0;
       }
     }
@@ -691,41 +686,30 @@
     padding-top: 56px;
   }
   .creditionalInfo {
+
     ul {
       padding: 0 19px;
+
     }
   }
+
 }
 @media only screen and (max-width: 500px) {
-  .header,
-  .bottomInfo,
-  .topInfo,
-  .useInfoMobile,
-  .additionalInfo,
-  .creditionalInfo,
-  .aboutInfo,
-  .installInfo {
+  .header,  .bottomInfo, .topInfo, .useInfoMobile, .additionalInfo, .creditionalInfo, .aboutInfo, .installInfo{
     @include screen500;
   }
-  .creditionalInfo {
+  .creditionalInfo{
     margin-top: 2rem;
   }
 }
 @media only screen and (max-width: 400px) {
-  .header,
-  .bottomInfo,
-  .topInfo,
-  .useInfoMobile,
-  .additionalInfo,
-  .creditionalInfo,
-  .aboutInfo,
-  .installInfo {
+  .header,  .bottomInfo, .topInfo, .useInfoMobile, .additionalInfo, .creditionalInfo, .aboutInfo, .installInfo{
     @include screen400;
   }
-  .technicalInfo ul {
+  .technicalInfo ul{
     padding: 10px;
   }
-  .creditionalInfo {
+  .creditionalInfo{
     margin-top: 2rem;
     ul {
       margin-left: 17px;
@@ -733,3 +717,4 @@
     }
   }
 }
+
