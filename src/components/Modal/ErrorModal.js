@@ -52,12 +52,13 @@ const ErrorModal = () => {
   const { errorLoadingData } = app;
   const { isError, message, err } = errorLoadingData;
 
-  if (get(err, "status") === 500) {
+  if (get(err, "status") === 401) {
     dispatch({
       type: ERROR_LOADING_DATA,
       payload: { isError: false, message: "", err: null },
     });
 
+    localStorage.clear();
     return history.push("/");
   }
 
