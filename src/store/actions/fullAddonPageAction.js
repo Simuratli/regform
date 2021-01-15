@@ -14,7 +14,7 @@ export const getFullAddonPage = (slug) => {
     dispatch({ type: SET_IS_LOADING, payload: true });
 
     httpClient
-      .get(`add-ons/${slug}dsdad`)
+      .get(`add-ons/${slug}`)
       .then((res) => {
         localStorage.setItem(slug, JSON.stringify(res.data));
 
