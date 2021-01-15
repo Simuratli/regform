@@ -17,17 +17,18 @@ export const getFile = () => {
         dispatch({ type: DATA_LOADED, payload: res.data });
       })
       .catch((error) => {
-        dispatch({
-          type: ERROR_LOADING_DATA,
-          payload: {
-            isError: true,
-            message: error.message,
-            err: {
-              status: get(error, "response.status"),
-              statusText: get(error, "response.statusText"),
+        get(error, "response.status") &&
+          dispatch({
+            type: ERROR_LOADING_DATA,
+            payload: {
+              isError: true,
+              message: error.message,
+              err: {
+                status: get(error, "response.status"),
+                statusText: get(error, "response.statusText"),
+              },
             },
-          },
-        });
+          });
       });
   };
 };
