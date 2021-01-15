@@ -4,6 +4,10 @@ import { useHistory } from "react-router-dom";
 import AnimatedComponent from "./AnimatedComponent";
 
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+
+import get from "lodash/get";
+import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 
 const ErrorComp = styled.div`
   display: flex;
@@ -51,16 +55,45 @@ const ErrorComp = styled.div`
   }
 `;
 
-const Error404Comp = () => {
+const ErrorPageComp = ({ status = "", statusText = "" }) => {
   const history = useHistory();
+
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { app } = state;
+  const { error } = app;
+  const { err } = error;
+
+  if (get(err, "status") === 401) {
+    dispatch({
+      type: ERROR_LOADING_DATA,
+      payload: { isError: false, message: "", err: null },
+    });
+
+    localStorage.clear();
+    history.push("/");
+  }
+
+  if (!get(err, "status", status)) {
+    history.push("/");
+  }
 
   return (
     <AnimatedComponent>
       <ErrorComp>
-        <div className="title">404</div>
-        <div className="text">Page not found</div>
+        <div className="title">{get(err, "status", status)}</div>
+        <div className="text">{get(err, "statusText", statusText)}</div>
 
-        <button className="btn" onClick={() => history.push("/add-ons")}>
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch({
+              type: ERROR_LOADING_DATA,
+              payload: { isError: false, message: "", err: null },
+            });
+            history.push("/add-ons");
+          }}
+        >
           Back to the home page
         </button>
 
@@ -103,4 +136,4 @@ const Error404Comp = () => {
   );
 };
 
-export default Error404Comp;
+export default ErrorPageComp;

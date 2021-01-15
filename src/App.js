@@ -14,11 +14,11 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import Cookie from "./components/Cookie/Coockie";
 import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-import Error404Comp from "./components/views/Error404Comp";
+import ErrorPageComp from "./components/views/ErrorPageComp";
 
 import styled from "styled-components";
-import ErrorModal from "./components/Modal/ErrorModal";
 import Loader from "./components/views/Loader";
+import { useSelector } from "react-redux";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;
@@ -32,6 +32,11 @@ const App = () => {
   // const accessToken = authentication.getAccessToken();
   const [modalActive, setModalActive] = useState(true);
   const history = useHistory();
+  const state = useSelector((state) => state);
+
+  const { app } = state;
+  const { error } = app;
+  const { isError } = error;
 
   let backdrop;
 
@@ -42,6 +47,10 @@ const App = () => {
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
   // }
+
+  useEffect(() => {
+    isError && history.push("/error-page");
+  }, [isError]);
 
   useEffect(() => {
     // ReactGa.initialize([
@@ -92,7 +101,7 @@ const App = () => {
         />
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/terms"} component={Terms} />
-        <Route path={"/404"} component={Error404Comp} />
+        <Route path={"/error-page"} component={ErrorPageComp} />
         {/*<Route*/}
         {/*  path="/forgot"*/}
         {/*  component={() => {*/}
@@ -100,12 +109,16 @@ const App = () => {
         {/*    return null;*/}
         {/*  }}*/}
         {/*/>*/}
-        <Route render={() => <Error404Comp />} />
+        <Route
+          render={() => (
+            <ErrorPageComp status={404} statusText="Page not found" />
+          )}
+        />
       </Switch>
 
       <Footer />
       <Loader />
-      <ErrorModal />
+      {/*<ErrorModal />*/}
     </GeneralWrapper>
   );
 };

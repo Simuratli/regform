@@ -3,7 +3,7 @@ import { SET_IS_LOADING } from "../types";
 
 const initStore = {
   isLoading: false,
-  errorLoadingData: { isError: false, message: "", err: null },
+  error: { isError: false, message: "", err: null },
 };
 
 export const appReducer = (initialState = initStore, action) => {
@@ -14,7 +14,7 @@ export const appReducer = (initialState = initStore, action) => {
     case ERROR_LOADING_DATA:
       return {
         ...initialState,
-        errorLoadingData: action.payload,
+        error: action.payload,
       };
 
     default:

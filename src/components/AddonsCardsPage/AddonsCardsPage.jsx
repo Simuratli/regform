@@ -2,11 +2,27 @@ import React, { useEffect } from "react";
 import "../../scss/addonsCardsPage/addonsCardsPage.scss";
 import orangeElement from "../../assets/images/orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
+import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
+import { useDispatch, useSelector } from "react-redux";
 
 const AddonsCardsPage = () => {
+  const state = useSelector((state) => state);
+  const dispatch = useDispatch();
+  const { app } = state;
+  const { error } = app;
+  const { isError } = error;
+
   useEffect(() => {
     document.title = " UDS Add-ons";
   }, []);
+
+  useEffect(() => {
+    isError &&
+      dispatch({
+        type: ERROR_LOADING_DATA,
+        payload: { isError: false, message: "", err: null },
+      });
+  }, [isError]);
 
   return (
     <div className={"main_container"}>

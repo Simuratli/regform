@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useHistory } from "react-router-dom";
@@ -26,19 +26,25 @@ const ErrorModalCont = styled.div`
     align-items: center;
     max-width: 80%;
     padding: 20px;
-    border-radius: 20px;
+    border-radius: 3px;
     background: #fff;
 
     .err-message {
-      font-size: 16px;
-      margin: 0 0 20px 0;
+      margin: 0 10px 20px 10px;
+      color: #61626A;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
     }
 
     .btn {
       padding: 10px;
-      border-radius: 5px;
-      border: none;
       font-size: 16px;
+      border: 2px solid #ff8f3e;
+      background-color: #ff8f3e;
+      font-weight: bold;
+      color: #fff;
+      outline: none;
     }
   }
 `;
@@ -49,8 +55,14 @@ const ErrorModal = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { app } = state;
-  const { errorLoadingData } = app;
-  const { isError, message, err } = errorLoadingData;
+  const { error } = app;
+  const { isError, message, err } = error;
+
+  window.scrollTo(0, 0);
+
+  useEffect(() => {
+    document.body.style.overflow = isError ? "hidden" : "auto";
+  }, [isError]);
 
   if (get(err, "status") === 401) {
     dispatch({
@@ -88,3 +100,5 @@ const ErrorModal = () => {
 };
 
 export default ErrorModal;
+// document.body.style.overflow = isError ? "hidden" : "auto";
+// isError && window.scrollTo(0, 0);

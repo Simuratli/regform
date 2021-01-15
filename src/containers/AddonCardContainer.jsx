@@ -30,8 +30,8 @@ const AddonCardContainer = () => {
         ? get(addonCard, "cards", [])
             .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
             .map((addon) => (
-              <AnimatedComponent withScale>
-                <AddonCard key={addon.id} addon={addon} />
+              <AnimatedComponent withScale key={addon.id}>
+                <AddonCard addon={addon} />
               </AnimatedComponent>
             ))
         : range(0, 6, 1).map((r) => <FakeCardRow key={r} />)}
