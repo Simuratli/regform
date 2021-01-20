@@ -13,6 +13,7 @@ import "./config/authentication";
 import "./assets/fonts/fonts.css";
 import authentication from "./b2c";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
+import DocumentMeta from "react-document-meta";
 
 function initializeApp(App, store) {
   Webfont.load({
@@ -23,13 +24,28 @@ function initializeApp(App, store) {
 
   const history = createBrowserHistory();
 
+  const meta = {
+    description:
+      "Enhance your system with Dynamics 365 add-ons,Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our add-ons and installation guides for free download and use",
+    // canonical: "http://example.com/path/to/page",
+    meta: {
+      charset: "utf-8",
+      name: {
+        keywords:
+          "DMT,uds,uds portal,interface Switcher,Virtual Machine,Storage Analyzer,add-ons,About add-on,On-Premise and Online,Dynamics 365 system,Dynamics 365 Portal,Dynamics 365,free add-on,free",
+      },
+    },
+  };
+
   ReactDOM.render(
-    <Provider store={store}>
-      <BrowserRouter history={history}>
-        <ScrollToTop />
-        <App />
-      </BrowserRouter>
-    </Provider>,
+    <DocumentMeta {...meta}>
+      <Provider store={store}>
+        <BrowserRouter history={history}>
+          <ScrollToTop />
+          <App />
+        </BrowserRouter>
+      </Provider>
+    </DocumentMeta>,
     document.getElementById("root")
   );
 }
@@ -39,6 +55,5 @@ authentication.run(async () => {
 
   const store = await import("./store");
 
-  console.log(App);
   initializeApp(App.default, store.default);
 });

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import get from "lodash/get";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
+import { getErrorHelpMessage } from "../../helpers/getErrorHelpMessage";
 
 const ErrorComp = styled.div`
   display: flex;
@@ -17,7 +18,8 @@ const ErrorComp = styled.div`
   flex: 1;
   height: 100%;
   min-height: 720px;
-  margin: 60px 160px;
+  margin: 60px auto;
+  max-width: 1146px;
   background: #f2f3f9;
   font-family: Montserrat;
 
@@ -51,7 +53,15 @@ const ErrorComp = styled.div`
     line-height: 20px;
     letter-spacing: 0.457143px;
     border: none;
-    margin: 60px 0;
+  }
+  .help-err-text {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: -0.1px;
+    color: #61626a;
+    margin: 30px 0;
   }
 `;
 
@@ -78,11 +88,19 @@ const ErrorPageComp = ({ status = "", statusText = "" }) => {
     history.push("/");
   }
 
+  console.log(get(err, "status"));
+
   return (
     <AnimatedComponent>
       <ErrorComp>
         <div className="title">{get(err, "status", status)}</div>
         <div className="text">{get(err, "statusText", statusText)}</div>
+        <div
+          className="help-err-text"
+          dangerouslySetInnerHTML={{
+            __html: getErrorHelpMessage(get(err, "status")),
+          }}
+        />
 
         <button
           className="btn"

@@ -31,7 +31,7 @@ const ErrorModalCont = styled.div`
 
     .err-message {
       margin: 0 10px 20px 10px;
-      color: #61626A;
+      color: #61626a;
       font-weight: 500;
       font-size: 18px;
       line-height: 22px;
@@ -79,7 +79,6 @@ const ErrorModal = () => {
       <ErrorModalCont>
         <div className="err-box">
           <div className="err-message">{message}</div>
-
           <button
             className="btn"
             onClick={() => {

@@ -56,6 +56,7 @@
     "react-app-polyfill": "^1.0.6",
     "react-cookie-consent": "^6.1.0",
     "react-dev-utils": "^10.2.1",
+    "react-document-meta": "^3.0.0-beta.2",
     "react-dom": "^16.14.0",
     "react-facebook-pixel": "^1.0.3",
     "react-ga": "^3.2.1",

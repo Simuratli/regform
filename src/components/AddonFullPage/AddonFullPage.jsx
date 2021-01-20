@@ -32,21 +32,38 @@ const AddonFullPage = ({ addon }) => {
     cardLogo = {},
   } = addon;
 
-  let creditionalInfo;
+  const serverHtml =
+    addOnPageTables.length &&
+    addOnPageTables.map(
+      ({ addOnPageTableContent, addOnPageTableCategory, htmlContent }) => {
+        return (
+          <div key={addOnPageTableCategory}>
+            <h2>{addOnPageTableCategory}</h2>
+            {addOnPageTableContent &&
+              addOnPageTableContent.length &&
+              addOnPageTableContent.map(({ htmlBody }) => {
+                return (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: htmlBody,
+                    }}
+                  />
+                );
+              })}
+          </div>
+        );
+      }
+    );
+
+  console.log(addOnPageTables, "addOnPageTables");
 
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
 
   useEffect(() => {
-    document.title = `UDS Add-ons - ${name}).slice(4)}`;
+    document.title = `UDS Add-ons - ${name}`;
   }, [name]);
-
-  addOnPageTables.forEach(({ addOnPageTableCategory, addOnPageTableRows }) => {
-    if (addOnPageTableCategory === "Credential info") {
-      creditionalInfo = addOnPageTableRows;
-    }
-  });
 
   const handleDownload = () => {
     dispatch(getDownloadFile());
@@ -63,58 +80,36 @@ const AddonFullPage = ({ addon }) => {
     dispatch(resetData());
   }
 
-  const HandlerTrackerTopDownloads = () => {
+  const HandlerTrackerDownloads = (type) => {
     ReactGa.event({
       category: "Button",
-      action: `${slug}_download_page_view_top_portal`,
+      action: `${slug}_download_page_view_${type.toLowerCase()}_portal`,
     });
-    ReactPixel.track("DownloadPageViewTopPortal", {
+    ReactPixel.track(`DownloadPageView${type}Portal`, {
       category: "Button",
-      action: `${slug}_DownloadPageViewTopPortal`,
-    });
-  };
-
-  const HandlerTrackerBottomDownloads = () => {
-    ReactGa.event({
-      category: "Button",
-      action: `${slug}_download_page_view_bottom_portal`,
-    });
-    ReactPixel.track("DownloadPageViewBottomPortal", {
-      category: "Button",
-      action: `${slug}_DownloadPageViewBottomPortal`,
+      action: `${slug}_DownloadPageView${type}Portal`,
     });
   };
 
   const handleMethodsForTopDownload = () => {
     handleDownload();
-    HandlerTrackerTopDownloads();
+    HandlerTrackerDownloads("Top");
   };
   const handleMethodsForBottomDownload = () => {
     handleDownload();
-    HandlerTrackerBottomDownloads();
+    HandlerTrackerDownloads("Bottom");
   };
 
-  const HandlerTrackerForTopOpen = () => {
+  const HandlerTrackerForOpen = (type) => {
     ReactGa.event({
       category: "Button",
-      action: `${slug}_top_open_portal`,
+      action: `${slug}_${type.toLowerCase()}_open_portal`,
     });
-    ReactPixel.track("OpenPageViewTopPortal", {
+    ReactPixel.track(`OpenPageView${type}Portal`, {
       category: "Button",
-      action: `${slug}_OpenPageViewTopPortal`,
+      action: `${slug}_OpenPageView${type}Portal`,
     });
 
-    dispatch(getLink(slug));
-  };
-  const HandlerTrackerForBottomOpen = () => {
-    ReactGa.event({
-      category: "Button",
-      action: `${slug}_bottom_open_portal`,
-    });
-    ReactPixel.track("OpenPageViewBottomPortal", {
-      category: "Button",
-      action: `${slug}_OpenPageViewBottomPortal`,
-    });
     dispatch(getLink(slug));
   };
 
@@ -147,7 +142,7 @@ const AddonFullPage = ({ addon }) => {
               ) : (
                 <>
                   <button
-                    onClick={HandlerTrackerForTopOpen}
+                    onClick={() => HandlerTrackerForOpen("Top")}
                     className="openButton"
                   >
                     Open
@@ -264,46 +259,7 @@ const AddonFullPage = ({ addon }) => {
             )}
           </ul>
         </section>
-        <div className={"wrapperForBottom"}>
-          <section className="additionalInfo">
-            <h2>{get(addOnPageTables, "[0].addOnPageTableCategory")}</h2>
-            <section className={"technicalInfo commonStyles"}>
-              <ul>
-                {get(addOnPageTables, "[0].addOnPageTableRows", []).map(
-                  (row) => (
-                    <li className="pageTables" key={row.key}>
-                      <p>
-                        <span className="rowKey">{row.key}</span>
-                        <span className={"rowValue"}>{row.value}</span>
-                      </p>
-                    </li>
-                  )
-                )}
-              </ul>
-            </section>
-
-            <section className="creditionalInfo commonStyles">
-              {creditionalInfo ? (
-                <>
-                  <ul>
-                    {creditionalInfo
-                      ? creditionalInfo.map((row) => (
-                          <li className="pageTables" key={row.key}>
-                            <p>
-                              <span className="rowKey">{row.key}</span>{" "}
-                              <span className={"rowValue"}>{row.value}</span>
-                            </p>
-                          </li>
-                        ))
-                      : " "}
-                  </ul>
-                </>
-              ) : (
-                ""
-              )}
-            </section>
-          </section>
-        </div>
+        <div className={"wrapperForBottom"}>{serverHtml}</div>
         <section className="bottomWrapper">
           <div className="bottomInfo">
             <section className="downloadInfo">
@@ -319,7 +275,7 @@ const AddonFullPage = ({ addon }) => {
                 </>
               ) : (
                 <button
-                  onClick={HandlerTrackerForBottomOpen}
+                  onClick={() => HandlerTrackerForOpen("Bottom")}
                   className="openButton"
                 >
                   Open

@@ -4,6 +4,7 @@ import orangeElement from "../../assets/images/orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useDispatch, useSelector } from "react-redux";
+// import AddonPaginationCont from "../views/AddonPaginationCont";
 
 const AddonsCardsPage = () => {
   const state = useSelector((state) => state);
@@ -43,6 +44,8 @@ const AddonsCardsPage = () => {
       <div className={"card"}>
         <AddonCardContainer />
       </div>
+
+      {/*<AddonPaginationCont />*/}
     </div>
   );
 };

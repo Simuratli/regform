@@ -111,7 +111,10 @@ const App = () => {
         {/*/>*/}
         <Route
           render={() => (
-            <ErrorPageComp status={404} statusText="Page not found" />
+            <ErrorPageComp
+              status={404}
+              statusText="The requested /errors is not found"
+            />
           )}
         />
       </Switch>
