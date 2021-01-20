@@ -34,26 +34,24 @@ const AddonFullPage = ({ addon }) => {
 
   const serverHtml =
     addOnPageTables.length &&
-    addOnPageTables.map(
-      ({ addOnPageTableContent, addOnPageTableCategory, htmlContent }) => {
-        return (
-          <div key={addOnPageTableCategory}>
-            <h2>{addOnPageTableCategory}</h2>
-            {addOnPageTableContent &&
-              addOnPageTableContent.length &&
-              addOnPageTableContent.map(({ htmlBody }) => {
-                return (
-                  <div
-                    dangerouslySetInnerHTML={{
-                      __html: htmlBody,
-                    }}
-                  />
-                );
-              })}
-          </div>
-        );
-      }
-    );
+    addOnPageTables.map(({ addOnPageTableContent, addOnPageTableCategory }) => {
+      return (
+        <div key={addOnPageTableCategory}>
+          <h2>{addOnPageTableCategory}</h2>
+          {addOnPageTableContent &&
+            addOnPageTableContent.length &&
+            addOnPageTableContent.map(({ htmlBody }) => {
+              return (
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: htmlBody,
+                  }}
+                />
+              );
+            })}
+        </div>
+      );
+    });
 
   console.log(addOnPageTables, "addOnPageTables");
 
