@@ -5,11 +5,11 @@ export const ERROR_LOADING_DATA = "ERROR_LOADING_DATA";
 
 export const getFullAddonPage = (slug) => {
   return (dispatch) => {
-    const isDataFromLocalStorage = JSON.parse(localStorage.getItem(slug));
-
-    if (isDataFromLocalStorage) {
-      return dispatch({ type: DATA_LOADED, payload: isDataFromLocalStorage });
-    }
+    // const isDataFromLocalStorage = JSON.parse(localStorage.getItem(slug));
+    //
+    // if (isDataFromLocalStorage) {
+    //   return dispatch({ type: DATA_LOADED, payload: isDataFromLocalStorage });
+    // }
 
     dispatch({ type: SET_IS_LOADING, payload: true });
 

@@ -4,6 +4,7 @@ import { SET_IS_LOADING } from "../types";
 const initStore = {
   isLoading: false,
   error: { isError: false, message: "", err: null },
+  lang: "en",
 };
 
 export const appReducer = (initialState = initStore, action) => {

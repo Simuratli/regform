@@ -14,6 +14,7 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
+import { FormattedMessage } from "react-intl";
 
 const AddonFullPage = ({ addon }) => {
   const state = useSelector((state) => state);
@@ -54,11 +55,11 @@ const AddonFullPage = ({ addon }) => {
       );
     });
 
-  console.log(addon, "addon");
-
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
+
+  console.log(addon, "AAA");
 
   useEffect(() => {
     document.title = `UDS Portal - ${name.slice(3)}`;
@@ -114,6 +115,7 @@ const AddonFullPage = ({ addon }) => {
 
   return (
     <div className="addonFullPage">
+      {/*<FormattedMessage id="test" />*/}
       <div className="headerWrapper" style={{ maxWidth: "3000px" }}>
         <section className="header">
           <AnimatedComponent>
