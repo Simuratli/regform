@@ -177,7 +177,16 @@
 }
 
 .pageTables {
+  display: flex;
+  align-items: center;
   text-align: left;
+
+  p {
+    text-align: left;
+    padding: 0;
+    margin: 5px 0 0 0;
+    background: #fff;
+  }
 }
 
 .useInfo {
@@ -277,19 +286,20 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin-bottom: 2rem;
+  margin: 20px auto!important;
   background-color: #ffffff;
   @include bigScreen;
 
   ul {
-    padding: 0;
-    margin-bottom: 0;
-    li {
-      padding: 3px 0 0 22px;
-      background-position: 3px 14px;
-      background-repeat: no-repeat;
-      background-image: url("../../assets/images/ellipse.svg");
-    }
+    margin: 0;
+    padding: 10px 0 10px 50px;
+    width: calc(100% - 50px);
+  }
+  li {
+    padding: 0 0 0 22px;
+    background-position: 3px 14px;
+    background-repeat: no-repeat;
+    background-image: url("../../assets/images/ellipse.svg");
   }
 }
 

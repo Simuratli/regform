@@ -43,6 +43,7 @@ const AddonFullPage = ({ addon }) => {
             addOnPageTableContent.map(({ htmlBody }) => {
               return (
                 <div
+                  key={htmlBody}
                   dangerouslySetInnerHTML={{
                     __html: htmlBody,
                   }}
@@ -53,14 +54,14 @@ const AddonFullPage = ({ addon }) => {
       );
     });
 
-  console.log(addOnPageTables, "addOnPageTables");
+  console.log(addon, "addon");
 
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
 
   useEffect(() => {
-    document.title = `UDS Add-ons - ${name}`;
+    document.title = `UDS Portal - ${name.slice(3)}`;
   }, [name]);
 
   const handleDownload = () => {
@@ -165,7 +166,11 @@ const AddonFullPage = ({ addon }) => {
       <div className="fullPageContent">
         <section className={"aboutInfo"}>
           <h2>About add-on</h2>
-          <p>{description}</p>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: description,
+            }}
+          />
         </section>
         <section className="installInfo">
           <h2>How to install and uninstall</h2>
