@@ -6,14 +6,14 @@ export const ERROR_LOADING_DATA = "ERROR LOADING DATA";
 
 export const getAddonCard = () => {
   return (dispatch) => {
-    const dataFromLocalStorage = JSON.parse(localStorage.getItem("cardsArr"));
-
-    if (dataFromLocalStorage) {
-      return dispatch({
-        type: CARDS_DATA_LOADED,
-        payload: dataFromLocalStorage,
-      });
-    }
+    // const dataFromLocalStorage = JSON.parse(localStorage.getItem("cardsArr"));
+    //
+    // if (dataFromLocalStorage) {
+    //   return dispatch({
+    //     type: CARDS_DATA_LOADED,
+    //     payload: dataFromLocalStorage,
+    //   });
+    // }
 
     dispatch({ type: SET_IS_LOADING, payload: true });
 
