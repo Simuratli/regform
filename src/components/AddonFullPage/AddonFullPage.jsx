@@ -232,7 +232,12 @@ const AddonFullPage = ({ addon }) => {
                 <li className="event" key={stepTitle + stepImage}>
                   <div className="stepDescription">
                     <span className="stepTitle">{stepTitle}</span>
-                    <p className="stepDescP">{stepDescription}</p>
+                    <p
+                      className="stepDescP"
+                      dangerouslySetInnerHTML={{
+                        __html: stepDescription,
+                      }}
+                    />
                   </div>
                   <div className="stepImage">
                     <img
