@@ -4,6 +4,8 @@ import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { FormattedMessage } from "react-intl";
+
 import get from "lodash/get";
 
 import styled from "styled-components";
@@ -89,7 +91,7 @@ const ErrorModal = () => {
               });
             }}
           >
-            Back to the home page
+            <FormattedMessage id="back.home.page" />
           </button>
         </div>
       </ErrorModalCont>

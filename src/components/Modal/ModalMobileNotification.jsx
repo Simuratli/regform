@@ -2,21 +2,19 @@ import React from "react";
 import "../../scss/modal/modal.scss";
 
 import Modal from "./Modal";
+import { FormattedMessage } from "react-intl";
 
 const ModalMobileNotification = ({ active, setActive }) => {
   return (
     <Modal active={active} setActive={setActive}>
       <p>
-        The present mobile version provides general information about UDS
-        services and products.
+        <FormattedMessage id="present.mobile.v" />
         <span className={"boldText"}>
-          {" "}
-          We recommend using the desktop version to download and use any UDS
-          product.
+          <FormattedMessage id="recomend.text" />
         </span>
       </p>
       <button className={"agreeButton"} onClick={() => setActive(false)}>
-        OK
+        <FormattedMessage id="ok" />
       </button>
     </Modal>
   );

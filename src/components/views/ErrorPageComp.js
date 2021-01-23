@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import get from "lodash/get";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
-import { getErrorHelpMessage } from "../../helpers/getErrorHelpMessage";
+import { FormattedMessage, injectIntl } from "react-intl";
 
 const ErrorComp = styled.div`
   display: flex;
@@ -65,7 +65,7 @@ const ErrorComp = styled.div`
   }
 `;
 
-const ErrorPageComp = ({ status = "", statusText = "" }) => {
+const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   const history = useHistory();
 
   const state = useSelector((state) => state);
@@ -88,8 +88,6 @@ const ErrorPageComp = ({ status = "", statusText = "" }) => {
     history.push("/");
   }
 
-  console.log(get(err, "status"));
-
   return (
     <AnimatedComponent>
       <ErrorComp>
@@ -98,7 +96,10 @@ const ErrorPageComp = ({ status = "", statusText = "" }) => {
         <div
           className="help-err-text"
           dangerouslySetInnerHTML={{
-            __html: getErrorHelpMessage(get(err, "status")),
+            __html: get(
+              intl,
+              `messages["err.${get(err, "status") || status}"]`
+            ),
           }}
         />
 
@@ -112,7 +113,7 @@ const ErrorPageComp = ({ status = "", statusText = "" }) => {
             history.push("/add-ons");
           }}
         >
-          Back to the home page
+          <FormattedMessage id="back.home.page" />
         </button>
 
         <svg
@@ -154,4 +155,4 @@ const ErrorPageComp = ({ status = "", statusText = "" }) => {
   );
 };
 
-export default ErrorPageComp;
+export default injectIntl(ErrorPageComp);

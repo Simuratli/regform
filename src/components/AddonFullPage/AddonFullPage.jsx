@@ -14,9 +14,9 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
-import { FormattedMessage } from "react-intl";
+import { FormattedMessage, injectIntl } from "react-intl";
 
-const AddonFullPage = ({ addon }) => {
+const AddonFullPage = ({ addon, intl }) => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { file } = state;
@@ -58,8 +58,6 @@ const AddonFullPage = ({ addon }) => {
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
-
-  console.log(addon, "AAA");
 
   useEffect(() => {
     document.title = `UDS Portal - ${name.slice(3)}`;
@@ -115,7 +113,6 @@ const AddonFullPage = ({ addon }) => {
 
   return (
     <div className="addonFullPage">
-      {/*<FormattedMessage id="test" />*/}
       <div className="headerWrapper" style={{ maxWidth: "3000px" }}>
         <section className="header">
           <AnimatedComponent>
@@ -128,16 +125,19 @@ const AddonFullPage = ({ addon }) => {
                       onClick={handleMethodsForTopDownload}
                       className="downloadButton"
                     >
-                      Download
+                      <FormattedMessage id="download" />
                     </button>
                     <p className="virtualMashineWarningparagraph">
-                      *UDS Virtual Machine exceeds 19 GB. <br /> We recommend
-                      using Download Master to avoid breakdowns.
+                      <span
+                        dangerouslySetInnerHTML={{
+                          __html: get(intl, `messages["virtual.machine.text"]`),
+                        }}
+                      />
                     </p>
                   </span>
                 ) : (
                   <button onClick={handleDownload} className="downloadButton">
-                    Download
+                    <FormattedMessage id="download" />
                   </button>
                 )
               ) : (
@@ -146,10 +146,10 @@ const AddonFullPage = ({ addon }) => {
                     onClick={() => HandlerTrackerForOpen("Top")}
                     className="openButton"
                   >
-                    Open
+                    <FormattedMessage id="open" />
                   </button>
                   <p className={"chargeMessage"}>
-                    Free of charge until April, 2021
+                    <FormattedMessage id="free.of.charge" />
                   </p>
                 </>
               )}
@@ -167,7 +167,9 @@ const AddonFullPage = ({ addon }) => {
       </div>
       <div className="fullPageContent">
         <section className={"aboutInfo"}>
-          <h2>About add-on</h2>
+          <h2>
+            <FormattedMessage id="about.add.on" />
+          </h2>
           <p
             dangerouslySetInnerHTML={{
               __html: description,
@@ -175,15 +177,14 @@ const AddonFullPage = ({ addon }) => {
           />
         </section>
         <section className="installInfo">
-          <h2>How to install and uninstall</h2>
+          <h2>
+            <FormattedMessage id="how.to.install.and.uninstall" />
+          </h2>
 
           {slug === "uds-data-migration-tool" ? (
             <div className={"blockWithPlayer"}>
               <p>
-                We designed UDS Data Migration Tool as an online solution with
-                an intuitively comprehensive and convenient interface and
-                functionality. Yet, for a better experience, we recommend the
-                video tutorial first.
+                <FormattedMessage id="dmt.text" />
               </p>
               <div className="playerWrapper">
                 <YouTube
@@ -200,32 +201,37 @@ const AddonFullPage = ({ addon }) => {
           ) : (
             <>
               <p>
-                Download{" "}
+                <FormattedMessage id="download" />
                 <a
                   className="installationGuide"
                   href={installationGuidePath}
                   target={"_blank"}
                   rel="noopener noreferrer"
                 >
-                  {name} Installation guide{" "}
-                </a>{" "}
-                for a faultless user experience. <br />
-                Download{" "}
+                  {name} <FormattedMessage id="installation.guide" />
+                </a>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: get(intl, `messages["virtual.machine.text"]`),
+                  }}
+                />
                 <a
                   className="installationGuide"
                   href={troubleshootGuidePath}
                   target={"_blank"}
                   rel="noopener noreferrer"
                 >
-                  hints
-                </a>{" "}
-                for Safari users.{" "}
+                  <FormattedMessage id="hints" />
+                </a>
+                <FormattedMessage id="for.safari.users" />
               </p>
             </>
           )}
         </section>
         <section className="useInfo">
-          <h2>How to use</h2>
+          <h2>
+            <FormattedMessage id="how.to.use" />
+          </h2>
           <ul className="timeline">
             {sortedAddOnPageSteps.map(
               ({ stepTitle, stepDescription, stepImage }) => (
@@ -251,7 +257,9 @@ const AddonFullPage = ({ addon }) => {
           </ul>
         </section>
         <section className="useInfoMobile">
-          <h2>How to use</h2>
+          <h2>
+            <FormattedMessage id="how.to.use" />
+          </h2>
           <ul>
             {sortedAddOnPageSteps.map(
               ({ stepTitle, stepDescription, stepImage }) => (
@@ -273,14 +281,16 @@ const AddonFullPage = ({ addon }) => {
         <section className="bottomWrapper">
           <div className="bottomInfo">
             <section className="downloadInfo">
-              <h2>Ready to get started? </h2>
+              <h2>
+                <FormattedMessage id="ready.to.get.started" />
+              </h2>
               {applicationType === "Dynamics 365" ? (
                 <>
                   <button
                     onClick={handleMethodsForBottomDownload}
                     className="downloadButton"
                   >
-                    Download
+                    <FormattedMessage id="download" />
                   </button>
                 </>
               ) : (
@@ -288,15 +298,16 @@ const AddonFullPage = ({ addon }) => {
                   onClick={() => HandlerTrackerForOpen("Bottom")}
                   className="openButton"
                 >
-                  Open
+                  <FormattedMessage id="open" />
                 </button>
               )}
             </section>
             <section className="helpInfo">
-              <h2>Need help?</h2>
+              <h2>
+                <FormattedMessage id="need.help" />
+              </h2>
               <p>
-                Are you experiencing any difficulties? - Be sure that we are
-                ready to help you.
+                <FormattedMessage id="need.help.text" />
               </p>
               <ul className="helpList">
                 <li className="mailItem">
@@ -326,4 +337,4 @@ const AddonFullPage = ({ addon }) => {
   );
 };
 
-export default AddonFullPage;
+export default injectIntl(AddonFullPage);

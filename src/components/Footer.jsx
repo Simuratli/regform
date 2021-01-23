@@ -9,8 +9,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/uds_portal_logo.svg";
 import logoDynamic365 from "../assets/images/d365-logo.png";
 import logoMicrosoft from "../assets/images/microsoft_logo.png";
+import { FormattedMessage } from "react-intl";
 
-function Footer(props) {
+function Footer() {
   return (
     <div className={"fullWidthWrapperFooter"}>
       <div className={"phantom"}>
@@ -62,21 +63,28 @@ function Footer(props) {
               </ul>
             </div>
           </div>
-
           <div className={"rightSide"}>
             <div className={"quickLinks"}>
-              <h3 className={"footerTitle"}>Links</h3>
+              <h3 className={"footerTitle"}>
+                <FormattedMessage id="links" />
+              </h3>
               <ul>
                 <li className={"quickLinkItem"}>
-                  <a href="https://uds.systems">UDS Website</a>
+                  <a href="https://uds.systems">
+                    <FormattedMessage id="UDS.website" />
+                  </a>
                 </li>
                 <li className={"quickLinkItem"}>
-                  <NavLink to="/add-ons">Add-ons</NavLink>
+                  <NavLink to="/add-ons">
+                    <FormattedMessage id="add.ons" />
+                  </NavLink>
                 </li>
               </ul>
             </div>
             <div className={"contactUs"}>
-              <h3 className={"footerTitle"}>Contact Us</h3>
+              <h3 className={"footerTitle"}>
+                <FormattedMessage id="contact.us" />
+              </h3>
               <ul>
                 <li className={"phone"}>
                   <a href={"tel:+38 095 383 9341"}>+380953839341</a>
@@ -110,14 +118,14 @@ function Footer(props) {
       <div className={"footerCopyrightWrapper"}>
         <div className={"footerCopyrightInfo"}>
           <h4 className={"copyrightTitle"}>
-            UDS Systems © 2020 All Rights reserved
+            <FormattedMessage id="UDS.systems.reserved" />
           </h4>
           <div className={"copyrightLinks"}>
             <Link className={"privacyPolicy"} to={"/privacy"}>
-              Privacy Policy
+              <FormattedMessage id="privacy.policy" />
             </Link>
             <Link className={"terms"} to={"/terms"}>
-              Terms and conditions
+              <FormattedMessage id="terms.and.conditions" />
             </Link>
           </div>
         </div>
