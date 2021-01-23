@@ -1,9 +1,14 @@
 import React from "react";
+import { FormattedMessage } from "react-intl";
 
 const translations = {
   download: "Download",
   open: "open",
   ok: "ok",
+  free: "FREE",
+  downloads: "downloads",
+  openings: "openings",
+  price: "price",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 19 GB. <br /> We recommend using Download Master to avoid breakdowns.",
   "free.of.charge": "Free of charge until April, 2021",
@@ -37,6 +42,7 @@ const translations = {
   "privacy.policy": "Privacy Policy",
   "terms.and.conditions": "Terms and conditions",
   "book.call": "Book a call",
+  "more.info": "More info",
 
   // ERRORS,
 
