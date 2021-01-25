@@ -1,3 +1,4 @@
+@import "utils/utils";
 .arrowTop {
   width: 60px;
   height: 40px;
@@ -28,7 +29,7 @@
   font-family: Montserrat;
   display: flex;
   flex-direction: column;
-  padding: 1rem 3rem;
+  padding: 1rem 22rem;
 }
 .cookieContent{
   flex: 0 1 10px !important;
@@ -43,7 +44,7 @@
 .acceptButton{
   width: 100px;
   height: 35px;
-  background-color: #E05E2B !important;
+  background-color: $orange !important;
   color: #ffffff !important;
   font-family: Montserrat;
   transition: all 0.3s;
@@ -57,8 +58,8 @@
   width: 100px;
   height: 35px;
   background-color: #ffffff !important;
-  border: 2px solid #E05E2B !important;
-  color: #E05E2B !important;
+  border: 2px solid $orange !important;
+  color: $orange !important;
   transition: all 0.3s;
   &:hover {
     -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
@@ -68,27 +69,32 @@
 }
 @media screen and (max-width: 1700px){
   .cookieContainer{
-    padding: 0 100px;
+    padding: 0 255px;
   }
 }
 @media screen and (max-width: 1500px){
   .cookieContainer{
-    padding: 0 185px;
+    padding: 0 160px;
   }
 }
 @media screen and (max-width: 1350px){
   .cookieContainer{
-    padding: 0 85px;
+    padding: 0 126px;
   }
 }
 @media screen and (max-width: 1024px){
   .cookieContainer{
-    padding: 0 55px;
+    padding: 0 113px;
+  }
+}
+@media screen and (max-width: 880px){
+  .cookieContainer{
+    padding: 0 78px;
   }
 }
 @media only screen and (max-width: 768px) {
   .cookieContainer{
-    padding: 0 20px;
+    padding: 0 51px;
   }
   .mobileNotification{
     display: block;
@@ -105,6 +111,16 @@
 @media only screen and (max-width: 600px) {
   .cookieContainer{
     padding: 0 20px;
+  }
+}
+@media screen and (max-width: 500px){
+  .cookieContainer{
+    padding: 0 48px;
+  }
+}
+@media screen and (max-width: 375px){
+  .cookieContainer{
+    padding: 0 22px;
   }
 }
 

@@ -293,7 +293,6 @@
   ul {
     margin: 0;
     padding: 10px 0 10px 50px;
-    width: calc(100% - 50px);
   }
   li {
     padding: 0 0 0 22px;
@@ -513,7 +512,6 @@
   .useInfoMobile,
   .additionalInfo,
   .creditionalInfo {
-    //@include paddingsForMobileScreen;
     @include screen768;
   }
   .aboutInfo {
