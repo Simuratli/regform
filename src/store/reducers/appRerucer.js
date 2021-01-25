@@ -1,5 +1,5 @@
 import { ERROR_LOADING_DATA } from "../actions/fullAddonPageAction";
-import { SET_IS_LOADING } from "../types";
+import { SET_IS_LOADING, CHANGE_APP_LANGUAGE } from "../types";
 
 const initStore = {
   isLoading: false,
@@ -16,6 +16,12 @@ export const appReducer = (initialState = initStore, action) => {
       return {
         ...initialState,
         error: action.payload,
+      };
+
+    case CHANGE_APP_LANGUAGE:
+      return {
+        ...initialState,
+        lang: action.payload,
       };
 
     default:

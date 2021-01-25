@@ -1,1 +1,2 @@
 export const SET_IS_LOADING = "SET_IS_LOADING";
+export const CHANGE_APP_LANGUAGE = "CHANGE_APP_LANGUAGE";

@@ -73,6 +73,7 @@ const ErrorModal = () => {
     });
 
     localStorage.clear();
+    sessionStorage.clear()
     return history.push("/");
   }
 
