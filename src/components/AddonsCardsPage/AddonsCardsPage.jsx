@@ -4,6 +4,7 @@ import orangeElement from "../../assets/images/orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useDispatch, useSelector } from "react-redux";
+import { FormattedMessage } from "react-intl";
 // import AddonPaginationCont from "../views/AddonPaginationCont";
 
 const AddonsCardsPage = () => {
@@ -26,19 +27,18 @@ const AddonsCardsPage = () => {
   }, [isError]);
 
   return (
-    <div className={"main_container"}>
-      <div className={"generalTitleBlock"}>
-        <h1 className={"headingParagraph"}>
-          Enhance your system with Dynamics 365 add-ons{" "}
+    <div className="main_container">
+      <div className="generalTitleBlock">
+        <h1 className="headingParagraph">
+          <FormattedMessage id="enhance.system.text" />
         </h1>
         <img
-          className={"orangeElement"}
+          className="orangeElement"
           src={orangeElement}
-          alt={"orange element"}
+          alt="orange element"
         />
-        <p className={"paragraph"}>
-          Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our
-          add-ons and installation guides for free download and use
+        <p className="paragraph">
+          <FormattedMessage id="improve.dynamics.text" />
         </p>
       </div>
       <div className={"card"}>

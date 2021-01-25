@@ -28,102 +28,102 @@ const GeneralWrapper = styled.div`
 `;
 
 const App = () => {
-    const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
-    // const accessToken = authentication.getAccessToken();
-    const [modalActive, setModalActive] = useState(true);
-    const history = useHistory();
-    const state = useSelector((state) => state);
+  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
+  // const accessToken = authentication.getAccessToken();
+  const [modalActive, setModalActive] = useState(true);
+  const history = useHistory();
+  const state = useSelector((state) => state);
 
-    const { app } = state;
-    const { error } = app;
-    const { isError } = error;
+  const { app } = state;
+  const { error } = app;
+  const { isError } = error;
 
-    let backdrop;
+  let backdrop;
 
-    if (sideDrawerOpen) {
-        backdrop = <Backdrop setSideDrawerOpen={setSideDrawerOpen} />;
-    }
+  if (sideDrawerOpen) {
+    backdrop = <Backdrop setSideDrawerOpen={setSideDrawerOpen} />;
+  }
 
-    // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
-    //   history.push("/forgot");
-    // }
+  // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
+  //   history.push("/forgot");
+  // }
 
-    useEffect(() => {
-        isError && history.push("/error-page");
-    }, [isError]);
+  useEffect(() => {
+    isError && history.push("/error-page");
+  }, [isError]);
 
-    useEffect(() => {
-        // ReactGa.initialize([
-        //     {
-        //         trackingId: 'UA-183628794-1',
-        //         gaOptions: {
-        //             name: 'UDS Portal'
-        //         }
-        //     },
-        //     {
-        //         trackingId: 'UA-82280513-1',
-        //         gaOptions: {
-        //             name: 'UDS Website'
-        //         }
-        //     }
-        //
-        //     ]
-        // );
-        ReactGa.initialize("UA-183628794-1");
-        ReactGa.pageview(window.location.pathname + window.location.search);
-        ReactPixel.init("382184772775465");
-        ReactPixel.pageView();
-    }, []);
+  useEffect(() => {
+    // ReactGa.initialize([
+    //     {
+    //         trackingId: 'UA-183628794-1',
+    //         gaOptions: {
+    //             name: 'UDS Portal'
+    //         }
+    //     },
+    //     {
+    //         trackingId: 'UA-82280513-1',
+    //         gaOptions: {
+    //             name: 'UDS Website'
+    //         }
+    //     }
+    //
+    //     ]
+    // );
+    ReactGa.initialize("UA-183628794-1");
+    ReactGa.pageview(window.location.pathname + window.location.search);
+    ReactPixel.init("382184772775465");
+    ReactPixel.pageView();
+  }, []);
 
-    return (
-        <GeneralWrapper>
-            <ScrollArrow />
-            <MainNavigation setSideDrawerOpen={setSideDrawerOpen} />
-            <SideDrawer
-                setSideDrawerOpen={setSideDrawerOpen}
-                sideDrawerOpen={sideDrawerOpen}
+  return (
+    <GeneralWrapper>
+      <ScrollArrow />
+      <MainNavigation setSideDrawerOpen={setSideDrawerOpen} />
+      <SideDrawer
+        setSideDrawerOpen={setSideDrawerOpen}
+        sideDrawerOpen={sideDrawerOpen}
+      />
+      {backdrop}
+      {/* <Cookie /> */}
+      <ModalMobileNotification
+        active={modalActive}
+        setActive={setModalActive}
+      />
+      <Switch>
+        <Route path={"/"} exact component={AddonsCardsPage}>
+          <Redirect to={"/add-ons"} />
+        </Route>
+        <Route path={"/add-ons"} exact component={AddonsCardsPage} />
+        <Route
+          path={"/add-ons/:slug"}
+          exact
+          component={AddonFullPageContainer}
+        />
+        <Route path={"/privacy"} component={Privacy} />
+        <Route path={"/terms"} component={Terms} />
+        <Route path={"/error-page"} component={ErrorPageComp} />
+        {/*<Route*/}
+        {/*  path="/forgot"*/}
+        {/*  component={() => {*/}
+        {/*    window.location.href = "";*/}
+        {/*    return null;*/}
+        {/*  }}*/}
+        {/*/>*/}
+        <Route
+          render={() => (
+            <ErrorPageComp
+              status={404}
+              statusText="The requested url is not found"
             />
-            {backdrop}
-            {/* <Cookie /> */}
-            <ModalMobileNotification
-                active={modalActive}
-                setActive={setModalActive}
-            />
-            <Switch>
-                <Route path={"/"} exact component={AddonsCardsPage}>
-                    <Redirect to={"/add-ons"} />
-                </Route>
-                <Route path={"/add-ons"} exact component={AddonsCardsPage} />
-                <Route
-                    path={"/add-ons/:slug"}
-                    exact
-                    component={AddonFullPageContainer}
-                />
-                <Route path={"/privacy"} component={Privacy} />
-                <Route path={"/terms"} component={Terms} />
-                <Route path={"/error-page"} component={ErrorPageComp} />
-                {/*<Route*/}
-                {/*  path="/forgot"*/}
-                {/*  component={() => {*/}
-                {/*    window.location.href = "";*/}
-                {/*    return null;*/}
-                {/*  }}*/}
-                {/*/>*/}
-                <Route
-                    render={() => (
-                        <ErrorPageComp
-                            status={404}
-                            statusText="The requested /errors is not found"
-                        />
-                    )}
-                />
-            </Switch>
+          )}
+        />
+      </Switch>
 
-            <Footer />
-            <Loader />
-            {/*<ErrorModal />*/}
-        </GeneralWrapper>
-    );
+      <Footer />
+      <Loader />
+      {/*<ErrorModal />*/}
+    </GeneralWrapper>
+  );
 };
 
 export default App;
