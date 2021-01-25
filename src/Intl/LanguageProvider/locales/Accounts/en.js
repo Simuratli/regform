@@ -3,14 +3,14 @@ import { FormattedMessage } from "react-intl";
 
 const translations = {
   download: "Download",
-  open: "open",
+  open: "Open",
   ok: "ok",
   free: "FREE",
   downloads: "downloads",
   openings: "openings",
   price: "price",
   "virtual.machine.text":
-    "*UDS Virtual Machine exceeds 19 GB. <br /> We recommend using Download Master to avoid breakdowns.",
+    "*UDS Virtual Machine exceeds 19 GB.<br /> We recommend using Download Master to avoid breakdowns.",
   "free.of.charge": "Free of charge until April, 2021",
   "about.add.on": "About add-on",
   "how.to.install.and.uninstall": "How to install and uninstall",
@@ -74,8 +74,9 @@ const translations = {
 <p>UDS Systems is located at:</p>
 <ul>
   <li>UDS Systems</li>
-  <li>Lobanovsky Ave. Kyiv city</li>
-  <li>03118 - Kyiv , Ukraine</li>
+  <li>17/31A Kolomyiskyi Lane</li>
+  <li>office 245</li>
+  <li>Kyiv, PO 02000</li>
   <li>380953839341</li>
 </ul>
 
@@ -207,10 +208,11 @@ your acceptance of such change.</p>
         </p>
         <p>UDS Systems is located at:</p>
         <ul>
-          <li>UDS Systems</li>
-          <li>Lobanovsky Ave. Kyiv city</li>
-          <li>03118 - Kyiv , Ukraine</li>
-          <li>380953839341</li>
+           <li>UDS Systems</li>
+           <li>17/31A Kolomyiskyi Lane</li>
+           <li>office 245</li>
+           <li>Kyiv, PO 02000</li>
+           <li>380953839341</li>
         </ul>
 
         <p>
