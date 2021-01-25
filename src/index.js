@@ -14,6 +14,7 @@ import "./assets/fonts/fonts.css";
 import authentication from "./b2c";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import DocumentMeta from "react-document-meta";
+import IntelProviderWrapper from "./Intl/IntlProvider";
 
 function initializeApp(App, store) {
   Webfont.load({
@@ -42,7 +43,9 @@ function initializeApp(App, store) {
       <Provider store={store}>
         <BrowserRouter history={history}>
           <ScrollToTop />
-          <App />
+          <IntelProviderWrapper>
+            <App />
+          </IntelProviderWrapper>
         </BrowserRouter>
       </Provider>
     </DocumentMeta>,

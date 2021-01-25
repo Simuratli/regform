@@ -3,6 +3,7 @@ import CookieConsent from "react-cookie-consent";
 import {Link} from "react-router-dom";
 import "../../scss/base.scss";
 
+
 const Cookie = () => {
     return(
         <>
@@ -28,3 +29,4 @@ const Cookie = () => {
     )
 }
 export default Cookie;
+

@@ -84,7 +84,7 @@ const App = () => {
         sideDrawerOpen={sideDrawerOpen}
       />
       {backdrop}
-      <Cookie />
+      {/* <Cookie /> */}
       <ModalMobileNotification
         active={modalActive}
         setActive={setModalActive}
@@ -113,7 +113,7 @@ const App = () => {
           render={() => (
             <ErrorPageComp
               status={404}
-              statusText="The requested /errors is not found"
+              statusText="The requested url is not found"
             />
           )}
         />

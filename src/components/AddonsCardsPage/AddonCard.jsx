@@ -11,6 +11,7 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
+import { FormattedMessage } from "react-intl";
 
 const AddonCard = ({ addon }) => {
   const state = useSelector((state) => state);
@@ -99,13 +100,19 @@ const AddonCard = ({ addon }) => {
         <NavLink to={"/add-ons/" + slug}>
           <h3 className="cardTitle">{name}</h3>
           <p className="cardDescription">{shortDescription}</p>
-          <h5 className="cardSubTitle">{isFree ? "FREE" : price}</h5>
+          <h5 className="cardSubTitle">
+            {isFree ? <FormattedMessage id="free" /> : <FormattedMessage id="price" />}
+          </h5>
           <div className="description">
             <p className="applicationType">{applicationType}</p>
             {applicationType === "Dynamics 365" ? (
-              <p>{downloads} downloads</p>
+              <p>
+                {downloads} <FormattedMessage id="downloads" />
+              </p>
             ) : (
-              <p>{downloads} openings</p>
+              <p>
+                {downloads} <FormattedMessage id="openings" />
+              </p>
             )}
           </div>
         </NavLink>
@@ -116,7 +123,7 @@ const AddonCard = ({ addon }) => {
               onClick={HandlerTrackerCardMoreInfo}
               className="moreInfoButton"
             >
-              More info
+              <FormattedMessage id="more.info" />
             </button>
           </NavLink>
 
@@ -132,7 +139,11 @@ const AddonCard = ({ addon }) => {
                 : "openButton"
             }
           >
-            {applicationType === "Dynamics 365" ? "Download" : "Open"}
+            {applicationType === "Dynamics 365" ? (
+              <FormattedMessage id="download" />
+            ) : (
+              <FormattedMessage id="open" />
+            )}
           </button>
         </div>
       </div>

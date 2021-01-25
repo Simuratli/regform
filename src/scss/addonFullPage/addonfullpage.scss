@@ -286,7 +286,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 20px auto!important;
+  margin: 20px auto !important;
   background-color: #ffffff;
   @include bigScreen;
 
@@ -307,14 +307,15 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: #ffffff;
+  background-color: #fff;
   @include bigScreen;
   margin-top: 2rem;
 
   ul {
-    padding: 0;
-    margin-left: -20px;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 10px 0 10px 50px;
+    width: calc(100% - 50px);
+
     li {
       padding: 3px 0 0 22px;
       background-position: 3px 14px;
