@@ -210,11 +210,16 @@ const AddonFullPage = ({ addon, intl }) => {
                 >
                   {name} <FormattedMessage id="installation.guide" />
                 </a>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: get(intl, `messages["virtual.machine.text"]`),
-                  }}
-                />
+                {slug === "uds-virtual-machine" ? (
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: get(intl, `messages["virtual.machine.text"]`),
+                    }}
+                  />
+                ) : (
+                  "for a faultless user experience."
+                )}
+                <FormattedMessage id="download" />
                 <a
                   className="installationGuide"
                   href={troubleshootGuidePath}

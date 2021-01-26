@@ -2,7 +2,7 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 
 const translations = {
-  download: "Download",
+  download: " Download",
   open: "Open",
   ok: "ok",
   free: "FREE",

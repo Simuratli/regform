@@ -146,6 +146,7 @@
     margin-top: 0;
   }
   .installationGuide {
+    margin: 0 5px;
     color: $orange;
     &:hover {
       text-decoration: underline;
@@ -361,7 +362,7 @@
     display: flex;
     justify-content: center;
   }
-  p{
+  p {
     text-align: center;
   }
 
@@ -393,7 +394,6 @@
     }
   }
 }
-
 
 @media screen and (max-width: 1700px) {
   .header {

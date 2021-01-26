@@ -74,14 +74,14 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   const { error } = app;
   const { err } = error;
 
-  if (get(err, "status") === 401) {
+  if (get(err, "status") === 500) {
     dispatch({
       type: ERROR_LOADING_DATA,
       payload: { isError: false, message: "", err: null },
     });
 
-    localStorage.clear();
-    history.push("/");
+    sessionStorage.clear();
+    history.push("https://udscustomersdirectory.b2clogin.com/");
   }
 
   if (!get(err, "status", status)) {
