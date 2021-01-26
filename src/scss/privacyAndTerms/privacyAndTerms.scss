@@ -5,6 +5,14 @@
   @include bigScreen;
   color: $card-text-color;
   text-align: justify;
+  padding: 2rem 0;
+  font-family: Montserrat;
+  a{
+    color: $orange;
+    &:hover{
+      text-decoration: underline;
+    }
+  }
 }
 
 @media screen and (max-width: 1350px) {

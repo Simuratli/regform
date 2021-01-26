@@ -182,7 +182,7 @@
   text-align: left;
 
   p {
-    text-align: left;
+    //text-align: left;
     padding: 0;
     margin: 5px 0 0 0;
     background: #fff;
@@ -356,6 +356,14 @@
       text-decoration: underline;
     }
   }
+  ul {
+    @include generalSettingsForBlock;
+    display: flex;
+    justify-content: center;
+  }
+  p{
+    text-align: center;
+  }
 
   img {
     width: 31px;
@@ -366,7 +374,7 @@
 
     & .mailItem {
       padding-left: 25px;
-      background-image: url("../../assets/images/logo_mail.svg");
+      background-image: url("../../assets/images/mail.svg");
       background-position: 0 0;
       background-size: 11%;
       background-repeat: no-repeat;
@@ -386,11 +394,6 @@
   }
 }
 
-.helpInfo ul {
-  @include generalSettingsForBlock;
-  display: flex;
-  justify-content: center;
-}
 
 @media screen and (max-width: 1700px) {
   .header {
