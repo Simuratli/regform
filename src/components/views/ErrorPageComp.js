@@ -53,6 +53,7 @@ const ErrorComp = styled.div`
     line-height: 20px;
     letter-spacing: 0.457143px;
     border: none;
+    font-family: Montserrat;
   }
   .help-err-text {
     font-weight: 500;
@@ -74,14 +75,16 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   const { error } = app;
   const { err } = error;
 
-  if (get(err, "status") === 500) {
+  if (get(err, "status") === 401) {
     dispatch({
       type: ERROR_LOADING_DATA,
       payload: { isError: false, message: "", err: null },
     });
 
     sessionStorage.clear();
-    history.push("https://udscustomersdirectory.b2clogin.com/");
+
+    window.location.href =
+      "https://udscustomersdirectory.b2clogin.com/udscustomersdirectory.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/authorize?response_type=id_token&scope=https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fuser_impersonation%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fwrite%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fread%20openid%20profile&client_id=dd6f04a9-3f48-418c-bd64-76b3465b4ef6&redirect_uri=http%3A%2F%2Flocalhost%3A6420&state=eyJpZCI6ImE2NmM5ZDRiLWRlNzMtNGE4ZS04MWY3LTk2MzBkMDEzZjdmNCIsInRzIjoxNjExNzU1ODc3LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=fe5e3295-4f86-4e77-b652-232a13b1d2b2&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.4.4&client-request-id=27f69934-340a-4697-9d58-76bf8a688ca5&response_mode=fragment";
   }
 
   if (!get(err, "status", status)) {

@@ -60,7 +60,7 @@ const AddonFullPage = ({ addon, intl }) => {
   );
 
   useEffect(() => {
-    document.title = `UDS Portal - ${name.slice(3)}`;
+    document.title = `UDS Add-ons - ${name.slice(3)}`;
   }, [name]);
 
   const handleDownload = () => {

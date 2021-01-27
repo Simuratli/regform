@@ -11,7 +11,7 @@ import { FormattedMessage } from "react-intl";
 import { useDispatch, useSelector } from "react-redux";
 import { changeAppLanguage } from "../store/actions/changeAppLanguage";
 
-const getLang = (lang) => {
+const getFullNameLang = (lang) => {
   switch (lang) {
     case "en":
       return "English";
@@ -75,7 +75,7 @@ function MainNavigation(props) {
           {/*>*/}
           {/*  <div style={{ display: "flex", alignItems: "center" }}>*/}
           {/*    <img src={require("../assets/images/icon-lang.png")} alt="icon" />*/}
-          {/*    <span className="lang-title">{getLang(lang)}</span>*/}
+          {/*    <span className="lang-title">{getFullNameLang(lang)}</span>*/}
           {/*  </div>*/}
           {/*  <img*/}
           {/*    style={{*/}

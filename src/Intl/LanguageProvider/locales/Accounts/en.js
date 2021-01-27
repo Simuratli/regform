@@ -476,8 +476,8 @@ your acceptance of such change.</p>
         <h3>Credit & Contact Information</h3>
         <p>
           If you have any questions, please contact us via
-          <a href={"mailto:info@uds.systems"}>email</a> or
-          <a href={"tel:+380953839341"}>phone</a>.
+          <a href="mailto:info@uds.systems">email</a> or
+          <a href="tel:+380953839341">phone</a>.
         </p>
       </section>`,
 };

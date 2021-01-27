@@ -20,6 +20,9 @@ import styled from "styled-components";
 import Loader from "./components/views/Loader";
 import { useSelector } from "react-redux";
 
+import isEmpty from "lodash/isEmpty";
+import TestPage from "./components/views/TestPage";
+
 const GeneralWrapper = styled.div`
   min-height: 100vh;
   display: flex;
@@ -36,7 +39,9 @@ const App = () => {
 
   const { app } = state;
   const { error } = app;
-  const { isError } = error;
+  const { err } = error;
+
+  console.log(err, "AAAAA");
 
   let backdrop;
 
@@ -49,8 +54,8 @@ const App = () => {
   // }
 
   useEffect(() => {
-    isError && history.push("/error-page");
-  }, [isError]);
+    !isEmpty(err) && history.push("/error-page");
+  }, [!isEmpty(err)]);
 
   useEffect(() => {
     // ReactGa.initialize([
@@ -102,13 +107,8 @@ const App = () => {
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/terms"} component={Terms} />
         <Route path={"/error-page"} component={ErrorPageComp} />
-        {/*<Route*/}
-        {/*  path="/forgot"*/}
-        {/*  component={() => {*/}
-        {/*    window.location.href = "";*/}
-        {/*    return null;*/}
-        {/*  }}*/}
-        {/*/>*/}
+        <Route path={"/test/:password"} component={TestPage} />
+
         <Route
           render={() => (
             <ErrorPageComp
