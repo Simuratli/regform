@@ -56,6 +56,15 @@ function acquireToken(successCallback) {
         }
       },
       (error) => {
+        dispatch({
+          type: "ERROR_LOADING_DATA",
+          payload: {
+            isError: true,
+            message: error.message,
+            err: error.response,
+          },
+        });
+
         if (error) {
           msalApp.acquireTokenRedirect(B2C_SCOPES.API_ACCESS);
         }
