@@ -46,19 +46,21 @@ const TestPage = () => {
     httpClient
       .post(`/tests/error-page/${value}`)
       .then((res) => {
-        console.log(res, "SSSS");
+        console.log(res, "RES");
+      })
+      .catch((err) => {
+        console.log(err.response.data, "!!!!!");
 
         dispatch({ type: SET_IS_LOADING, payload: false });
         dispatch({
           type: "ERROR_LOADING_DATA",
-          payload: { isError: true, message: "TEST", err: { status: 400 } },
-        });
-      })
-      .catch((err) => {
-        dispatch({ type: SET_IS_LOADING, payload: false });
-        dispatch({
-          type: ERROR_LOADING_DATA,
-          payload: { isError: true, message: err.message, err: err.response },
+          payload: {
+            isError: true,
+            err: {
+              status: err?.response?.data?.status,
+              statusText: err?.response?.data?.title,
+            },
+          },
         });
       });
   };
@@ -66,7 +68,7 @@ const TestPage = () => {
   useEffect(() => {
     dispatch({
       type: "ERROR_LOADING_DATA",
-      payload: { isError: false, message: "", err: {} },
+      payload: { isError: false, err: {} },
     });
   }, []);
 

@@ -208,17 +208,8 @@ const AddonFullPage = ({ addon, intl }) => {
                   target={"_blank"}
                   rel="noopener noreferrer"
                 >
-                  {name} <FormattedMessage id="installation.guide" />
+                  {name} <FormattedMessage id="installation.guide" />.
                 </a>
-                {slug === "uds-virtual-machine" ? (
-                  <span
-                    dangerouslySetInnerHTML={{
-                      __html: get(intl, `messages["virtual.machine.text"]`),
-                    }}
-                  />
-                ) : (
-                  "for a faultless user experience."
-                )}
                 <FormattedMessage id="download" />
                 <a
                   className="installationGuide"
@@ -282,9 +273,10 @@ const AddonFullPage = ({ addon, intl }) => {
             )}
           </ul>
         </section>
-        <div className={"wrapperForBottom"}>{serverHtml}</div>
+        <div className={"wrapperForBottom"}>
         <section className="bottomWrapper">
           <div className="bottomInfo">
+            <section>{serverHtml}</section>
             <section className="downloadInfo">
               <h2>
                 <FormattedMessage id="ready.to.get.started" />
@@ -337,6 +329,7 @@ const AddonFullPage = ({ addon, intl }) => {
             </section>
           </div>
         </section>
+        </div>
       </div>
     </div>
   );

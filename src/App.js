@@ -87,7 +87,7 @@ const App = () => {
         sideDrawerOpen={sideDrawerOpen}
       />
       {backdrop}
-      {/* <Cookie /> */}
+      <Cookie />
       <ModalMobileNotification
         active={modalActive}
         setActive={setModalActive}
