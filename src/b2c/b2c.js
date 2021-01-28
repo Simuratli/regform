@@ -24,6 +24,7 @@ let msalApp;
 
 function acquireToken(successCallback) {
   const account = msalApp.getAccount();
+
   if (!account) {
     msalApp.loginRedirect(B2C_SCOPES.API_ACCESS);
   } else {
@@ -56,15 +57,6 @@ function acquireToken(successCallback) {
         }
       },
       (error) => {
-        dispatch({
-          type: "ERROR_LOADING_DATA",
-          payload: {
-            isError: true,
-            message: error.message,
-            err: error.response,
-          },
-        });
-
         if (error) {
           msalApp.acquireTokenRedirect(B2C_SCOPES.API_ACCESS);
         }
