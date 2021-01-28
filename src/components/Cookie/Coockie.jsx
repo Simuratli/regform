@@ -1,6 +1,5 @@
 import React from "react";
 import CookieConsent from "react-cookie-consent";
-import {Link} from "react-router-dom";
 import "../../scss/base.scss";
 
 
@@ -9,20 +8,22 @@ const Cookie = () => {
         <>
             <CookieConsent enableDeclineButton flipButtons
                            location="bottom"
-                           buttonText="Accept"
-                           declineButtonText="Decline"
+                           buttonText="Ok"
+                           declineButtonText="none"
                            buttonClasses={"acceptButton"}
                            declineButtonClasses={"declineButton"}
-                           cookieName="Coockie"
+                           cookieName="Cookie"
                            containerClasses={"cookieContainer"}
                            contentClasses={"cookieContent"}
                            buttonWrapperClasses={"buttons"}
                            buttonStyle={{color: "#4e503b", fontSize: "13px"}}
                            expires={150}
             >
-                We use cookies on this site to enhance your user experience.
-                By continuing to use the service, you agree to our use of cookies as described in the{" "}
-                <Link to={'/privacy'} style={{color: "#FF8F3E", textDecoration: "underline"}}>Privacy Policy.</Link>
+                <p>We use cookies to ensure you an improved user experience and services.
+                    <br/>By using our website, you consent to cookies.</p>
+               <p> To find out more — read our {" "}
+                <a href={'https://uds.systems/privacy-policy'} target={"_blank"}
+                   style={{color: "#FF8F3E", textDecoration: "underline"}}>Privacy Policy.</a></p>
             </CookieConsent>
 
         </>

@@ -25,20 +25,27 @@
 .cookieContainer{
   background-color: #ffffff !important;
   color: #61626A !important;
-  border-top: 1px solid #dee2e6;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
   font-family: Montserrat;
   display: flex;
   flex-direction: column;
-  padding: 1rem 22rem;
+  align-items: center !important;
+  p{
+    text-align: center;
+  }
+  a{
+    text-decoration: none !important;
+    &:hover{
+      text-decoration: underline !important;
+    }
+  }
 }
 .cookieContent{
   flex: 0 1 10px !important;
   padding: 0;
 }
 .buttons{
-  display: flex;
-  align-self: flex-end;
-  padding-right: 3rem;
+  text-align: center;
 }
 
 .acceptButton{
@@ -55,17 +62,7 @@
   }
 }
 .declineButton{
-  width: 100px;
-  height: 35px;
-  background-color: #ffffff !important;
-  border: 2px solid $orange !important;
-  color: $orange !important;
-  transition: all 0.3s;
-  &:hover {
-    -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-    -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-    box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-  }
+  display: none;
 }
 @media screen and (max-width: 1700px){
   .cookieContainer{
