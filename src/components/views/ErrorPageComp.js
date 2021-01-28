@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import AnimatedComponent from "./AnimatedComponent";
+import AnimatedContainer from "../../containers/AnimatedContainer";
 
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
@@ -92,7 +92,7 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   }
 
   return (
-    <AnimatedComponent>
+    <AnimatedContainer>
       <ErrorComp>
         <div className="title">{get(err, "status", status)}</div>
         <div className="text">{get(err, "statusText", statusText)}</div>
@@ -154,7 +154,7 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
           </g>
         </svg>
       </ErrorComp>
-    </AnimatedComponent>
+    </AnimatedContainer>
   );
 };
 

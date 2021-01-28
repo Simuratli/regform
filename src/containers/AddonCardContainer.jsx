@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 // COMPONENTS
 
-import AnimatedComponent from "../components/views/AnimatedComponent";
+import AnimatedContainer from "./AnimatedContainer";
 import { getAddonCard } from "../store/actions/addonCardAction";
 import { FakeCardRow } from "../components/views/FakeCardRow";
 
@@ -30,9 +30,9 @@ const AddonCardContainer = () => {
         ? get(addonCard, "cards", [])
             .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
             .map((addon) => (
-              <AnimatedComponent withScale key={addon.id}>
+              <AnimatedContainer withScale key={addon.id}>
                 <AddonCard addon={addon} />
-              </AnimatedComponent>
+              </AnimatedContainer>
             ))
         : range(0, 6, 1).map((r) => <FakeCardRow key={r} />)}
     </>

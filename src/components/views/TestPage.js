@@ -29,7 +29,7 @@ const TestCont = styled.div`
 `;
 
 const TestPage = () => {
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState();
 
   const { password } = useParams();
   const history = useHistory();
@@ -44,14 +44,14 @@ const TestPage = () => {
     dispatch({ type: SET_IS_LOADING, payload: true });
 
     httpClient
-      .post(`api/test/error-page/${value}`)
+      .post(`/tests/error-page/${value}`)
       .then((res) => {
         console.log(res, "SSSS");
 
         dispatch({ type: SET_IS_LOADING, payload: false });
         dispatch({
           type: "ERROR_LOADING_DATA",
-          payload: { isError: true, message: "TEST", err: { status: 500 } },
+          payload: { isError: true, message: "TEST", err: { status: 400 } },
         });
       })
       .catch((err) => {

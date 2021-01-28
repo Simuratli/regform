@@ -41,8 +41,6 @@ const App = () => {
   const { error } = app;
   const { err } = error;
 
-  console.log(err, "AAAAA");
-
   let backdrop;
 
   if (sideDrawerOpen) {

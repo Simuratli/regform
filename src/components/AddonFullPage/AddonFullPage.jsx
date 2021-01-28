@@ -6,7 +6,7 @@ import "../../scss/addonFullPage/addonfullpage.scss";
 import YouTube from "react-youtube";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
-import AnimatedComponent from "../views/AnimatedComponent";
+import AnimatedContainer from "../../containers/AnimatedContainer";
 
 import { getDownloadFile } from "../../store/actions/downloadFileAction";
 import { getFile } from "../../store/actions/fileAction";
@@ -115,7 +115,7 @@ const AddonFullPage = ({ addon, intl }) => {
     <div className="addonFullPage">
       <div className="headerWrapper" style={{ maxWidth: "3000px" }}>
         <section className="header">
-          <AnimatedComponent>
+          <AnimatedContainer>
             <div className="headerLeftSide">
               <h1>{name}</h1>
               {applicationType === "Dynamics 365" ? (
@@ -154,7 +154,7 @@ const AddonFullPage = ({ addon, intl }) => {
                 </>
               )}
             </div>
-          </AnimatedComponent>
+          </AnimatedContainer>
           <div className="headerRightSide">
             <div className="videoTutorial">
               <img

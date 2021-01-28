@@ -17,7 +17,7 @@ const Animation = styled.div`
   }
 `;
 
-const AnimatedComponent = ({ children, style, withScale = false }) => {
+const AnimatedContainer = ({ children, style, withScale = false }) => {
   return (
     <Animation withScale={withScale} style={style}>
       {children}
@@ -25,4 +25,4 @@ const AnimatedComponent = ({ children, style, withScale = false }) => {
   );
 };
 
-export default AnimatedComponent;
+export default AnimatedContainer;
