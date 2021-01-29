@@ -30,7 +30,7 @@ function acquireToken(successCallback) {
   } else {
     msalApp.acquireTokenSilent(B2C_SCOPES.API_ACCESS).then(
       (accessToken) => {
-        console.log(accessToken, "accessToken");
+        // console.log(accessToken, "accessToken");
 
         if (msalAppConfig.cache.cacheLocation === LOCAL_STORAGE) {
           window.localStorage.setItem(
@@ -58,6 +58,7 @@ function acquireToken(successCallback) {
       },
       (error) => {
         if (error) {
+          alert(error.message);
           msalApp.acquireTokenRedirect(B2C_SCOPES.API_ACCESS);
         }
       }

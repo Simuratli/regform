@@ -28,7 +28,7 @@ function initializeApp(App, store) {
   const meta = {
     description:
       "Enhance your system with Dynamics 365 add-ons,Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our add-ons and installation guides for free download and use",
-    // canonical: "http://example.com/path/to/page",
+    canonical: "https://my.uds.systems/add-ons",
     meta: {
       charset: "utf-8",
       name: {

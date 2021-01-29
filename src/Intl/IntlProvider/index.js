@@ -10,8 +10,6 @@ const IntelProviderWrapper = (props) => {
 
   const { lang } = useSelector(({ app }) => app);
 
-  console.log("lang", lang);
-
   const locale = navigator.language.slice(0, 2) || "en";
 
   const currentAppLocale = AppLocale[lang];
