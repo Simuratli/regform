@@ -13,7 +13,7 @@ import { getLink } from "../../store/actions/openButtonAction";
 import get from "lodash/get";
 import { FormattedMessage } from "react-intl";
 
-const AddonCard = ({ addon }) => {
+const AddonCard = ({ addon, className }) => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { file } = state;
@@ -27,7 +27,7 @@ const AddonCard = ({ addon }) => {
     applicationType,
     downloads = 0,
     price = 0,
-    resourcePath,
+    resourcePath = "",
   } = addon;
 
   const handleDownload = () => {
@@ -86,7 +86,7 @@ const AddonCard = ({ addon }) => {
   };
 
   return (
-    <div key={slug} className={"addonsCard"}>
+    <div key={slug} className={`addonsCard ${className}`}>
       <NavLink to={"/add-ons/" + slug}>
         <div className={"cardLogo"}>
           <img
@@ -99,9 +99,13 @@ const AddonCard = ({ addon }) => {
       <div className="cardBody">
         <NavLink to={"/add-ons/" + slug}>
           <h3 className="cardTitle">{name}</h3>
-          <p className="cardDescription">{shortDescription}</p>
+          <p className="cardDescription">{shortDescription || "D"}</p>
           <h5 className="cardSubTitle">
-            {isFree ? <FormattedMessage id="free" /> : <FormattedMessage id="price" />}
+            {isFree ? (
+              <FormattedMessage id="free" />
+            ) : (
+              <FormattedMessage id="price" />
+            )}
           </h5>
           <div className="description">
             <p className="applicationType">{applicationType}</p>

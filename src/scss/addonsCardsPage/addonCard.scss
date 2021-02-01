@@ -1,13 +1,13 @@
 @import "../utils/utils";
 
 .addonsCard {
-  background-image: url("../../assets/images/addons_card_bg.svg");
+  background: #fff url("../../assets/images/addons_card_bg.svg");
   background-repeat: no-repeat;
   background-size: 100%;
   border: 10px solid $light-blue;
   padding: 15px 25px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   position: relative;
   height: 33rem;
 
@@ -55,6 +55,7 @@
 
     .downloadButton {
       width: 130px;
+      margin: 0 0 0 40px;
     }
   }
 
@@ -76,6 +77,10 @@
     top: 13rem;
     font-size: 16px;
     line-height: 20px;
+
+    p {
+      font-size: 16px;
+    }
   }
 
   .moreInfoButton {
@@ -85,9 +90,9 @@
     color: $orange;
     font-family: Montserrat;
     font-weight: bold;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     outline: none;
-    transition: ease-in-out .3s;
+    transition: ease-in-out 0.3s;
 
     &:hover {
       -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
@@ -96,7 +101,6 @@
     }
   }
 }
-
 
 @media screen and (max-width: 1500px) {
   .addonsCard {
@@ -149,18 +153,15 @@
 
       .moreInfoButton {
         width: 122px;
-
       }
     }
   }
-
 }
 
 @media screen and (max-width: 1200px) {
   .addonsCard .cardsButtons .moreInfoButton {
     width: 105px;
     font-size: 12px;
-
   }
   .addonsCard .cardsButtons .downloadButton {
     width: 105px;
@@ -170,7 +171,6 @@
     width: 105px;
     font-size: 12px;
   }
-
 }
 
 @media screen and (max-width: 1024px) {
@@ -189,11 +189,9 @@
     .cardDescription {
       font-size: 15px;
       text-align: justify;
-
     }
 
     .cardAction {
-
       .cardSubTitle {
         font-size: 16px;
         text-transform: uppercase;
@@ -201,7 +199,6 @@
         position: relative;
         top: 40px;
       }
-
     }
 
     .description {
@@ -210,7 +207,6 @@
     }
 
     .cardsButtons {
-
       .downloadButton {
         font-size: 12px;
       }
@@ -224,9 +220,7 @@
       }
     }
   }
-
 }
-
 
 @media screen and (max-width: 700px) {
   .addonsCard {
@@ -234,11 +228,4 @@
       font-size: 12px;
     }
   }
-
 }
-
-
-
-
-
-

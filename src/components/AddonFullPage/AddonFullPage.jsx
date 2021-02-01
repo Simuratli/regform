@@ -15,6 +15,7 @@ import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
 import { FormattedMessage, injectIntl } from "react-intl";
+import AddonYouMayLikeCont from "../AddonYouMayLikeCont/index";
 
 const AddonFullPage = ({ addon, intl }) => {
   const state = useSelector((state) => state);
@@ -274,61 +275,65 @@ const AddonFullPage = ({ addon, intl }) => {
           </ul>
         </section>
         <div className={"wrapperForBottom"}>
-        <section className="bottomWrapper">
-          <div className="bottomInfo">
-            <section>{serverHtml}</section>
-            <section className="downloadInfo">
-              <h2>
-                <FormattedMessage id="ready.to.get.started" />
-              </h2>
-              {applicationType === "Dynamics 365" ? (
-                <>
+          <section className="bottomWrapper">
+            <div className="bottomInfo">
+              <section>{serverHtml}</section>
+              <section className="downloadInfo">
+                <h2>
+                  <FormattedMessage id="ready.to.get.started" />
+                </h2>
+                {applicationType === "Dynamics 365" ? (
+                  <>
+                    <button
+                      onClick={handleMethodsForBottomDownload}
+                      className="downloadButton"
+                    >
+                      <FormattedMessage id="download" />
+                    </button>
+                  </>
+                ) : (
                   <button
-                    onClick={handleMethodsForBottomDownload}
-                    className="downloadButton"
+                    onClick={() => HandlerTrackerForOpen("Bottom")}
+                    className="openButton"
                   >
-                    <FormattedMessage id="download" />
+                    <FormattedMessage id="open" />
                   </button>
-                </>
-              ) : (
-                <button
-                  onClick={() => HandlerTrackerForOpen("Bottom")}
-                  className="openButton"
-                >
-                  <FormattedMessage id="open" />
-                </button>
-              )}
-            </section>
-            <section className="helpInfo">
-              <h2>
-                <FormattedMessage id="need.help" />
-              </h2>
-              <p>
-                <FormattedMessage id="need.help.text" />
-              </p>
-              <ul className="helpList">
-                <li className="mailItem">
-                  <a
-                    className="mail"
-                    href="mailto:portal@uds.systems"
-                    rel="noreferrer noopener"
-                  >
-                    portal@uds.systems
-                  </a>
-                </li>
-                <li className="skypeItem">
-                  <a
-                    className="skype"
-                    href="skype:live:uds_ddt?chat"
-                    rel="noopener noreferrer"
-                  >
-                    uds.systems
-                  </a>
-                </li>
-              </ul>
-            </section>
-          </div>
-        </section>
+                )}
+              </section>
+              <section className="helpInfo">
+                <h2>
+                  <FormattedMessage id="need.help" />
+                </h2>
+                <p>
+                  <FormattedMessage id="need.help.text" />
+                </p>
+                <ul className="helpList">
+                  <li className="mailItem">
+                    <a
+                      className="mail"
+                      href="mailto:portal@uds.systems"
+                      rel="noreferrer noopener"
+                    >
+                      portal@uds.systems
+                    </a>
+                  </li>
+                  <li className="skypeItem">
+                    <a
+                      className="skype"
+                      href="skype:live:uds_ddt?chat"
+                      rel="noopener noreferrer"
+                    >
+                      uds.systems
+                    </a>
+                  </li>
+                </ul>
+              </section>
+            </div>
+            <AddonYouMayLikeCont
+              isVirtualMachine={slug === "uds-virtual-machine"}
+              addon={addon}
+            />
+          </section>
         </div>
       </div>
     </div>

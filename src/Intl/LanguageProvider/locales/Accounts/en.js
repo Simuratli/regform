@@ -42,6 +42,7 @@ const translations = {
   "terms.and.conditions": "Terms and conditions",
   "book.call": "Book a call",
   "more.info": "More info",
+  "you.may.also.like": "You may also like",
 
   // ERRORS,
 
