@@ -37,7 +37,7 @@ const translations = {
   "UDS.website": "UDS Website",
   "add.ons": "Add-ons",
   "contact.us": "Contact Us",
-  "UDS.systems.reserved": "UDS Systems © 2020 All Rights reserved",
+  "UDS.systems.reserved": "UDS Systems © 2021 All Rights reserved",
   "privacy.policy": "Privacy Policy",
   "terms.and.conditions": "Terms and conditions",
   "book.call": "Book a call",

@@ -56,22 +56,6 @@ const App = () => {
   }, [!isEmpty(err)]);
 
   useEffect(() => {
-    // ReactGa.initialize([
-    //     {
-    //         trackingId: 'UA-183628794-1',
-    //         gaOptions: {
-    //             name: 'UDS Portal'
-    //         }
-    //     },
-    //     {
-    //         trackingId: 'UA-82280513-1',
-    //         gaOptions: {
-    //             name: 'UDS Website'
-    //         }
-    //     }
-    //
-    //     ]
-    // );
     ReactGa.initialize("UA-183628794-1");
     ReactGa.pageview(window.location.pathname + window.location.search);
     ReactPixel.init("382184772775465");
