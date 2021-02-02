@@ -5,12 +5,10 @@ export const AddonsBox = styled.div`
   flex-direction: column;
   width: 100%;
   background: ${() =>
-    `url(${require("../../assets/images/addon_full_page_header_bg.svg")}) no-repeat center`};
-  background-size: cover;
+    `#383680  url(${require("../../assets/images/you-may-also-like.svg")}) no-repeat top center`};
   justify-content: center;
   align-items: center;
-  padding: 75px 20px;
-  margin: 60px 0 0 0;
+  padding: 0 0 6% 0;
 
   .addons-cont {
     display: flex;
@@ -25,12 +23,24 @@ export const AddonsBox = styled.div`
     text-align: center;
     letter-spacing: -0.2px;
     color: #fff;
-    margin: 20px 0;
+    margin: 15% 0 20px 0;
   }
 
   .addon-card {
     margin: 30px;
     min-width: 360px;
     max-width: 360px;
+  }
+
+  @media (max-width: 1000px) {
+    .title {
+      margin: 20% 0 20px 0;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .title {
+      margin: 30% 0 20px 0;
+    }
   }
 `;
