@@ -136,6 +136,19 @@
   p {
     @include paragraphForBlocksOnFullPage;
   }
+  .technicalInfo{
+    margin-top: 2rem;
+    ul{
+      padding-left: 2rem;
+    }
+    p{
+      padding: 0;
+      text-align: left;
+      background-color: #FFFFFF;
+    }
+  }
+
+
 }
 
 .installInfo {
@@ -177,18 +190,18 @@
   letter-spacing: -0.1px;
 }
 
-.pageTables {
-  display: flex;
-  align-items: center;
-  text-align: left;
-
-  p {
-    //text-align: left;
-    padding: 0;
-    margin: 5px 0 0 0;
-    background: #fff;
-  }
-}
+//.pageTables {
+//  display: flex;
+//  align-items: center;
+//  text-align: left;
+//
+//  p {
+//    //text-align: left;
+//    padding: 0;
+//    margin: 5px 0 0 0;
+//    background: #fff;
+//  }
+//}
 
 .useInfo {
   margin: 2rem 0;
@@ -288,12 +301,13 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  margin: 20px auto !important;
+  //margin: 20px auto !important;
   background-color: #ffffff;
   @include bigScreen;
 
   ul {
     padding: 0;
+
   }
   li {
     padding: 0 0 0 22px;
@@ -301,6 +315,10 @@
     background-repeat: no-repeat;
     background-image: url("../../assets/images/ellipse.svg");
   }
+  .noListItem{
+    background-image: none;
+  }
+
 }
 
 .creditionalInfo {
