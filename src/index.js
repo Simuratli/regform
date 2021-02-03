@@ -27,7 +27,7 @@ function initializeApp(App, store) {
 
   const meta = {
     description:
-      "Enhance your system with Dynamics 365 add-ons,Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our add-ons and installation guides for free download and use",
+      "UDS Portal is a multifunctional service aimed to improve your Dynamics 365. Here you can try smart and free add-ons or request a team of UDS professions to support your business.",
     canonical: "https://my.uds.systems/add-ons",
     meta: {
       charset: "utf-8",

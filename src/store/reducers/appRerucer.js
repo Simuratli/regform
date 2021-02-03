@@ -1,16 +1,24 @@
 import { ERROR_LOADING_DATA } from "../actions/fullAddonPageAction";
-import { SET_IS_LOADING, CHANGE_APP_LANGUAGE } from "../types";
+import {
+  SET_IS_LOADING,
+  CHANGE_APP_LANGUAGE,
+  SET_ADDONS_SORT_BY,
+} from "../types";
 
 const initStore = {
   isLoading: false,
   error: { isError: false, message: "", err: null },
   lang: "en",
+  addonsSortBy: "All",
 };
 
 export const appReducer = (initialState = initStore, action) => {
   switch (action.type) {
     case SET_IS_LOADING:
       return { ...initialState, isLoading: action.payload };
+
+    case SET_ADDONS_SORT_BY:
+      return { ...initialState, addonsSortBy: action.payload };
 
     case ERROR_LOADING_DATA:
       return {

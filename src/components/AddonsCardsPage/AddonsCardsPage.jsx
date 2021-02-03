@@ -5,7 +5,7 @@ import AddonCardContainer from "../../containers/AddonCardContainer";
 import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
-import AddonPaginationCont from "../views/AddonPaginationCont";
+import { FilterAddonsComponent } from "../views/FilterAddonsComponent/index";
 
 const AddonsCardsPage = () => {
   const state = useSelector((state) => state);
@@ -41,6 +41,9 @@ const AddonsCardsPage = () => {
           <FormattedMessage id="improve.dynamics.text" />
         </p>
       </div>
+
+      <FilterAddonsComponent />
+
       <div className={"card"}>
         <AddonCardContainer />
       </div>

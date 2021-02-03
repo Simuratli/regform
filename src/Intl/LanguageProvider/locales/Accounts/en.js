@@ -8,6 +8,8 @@ const translations = {
   downloads: "downloads",
   openings: "openings",
   price: "price",
+  technology: "Technology:",
+  "sort.by": "Sort by:",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 19 GB.<br /> We recommend using Download Master to avoid breakdowns.",
   "free.of.charge": "Free of charge until April, 2021",

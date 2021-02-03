@@ -8,27 +8,27 @@ import logout from "../assets/images/logout.png";
 import "../../src/scss/toggleButton/DrawerToggleButton.scss";
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 import { FormattedMessage } from "react-intl";
-import { useDispatch, useSelector } from "react-redux";
-import { changeAppLanguage } from "../store/actions/changeAppLanguage";
+// import { useDispatch, useSelector } from "react-redux";
+// import { changeAppLanguage } from "../store/actions/changeAppLanguage";
 
-const getFullNameLang = (lang) => {
-  switch (lang) {
-    case "en":
-      return "English";
-    case "da":
-      return "German";
-    default:
-      return lang;
-  }
-};
+// const getFullNameLang = (lang) => {
+//   switch (lang) {
+//     case "en":
+//       return "English";
+//     case "da":
+//       return "German";
+//     default:
+//       return lang;
+//   }
+// };
 
 function MainNavigation(props) {
-  const state = useSelector(({ app }) => app);
-  const { lang } = state;
-
-  const dispatch = useDispatch();
-
-  const [isOpenLangSelect, setIsOpenLangSelect] = useState(false);
+  // const state = useSelector(({ app }) => app);
+  // const { lang } = state;
+  //
+  // const dispatch = useDispatch();
+  //
+  // const [isOpenLangSelect, setIsOpenLangSelect] = useState(false);
 
   return (
     <div className={"fullWidthWrapper"}>

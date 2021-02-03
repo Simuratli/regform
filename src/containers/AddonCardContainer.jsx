@@ -16,7 +16,18 @@ import range from "lodash/range";
 const AddonCardContainer = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { addonCard } = state;
+  const { addonCard, app } = state;
+  const { addonsSortBy } = app;
+
+  console.log(addonCard.cards, addonsSortBy, "addonCard");
+
+  const filteredAddons = get(addonCard, "cards", []).length
+    ? get(addonCard, "cards")
+        .filter((r) =>
+          addonsSortBy === "All" ? true : r?.applicationType === addonsSortBy
+        )
+        .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
+    : [];
 
   useEffect(() => {
     if (!get(addonCard, "cards", []).length) {
@@ -24,16 +35,16 @@ const AddonCardContainer = () => {
     }
   }, []);
 
+  useEffect(() => {}, [addonsSortBy]);
+
   return (
     <>
       {get(addonCard, "cards", []).length
-        ? get(addonCard, "cards", [])
-            .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
-            .map((addon) => (
-              <AnimatedContainer withScale key={addon.id}>
-                <AddonCard addon={addon} />
-              </AnimatedContainer>
-            ))
+        ? filteredAddons.map((addon) => (
+            <AnimatedContainer withScale key={addon.id}>
+              <AddonCard addon={addon} />
+            </AnimatedContainer>
+          ))
         : range(0, 6, 1).map((r) => <FakeCardRow key={r} />)}
     </>
   );
