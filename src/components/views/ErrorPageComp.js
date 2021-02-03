@@ -120,6 +120,7 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
         </button>
 
         <svg
+          style={{ margin: "40px 0 0 0" }}
           width="601"
           height="163"
           viewBox="0 0 601 163"
