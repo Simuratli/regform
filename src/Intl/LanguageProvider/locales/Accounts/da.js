@@ -33,7 +33,7 @@ const translations = {
     "The present mobile version provides general information about UDS services and products. DA",
   "enhance.system.text": "Enhance your system with Dynamics 365 add-ons DA",
   "improve.dynamics.text":
-    "Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our add-ons and installation guides for free download and use DA",
+    "UDS team aims to iron out difficulties that an average Dynamics 365 user usually faces. That is why we bring to life easy-to-use smart solutions to guarantee you convenience. DA",
   links: "Links DA",
   "UDS.website": "UDS Website DA",
   "add.ons": "Add-ons DA",

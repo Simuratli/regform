@@ -34,7 +34,7 @@ const translations = {
     "The present mobile version provides general information about UDS services and products.",
   "enhance.system.text": "Enhance your system with Dynamics 365 add-ons",
   "improve.dynamics.text":
-    "Improve your Dynamics 365 system and Dynamics 365 Portal. We offer our add-ons and installation guides for free download and use",
+    "UDS team aims to iron out difficulties that an average Dynamics 365 user usually faces. That is why we bring to life easy-to-use smart solutions to guarantee you convenience.",
   links: "Links",
   "UDS.website": "UDS Website",
   "add.ons": "Add-ons",
