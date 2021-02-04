@@ -1,5 +1,3 @@
-import React from "react";
-
 const translations = {
   download: " Download",
   open: "Open",
@@ -8,7 +6,7 @@ const translations = {
   downloads: "downloads",
   openings: "openings",
   price: "price",
-  technology: "Technology:",
+  type: "Type:",
   "sort.by": "Sort by:",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 19 GB.<br /> We recommend using Download Master to avoid breakdowns.",

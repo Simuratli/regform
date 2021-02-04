@@ -55,7 +55,7 @@ export const FilterAddonsComponent = () => {
           <FormattedMessage id="sort.by" />
         </span>
         <span className="sort-box">
-          <FormattedMessage id="technology" /> <b>{sortBy}</b>
+          <FormattedMessage id="type" /> <b>{sortBy}</b>
           <img
             className="arrow"
             src={require("../../../assets/images/select-arr.png")}
@@ -85,7 +85,7 @@ export const FilterAddonsComponent = () => {
                         alignItems: "center",
                       }}
                     >
-                      <span style={{ margin: "0 0 0 15px" }}>{name}</span>
+                      <span>{name}</span>
                     </div>
                   </div>
                 );
