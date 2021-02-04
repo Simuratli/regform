@@ -6,9 +6,9 @@ export const ERROR_LOADING_DATA = "ERROR LOADING DATA";
 
 export const getAddonCard = () => {
   return (dispatch) => {
-    const dataFromSessionStorage = JSON.parse(
-        localStorage.getItem("cardsArr")
-    );
+    // const dataFromSessionStorage = JSON.parse(
+    //   sessionStorage.getItem("cardsArr")
+    // );
     //
     // if (dataFromSessionStorage) {
     //   return dispatch({
@@ -25,7 +25,7 @@ export const getAddonCard = () => {
         dispatch({ type: CARDS_DATA_LOADED, payload: res.data });
         dispatch({ type: SET_IS_LOADING, payload: false });
 
-        localStorage.setItem("cardsArr", JSON.stringify(res.data));
+        sessionStorage.setItem("cardsArr", JSON.stringify(res.data));
       })
       .catch((err) => {
         dispatch({
