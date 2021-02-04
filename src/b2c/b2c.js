@@ -58,7 +58,6 @@ function acquireToken(successCallback) {
       },
       (error) => {
         if (error) {
-          alert(error.message);
           msalApp.acquireTokenRedirect(B2C_SCOPES.API_ACCESS);
         }
       }
