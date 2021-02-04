@@ -1,8 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { SortAddonsBox } from "./styles";
 import { FormattedMessage } from "react-intl";
+
+function useOutsideAlerter(ref) {
+  const [isOutsideClick, setIsOutsideClick] = useState(false);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (ref.current && !ref.current.contains(event.target)) {
+        setIsOutsideClick(true);
+      }
+    }
+
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [ref]);
+
+  return { isOutsideClick, setIsOutsideClick };
+}
 
 export const FilterAddonsComponent = () => {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
@@ -12,13 +33,22 @@ export const FilterAddonsComponent = () => {
   );
 
   const dispatch = useDispatch();
+  const wrapperRef = useRef(null);
+
+  const { isOutsideClick, setIsOutsideClick } = useOutsideAlerter(wrapperRef);
+
+  useEffect(() => {
+    isOutsideClick && setIsOpenSelect(false);
+  }, [isOutsideClick]);
 
   return (
     <SortAddonsBox
       onClick={() => {
+        setIsOutsideClick(false);
         setIsOpenSelect((pr) => !pr);
       }}
       isOpenSelect={isOpenSelect}
+      ref={wrapperRef}
     >
       <div style={{ display: "flex", alignItems: "center" }}>
         <span className="title">
@@ -36,18 +66,19 @@ export const FilterAddonsComponent = () => {
               {[
                 { type: "All", name: "All" },
                 { type: "Dynamics 365", name: "Dynamics 365" },
-                { type: "Portal", name: "Online" },
+                { type: "Portal", name: "Portal" },
               ].map(({ type, name }) => {
                 return (
                   <div
                     key={type}
                     className={`row  ${type === sortBy && "choosen"}`}
                     onClick={(e) => {
+                      e.preventDefault();
                       e.stopPropagation();
                       setSortBy(name);
-                      setIsOpenSelect(false);
                       dispatch({ type: "SET_ADDONS_SORT_BY", payload: type });
                       localStorage.setItem("sortAddonsBy", type);
+                      setIsOpenSelect(false);
                     }}
                   >
                     <div

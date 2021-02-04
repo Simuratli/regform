@@ -36,7 +36,6 @@ export const SortAddonsBox = styled.div`
     left: 0;
     background: #fff;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 4px;
     overflow: hidden;
     color: #61626a;
 
