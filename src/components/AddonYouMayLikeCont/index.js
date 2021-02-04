@@ -4,17 +4,16 @@ import { AddonsBox } from "./style";
 import { FormattedMessage } from "react-intl";
 
 const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
-  const adonCardsFromSS =
-    JSON.parse(sessionStorage.getItem("cardsArr")).filter(
-      (r) => r.id !== addon.id
-    ) || [];
+  const adonCardsFromSS = JSON.parse(localStorage.getItem("cardsArr"));
 
-  const randomAddons =
-    adonCardsFromSS
-      .sort(function () {
-        return 0.5 - Math.random();
-      })
-      .slice(0, 2) || [];
+  const randomAddons = adonCardsFromSS
+    ? adonCardsFromSS
+        .filter((r) => r.id !== addon.id)
+        .sort(function () {
+          return 0.5 - Math.random();
+        })
+        .slice(0, 2)
+    : [];
 
   return (
     <AddonsBox isVirtualMachine={isVirtualMachine}>
