@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SortAddonsBox } from "./styles";
 import { FormattedMessage } from "react-intl";
 
-function useOutsideAlerter(ref) {
+function useOutsideClick(ref) {
   const [isOutsideClick, setIsOutsideClick] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const FilterAddonsComponent = () => {
   const dispatch = useDispatch();
   const wrapperRef = useRef(null);
 
-  const { isOutsideClick, setIsOutsideClick } = useOutsideAlerter(wrapperRef);
+  const { isOutsideClick, setIsOutsideClick } = useOutsideClick(wrapperRef);
 
   useEffect(() => {
     isOutsideClick && setIsOpenSelect(false);
