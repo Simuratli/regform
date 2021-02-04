@@ -19,12 +19,14 @@ const AddonCardContainer = () => {
   const { addonCard, app } = state;
   const { addonsSortBy } = app;
 
-  console.log(addonCard.cards, addonsSortBy, "addonCard");
+  const sortAddonsType = localStorage.getItem("sortAddonsBy") || addonsSortBy;
 
   const filteredAddons = get(addonCard, "cards", []).length
     ? get(addonCard, "cards")
         .filter((r) =>
-          addonsSortBy === "All" ? true : r?.applicationType === addonsSortBy
+          sortAddonsType === "All"
+            ? true
+            : r?.applicationType === sortAddonsType
         )
         .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
     : [];

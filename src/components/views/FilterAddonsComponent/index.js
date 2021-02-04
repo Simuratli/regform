@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { useDispatch } from "react-redux";
 import { SortAddonsBox } from "./styles";
@@ -6,7 +6,10 @@ import { FormattedMessage } from "react-intl";
 
 export const FilterAddonsComponent = () => {
   const [isOpenSelect, setIsOpenSelect] = useState(false);
-  const [sortBy, setSortBy] = useState("All");
+
+  const [sortBy, setSortBy] = useState(
+    localStorage.getItem("sortAddonsBy") || "All"
+  );
 
   const dispatch = useDispatch();
 
@@ -44,6 +47,7 @@ export const FilterAddonsComponent = () => {
                       setSortBy(name);
                       setIsOpenSelect(false);
                       dispatch({ type: "SET_ADDONS_SORT_BY", payload: type });
+                      localStorage.setItem("sortAddonsBy", type);
                     }}
                   >
                     <div
