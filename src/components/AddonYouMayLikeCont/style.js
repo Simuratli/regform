@@ -23,7 +23,7 @@ export const AddonsBox = styled.div`
     text-align: center;
     letter-spacing: -0.2px;
     color: #fff;
-    margin: 15% 0 20px 0;
+    margin: 20% 0 20px 0;
   }
 
   .addon-card {
