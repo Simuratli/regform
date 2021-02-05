@@ -73,4 +73,12 @@ export const SortAddonsBox = styled.div`
     right: 20px;
     top: 40%;
   }
+
+  .type {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: calc(100% - 5px);
+  }
 `;

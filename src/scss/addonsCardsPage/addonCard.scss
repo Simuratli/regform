@@ -95,9 +95,9 @@
     transition: ease-in-out 0.3s;
 
     &:hover {
-      -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
-      -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
-      box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
+      -webkit-box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
+      -moz-box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
+      box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
     }
   }
 }

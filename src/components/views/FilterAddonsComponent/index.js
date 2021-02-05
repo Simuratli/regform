@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { SortAddonsBox } from "./styles";
 import { FormattedMessage } from "react-intl";
 
-function useOutsideClick(ref) {
+function useOutsideAlerter(ref) {
   const [isOutsideClick, setIsOutsideClick] = useState(false);
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export const FilterAddonsComponent = () => {
   const dispatch = useDispatch();
   const wrapperRef = useRef(null);
 
-  const { isOutsideClick, setIsOutsideClick } = useOutsideClick(wrapperRef);
+  const { isOutsideClick, setIsOutsideClick } = useOutsideAlerter(wrapperRef);
 
   useEffect(() => {
     isOutsideClick && setIsOpenSelect(false);
@@ -73,6 +73,7 @@ export const FilterAddonsComponent = () => {
                     key={type}
                     className={`row  ${type === sortBy && "choosen"}`}
                     onClick={(e) => {
+                      e.preventDefault();
                       setSortBy(name);
                       dispatch({ type: "SET_ADDONS_SORT_BY", payload: type });
                       localStorage.setItem("sortAddonsBy", type);
@@ -83,9 +84,10 @@ export const FilterAddonsComponent = () => {
                       style={{
                         display: "flex",
                         alignItems: "center",
+                        flex: 1,
                       }}
                     >
-                      <span>{name}</span>
+                      <span className="type">{name}</span>
                     </div>
                   </div>
                 );

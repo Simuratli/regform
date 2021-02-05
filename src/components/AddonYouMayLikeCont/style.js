@@ -32,6 +32,10 @@ export const AddonsBox = styled.div`
     max-width: 360px;
   }
 
+  .addonsCard .cardsButtons .downloadButton {
+    margin: 0;
+  }
+
   @media (max-width: 1000px) {
     .title {
       margin: 20% 0 20px 0;
