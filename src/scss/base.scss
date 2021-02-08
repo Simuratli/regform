@@ -33,9 +33,14 @@
   display: flex;
   flex-direction: column;
   align-items: center !important;
+<<<<<<< HEAD
   position: relative;
   z-index: 20000000;
   p {
+=======
+  z-index: 20000 !important;
+  p{
+>>>>>>> 8e337bba08cece808979b512385f8839662299bc
     text-align: center;
     margin: 10px;
   }
