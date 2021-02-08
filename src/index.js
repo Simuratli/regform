@@ -15,6 +15,7 @@ import authentication from "./b2c";
 import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import DocumentMeta from "react-document-meta";
 import IntelProviderWrapper from "./Intl/IntlProvider";
+import { hotjar } from "react-hotjar";
 
 function initializeApp(App, store) {
   Webfont.load({
@@ -55,8 +56,8 @@ function initializeApp(App, store) {
 
 authentication.run(async () => {
   const App = await import("./App");
-
   const store = await import("./store");
 
+  hotjar.initialize(1994786, 6);
   initializeApp(App.default, store.default);
 });
