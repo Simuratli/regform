@@ -1,5 +1,5 @@
 @import "utils/utils";
-*{
+* {
   font-family: Montserrat;
 }
 .arrowTop {
@@ -25,36 +25,38 @@
 .scrollTop:hover {
   opacity: 1;
 }
-.cookieContainer{
+.cookieContainer {
   background-color: #ffffff !important;
-  color: #61626A !important;
+  color: #61626a !important;
   box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.1);
   font-family: Montserrat;
   display: flex;
   flex-direction: column;
   align-items: center !important;
-  p{
+  position: relative;
+  z-index: 20000000;
+  p {
     text-align: center;
     margin: 10px;
   }
-  a{
+  a {
     text-decoration: none !important;
-    &:hover{
+    &:hover {
       text-decoration: underline !important;
     }
   }
 }
-.cookieContent{
+.cookieContent {
   flex: 0 1 10px !important;
   padding: 0;
 }
-.buttons{
+.buttons {
   text-align: center;
   margin-top: -24px;
   margin-bottom: 5px;
 }
 
-.acceptButton{
+.acceptButton {
   width: 100px;
   height: 35px;
   background-color: $orange !important;
@@ -67,62 +69,62 @@
     box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
   }
 }
-.declineButton{
+.declineButton {
   display: none;
 }
-@media screen and (max-width: 1700px){
-  .cookieContainer{
+@media screen and (max-width: 1700px) {
+  .cookieContainer {
     padding: 0 255px;
   }
 }
-@media screen and (max-width: 1500px){
-  .cookieContainer{
+@media screen and (max-width: 1500px) {
+  .cookieContainer {
     padding: 0 160px;
   }
 }
-@media screen and (max-width: 1350px){
-  .cookieContainer{
+@media screen and (max-width: 1350px) {
+  .cookieContainer {
     padding: 0 126px;
   }
 }
-@media screen and (max-width: 1024px){
-  .cookieContainer{
+@media screen and (max-width: 1024px) {
+  .cookieContainer {
     padding: 0 113px;
   }
 }
-@media screen and (max-width: 880px){
-  .cookieContainer{
+@media screen and (max-width: 880px) {
+  .cookieContainer {
     padding: 0 78px;
   }
 }
 @media only screen and (max-width: 768px) {
-  .cookieContainer{
+  .cookieContainer {
     padding: 0 51px;
   }
-  .mobileNotification{
+  .mobileNotification {
     display: block;
   }
 }
 @media only screen and (max-width: 600px) {
-  .cookieContainer{
+  .cookieContainer {
     padding: 0 20px;
   }
-  .mobileNotification{
+  .mobileNotification {
     display: block;
   }
 }
 @media only screen and (max-width: 600px) {
-  .cookieContainer{
+  .cookieContainer {
     padding: 0 20px;
   }
 }
-@media screen and (max-width: 500px){
-  .cookieContainer{
+@media screen and (max-width: 500px) {
+  .cookieContainer {
     padding: 0 48px;
   }
 }
-@media screen and (max-width: 375px){
-  .cookieContainer{
+@media screen and (max-width: 375px) {
+  .cookieContainer {
     padding: 0 22px;
   }
 }

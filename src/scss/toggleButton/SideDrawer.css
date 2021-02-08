@@ -14,7 +14,7 @@
   content: "";
   display: block;
   height: 3px;
-  background: #E05E2B;
+  background: #e05e2b;
   position: absolute;
   bottom: -3px;
   left: 0;
@@ -30,7 +30,6 @@
 .nav-link:hover::before {
   transform: scale(1, 1);
 }
-
 
 button {
   cursor: pointer;
@@ -80,9 +79,9 @@ ul li {
   text-transform: uppercase;
   font-size: 14px;
   font-weight: bold;
-  border: 1px solid #E05E2B;
-  color: #FFFFFF;
-  background-color: #E05E2B;
+  border: 1px solid #e05e2b;
+  color: #ffffff;
+  background-color: #e05e2b;
   padding: 0.2rem 0.4rem;
   transition: 0.2s;
   letter-spacing: 0.5px;
