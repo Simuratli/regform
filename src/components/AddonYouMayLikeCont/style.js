@@ -11,9 +11,28 @@ export const AddonsBox = styled.div`
   padding: 0 0 6% 0;
 
   .addons-cont {
+    width: 80%;
+    max-width: 1340px;
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-wrap: wrap;
+    position: relative;
+    padding: 0 10%;
+  }
+
+  .left-btn {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .right-btn {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   .title {
@@ -28,8 +47,22 @@ export const AddonsBox = styled.div`
 
   .addon-card {
     margin: 30px;
-    min-width: 360px;
+    min-width: 350px;
     max-width: 360px;
+  }
+
+  .btn {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #fff;
+    &:hover {
+      cursor: pointer;
+      box-shadow: none;
+    }
   }
 
   .addonsCard .cardsButtons .downloadButton {
@@ -46,5 +79,16 @@ export const AddonsBox = styled.div`
     .title {
       margin: 30% 0 20px 0;
     }
+  }
+
+  @media (max-width: 400px) {
+    .addon-card {
+      margin: 30px 10px;
+      min-width: 330px;
+      max-width: 330px;
+    }
+  }
+  .title {
+    font-size: 24px;
   }
 `;

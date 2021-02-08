@@ -58,7 +58,7 @@ export const FilterAddonsComponent = () => {
           <FormattedMessage id="type" /> <b>{sortBy}</b>
           <img
             className="arrow"
-            src={require("../../../assets/images/select-arr.png")}
+            src={require("../../../assets/images/select-arr.svg")}
             alt="icon"
           />
           {isOpenSelect && (
