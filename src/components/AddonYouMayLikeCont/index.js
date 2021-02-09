@@ -8,7 +8,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
     sessionStorage.getItem("cardsArr") || []
   ).filter((r) => r.id !== addon.id);
 
-  const [a, setA] = useState({
+  const [sliceIndexs, setSliceIndexs] = useState({
     from: 0,
     to: 2,
   });
@@ -16,15 +16,15 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
   const [currentAddons, setCurrentAddons] = useState([]);
 
   useEffect(() => {
-    if (a.to >= adonCardsFromSS.length && !!(adonCardsFromSS.length % 2)) {
+    if (sliceIndexs.to >= adonCardsFromSS.length && !!(adonCardsFromSS.length % 2)) {
       setCurrentAddons([
         adonCardsFromSS[adonCardsFromSS.length - 1],
         adonCardsFromSS[0],
       ]);
     } else {
-      setCurrentAddons(adonCardsFromSS.slice(a.from, a.to));
+      setCurrentAddons(adonCardsFromSS.slice(sliceIndexs.from, sliceIndexs.to));
     }
-  }, [a.from]);
+  }, [sliceIndexs.from]);
 
   return (
     <AddonsBox isVirtualMachine={isVirtualMachine}>
@@ -36,7 +36,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
         <button
           className="btn left-btn"
           onClick={() => {
-            return setA((pr) => {
+            return setSliceIndexs((pr) => {
               return {
                 from:
                   pr.from === 0
@@ -64,7 +64,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
         <button
           className="btn right-btn"
           onClick={() => {
-            return setA((pr) => {
+            return setSliceIndexs((pr) => {
               return {
                 from: pr.to >= adonCardsFromSS.length ? 0 : pr.from + 2,
                 to: pr.to >= adonCardsFromSS.length ? 2 : pr.to + 2,
