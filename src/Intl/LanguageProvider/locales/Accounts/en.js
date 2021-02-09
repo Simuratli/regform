@@ -6,7 +6,7 @@ const translations = {
   downloads: "downloads",
   openings: "openings",
   price: "price",
-  type: "Type:",
+  type: "Add-on’s Type:",
   "sort.by": "Sort by:",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 19 GB.<br /> We recommend using Download Master to avoid breakdowns.",
