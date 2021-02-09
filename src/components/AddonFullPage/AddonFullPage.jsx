@@ -60,8 +60,11 @@ const AddonFullPage = ({ addon, intl }) => {
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
 
+
+
+
   useEffect(() => {
-    document.title = `UDS Add-ons - ${name.slice(3)}`;
+    document.title = `${name.slice(3)} | Add-ons | UDS Portal`;
   }, [name]);
 
   const handleDownload = () => {

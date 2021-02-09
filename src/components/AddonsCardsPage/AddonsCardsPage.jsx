@@ -15,7 +15,7 @@ const AddonsCardsPage = () => {
   const { isError } = error;
 
   useEffect(() => {
-    document.title = " UDS Add-ons";
+    document.title = "Add-ons | UDS Portal";
   }, []);
 
   useEffect(() => {

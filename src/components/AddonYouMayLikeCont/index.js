@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, {  useEffect, useState } from "react";
 import AddonCard from "../AddonsCardsPage/AddonCard";
 import { AddonsBox } from "./style";
 import { FormattedMessage } from "react-intl";
