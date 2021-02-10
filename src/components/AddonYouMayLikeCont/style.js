@@ -49,6 +49,23 @@ export const AddonsBox = styled.div`
     margin: 30px;
     min-width: 350px;
     max-width: 360px;
+    max-height: 470px;
+    overflow: auto;
+  }
+
+  .addonsCard {
+    padding: 0 25px !important;
+  }
+
+  .addonsCard .cardDescription {
+    top: 2.5rem;
+    max-height: 140px;
+    overflow: auto;
+  }
+
+  .addonsCard .cardSubTitle {
+    margin: 35px 0 0 0;
+    top: 13rem;
   }
 
   .btn {
@@ -57,10 +74,11 @@ export const AddonsBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.2);
+    background: transparent;
     border: 1px solid #fff;
     &:hover {
       cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
       box-shadow: none;
     }
   }

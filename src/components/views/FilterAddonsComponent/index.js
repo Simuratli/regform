@@ -73,11 +73,11 @@ export const FilterAddonsComponent = () => {
                     key={type}
                     className={`row  ${type === sortBy && "choosen"}`}
                     onClick={(e) => {
-                      e.preventDefault();
+                      e.stopPropagation();
+                      setIsOpenSelect(false);
                       setSortBy(name);
                       dispatch({ type: "SET_ADDONS_SORT_BY", payload: type });
                       localStorage.setItem("sortAddonsBy", type);
-                      setIsOpenSelect(false);
                     }}
                   >
                     <div

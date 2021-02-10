@@ -1,11 +1,11 @@
-import React, {  useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddonCard from "../AddonsCardsPage/AddonCard";
 import { AddonsBox } from "./style";
 import { FormattedMessage } from "react-intl";
 
 const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
   const adonCardsFromSS = JSON.parse(
-    sessionStorage.getItem("cardsArr") || []
+    localStorage.getItem("cardsArr") || "[]"
   ).filter((r) => r.id !== addon.id);
 
   const [sliceIndexs, setSliceIndexs] = useState({
@@ -16,7 +16,10 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
   const [currentAddons, setCurrentAddons] = useState([]);
 
   useEffect(() => {
-    if (sliceIndexs.to >= adonCardsFromSS.length && !!(adonCardsFromSS.length % 2)) {
+    if (
+      sliceIndexs.to >= adonCardsFromSS.length &&
+      !!(adonCardsFromSS.length % 2)
+    ) {
       setCurrentAddons([
         adonCardsFromSS[adonCardsFromSS.length - 1],
         adonCardsFromSS[0],

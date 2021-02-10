@@ -25,7 +25,7 @@ export const getAddonCard = () => {
         dispatch({ type: CARDS_DATA_LOADED, payload: res.data });
         dispatch({ type: SET_IS_LOADING, payload: false });
 
-        sessionStorage.setItem("cardsArr", JSON.stringify(res.data));
+        localStorage.setItem("cardsArr", JSON.stringify(res.data));
       })
       .catch((err) => {
         dispatch({

@@ -14,6 +14,7 @@ import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
+
 import { FormattedMessage, injectIntl } from "react-intl";
 import AddonYouMayLikeCont from "../AddonYouMayLikeCont/index";
 
@@ -21,6 +22,8 @@ const AddonFullPage = ({ addon, intl }) => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { file } = state;
+
+  console.log(state, "state");
 
   const {
     name = "",
@@ -59,9 +62,6 @@ const AddonFullPage = ({ addon, intl }) => {
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
     a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
-
-
-
 
   useEffect(() => {
     document.title = `${name.slice(3)} | Add-ons | UDS Portal`;
