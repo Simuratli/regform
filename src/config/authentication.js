@@ -1,12 +1,10 @@
 import authentication from '../b2c';
 
-const redirectUri = process.env.NODE_ENV === 'production'
-    ? `https://my-uds-systems-website-development.azurewebsites.net`
-    : 'http://localhost:6420'
-
 // const redirectUri = process.env.NODE_ENV === 'production'
-//     ? `https://my.uds.systems`
+//     ? `https://my-uds-systems-website-development.azurewebsites.net`
 //     : 'http://localhost:6420'
+
+const redirectUri = `https://my.uds.systems`;
 
 authentication.initialize({
     instance: 'https://udscustomersdirectory.b2clogin.com/tfp/',
