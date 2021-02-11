@@ -22,6 +22,8 @@ export const getFullAddonPage = (slug) => {
         dispatch({ type: SET_IS_LOADING, payload: false });
       })
       .catch((err) => {
+        console.log(err.response, "!!!!");
+
         dispatch({ type: SET_IS_LOADING, payload: false });
         dispatch({
           type: ERROR_LOADING_DATA,
