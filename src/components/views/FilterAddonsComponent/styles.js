@@ -3,7 +3,7 @@ export const SortAddonsBox = styled.div`
   display: flex;
   margin: 0 0 60px 0;
   position: relative;
-  z-index: 1000;
+  z-index: 900;
   width: fit-content;
 
   &:hover {
