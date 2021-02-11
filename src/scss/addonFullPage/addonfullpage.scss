@@ -33,7 +33,7 @@
   background-size: cover;
   width: 100%;
   height: auto;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
 }
 
@@ -135,19 +135,17 @@
   p {
     @include paragraphForBlocksOnFullPage;
   }
-  .technicalInfo{
+  .technicalInfo {
     margin-top: 2rem;
-    ul{
+    ul {
       padding-left: 2rem;
     }
-    p{
+    p {
       padding: 0;
       text-align: left;
-      background-color: #FFFFFF;
+      background-color: #ffffff;
     }
   }
-
-
 }
 
 .installInfo {
@@ -306,7 +304,6 @@
 
   ul {
     padding: 0;
-
   }
   li {
     padding: 0 0 0 22px;
@@ -314,10 +311,9 @@
     background-repeat: no-repeat;
     background-image: url("../../assets/images/ellipse.svg");
   }
-  .noListItem{
+  .noListItem {
     background-image: none;
   }
-
 }
 
 .creditionalInfo {
@@ -342,7 +338,7 @@
   }
 }
 .bottomWrapper {
-  background-image: url("../../assets/images/bottom-lines.svg");
+  //background-image: url("../../assets/images/bottom-lines.svg");
   background-repeat: no-repeat;
   background-size: contain;
   width: 100%;

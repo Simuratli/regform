@@ -5,10 +5,13 @@ export const AddonsBox = styled.div`
   flex-direction: column;
   width: 100%;
   background: ${() =>
-    `#383680  url(${require("../../assets/images/you-may-also-like.svg")}) no-repeat top center`};
+    `#383680  url(${require("../../assets/images/you-may-also-like.png")}) no-repeat top center`};
   justify-content: center;
   align-items: center;
   padding: 0 0 6% 0;
+  background-size: inherit;
+  max-width: 4000px;
+  margin: 0 auto;
 
   .addons-cont {
     width: 80%;
@@ -18,19 +21,18 @@ export const AddonsBox = styled.div`
     align-items: center;
     flex-wrap: wrap;
     position: relative;
-    padding: 0 10%;
   }
 
   .left-btn {
     position: absolute;
-    left: 5%;
+    left: 10%;
     top: 50%;
     transform: translateY(-50%);
   }
 
   .right-btn {
     position: absolute;
-    right: 5%;
+    right: 10%;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -85,6 +87,27 @@ export const AddonsBox = styled.div`
 
   .addonsCard .cardsButtons .downloadButton {
     margin: 0;
+  }
+
+  @media (max-width: 1400px) {
+    .left-btn {
+      left: 5%;
+    }
+
+    .right-btn {
+      right: 5%;
+    }
+  }
+
+
+  @media (max-width: 1250px) {
+    .left-btn {
+      left: -10%;
+    }
+
+    .right-btn {
+      right: -10%;
+    }
   }
 
   @media (max-width: 1000px) {

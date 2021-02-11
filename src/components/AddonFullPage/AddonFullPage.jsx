@@ -117,7 +117,7 @@ const AddonFullPage = ({ addon, intl }) => {
 
   return (
     <div className="addonFullPage">
-      <div className="headerWrapper" style={{ maxWidth: "3000px" }}>
+      <div className="headerWrapper" style={{ maxWidth: "4000px" }}>
         <section className="header">
           <AnimatedContainer>
             <div className="headerLeftSide">
