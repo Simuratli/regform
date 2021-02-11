@@ -89,6 +89,12 @@ export const AddonsBox = styled.div`
     margin: 0;
   }
 
+  @media (min-width: 1400px) {
+    .title {
+      margin: 17% 0 20px 0;
+    }
+  }
+
   @media (max-width: 1400px) {
     .left-btn {
       left: 5%;
@@ -98,7 +104,6 @@ export const AddonsBox = styled.div`
       right: 5%;
     }
   }
-
 
   @media (max-width: 1250px) {
     .left-btn {
@@ -128,8 +133,8 @@ export const AddonsBox = styled.div`
       min-width: 330px;
       max-width: 330px;
     }
-  }
-  .title {
-    font-size: 24px;
+    .title {
+      font-size: 24px;
+    }
   }
 `;
