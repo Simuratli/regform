@@ -23,8 +23,6 @@ const AddonFullPage = ({ addon, intl }) => {
   const dispatch = useDispatch();
   const { file } = state;
 
-  console.log(state, "state");
-
   const {
     name = "",
     slug = "",

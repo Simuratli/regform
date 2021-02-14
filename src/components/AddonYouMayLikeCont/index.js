@@ -13,10 +13,19 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
     to: 2,
   });
 
+  console.log(sliceIndexs, "sliceIndexs");
+
   const [currentAddons, setCurrentAddons] = useState([]);
 
+  const isMobile = window.innerWidth < 400;
   useEffect(() => {
-    if (
+    isMobile && setSliceIndexs({ from: 0, to: 1 });
+  }, [isMobile]);
+
+  useEffect(() => {
+    if (isMobile) {
+      setCurrentAddons(adonCardsFromSS.slice(sliceIndexs.from, sliceIndexs.to));
+    } else if (
       sliceIndexs.to >= adonCardsFromSS.length &&
       !!(adonCardsFromSS.length % 2)
     ) {
@@ -27,7 +36,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
     } else {
       setCurrentAddons(adonCardsFromSS.slice(sliceIndexs.from, sliceIndexs.to));
     }
-  }, [sliceIndexs.from]);
+  }, [sliceIndexs.to]);
 
   return (
     <AddonsBox isVirtualMachine={isVirtualMachine}>
@@ -36,47 +45,77 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
       </span>
 
       <div className="addons-cont">
-        <button
-          className="btn left-btn"
-          onClick={() => {
-            return setSliceIndexs((pr) => {
-              return {
-                from:
-                  pr.from === 0
-                    ? !!(adonCardsFromSS.length % 2)
-                      ? adonCardsFromSS.length - 1
-                      : adonCardsFromSS.length - 2
-                    : pr.from - 2,
-                to:
-                  pr.from === 0
-                    ? !!(adonCardsFromSS.length % 2)
-                      ? adonCardsFromSS.length + 1
-                      : adonCardsFromSS.length
-                    : pr.to - 2,
-              };
-            });
-          }}
-        >
-          <img src={require("../../assets/images/prev.svg")} alt="prev" />
-        </button>
+        {!isMobile && (
+          <button
+            className="btn left-btn"
+            onClick={() => {
+              return setSliceIndexs((pr) => {
+                return {
+                  from:
+                    pr.from === 0
+                      ? !!(adonCardsFromSS.length % 2)
+                        ? adonCardsFromSS.length - 1
+                        : adonCardsFromSS.length - 2
+                      : pr.from - 2,
+                  to:
+                    pr.from === 0
+                      ? !!(adonCardsFromSS.length % 2)
+                        ? adonCardsFromSS.length + 1
+                        : adonCardsFromSS.length
+                      : pr.to - 2,
+                };
+              });
+            }}
+          >
+            <img src={require("../../assets/images/prev.svg")} alt="prev" />
+          </button>
+        )}
 
         {currentAddons.map((r) => {
-          return <AddonCard key={r.id} addon={r} className="addon-card" />;
+          return (
+            <div
+              key={r.id}
+              onTouchStart={(e) => {
+                if (e.targetTouches[0].clientX > window.innerWidth / 2) {
+                  return setSliceIndexs((pr) => {
+                    return {
+                      from: pr.to >= adonCardsFromSS.length ? 0 : pr.from + 1,
+                      to: pr.to >= adonCardsFromSS.length ? 1 : pr.to + 1,
+                    };
+                  });
+                } else {
+                  return setSliceIndexs((pr) => {
+                    return {
+                      from:
+                        pr.from === 0
+                          ? adonCardsFromSS.length - 1
+                          : pr.from - 1,
+                      to: pr.from === 0 ? adonCardsFromSS.length : pr.to - 1,
+                    };
+                  });
+                }
+              }}
+            >
+              <AddonCard addon={r} className="addon-card" />
+            </div>
+          );
         })}
 
-        <button
-          className="btn right-btn"
-          onClick={() => {
-            return setSliceIndexs((pr) => {
-              return {
-                from: pr.to >= adonCardsFromSS.length ? 0 : pr.from + 2,
-                to: pr.to >= adonCardsFromSS.length ? 2 : pr.to + 2,
-              };
-            });
-          }}
-        >
-          <img src={require("../../assets/images/next.svg")} alt="next" />
-        </button>
+        {!isMobile && (
+          <button
+            className="btn right-btn"
+            onClick={() => {
+              return setSliceIndexs((pr) => {
+                return {
+                  from: pr.to >= adonCardsFromSS.length ? 0 : pr.from + 2,
+                  to: pr.to >= adonCardsFromSS.length ? 2 : pr.to + 2,
+                };
+              });
+            }}
+          >
+            <img src={require("../../assets/images/next.svg")} alt="next" />
+          </button>
+        )}
       </div>
     </AddonsBox>
   );

@@ -60,7 +60,7 @@ export const AddonsBox = styled.div`
   }
 
   .addonsCard .cardDescription {
-    top: 2.5rem;
+    top: 3.5rem;
     max-height: 140px;
     overflow: auto;
   }
