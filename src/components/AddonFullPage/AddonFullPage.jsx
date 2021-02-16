@@ -10,7 +10,6 @@ import AnimatedContainer from "../../containers/AnimatedContainer";
 
 import { getDownloadFile } from "../../store/actions/downloadFileAction";
 import { getFile } from "../../store/actions/fileAction";
-import { resetData } from "../../store/actions/resetData";
 import { getLink } from "../../store/actions/openButtonAction";
 
 import get from "lodash/get";
@@ -77,7 +76,7 @@ const AddonFullPage = ({ addon, intl }) => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    dispatch(resetData());
+    // dispatch(resetData());
   }
 
   const HandlerTrackerDownloads = (type) => {

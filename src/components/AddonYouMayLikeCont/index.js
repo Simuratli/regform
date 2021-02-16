@@ -13,8 +13,6 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
     to: 2,
   });
 
-  console.log(sliceIndexs, "sliceIndexs");
-
   const [currentAddons, setCurrentAddons] = useState([]);
 
   const isMobile = window.innerWidth < 400;

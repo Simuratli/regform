@@ -1,6 +1,7 @@
 import { httpClient } from "../../services/services";
 import { ERROR_LOADING_DATA } from "./fullAddonPageAction";
 import get from "lodash/get";
+import { SET_IS_LOADING } from "../types";
 
 export const DATA_LOADED = "FILE DATA LOADED";
 export const START_LOADING_DATA = "FILE FULL PAGE OF ADDON START LOADING DATA";
@@ -8,8 +9,6 @@ export const START_LOADING_DATA = "FILE FULL PAGE OF ADDON START LOADING DATA";
 export const getFile = () => {
   return (dispatch, getState) => {
     const { file } = getState().file;
-
-    dispatch({ type: START_LOADING_DATA });
 
     httpClient
       .get(file)
