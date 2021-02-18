@@ -22,6 +22,7 @@ import { useSelector } from "react-redux";
 
 import isEmpty from "lodash/isEmpty";
 import TestPage from "./components/views/TestPage";
+import RedirectToMigrationTool from "./components/Redirect/ReditectToMigrationTool";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;
@@ -80,6 +81,7 @@ const App = () => {
         <Route path={"/"} exact component={AddonsCardsPage}>
           <Redirect to={"/add-ons"} />
         </Route>
+          <Route path={"/migration"} exact component={RedirectToMigrationTool}/>
         <Route path={"/add-ons"} exact component={AddonsCardsPage} />
         <Route
           path={"/add-ons/:slug"}
