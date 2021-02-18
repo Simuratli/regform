@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SortAddonsBox } from "./styles";
 import { FormattedMessage } from "react-intl";
+import { setAddonsSortBy } from "../../../store/reducers/appReducer/actions/appAction";
 
 function useOutsideAlerter(ref) {
   const [isOutsideClick, setIsOutsideClick] = useState(false);
@@ -76,7 +77,7 @@ export const FilterAddonsComponent = () => {
                       e.stopPropagation();
                       setIsOpenSelect(false);
                       setSortBy(name);
-                      dispatch({ type: "SET_ADDONS_SORT_BY", payload: type });
+                      dispatch(setAddonsSortBy(type));
                       localStorage.setItem("sortAddonsBy", type);
                     }}
                   >

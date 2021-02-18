@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
 import { useSelector } from "react-redux";
 
 import styled from "styled-components";
@@ -11,7 +10,7 @@ const LoaderComponent = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0;
+  top: ${({ scrollY }) => scrollY};
   left: 0;
   background: rgba(255, 255, 255, 0.8);
   z-index: 100000;
@@ -260,21 +259,27 @@ const Loader = () => {
   const { app } = state;
   const { isLoading } = app;
 
-  useEffect(() => {
-    document.body.style.overflow = isLoading ? "hidden" : "auto";
-  }, [isLoading]);
+  if (!isLoading) {
+    document.body.style.overflow = "visible";
+    return null;
+  } else {
+    document.body.style.overflow = "hidden";
+    window.scrollTo(0, 0);
+  }
 
-  return ReactDOM.createPortal(
+  return (
     isLoading && (
-      <LoaderComponent animationConfig={animationConfig}>
+      <LoaderComponent
+        animationConfig={animationConfig}
+        scrollY={window.screenX}
+      >
         <div className="container">
           <div className="box1" />
           <div className="box2" />
           <div className="box3" />
         </div>
       </LoaderComponent>
-    ),
-    document.getElementById("loader")
+    )
   );
 };
 

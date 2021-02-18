@@ -5,19 +5,17 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   getFullAddonPage,
   resetFullAddonPage,
-} from "../store/actions/fullAddonPageAction";
+} from "../store/reducers/addonReducer/actions/fullAddonPageAction";
 
 import isEmpty from "lodash/isEmpty";
-import get from "lodash/get";
 
 const AddonFullPage = lazy(() =>
   import("../components/AddonFullPage/AddonFullPage")
 );
 
 const AddonFullPageContainer = () => {
-  const state = useSelector((state) => state);
+  const { currentFullAddonPage } = useSelector(({ addon }) => addon);
   const dispatch = useDispatch();
-  const { fullAddonPage } = state;
 
   const { slug } = useParams();
 
@@ -27,9 +25,9 @@ const AddonFullPageContainer = () => {
   }, [slug]);
 
   return (
-    !isEmpty(get(fullAddonPage, "fullAddonPage")) && (
+    !isEmpty(currentFullAddonPage) && (
       <Suspense fallback={null}>
-        <AddonFullPage addon={get(fullAddonPage, "fullAddonPage")} />
+        <AddonFullPage addon={currentFullAddonPage} />
       </Suspense>
     )
   );

@@ -1,17 +1,15 @@
 import { combineReducers, createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { compose } from "redux";
-import { fullAddonPageReducer } from "./reducers/fullAddonPageReducer";
-import { addonCardReducer } from "./reducers/addonCardReducer";
-import { getDownloadFileReducer } from "./reducers/downloadFileReducer";
+import { addonReducer } from "./reducers/addonReducer";
+import { downloadFileReducer } from "./reducers/downloadFileReducer";
 import { openButtonReducer } from "./reducers/openButtonReducer";
-import { appReducer } from "./reducers/appRerucer";
+import { appReducer } from "./reducers/appReducer";
 
 const reducers = combineReducers({
   app: appReducer,
-  addonCard: addonCardReducer,
-  fullAddonPage: fullAddonPageReducer,
-  file: getDownloadFileReducer,
+  addon: addonReducer,
+  file: downloadFileReducer,
   addOnPortalLink: openButtonReducer,
 });
 

@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 import styled from "styled-components";
-import { SET_IS_LOADING } from "../../store/types";
 import { httpClient } from "../../services/services";
 
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { ERROR_LOADING_DATA } from "../../store/actions/addonCardAction";
+import {
+  setError,
+  setIsLoading,
+} from "../../store/reducers/appReducer/actions/appAction";
 
 const TestCont = styled.div`
   width: 100%;
@@ -41,35 +43,16 @@ const TestPage = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    dispatch({ type: SET_IS_LOADING, payload: true });
+    dispatch(setIsLoading(true));
 
-    httpClient
-      .post(`/tests/error-page/${value}`)
-      .then((res) => {
-        console.log(res, "RES");
-      })
-      .catch((err) => {
-        console.log(err.response.data, "!!!!!");
-
-        dispatch({ type: SET_IS_LOADING, payload: false });
-        dispatch({
-          type: "ERROR_LOADING_DATA",
-          payload: {
-            isError: true,
-            err: {
-              status: err?.response?.data?.status,
-              statusText: err?.response?.data?.title,
-            },
-          },
-        });
-      });
+    httpClient.post(`/tests/error-page/${value}`).catch((err) => {
+      dispatch(setIsLoading(false));
+      dispatch(setError(err.response));
+    });
   };
 
   useEffect(() => {
-    dispatch({
-      type: "ERROR_LOADING_DATA",
-      payload: { isError: false, err: {} },
-    });
+    dispatch(setError({}));
   }, []);
 
   return (

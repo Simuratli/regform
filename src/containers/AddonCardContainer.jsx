@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 // COMPONENTS
 
 import AnimatedContainer from "./AnimatedContainer";
-import { getAddonCard } from "../store/actions/addonCardAction";
+import { getAddonCard } from "../store/reducers/addonReducer/actions/addonCardAction";
 import { FakeCardRow } from "../components/views/FakeCardRow";
 
 // LODASH
@@ -16,13 +16,13 @@ import range from "lodash/range";
 const AddonCardContainer = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { addonCard, app } = state;
+  const { addon, app } = state;
   const { addonsSortBy } = app;
 
   const sortAddonsType = localStorage.getItem("sortAddonsBy") || addonsSortBy;
 
-  const filteredAddons = get(addonCard, "cards", []).length
-    ? get(addonCard, "cards")
+  const filteredAddons = get(addon, "cards", []).length
+    ? get(addon, "cards")
         .filter((r) =>
           sortAddonsType === "All"
             ? true
@@ -32,7 +32,7 @@ const AddonCardContainer = () => {
     : [];
 
   useEffect(() => {
-    if (!get(addonCard, "cards", []).length) {
+    if (!get(addon, "cards", []).length) {
       dispatch(getAddonCard());
     }
   }, []);
@@ -41,7 +41,7 @@ const AddonCardContainer = () => {
 
   return (
     <>
-      {get(addonCard, "cards", []).length
+      {get(addon, "cards", []).length
         ? filteredAddons.map((addon) => (
             <AnimatedContainer withScale key={addon.id}>
               <AddonCard addon={addon} />

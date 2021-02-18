@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -9,6 +8,7 @@ import { FormattedMessage } from "react-intl";
 import get from "lodash/get";
 
 import styled from "styled-components";
+import { setError } from "../../store/reducers/appReducer/actions/appAction";
 
 const ErrorModalCont = styled.div`
   width: 100%;
@@ -67,13 +67,10 @@ const ErrorModal = () => {
   }, [isError]);
 
   if (get(err, "status") === 401) {
-    dispatch({
-      type: ERROR_LOADING_DATA,
-      payload: { isError: false, message: "", err: null },
-    });
+    dispatch(setError({}));
 
     localStorage.clear();
-    sessionStorage.clear()
+    sessionStorage.clear();
     return history.push("/");
   }
 
@@ -86,10 +83,7 @@ const ErrorModal = () => {
             className="btn"
             onClick={() => {
               history.push("/");
-              dispatch({
-                type: ERROR_LOADING_DATA,
-                payload: { isError: false, message: "" },
-              });
+              dispatch(setError({}));
             }}
           >
             <FormattedMessage id="back.home.page" />
@@ -102,5 +96,3 @@ const ErrorModal = () => {
 };
 
 export default ErrorModal;
-// document.body.style.overflow = isError ? "hidden" : "auto";
-// isError && window.scrollTo(0, 0);

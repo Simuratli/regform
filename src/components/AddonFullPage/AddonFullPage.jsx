@@ -8,14 +8,18 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import AnimatedContainer from "../../containers/AnimatedContainer";
 
-import { getDownloadFile } from "../../store/actions/downloadFileAction";
-import { getFile } from "../../store/actions/fileAction";
-import { getLink } from "../../store/actions/openButtonAction";
+import {
+  getFile,
+  removeFile,
+} from "../../store/reducers/downloadFileReducer/actions/fileAction";
+import { getLink } from "../../store/reducers/openButtonReducer/actions/openButtonAction";
 
 import get from "lodash/get";
 
 import { FormattedMessage, injectIntl } from "react-intl";
 import AddonYouMayLikeCont from "../AddonYouMayLikeCont/index";
+import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
+import { ButtonLoader } from "../views/ButtonLoader";
 
 const AddonFullPage = ({ addon, intl }) => {
   const state = useSelector((state) => state);
@@ -65,19 +69,18 @@ const AddonFullPage = ({ addon, intl }) => {
   }, [name]);
 
   const handleDownload = () => {
-    dispatch(getDownloadFile());
+    dispatch(getDownloadFile(slug));
     dispatch(getFile());
   };
 
-  if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
-    const link = document.createElement("a");
-    link.download = "addon"; //name;
-    link.href = get(file, "file.rootAddOnFilePathWithAccessToken");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    // dispatch(resetData());
-  }
+  useEffect(() => {
+    if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
+      const link = document.getElementById("file");
+
+      link.click();
+      dispatch(removeFile());
+    }
+  }, [get(file, "file.rootAddOnFilePathWithAccessToken")]);
 
   const HandlerTrackerDownloads = (type) => {
     ReactGa.event({
@@ -137,17 +140,30 @@ const AddonFullPage = ({ addon, intl }) => {
                     </p>
                   </span>
                 ) : (
-                  <button onClick={handleDownload} className="downloadButton">
-                    <FormattedMessage id="download" />
+                  <button
+                    onClick={handleDownload}
+                    className="downloadButton"
+                    style={{ position: "relative" }}
+                  >
+                    {file?.addonTypeDownloading === slug ? (
+                      <ButtonLoader />
+                    ) : (
+                      <FormattedMessage id="download" />
+                    )}
                   </button>
                 )
               ) : (
                 <>
                   <button
+                    style={{ position: "relative" }}
                     onClick={() => HandlerTrackerForOpen("Top")}
                     className="openButton"
                   >
-                    <FormattedMessage id="open" />
+                    {file?.addonTypeDownloading === slug ? (
+                      <ButtonLoader />
+                    ) : (
+                      <FormattedMessage id="open" />
+                    )}
                   </button>
                   <p className={"chargeMessage"}>
                     <FormattedMessage id="free.of.charge" />
@@ -287,16 +303,26 @@ const AddonFullPage = ({ addon, intl }) => {
                     <button
                       onClick={handleMethodsForBottomDownload}
                       className="downloadButton"
+                      style={{ position: "relative" }}
                     >
-                      <FormattedMessage id="download" />
+                      {file?.addonTypeDownloading === slug ? (
+                        <ButtonLoader />
+                      ) : (
+                        <FormattedMessage id="download" />
+                      )}
                     </button>
                   </>
                 ) : (
                   <button
                     onClick={() => HandlerTrackerForOpen("Bottom")}
                     className="openButton"
+                    style={{ position: "relative" }}
                   >
-                    <FormattedMessage id="open" />
+                    {file?.addonTypeDownloading === slug ? (
+                      <ButtonLoader />
+                    ) : (
+                      <FormattedMessage id="open" />
+                    )}
                   </button>
                 )}
               </section>

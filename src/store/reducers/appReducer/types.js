@@ -1,4 +1,9 @@
 export const SET_IS_LOADING = "SET_IS_LOADING";
+export const SET_ERROR = "SET_ERROR";
+
 export const CHANGE_APP_LANGUAGE = "CHANGE_APP_LANGUAGE";
 
 export const SET_ADDONS_SORT_BY = "SET_ADDONS_SORT_BY";
+export const ADDON_LOADING_STATE = "ADDON_LOADING_STATE";
+
+export const RESET_DATA = "RESET_DATA";

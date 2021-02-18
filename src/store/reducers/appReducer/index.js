@@ -1,15 +1,18 @@
-import { ERROR_LOADING_DATA } from "../actions/fullAddonPageAction";
 import {
   SET_IS_LOADING,
   CHANGE_APP_LANGUAGE,
   SET_ADDONS_SORT_BY,
-} from "../types";
+  ADDON_LOADING_STATE,
+  SET_ERROR,
+  RESET_DATA,
+} from "./types";
 
 const initStore = {
   isLoading: false,
-  error: { isError: false, message: "", err: null },
+  error: {},
   lang: "en",
   addonsSortBy: "All",
+  addonLoadingState: { type: null, loading: false, addonSlug: null },
 };
 
 export const appReducer = (initialState = initStore, action) => {
@@ -20,7 +23,7 @@ export const appReducer = (initialState = initStore, action) => {
     case SET_ADDONS_SORT_BY:
       return { ...initialState, addonsSortBy: action.payload };
 
-    case ERROR_LOADING_DATA:
+    case SET_ERROR:
       return {
         ...initialState,
         error: action.payload,
@@ -31,6 +34,15 @@ export const appReducer = (initialState = initStore, action) => {
         ...initialState,
         lang: action.payload,
       };
+
+    case ADDON_LOADING_STATE:
+      return {
+        ...initialState,
+        addonLoadingState: action.payload,
+      };
+
+    case RESET_DATA:
+      return initStore;
 
     default:
       return initialState;

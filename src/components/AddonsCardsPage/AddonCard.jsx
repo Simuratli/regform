@@ -1,17 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "../../scss/addonsCardsPage/addonCard.scss";
 import { NavLink } from "react-router-dom";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
-import { getDownloadFileCard } from "../../store/actions/downloadFileCardAction";
-import { getFile } from "../../store/actions/fileAction";
-import { resetData } from "../../store/actions/resetData";
-import { getLink } from "../../store/actions/openButtonAction";
+
+import { getLink } from "../../store/reducers/openButtonReducer/actions/openButtonAction";
 
 import get from "lodash/get";
 import { FormattedMessage } from "react-intl";
+import { getDownloadFileCard } from "../../store/reducers/downloadFileReducer/actions/downloadFileCardAction";
+import {
+  getFile,
+  removeFile,
+} from "../../store/reducers/downloadFileReducer/actions/fileAction";
+import { ButtonLoader } from "../views/ButtonLoader";
 
 const AddonCard = ({ addon, className }) => {
   const state = useSelector((state) => state);
@@ -31,19 +35,17 @@ const AddonCard = ({ addon, className }) => {
   } = addon;
 
   const handleDownload = () => {
-    dispatch(getDownloadFileCard(resourcePath));
+    dispatch(getDownloadFileCard({ resourcePath, slug }));
     dispatch(getFile());
   };
 
-  if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
-    const link = document.createElement("a");
-    link.download = "add-on"; //name;
-    link.href = get(file, "file.rootAddOnFilePathWithAccessToken");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    dispatch(resetData());
-  }
+  useEffect(() => {
+    if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
+      const link = document.getElementById("file");
+      link.click();
+      dispatch(removeFile());
+    }
+  }, [get(file, "file.rootAddOnFilePathWithAccessToken")]);
 
   const HandlerTrackerCardDownloads = () => {
     ReactGa.event({
@@ -132,6 +134,9 @@ const AddonCard = ({ addon, className }) => {
           </NavLink>
 
           <button
+            style={{
+              position: "relative",
+            }}
             onClick={
               applicationType === "Dynamics 365"
                 ? handleMethodsForDownload
@@ -143,7 +148,9 @@ const AddonCard = ({ addon, className }) => {
                 : "openButton"
             }
           >
-            {applicationType === "Dynamics 365" ? (
+            {file?.addonTypeDownloading === slug ? (
+              <ButtonLoader />
+            ) : applicationType === "Dynamics 365" ? (
               <FormattedMessage id="download" />
             ) : (
               <FormattedMessage id="open" />

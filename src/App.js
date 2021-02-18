@@ -18,11 +18,13 @@ import ErrorPageComp from "./components/views/ErrorPageComp";
 
 import styled from "styled-components";
 import Loader from "./components/views/Loader";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import isEmpty from "lodash/isEmpty";
 import TestPage from "./components/views/TestPage";
 import RedirectToMigrationTool from "./components/Redirect/ReditectToMigrationTool";
+import get from "lodash/get";
+import { DownloadFile } from "./components/views/DownloadFile";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;
@@ -39,8 +41,8 @@ const App = () => {
   const state = useSelector((state) => state);
 
   const { app } = state;
+
   const { error } = app;
-  const { err } = error;
 
   let backdrop;
 
@@ -53,8 +55,8 @@ const App = () => {
   // }
 
   useEffect(() => {
-    !isEmpty(err) && history.push("/error-page");
-  }, [!isEmpty(err)]);
+    !isEmpty(error) && history.push("/error-page");
+  }, [!isEmpty(error)]);
 
   useEffect(() => {
     ReactGa.initialize("UA-183628794-1");
@@ -81,7 +83,7 @@ const App = () => {
         <Route path={"/"} exact component={AddonsCardsPage}>
           <Redirect to={"/add-ons"} />
         </Route>
-          <Route path={"/migration"} exact component={RedirectToMigrationTool}/>
+        <Route path={"/migration"} exact component={RedirectToMigrationTool} />
         <Route path={"/add-ons"} exact component={AddonsCardsPage} />
         <Route
           path={"/add-ons/:slug"}
@@ -106,6 +108,7 @@ const App = () => {
       <Footer />
       <Loader />
       {/*<ErrorModal />*/}
+      <DownloadFile />
     </GeneralWrapper>
   );
 };

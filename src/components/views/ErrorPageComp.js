@@ -7,8 +7,9 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import get from "lodash/get";
-import { ERROR_LOADING_DATA } from "../../store/actions/fullAddonPageAction";
+
 import { FormattedMessage, injectIntl } from "react-intl";
+import { setError } from "../../store/reducers/appReducer/actions/appAction";
 
 const ErrorComp = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const ErrorComp = styled.div`
   margin: 60px auto;
   max-width: 1146px;
   background: #f2f3f9;
-  font-family: Montserrat;
+  font-family: Montserrorat;
 
   .title {
     font-style: normal;
@@ -53,9 +54,9 @@ const ErrorComp = styled.div`
     line-height: 20px;
     letter-spacing: 0.457143px;
     border: none;
-    font-family: Montserrat;
+    font-family: Montserrorat;
   }
-  .help-err-text {
+  .help-error-text {
     font-weight: 500;
     font-size: 18px;
     line-height: 28px;
@@ -73,13 +74,9 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   const dispatch = useDispatch();
   const { app } = state;
   const { error } = app;
-  const { err } = error;
 
-  if (get(err, "status") === 401) {
-    dispatch({
-      type: ERROR_LOADING_DATA,
-      payload: { isError: false, message: "", err: null },
-    });
+  if (get(error, "status") === 401) {
+    dispatch(setError({}));
 
     sessionStorage.clear();
 
@@ -87,21 +84,21 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
       "https://udscustomersdirectory.b2clogin.com/udscustomersdirectory.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/authorize?response_type=id_token&scope=https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fuser_impersonation%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fwrite%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fread%20openid%20profile&client_id=dd6f04a9-3f48-418c-bd64-76b3465b4ef6&redirect_uri=http%3A%2F%2Flocalhost%3A6420&state=eyJpZCI6ImE2NmM5ZDRiLWRlNzMtNGE4ZS04MWY3LTk2MzBkMDEzZjdmNCIsInRzIjoxNjExNzU1ODc3LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=fe5e3295-4f86-4e77-b652-232a13b1d2b2&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.4.4&client-request-id=27f69934-340a-4697-9d58-76bf8a688ca5&response_mode=fragment";
   }
 
-  if (!get(err, "status", status)) {
+  if (!get(error, "status", status)) {
     history.push("/");
   }
 
   return (
     <AnimatedContainer>
       <ErrorComp>
-        <div className="title">{get(err, "status", status)}</div>
-        <div className="text">{get(err, "statusText", statusText)}</div>
+        <div className="title">{get(error, "status", status)}</div>
+        <div className="text">{get(error, "statusText", statusText)}</div>
         <div
-          className="help-err-text"
+          className="help-error-text"
           dangerouslySetInnerHTML={{
             __html: get(
               intl,
-              `messages["err.${get(err, "status") || status}"]`
+              `messages["error.${get(error, "status") || status}"]`
             ),
           }}
         />
@@ -109,10 +106,7 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
         <button
           className="btn"
           onClick={() => {
-            dispatch({
-              type: ERROR_LOADING_DATA,
-              payload: { isError: false, message: "", err: null },
-            });
+            dispatch(setError({}));
             history.push("/add-ons");
           }}
         >
