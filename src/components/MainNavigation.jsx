@@ -9,8 +9,8 @@ import "../../src/scss/toggleButton/DrawerToggleButton.scss";
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 import { FormattedMessage } from "react-intl";
 // import { useDispatch, useSelector } from "react-redux";
-// import { changeAppLanguage } from "../store/actions/changeAppLanguage";
-
+// import { changeAppLanguage } from "../store/reducers/appReducer/actions/appAction";
+//
 // const getFullNameLang = (lang) => {
 //   switch (lang) {
 //     case "en":
@@ -99,6 +99,7 @@ function MainNavigation(props) {
           {/*            onClick={(e) => {*/}
           {/*              e.stopPropagation();*/}
           {/*              dispatch(changeAppLanguage(language));*/}
+          {/*              setIsOpenLangSelect(false);*/}
           {/*            }}*/}
           {/*          >*/}
           {/*            <div*/}
