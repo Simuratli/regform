@@ -75,6 +75,8 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
   const { app } = state;
   const { error } = app;
 
+  console.log(error, "!!!");
+
   if (get(error, "status") === 401) {
     dispatch(setError({}));
 

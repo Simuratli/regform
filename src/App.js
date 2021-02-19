@@ -18,12 +18,12 @@ import ErrorPageComp from "./components/views/ErrorPageComp";
 
 import styled from "styled-components";
 import Loader from "./components/views/Loader";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import isEmpty from "lodash/isEmpty";
 import TestPage from "./components/views/TestPage";
 import RedirectToMigrationTool from "./components/Redirect/ReditectToMigrationTool";
-import get from "lodash/get";
+
 import { DownloadFile } from "./components/views/DownloadFile";
 
 const GeneralWrapper = styled.div`
@@ -43,12 +43,6 @@ const App = () => {
   const { app } = state;
 
   const { error } = app;
-
-  let backdrop;
-
-  if (sideDrawerOpen) {
-    backdrop = <Backdrop setSideDrawerOpen={setSideDrawerOpen} />;
-  }
 
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
@@ -73,7 +67,7 @@ const App = () => {
         setSideDrawerOpen={setSideDrawerOpen}
         sideDrawerOpen={sideDrawerOpen}
       />
-      {backdrop}
+      {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
       <Cookie />
       <ModalMobileNotification
         active={modalActive}

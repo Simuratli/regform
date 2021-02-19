@@ -25,11 +25,13 @@ const AddonFullPageContainer = () => {
   }, [slug]);
 
   return (
-    !isEmpty(currentFullAddonPage) && (
-      <Suspense fallback={null}>
-        <AddonFullPage addon={currentFullAddonPage} />
-      </Suspense>
-    )
+    <div style={{ minHeight: "70vh" }}>
+      {!isEmpty(currentFullAddonPage) && (
+        <Suspense fallback={null}>
+          <AddonFullPage addon={currentFullAddonPage} />
+        </Suspense>
+      )}
+    </div>
   );
 };
 
