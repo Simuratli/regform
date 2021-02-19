@@ -52,7 +52,7 @@ const translations = {
             </div>`,
 
   "err.403": `<div>You do not have permission to access the document or page you requested.</div>`,
-  "err.404": `<div>Sorry, the page you are looking for does not exist.</div>`,
+  "err.404": `<div>The requested url is not found</div>`,
   "err.415": `<div>
                  <div><b>Current media type is unsupported:</b> .mp3, .mp4 </div>
                  <div><b>Available media types:</b> .pdf, .docx </div>

@@ -55,6 +55,7 @@ const ErrorComp = styled.div`
     letter-spacing: 0.457143px;
     border: none;
     font-family: Montserrorat;
+    margin: 20px 0 0 0;
   }
   .help-error-text {
     font-weight: 500;
@@ -63,7 +64,7 @@ const ErrorComp = styled.div`
     text-align: center;
     letter-spacing: -0.1px;
     color: #61626a;
-    margin: 30px 0;
+    margin: 30px 0 0 0;
   }
 `;
 
@@ -94,16 +95,15 @@ const ErrorPageComp = ({ status = "", statusText = "", intl }) => {
     <AnimatedContainer>
       <ErrorComp>
         <div className="title">{get(error, "status", status)}</div>
-        <div className="text">{get(error, "statusText", statusText)}</div>
         <div
-          className="help-error-text"
+          className="text"
           dangerouslySetInnerHTML={{
-            __html: get(
-              intl,
-              `messages["error.${get(error, "status") || status}"]`
-            ),
+            __html: get(intl, `messages["err.${get(error, "404") || status}"]`),
           }}
         />
+
+        <div className="help-error-text">{get(error, "data.message")}</div>
+        <div className="help-error-text">{get(error, "data.description")}</div>
 
         <button
           className="btn"

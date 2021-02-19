@@ -89,14 +89,7 @@ const App = () => {
         <Route path={"/error-page"} component={ErrorPageComp} />
         <Route path={"/test/:password"} component={TestPage} />
 
-        <Route
-          render={() => (
-            <ErrorPageComp
-              status={404}
-              statusText="The requested url is not found"
-            />
-          )}
-        />
+        <Route render={() => <ErrorPageComp status={404} />} />
       </Switch>
 
       <Footer />
