@@ -293,7 +293,7 @@ const AddonFullPage = ({ addon, intl }) => {
         <div className={"wrapperForBottom"}>
           <section className="bottomWrapper">
             <div className="bottomInfo">
-              <section>{serverHtml}</section>
+              <section className={"blockWithCreds"}>{serverHtml}</section>
               <section className="downloadInfo">
                 <h2>
                   <FormattedMessage id="ready.to.get.started" />

@@ -11,8 +11,8 @@ function getCookie(name) {
 const Cookie = () => {
   // const [cookieAccepted, setCookieAccepted] = useState(false);
   // const cookieAcceptedCallback = '';
-  const test = getCookie('Cookie')
-  console.log('cookie', test)
+  // const test = getCookie('Cookie')
+  // console.log('cookie', test)
   return (
     <>
       <CookieConsent

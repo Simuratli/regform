@@ -303,19 +303,16 @@
   }
   .sortField {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr;
+    .title{
+      padding-bottom: 19px;
+    }
     .sortBox{
-      height: 58px;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
+      max-width: 344px;
       padding-left: 20px;
     }
-    b{
-      padding-left: 0;
-    }
     .customSelect{
-      left: 102px;
+      left: 0;
     }
   }
 }
@@ -329,17 +326,7 @@
 @media screen and (max-width: 415px) {
   .main_container {
     @include screen400;
-
-    //.generalTitleBlock {
-    //  padding: 50px 0;
-    //}
   }
-  //.headingParagraph {
-  //  font-size: 22px;
-  //}
-  //.paragraph {
-  //  font-size: 18vw;
-  //}
 }
 @media screen and (max-width: 375px) {
   .main_container {
