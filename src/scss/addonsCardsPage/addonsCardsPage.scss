@@ -46,18 +46,97 @@
 
 }
 
+.sortField {
+  display: grid;
+  grid-template-columns: 73px 300px;
+  grid-column-gap: 10px;
+  width: 100%;
+  max-width: 384px;
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 900;
+  transition: all 275ms;
+
+  .title {
+    font-size: 18px;
+    line-height: 22px;
+    font-weight: 700;
+    color: $card-text-color;
+    align-self: center;
+  }
+
+  .sortBox {
+    border: 1px solid #E3E3E3;
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    color: $blue;
+    transition: all 275ms;
+    cursor: pointer;
+  }
+
+  .arrow {
+    position: absolute;
+    //top: 33%;
+    right: 12px;
+  }
+
+  b {
+    padding-left: 7px;
+  }
+
+
+  .customSelect {
+    position: absolute;
+    top: 100%;
+    left: 84px;
+    background: #FFFFFF;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.25);
+    right: 2px;
+
+    .row {
+      padding: 0 20px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #fefefe;
+      font-size: 16px;
+      line-height: 20px;
+
+      &:hover {
+        background: #f2f3f9;
+      }
+    }
+
+    .chosen {
+      color: $blue;
+      font-weight: 700;
+      background: #f2f3f9;
+    }
+  }
+}
+
 
 @media screen and (max-width: 1350px) {
   .main_container {
     @include screen1350;
+
     .generalTitleBlock {
-      .headingParagraph{
+      .headingParagraph {
         width: 48%;
       }
-      .orangeElement{
+
+      .orangeElement {
         left: 46px;
       }
     }
+
     .card {
       grid-gap: 1vw;
     }
@@ -69,6 +148,7 @@
     .generalTitleBlock {
       padding: 20px 0;
     }
+
     .card {
       padding: 0;
     }
@@ -79,11 +159,13 @@
 @media screen and (max-width: 1200px) {
   .main_container {
     @include screen1200;
-    .generalTitleBlock{
-      .headingParagraph{
-          width: 58%;
+
+    .generalTitleBlock {
+      .headingParagraph {
+        width: 58%;
       }
-      .orangeElement{
+
+      .orangeElement {
         left: 0;
       }
     }
@@ -93,7 +175,6 @@
 @media screen and (max-width: 1024px) {
   .main_container {
     padding: 0;
-    @include screen1024;
 
     .generalTitleBlock {
       display: flex;
@@ -101,12 +182,15 @@
       align-items: center;
       justify-content: space-between;
       line-height: 20px;
+      padding-top: 30px;
+      padding-bottom: 38px;
 
       .headingParagraph {
-        line-height: 55px;
-        font-size: 4vw;
-        width: 80%;
-        margin: 1rem;
+        font-size: 40px;
+        line-height: 130%;
+        width: 75%;
+        margin-top: 0;
+        margin-bottom: 27px;
         text-align: center;
         border-radius: 4px;
       }
@@ -116,29 +200,35 @@
       }
 
       .paragraph {
-        line-height: 25px;
-        width: 80%;
-        padding: 0;
-        font-size: 2vw;
-        font-weight: 600;
-        margin: 1rem;
+        width: 86%;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        margin: 0;
         text-align: center;
       }
 
     }
 
     .card {
-      grid-row-gap: 2vw;
-      grid-column-gap: 5vw;
+      grid-row-gap: 20px;
+      grid-column-gap: 21px;
     }
   }
 
+}
+
+@media screen and (max-width: 1000px) {
+  .main_container {
+    @include screen1024;
+  }
 }
 
 // Medium devices (landscape tablets, 768px and up)
 @media only screen and (max-width: 880px) {
   .main_container {
     @include screen880;
+
     .navigationBar .logOut {
       margin-right: 3rem;
     }
@@ -152,6 +242,7 @@
     font-size: 22px;
   }
 }
+
 @media only screen and (max-width: 768px) {
   .main_container {
     @include screen768;
@@ -163,11 +254,12 @@
   .main_container {
     .generalTitleBlock {
       padding: 20px 0;
+
       .headingParagraph {
         line-height: 30px;
         font-size: 5vw;
         width: 80%;
-        margin: 0.2rem;
+        margin-bottom: 29px;
         text-align: center;
         border-radius: 4px;
       }
@@ -182,38 +274,78 @@
         padding: 0;
         font-size: 3vw;
         font-weight: 600;
-        margin: 1rem;
-        text-align: justify;
+        margin: 0;
 
       }
     }
   }
 
 }
+
 @media only screen and (max-width: 500px) {
-  .main_container{
+  .main_container {
     @include screen500;
+    .generalTitleBlock{
+      .headingParagraph{
+        font-size: 28px;
+        line-height: 130%;
+        width: 96%;
+      }
+      .paragraph{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+        width: 103%;
+      }
+    }
+
+
+  }
+  .sortField {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    .sortBox{
+      height: 58px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-left: 20px;
+    }
+    b{
+      padding-left: 0;
+    }
+    .customSelect{
+      left: 102px;
+    }
   }
 }
 
 @media screen and (max-width: 450px) {
   .main_container .generalTitleBlock {
-    padding: 20px 0;
+    padding: 30px 0;
   }
 }
 
 @media screen and (max-width: 415px) {
-  .main_container{
+  .main_container {
     @include screen400;
-    .generalTitleBlock {
-      padding: 50px 0;
-    }
+
+    //.generalTitleBlock {
+    //  padding: 50px 0;
+    //}
   }
-  .headingParagraph {
-    font-size: 22px;
-  }
-  .paragraph {
-    font-size: 18vw;
+  //.headingParagraph {
+  //  font-size: 22px;
+  //}
+  //.paragraph {
+  //  font-size: 18vw;
+  //}
+}
+@media screen and (max-width: 375px) {
+  .main_container {
+    @include screen400;
+
+
   }
 }
 

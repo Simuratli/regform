@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import CookieConsent from "react-cookie-consent";
 import "../../scss/base.scss";
 
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 const Cookie = () => {
+  // const [cookieAccepted, setCookieAccepted] = useState(false);
+  // const cookieAcceptedCallback = '';
+  const test = getCookie('Cookie')
+  console.log('cookie', test)
   return (
     <>
       <CookieConsent
-        enableDeclineButton
-        flipButtons
+        // enableDeclineButton
+        // flipButtons
         location="bottom"
         buttonText="Ok"
         declineButtonText="none"
@@ -17,8 +27,8 @@ const Cookie = () => {
         containerClasses={"cookieContainer"}
         contentClasses={"cookieContent"}
         buttonWrapperClasses={"buttons"}
-        buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
-        expires={0}
+        // buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+        // expires={0}
       >
         <p>
           We use cookies to ensure you an improved user experience and services.

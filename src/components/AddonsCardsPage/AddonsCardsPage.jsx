@@ -4,11 +4,8 @@ import orangeElement from "../../assets/images/orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
-import { FilterAddonsComponent } from "../views/FilterAddonsComponent";
+import { FilterAddonsComponent } from "../FilterAddonsComponent/FilterAddonComponent";
 import { setError } from "../../store/reducers/appReducer/actions/appAction";
-
-// LODASH
-
 import isEmpty from "lodash/isEmpty";
 
 const AddonsCardsPage = () => {
@@ -31,18 +28,12 @@ const AddonsCardsPage = () => {
         <h1 className="headingParagraph">
           <FormattedMessage id="enhance.system.text" />
         </h1>
-        <img
-          className="orangeElement"
-          src={orangeElement}
-          alt="orange element"
-        />
+        <img className="orangeElement" src={orangeElement} alt="orange element"/>
         <p className="paragraph">
           <FormattedMessage id="improve.dynamics.text" />
         </p>
       </div>
-
       <FilterAddonsComponent />
-
       <div className={"card"}>
         <AddonCardContainer />
       </div>

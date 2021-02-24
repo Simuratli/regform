@@ -5,7 +5,8 @@
   text-transform: uppercase;
   margin-right: 2rem;
   font-size: 14px;
-  font-weight: bold;
+  line-height: 17px;
+  font-weight: 700;
   color: $gray;
   letter-spacing: 0.5px;
   transition: opacity 150ms ease-in-out;
@@ -67,24 +68,26 @@
         display: flex;
         align-items: center;
         text-transform: uppercase;
-        font-size: 14px;
-        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: 700;
         border: 1px solid $orange;
         color: #ffffff;
         background-color: $orange;
-        padding: 0.2rem 0.4rem;
+        padding: 7px 12.3px;
         transition: 0.2s;
         letter-spacing: 0.5px;
         z-index: 1000;
-        margin-right: 1rem;
+        height: 30px;
       }
 
-      .bookACall :after {
+      a :after {
         content: url("../assets/images/arrow.png");
         position: relative;
         bottom: 1.5px;
         left: 7px;
         border-radius: 4px;
+        padding-right: 5px;
       }
     }
   }
@@ -95,6 +98,8 @@
     cursor: pointer;
     color: $gray;
     transition: ease-out 0.2s;
+    margin-left: 1rem;
+    margin-right: 0;
 
     &:hover {
       box-shadow: none;
@@ -180,13 +185,14 @@
 }
 
 @media only screen and (max-width: 1024px) {
+  .headerLogo {
+    width: 160px;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 1000px) {
   .navigationBar {
     @include screen1024;
-  }
-
-  .headerLogo {
-    width: 100px;
-    height: auto;
   }
 }
 
