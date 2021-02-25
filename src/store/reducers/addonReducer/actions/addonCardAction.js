@@ -3,6 +3,8 @@ import { httpClient } from "../../../../services/services";
 import { SET_CARDS_DATA } from "../types";
 import { setError, setIsLoading } from "../../appReducer/actions/appAction";
 
+import get from "lodash/get";
+
 export const getAddonCard = () => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
@@ -27,8 +29,14 @@ export const getAddonCard = () => {
         localStorage.setItem("cardsArr", JSON.stringify(res.data));
       })
       .catch((err) => {
-        localStorage.setItem("error", JSON.stringify(err.response.data));
-        dispatch(setError(err.response.data));
+        if (get(err, "response.data")) {
+          localStorage.setItem(
+            "error",
+            JSON.stringify(get(err, "response.data"))
+          );
+          dispatch(setError(err.response.data));
+        }
+
         dispatch(setIsLoading(false));
       });
   };
