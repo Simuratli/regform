@@ -1,8 +1,7 @@
 @import "../utils/utils";
 
 .addonsCard {
-  background: #fff url("../../assets/images/addons_card_bg.svg");
-  background-repeat: no-repeat;
+  background: #fff url("../../assets/images/addons_card_bg.svg") no-repeat;
   background-size: 100%;
   border: 10px solid $light-blue;
   padding: 15px 25px;
@@ -10,6 +9,9 @@
   transition: all 0.4s ease-in-out;
   position: relative;
   height: 33rem;
+  width: 100%;
+  max-width: 360px;
+
 
   &:hover {
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
@@ -158,23 +160,9 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .addonsCard .cardsButtons .moreInfoButton {
-    width: 105px;
-    font-size: 12px;
-  }
-  .addonsCard .cardsButtons .downloadButton {
-    width: 105px;
-    font-size: 12px;
-  }
-  .addonsCard .cardsButtons .openButton {
-    width: 105px;
-    font-size: 12px;
-  }
-}
-
 @media screen and (max-width: 1024px) {
   .addonsCard {
+    max-width: 472px;
     .cardLogo {
       .logo {
         width: 80px;
@@ -183,12 +171,15 @@
     }
 
     .cardTitle {
-      font-size: 18px;
+      font-size: 20px;
+      line-height: 26px;
     }
 
     .cardDescription {
-      font-size: 15px;
-      text-align: justify;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      //text-align: justify;
     }
 
     .cardAction {
@@ -202,21 +193,31 @@
     }
 
     .description {
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 400;
     }
 
     .cardsButtons {
       .downloadButton {
-        font-size: 12px;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
       }
 
       .moreInfoButton {
-        font-size: 12px;
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
       }
 
-      .open {
-        width: 105px;
+      .openButton {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
       }
     }
   }
@@ -226,6 +227,31 @@
   .addonsCard {
     .description {
       font-size: 12px;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .addonsCard {
+    .cardTitle {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    .cardDescription{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .cardSubTitle{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+    .description{
+      p{
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+      }
     }
   }
 }

@@ -215,6 +215,21 @@
 @media screen and (max-width: 1024px) {
   .phantom,
   .footerCopyrightInfo {
+    //@include screen1024;
+  }
+  //.footerCopyrightInfo {
+  //  grid-template-columns: 1fr;
+  //  grid-gap: 10px;
+  //  text-align: center;
+  //
+  //  .iconsBar {
+  //    justify-self: center;
+  //  }
+  //}
+}
+@media screen and (max-width: 1000px) {
+  .phantom,
+  .footerCopyrightInfo {
     @include screen1024;
   }
   .footerCopyrightInfo {

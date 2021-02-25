@@ -56,14 +56,11 @@ function MainNavigation(props) {
                 </NavLink>
               </li>
               <li>
+                <a href="https://calendly.com/rsavran/dynamics">
                 <button className={"bookACall"}>
-                  <a
-                    className={"bookACall"}
-                    href="https://calendly.com/rsavran/dynamics"
-                  >
                     <FormattedMessage id="book.call" />
-                  </a>
                 </button>
+                </a>
               </li>
             </ul>
           </nav>

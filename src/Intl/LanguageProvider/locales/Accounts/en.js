@@ -50,7 +50,7 @@ const translations = {
                  <div>The server cannot process the client request.</div>
                  <div>It might be either malformed or illegal.</div>
             </div>`,
-
+  "err.402": `<div>Payment Required.</div>`,
   "err.403": `<div>You do not have permission to access the document or page you requested.</div>`,
   "err.404": `<div>The requested url is not found</div>`,
   "err.415": `<div>

@@ -17,7 +17,9 @@
   }
 
   h2 {
-    font-size: 44px;
+    font-size: 46px;
+    line-height: 56px;
+    letter-spacing: -0.2px;
     text-align: center;
     padding: 41px 0;
     margin: 0;
@@ -52,6 +54,9 @@
     position: relative;
     .chargeMessage {
       margin-top: 2rem;
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 700;
     }
 
     .virtualMashineWarning {
@@ -134,11 +139,45 @@
 
   p {
     @include paragraphForBlocksOnFullPage;
+    padding: 40px 120px;
+  }
+  .aboutInfoTechnicalBlock{
+    background-color: #FFFFFF;
+    text-align: center;
+    width: 100%;
+    max-width: 688px;
+    margin: auto;
+
+    ul{
+      padding: 5px 0 5px 41px;
+      li{
+        padding-left: 22px;
+        background: url("../../assets/images/ellipse.svg") no-repeat left center;
+        .rowKey {
+          color: $blue;
+          font-weight: 700;
+          font-size: 18px;
+          line-height: 28px;
+          letter-spacing: -0.1px;
+        }
+        p{
+          margin: 11px 0;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 28px;
+          letter-spacing: -0.1px;
+          background-color: #FFFFFF;
+          text-align: left;
+          padding: 0;
+        }
+      }
+    }
   }
   .technicalInfo {
     margin-top: 2rem;
     ul {
       padding-left: 2rem;
+
     }
     p {
       padding: 0;
@@ -170,21 +209,6 @@
       padding-bottom: 50px;
     }
   }
-}
-
-.rowKey {
-  color: $blue;
-  font-weight: bold;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.1px;
-}
-.rowValue {
-  color: $blue;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: -0.1px;
 }
 
 .useInfo {
@@ -242,9 +266,9 @@
 
         .stepDescP {
           margin-right: 30px;
-          font-weight: normal;
-          font-size: 19px;
-          line-height: 23px;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 22px;
           letter-spacing: -0.2px;
         }
       }
@@ -253,7 +277,9 @@
         color: $orange;
         text-transform: uppercase;
         font-size: 20px;
-        font-weight: bold;
+        line-height: 24px;
+        letter-spacing: -0.2px;
+        font-weight: 700;
       }
 
       .stepImage {
@@ -292,12 +318,11 @@
 
   ul {
     padding: 0;
-    max-width: 60%;
-    min-width: 60%;
   }
   li {
     padding: 0 0 0 22px;
-    background: url("../../assets/images/ellipse.svg") no-repeat left center;
+    background: url("../../assets/images/ellipse.svg") no-repeat;
+    background-position: 1% 48%;
   }
   .noListItem {
     background-image: none;
@@ -305,6 +330,17 @@
 
   p {
     margin: 10px 0;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.1px;
+  }
+  .rowKey {
+    color: $blue;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.1px;
   }
 }
 
@@ -314,17 +350,30 @@
   width: 100%;
   height: 100%;
   background-position: bottom;
-  background-color: #f2f3f9;
   position: relative;
-  //padding: 80px 0 850px 0;
 }
 .bottomInfo {
+  .blockWithCreds{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 80px;
+    @include bigScreen;
+  }
   @include bigScreen;
+  h2{
+    padding-bottom: 40px;
+    padding-top: 0;
+  }
+  p{
+    margin: 0 0 6px;
+  }
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 80px;
 }
 
 .downloadInfo {
   @include generalSettingsForBlock;
-  padding-bottom: 24px;
   @include bigScreen;
 }
 
@@ -355,6 +404,8 @@
 
   .helpList {
     list-style-type: none;
+    margin-top: 40px;
+    margin-bottom: 0;
 
     & .mailItem {
       padding-left: 25px;
@@ -429,17 +480,62 @@
   .installInfo {
     @include screen1200;
   }
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen1200;
+    }
+  }
 }
 @media screen and (max-width: 1024px) {
+  .addonFullPage{
+    h2{
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 49px;
+      letter-spacing: -0.2px;
+    }
+    p{
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.1px;
+    }
+  }
   .main_container .generalTitleBlock .headingParagraph {
     width: 90%;
   }
   .header {
-    @include screen1024;
+    //@include screen1024;
+    grid-column-gap: 0;
+    .headerLeftSide{
+      padding-left: 80px;
+      h1{
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 130%;
+        letter-spacing: -1.09524px;
+      }
+    }
     .headerRightSide {
       .videoTutorial {
         width: 384px;
         height: 316px;
+      }
+    }
+  }
+  .aboutInfo{
+    p{
+      padding: 40px 32px;
+    }
+    .aboutInfoTechnicalBlock{
+      ul{
+        li{
+          p{
+            font-size: 18px;
+            line-height: 28px;
+            letter-spacing: -0.1px;
+          }
+        }
       }
     }
   }
@@ -449,13 +545,29 @@
   .installInfo,
   .additionalInfo,
   .bottomInfo {
-    @include screen1024;
+    //@include screen1024;
   }
   .helpInfo {
     margin-bottom: 0;
   }
   .header .headerRightSide .videoTutorial img {
     top: 12%;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .topInfo,
+  .useInfo,
+  .aboutInfo,
+  .installInfo,
+  .additionalInfo,
+  .bottomInfo,
+  .header{
+    @include screen1024;
+  }
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen1024;
+    }
   }
 }
 @media screen and (max-width: 880px) {
@@ -469,6 +581,11 @@
   .additionalInfo,
   .bottomInfo {
     @include screen880;
+  }
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen880;
+    }
   }
 }
 @media screen and (max-width: 768px) {
@@ -486,6 +603,12 @@
       }
       .virtualMashineWarning {
         text-align: center;
+        .virtualMashineWarningparagraph{
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+
       }
     }
 
@@ -505,7 +628,16 @@
     @include screen768;
 
     p {
-      padding: 2rem;
+      padding: 30px 20px 35px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: -0.1px;
+    }
+  }
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen768;
     }
   }
   .installInfo {
@@ -513,12 +645,19 @@
     @include screen768;
 
     p {
-      padding: 2rem;
+      padding: 30px 20px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 130%;
+      margin-bottom: 0;
     }
   }
   .technicalInfo {
     ul {
       margin-left: 1rem;
+    }
+    li{
+      background-position: 1% 20%;
     }
   }
   .creditionalInfo {
@@ -541,8 +680,10 @@
 
     .stepTitle {
       color: $orange;
-      font-size: 20px;
-      font-weight: bold;
+      font-size: 16px;
+      line-height: 130%;
+      font-weight: 400;
+      letter-spacing: -0.2px;
     }
 
     img {
@@ -585,7 +726,7 @@
   .addonFullPage {
     h2 {
       font-size: 22px;
-      padding: 2rem 0 1rem;
+      padding: 0 0 1rem;
     }
     p {
       font-size: 14px;
@@ -594,13 +735,21 @@
   }
 }
 @media screen and (max-width: 520px) {
+  .addonFullPage{
+    h2{
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: -0.2px;
+    }
+
+  }
   .main_container .generalTitleBlock .headingParagraph {
     width: 80%;
   }
   .header {
     grid-template-columns: 1fr;
     align-content: start;
-    padding: 50px 0 90px;
+    padding: 40px 0 93px;
 
     .headerRightSide {
       display: none;
@@ -608,16 +757,30 @@
 
     .headerLeftSide {
       align-items: center;
+      padding-left: 0;
 
       h1 {
-        font-size: 6vw;
+        font-weight: 800;
+        font-size: 28px;
+        line-height: 130%;
         text-align: center;
+        letter-spacing: -1.09524px;
       }
 
       a {
         text-align: center;
         margin-bottom: 2rem;
       }
+      .chargeMessage{
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+      }
+    }
+  }
+  .aboutInfo{
+    p{
+
     }
   }
 
@@ -625,6 +788,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+
   }
 
   .useInfo {
@@ -700,6 +864,11 @@
   .installInfo {
     @include screen500;
   }
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen500;
+    }
+  }
   .creditionalInfo {
     margin-top: 2rem;
   }
@@ -715,8 +884,45 @@
   .installInfo {
     @include screen400;
   }
-  .technicalInfo ul {
-    padding: 10px;
+  .bottomInfo{
+    .blockWithCreds{
+      @include screen400;
+    }
+  }
+  .technicalInfo, .creditionalInfo{
+    ul {
+      padding: 10px;
+    }
+    li{
+      background-position: 1% 9px;
+    }
+  }
+  .technicalInfo{
+    .rowKey{
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: -0.1px;
+    }
+  }
+  .aboutInfo{
+    .aboutInfoTechnicalBlock{
+      ul{
+        padding: 5px 0 5px 18px;
+        li{
+          background-position: 1% 9px;
+          p{
+            font-size: 14px;
+            line-height: 130%;
+            letter-spacing: -0.1px;
+          }
+          .rowKey{
+            font-size: 14px;
+            line-height: 130%;
+            letter-spacing: -0.1px;
+          }
+        }
+      }
+    }
   }
   .creditionalInfo {
     margin-top: 2rem;
