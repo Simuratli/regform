@@ -45,10 +45,17 @@ const TestPage = () => {
   const handleSubmit = () => {
     dispatch(setIsLoading(true));
 
-    httpClient.post(`/tests/error-page/${value}`).catch((err) => {
-      dispatch(setIsLoading(false));
-      dispatch(setError(err.response));
-    });
+    httpClient
+      .post(`/tests/error-page/${value}`)
+      .then((res) => {
+        dispatch(setIsLoading(false));
+        dispatch(setError(res.data));
+        localStorage.setItem("error", JSON.stringify(res.data));
+      })
+      .catch((err) => {
+        dispatch(setIsLoading(false));
+        dispatch(setError(err.response.data));
+      });
   };
 
   useEffect(() => {

@@ -27,7 +27,8 @@ export const getAddonCard = () => {
         localStorage.setItem("cardsArr", JSON.stringify(res.data));
       })
       .catch((err) => {
-        dispatch(setError(err.response));
+        localStorage.setItem("error", JSON.stringify(err.response.data));
+        dispatch(setError(err.response.data));
         dispatch(setIsLoading(false));
       });
   };

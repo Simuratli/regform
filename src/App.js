@@ -44,6 +44,8 @@ const App = () => {
 
   const { error } = app;
 
+  console.log(error, "error");
+
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
   // }
@@ -89,7 +91,7 @@ const App = () => {
         <Route path={"/error-page"} component={ErrorPageComp} />
         <Route path={"/test/:password"} component={TestPage} />
 
-        <Route render={() => <ErrorPageComp status={404} />} />
+        <Route render={() => <ErrorPageComp statusCode={404} />} />
       </Switch>
 
       <Footer />
