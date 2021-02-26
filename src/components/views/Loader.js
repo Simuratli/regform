@@ -6,12 +6,8 @@ import styled from "styled-components";
 const LoaderComponent = styled.div`
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: ${({ scrollY }) => scrollY};
-  left: 0;
   background: rgba(255, 255, 255, 0.8);
   z-index: 100000;
 
@@ -19,6 +15,13 @@ const LoaderComponent = styled.div`
     width: 112px;
     height: 112px;
     transform: scale(0.8);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .box1,
