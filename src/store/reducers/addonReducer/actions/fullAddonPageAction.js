@@ -22,11 +22,19 @@ export const getFullAddonPage = (slug) => {
                 dispatch(setIsLoading(false));
             })
             .catch((err) => {
-                dispatch(setError(err));
-                localStorage.setItem(
-                    "error",
-                    JSON.stringify(err)
-                );
+
+                if (get(err, "response.data")) {
+                    // dispatch(setError(err.response.data));
+                    dispatch(setError(err.response.data));
+                } else {
+                    const error = {
+                        "statusCode": 404,
+                        "isErrorPage": true,
+                        "message": `The requested ${window.location.pathname} is not found`,
+                        "description": 'Sorry, the page you are looking for does not exist.'
+                    }
+                    dispatch(setError(error));
+                }
 
                 dispatch(setIsLoading(false));
             });

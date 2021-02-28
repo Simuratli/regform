@@ -165,7 +165,7 @@
 
 @media only screen and (max-width: 1350px) {
   .navigationBar {
-    padding: 15px 0;
+    //padding: 15px 0;
     @include screen1350;
   }
   .logOut {
@@ -197,8 +197,13 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .headerLogo{
+    width: 106px;
+  }
   .navigationBar {
     padding: 0;
+    height: 60px;
+    @include screen880;
   }
   .navItems {
     display: none;

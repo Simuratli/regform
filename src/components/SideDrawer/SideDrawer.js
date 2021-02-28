@@ -1,7 +1,10 @@
 import React from "react";
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import '../../scss/toggleButton/SideDrawer.scss';
 import DrawerToggleButton from "./DrawerToggleButton";
+import authentication from "../../b2c";
+import logout from "../../assets/images/logout.png";
+import logo from "../../assets/images/uds_portal_logo.svg";
 
 const SideDrawer = (props) => {
 
@@ -13,8 +16,11 @@ const SideDrawer = (props) => {
 
     return (
     <nav className={drawerClass}>
-        <div>
+        <div className={"top"}>
             <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} sideDrawerOpen={props.sideDrawerOpen}/>
+            <Link to={"/"}>
+                <img className={"headerLogo"} src={logo} alt={"logo"} />
+            </Link>
         </div>
 
         <ul>
@@ -24,6 +30,14 @@ const SideDrawer = (props) => {
                 <button className={"bookACall"}>
                     <a className={'bookACall'} href='https://calendly.com/rsavran/dynamics'>Book a call</a>
                 </button>
+            </li>
+            <li>
+                <div>
+                    <a className={"logOut"} onClick={() => authentication.signOut()}>
+                        SIGN OUT
+                        <img style={{marginLeft: "9px"}} alt={"logout"} src={logout} />
+                    </a>
+                </div>
             </li>
         </ul>
     </nav>

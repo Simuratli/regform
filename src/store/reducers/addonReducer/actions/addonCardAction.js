@@ -30,10 +30,6 @@ export const getAddonCard = () => {
       })
       .catch((err) => {
         if (get(err, "response.data")) {
-          localStorage.setItem(
-            "error",
-            JSON.stringify(get(err, "response.data"))
-          );
           dispatch(setError(err.response.data));
         }
 

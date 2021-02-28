@@ -33,10 +33,6 @@ function MainNavigation(props) {
   return (
     <div className={"fullWidthWrapper"}>
       <div className={"navigationBar"}>
-        <div className={"mainNavToggleButton"}>
-          <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} />
-        </div>
-
         <div>
           <Link to={"/"}>
             <img className={"headerLogo"} src={logo} alt={"logo"} />
@@ -62,8 +58,14 @@ function MainNavigation(props) {
                 </button>
                 </a>
               </li>
+              <li>
+                <a className={"logOut"} onClick={() => authentication.signOut()}>
+                  <img alt={"logout"} src={logout} />
+                </a>
+              </li>
             </ul>
           </nav>
+
           {/*<div*/}
           {/*  className="change-lang-box"*/}
           {/*  onClick={(e) => {*/}
@@ -123,11 +125,10 @@ function MainNavigation(props) {
           {/*    </div>*/}
           {/*  )}*/}
           {/*</div>*/}
-          <div>
-            <a className={"logOut"} onClick={() => authentication.signOut()}>
-              <img alt={"logout"} src={logout} />
-            </a>
-          </div>
+
+        </div>
+        <div className={"mainNavToggleButton"}>
+          <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} />
         </div>
       </div>
     </div>

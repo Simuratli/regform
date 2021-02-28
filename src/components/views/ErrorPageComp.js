@@ -54,7 +54,7 @@ const ErrorComp = styled.div`
     line-height: 20px;
     letter-spacing: 0.457143px;
     border: none;
-    font-family: Montserrorat;
+    font-family: Montserrat;
     margin: 20px 0 0 0;
   }
   .help-error-text {
@@ -76,9 +76,23 @@ const ErrorPageComp = ({ statusCode = "", statusText = "", intl }) => {
   const { app } = state;
   const { error } = app;
 
-  const err = JSON.parse(localStorage.getItem("error")) || error;
+  let customError = {
+    "statusCode": 500,
+    "message": "Internal server error",
+    "description": "Sorry, something went wrong on our end. We are currently trying to fix the problem."
+  }
 
-  if (get(err, "statusCode") === 401) {
+  // const err = JSON.parse(localStorage.getItem("error")) || error;
+
+  if (statusCode === 404){
+    customError = {
+      "statusCode": 404,
+      "message": `The requested ${window.location.pathname} is not found`,
+      "description": "Sorry, the page you are looking for does not exist."
+    }
+  }
+
+  if (get(error, "statusCode") === 401) {
     dispatch(setError({}));
 
     sessionStorage.clear();
@@ -87,34 +101,27 @@ const ErrorPageComp = ({ statusCode = "", statusText = "", intl }) => {
       "https://udscustomersdirectory.b2clogin.com/udscustomersdirectory.onmicrosoft.com/b2c_1_signup_signin/oauth2/v2.0/authorize?response_type=id_token&scope=https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fuser_impersonation%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fwrite%20https%3A%2F%2Fudscustomersdirectory.onmicrosoft.com%2Fuds-portal%2Fprod%2Fread%20openid%20profile&client_id=dd6f04a9-3f48-418c-bd64-76b3465b4ef6&redirect_uri=http%3A%2F%2Flocalhost%3A6420&state=eyJpZCI6ImE2NmM5ZDRiLWRlNzMtNGE4ZS04MWY3LTk2MzBkMDEzZjdmNCIsInRzIjoxNjExNzU1ODc3LCJtZXRob2QiOiJyZWRpcmVjdEludGVyYWN0aW9uIn0%3D&nonce=fe5e3295-4f86-4e77-b652-232a13b1d2b2&client_info=1&x-client-SKU=MSAL.JS&x-client-Ver=1.4.4&client-request-id=27f69934-340a-4697-9d58-76bf8a688ca5&response_mode=fragment";
   }
 
-  if (!get(err, "statusCode")) {
-    history.push("/");
-  }
-
   return (
     <AnimatedContainer>
       <ErrorComp>
-        <div className="title">{get(err, "statusCode")}</div>
+        <div className="title">{get(error, "statusCode") || customError.statusCode}</div>
 
-        <div className="text">{get(err, "message")}</div>
+        <div className="text">{get(error, "message") || customError.message}</div>
 
         <div
           className="help-error-text"
           dangerouslySetInnerHTML={{
             __html: get(
               intl,
-              `messages["err.${get(err, "statusCode") || statusCode}"]`
+              `messages["err.${get(error, "statusCode") || statusCode}"]`
             ),
           }}
         />
 
-        <div className="help-error-text">{get(err, "description")}</div>
-
+        <div className="help-error-text">{get(error, "description") || customError.description}</div>
         <button
           className="btn"
           onClick={() => {
-            localStorage.removeItem("error");
-
             dispatch(setError({}));
             history.push("/add-ons");
           }}

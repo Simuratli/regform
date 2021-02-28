@@ -1,17 +1,30 @@
 @import "../utils/utils";
 
 .sideDrawer {
-  height: 100%;
+  height: fit-content;
   background-color: white;
-  box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
+  //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
+  //width: 100%;
+  //max-width: 400px;
   position: fixed;
   top: 0;
   left: 0;
-  width: 40%;
-  max-width: 400px;
+  right: 0;
   z-index: 200;
-  transform: translateX(-100%);
+  transform: translateY(-100%);
   transition: transform 0.3s ease-out;
+
+
+  .top{
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    .headerLogo{
+      margin-left: 39px;
+      width: 106px;
+    }
+  }
 
   ul {
     list-style: none;
@@ -24,12 +37,18 @@
     color: $orange;
     margin: 1rem 0;
   }
+  .nav-link{
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+  }
   .bookACall {
     display: flex;
     align-items: center;
     text-transform: uppercase;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
     border: 1px solid $orange;
     color: #ffffff;
     background-color: $orange;
@@ -45,11 +64,21 @@
     left: 7px;
     border-radius: 4px;
   }
+  .logOut{
+    font-size: 12px;
+    line-height: 15px;
+    font-weight: 700;
+    color: #757689;
+    display: flex;
+  }
 }
 
 .open {
   transform: translateX(0);
   z-index: 10000;
+  .burger{
+    margin-right: 63px;
+  }
 }
 
 @media screen and (min-width: 769px) {
@@ -60,6 +89,6 @@
 
 @media screen and (max-width: 415px) {
   .sideDrawer {
-    width: 74%;
+    width: 100%;
   }
 }

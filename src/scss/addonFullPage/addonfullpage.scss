@@ -318,6 +318,7 @@
 
   ul {
     padding: 0;
+
   }
   li {
     padding: 0 0 0 22px;
@@ -838,7 +839,10 @@
     a {
       margin: 1rem;
       color: $orange;
-      font-size: 12px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 28px;
+      letter-spacing: -0.1px;
     }
 
     .helpList {
@@ -848,10 +852,10 @@
         background-size: 8%;
       }
       .mailItem {
-        background-position: 15% 0;
+        background-position: 10% 4px;
       }
       .skypeItem {
-        background-position: 26% 0;
+        background-position: 24% 2px;
       }
     }
 
@@ -873,6 +877,9 @@
     ul {
       padding: 0 19px;
     }
+  }
+  .bottomInfo{
+    grid-row-gap: 60px;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -914,6 +921,7 @@
   .technicalInfo, .creditionalInfo{
     ul {
       padding: 10px;
+      //padding-right: 81px;
     }
     li{
       background-position: 1% 9px;

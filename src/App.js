@@ -44,7 +44,7 @@ const App = () => {
 
   const { error } = app;
 
-  console.log(error, "error");
+  // console.log(error, "error");
 
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
@@ -65,16 +65,10 @@ const App = () => {
     <GeneralWrapper>
       <ScrollArrow />
       <MainNavigation setSideDrawerOpen={setSideDrawerOpen} />
-      <SideDrawer
-        setSideDrawerOpen={setSideDrawerOpen}
-        sideDrawerOpen={sideDrawerOpen}
-      />
+      <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
       {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
       <Cookie />
-      <ModalMobileNotification
-        active={modalActive}
-        setActive={setModalActive}
-      />
+      <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
       <Switch>
         <Route path={"/"} exact component={AddonsCardsPage}>
           <Redirect to={"/add-ons"} />
