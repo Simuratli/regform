@@ -7,9 +7,9 @@ function DrawerToggleButton(props) {
     }
     return (
         <button className={'burger'} onClick={openNavAndChangeButton}>
-            <div className={props.sideDrawerOpen ? 'open' : 'close'}/>
-            <div className={props.sideDrawerOpen ? 'open' : 'close'}/>
-            <div className={props.sideDrawerOpen ? 'open' : 'close'}/>
+            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
+            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
+            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
         </button>
     )
 }

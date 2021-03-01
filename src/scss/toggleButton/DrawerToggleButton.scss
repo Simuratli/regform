@@ -10,7 +10,6 @@
     border: none;
     padding: 0;
     box-sizing: border-box;
-    //margin: 2rem 1.6rem;
     div{
         width: 20px;
         height: 2px;
@@ -18,27 +17,27 @@
         transition: all ease 0.3s;
     }
 
-    .open:nth-child(1){
+    .openNav:nth-child(1){
         transform: rotate(45deg) translateY(8.5px);
     }
-    .open:nth-child(2){
+    .openNav:nth-child(2){
         opacity: 0;
     }
-    .open:nth-child(3){
+    .openNav:nth-child(3){
         transform: rotate(-45deg) translateY(-8.5px);
     }
-    .close:nth-child(1){
+    .closeNav:nth-child(1){
         transform: rotate(0) translateY(0);
     }
-    .close:nth-child(2){
+    .closeNav:nth-child(2){
         opacity: 1;
     }
-    .close:nth-child(3){
+    .closeNav:nth-child(3){
         transform: rotate(0) translateY(0);
     }
 
 }
-.burger:focus, :hover, :active{
+.burger:focus, .burger:hover, .burger:active{
     outline: none;
     box-shadow: none;
 }

@@ -2,34 +2,19 @@
 
 .sideDrawer {
   height: fit-content;
-  background-color: white;
+  //background-color: white;
   //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
   //width: 100%;
   //max-width: 400px;
-  position: absolute;
-  top: 59px;
-  left: 0;
-  right: 0;
-  z-index: 200;
-  transform: translateY(-200%);
+
+  //transform: translateY(-200%);
   transition: transform 0.3s ease-out;
   opacity: 0;
+  display: none;
   .active {
     border-bottom: 2px solid $orange;
   }
-
-
-  .top {
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    justify-content: space-between;
-
-    .headerLogo {
-      margin-left: 39px;
-      width: 106px;
-    }
-  }
+  
 
   ul {
     list-style: none;
@@ -80,16 +65,22 @@
 }
 
 .open {
-  transform: translateX(0);
+  //transform: translateX(0);
   z-index: 10000;
   overflow: hidden;
   opacity: 1;
   background-color: #FFFFFF;
+  position: absolute;
+  top: 59px;
+  left: 0;
+  right: 0;
+  display: block;
 
 
-  .burger {
-    margin-right: 63px;
-  }
+
+  //.burger {
+  //  margin-right: 63px;
+  //}
 }
 
 @media screen and (min-width: 769px) {
