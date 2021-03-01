@@ -22,6 +22,7 @@ import { FormattedMessage } from "react-intl";
 //   }
 // };
 
+
 function MainNavigation(props) {
   // const state = useSelector(({ app }) => app);
   // const { lang } = state;
@@ -128,7 +129,7 @@ function MainNavigation(props) {
 
         </div>
         <div className={"mainNavToggleButton"}>
-          <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} />
+          <DrawerToggleButton sideDrawerOpen={props.sideDrawerOpen} setSideDrawerOpen={props.setSideDrawerOpen} />
         </div>
       </div>
     </div>

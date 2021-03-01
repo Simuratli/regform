@@ -6,21 +6,22 @@
   //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
   //width: 100%;
   //max-width: 400px;
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 59px;
   left: 0;
   right: 0;
   z-index: 200;
-  transform: translateY(-100%);
+  transform: translateY(-200%);
   transition: transform 0.3s ease-out;
 
 
-  .top{
+  .top {
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    .headerLogo{
+
+    .headerLogo {
       margin-left: 39px;
       width: 106px;
     }
@@ -37,11 +38,13 @@
     color: $orange;
     margin: 1rem 0;
   }
-  .nav-link{
+
+  .nav-link {
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
   }
+
   .bookACall {
     display: flex;
     align-items: center;
@@ -52,19 +55,18 @@
     border: 1px solid $orange;
     color: #ffffff;
     background-color: $orange;
-    padding: 0.2rem 0.4rem;
+    padding: 7px 12.3px;
     transition: 0.2s;
     letter-spacing: 0.5px;
+    z-index: 1000;
+    height: 30px;
+    width: 143px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E");
+    background-position: 91%;
+    background-repeat: no-repeat;
   }
 
-  .bookACall :after {
-    content: url("../../assets/images/arrow.png");
-    position: relative;
-    bottom: 1.5px;
-    left: 7px;
-    border-radius: 4px;
-  }
-  .logOut{
+  .logOut {
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
@@ -76,7 +78,9 @@
 .open {
   transform: translateX(0);
   z-index: 10000;
-  .burger{
+  overflow: hidden;
+
+  .burger {
     margin-right: 63px;
   }
 }
@@ -86,9 +90,31 @@
     display: none;
   }
 }
-
+@media screen and (max-width: 540px) {
+  .sideDrawer {
+    ul{
+      padding-left: 23px;
+      margin-top: 0;
+      margin-bottom: 0;
+      li{
+        margin-top: 20px;
+        margin-bottom: 0;
+        &:last-child{
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+}
 @media screen and (max-width: 415px) {
   .sideDrawer {
     width: 100%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .sideDrawer {
+    ul{
+      padding-left: 23px;
+    }
   }
 }

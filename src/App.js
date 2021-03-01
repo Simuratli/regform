@@ -64,7 +64,7 @@ const App = () => {
   return (
     <GeneralWrapper>
       <ScrollArrow />
-      <MainNavigation setSideDrawerOpen={setSideDrawerOpen} />
+      <MainNavigation setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
       <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
       {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
       <Cookie />

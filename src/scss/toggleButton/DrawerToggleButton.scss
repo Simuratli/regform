@@ -11,13 +11,35 @@
     padding: 0;
     box-sizing: border-box;
     //margin: 2rem 1.6rem;
+    div{
+        width: 20px;
+        height: 2px;
+        background: $blue;
+        transition: all ease 0.3s;
+    }
+
+    .open:nth-child(1){
+        transform: rotate(45deg) translateY(8.5px);
+    }
+    .open:nth-child(2){
+        opacity: 0;
+    }
+    .open:nth-child(3){
+        transform: rotate(-45deg) translateY(-8.5px);
+    }
+    .close:nth-child(1){
+        transform: rotate(0) translateY(0);
+    }
+    .close:nth-child(2){
+        opacity: 1;
+    }
+    .close:nth-child(3){
+        transform: rotate(0) translateY(0);
+    }
 
 }
-.burger:focus{
+.burger:focus, :hover{
     outline: none;
+    box-shadow: none;
 }
-.line{
-    width: 20px;
-    height: 2px;
-    background: $blue;
-}
+
