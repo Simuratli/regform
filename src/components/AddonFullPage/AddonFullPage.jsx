@@ -17,7 +17,7 @@ import { getLink } from "../../store/reducers/openButtonReducer/actions/openButt
 import get from "lodash/get";
 
 import { FormattedMessage, injectIntl } from "react-intl";
-import AddonYouMayLikeCont from "../AddonYouMayLikeCont/index";
+import AddonYouMayLikeCont from "../AddonYouMayLikeCont/AddonYouMayLikeCount";
 import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import { ButtonLoader } from "../views/ButtonLoader";
 

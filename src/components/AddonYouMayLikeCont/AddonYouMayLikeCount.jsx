@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddonCard from "../AddonsCardsPage/AddonCard";
 import { AddonsBox } from "./style";
+import "../../scss/youMayAlsoLike/youMayAlsoLikeBlock.scss";
 import { FormattedMessage } from "react-intl";
 
 const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
@@ -37,10 +38,10 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
   }, [sliceIndexs.to]);
 
   return (
-    <AddonsBox isVirtualMachine={isVirtualMachine}>
-      <span className="title">
+    <section className={'addonBox'} isVirtualMachine={isVirtualMachine}>
+      <h2 className="alsoLikeTitle">
         <FormattedMessage id="you.may.also.like" />
-      </span>
+      </h2>
 
       <div className="addons-cont">
         {!isMobile && (
@@ -68,6 +69,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
             <img src={require("../../assets/images/prev.svg")} alt="prev" />
           </button>
         )}
+        <div className={"cardsContainer"}>
 
         {currentAddons.map((r) => {
           return (
@@ -99,6 +101,8 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
           );
         })}
 
+        </div>
+
         {!isMobile && (
           <button
             className="btn right-btn"
@@ -115,7 +119,7 @@ const AddonYouMayLikeCont = ({ addon, isVirtualMachine }) => {
           </button>
         )}
       </div>
-    </AddonsBox>
+    </section>
   );
 };
 

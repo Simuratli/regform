@@ -7,10 +7,13 @@
 .fullPageContent {
   display: grid;
   grid-template-columns: 1fr;
+  grid-row-gap: 80px;
 }
+
 .addonFullPage {
   color: $blue;
   font-family: Montserrat;
+
   p {
     color: $card-text-color;
     font-size: 19px;
@@ -25,6 +28,7 @@
     margin: 0;
   }
 }
+
 .useInfoMobile {
   display: none;
 }
@@ -52,6 +56,7 @@
     align-items: baseline;
     flex-direction: column;
     position: relative;
+
     .chargeMessage {
       margin-top: 2rem;
       font-size: 16px;
@@ -61,6 +66,7 @@
 
     .virtualMashineWarning {
       text-align: left;
+
       .downloadButton {
         margin-bottom: 2rem;
       }
@@ -141,18 +147,21 @@
     @include paragraphForBlocksOnFullPage;
     padding: 40px 120px;
   }
-  .aboutInfoTechnicalBlock{
+
+  .aboutInfoTechnicalBlock {
     background-color: #FFFFFF;
     text-align: center;
     width: 100%;
     max-width: 688px;
     margin: auto;
 
-    ul{
+    ul {
       padding: 5px 0 5px 41px;
-      li{
+
+      li {
         padding-left: 22px;
         background: url("../../assets/images/ellipse.svg") no-repeat left center;
+
         .rowKey {
           color: $blue;
           font-weight: 700;
@@ -160,7 +169,8 @@
           line-height: 28px;
           letter-spacing: -0.1px;
         }
-        p{
+
+        p {
           margin: 11px 0;
           font-weight: 600;
           font-size: 18px;
@@ -173,12 +183,15 @@
       }
     }
   }
+
   .technicalInfo {
     margin-top: 2rem;
+
     ul {
       padding-left: 2rem;
 
     }
+
     p {
       padding: 0;
       text-align: left;
@@ -190,13 +203,16 @@
 .installInfo {
   @include generalSettingsForBlock;
   @include bigScreen;
+
   p {
     @include paragraphForBlocksOnFullPage;
     margin-top: 0;
   }
+
   .installationGuide {
     margin: 0 5px;
     color: $orange;
+
     &:hover {
       text-decoration: underline;
     }
@@ -320,11 +336,13 @@
     padding: 0;
 
   }
+
   li {
     padding: 0 0 0 22px;
     background: url("../../assets/images/ellipse.svg") no-repeat;
     background-position: 1% 48%;
   }
+
   .noListItem {
     background-image: none;
   }
@@ -336,6 +354,7 @@
     line-height: 28px;
     letter-spacing: -0.1px;
   }
+
   .rowKey {
     color: $blue;
     font-weight: 700;
@@ -353,21 +372,26 @@
   background-position: bottom;
   position: relative;
 }
+
 .bottomInfo {
-  .blockWithCreds{
+  .blockWithCreds {
     display: grid;
     grid-template-columns: 1fr;
     grid-row-gap: 80px;
     @include bigScreen;
   }
+
   @include bigScreen;
-  h2{
+
+  h2 {
     padding-bottom: 40px;
     padding-top: 0;
   }
-  p{
+
+  p {
     margin: 0 0 6px;
   }
+
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 80px;
@@ -386,15 +410,18 @@
     margin: 1rem;
     color: $orange;
     font-size: 18px;
+
     &:hover {
       text-decoration: underline;
     }
   }
+
   ul {
     @include generalSettingsForBlock;
     display: flex;
     justify-content: center;
   }
+
   p {
     text-align: center;
   }
@@ -436,6 +463,7 @@
       h1 {
         font-size: 4vw;
       }
+
       .virtualMashineWarning {
         .virtualMashineWarningparagraph {
           font-size: 19px;
@@ -470,6 +498,7 @@
     padding: 1rem 0px;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .header {
     @include screen1200;
@@ -481,21 +510,26 @@
   .installInfo {
     @include screen1200;
   }
-  .bottomInfo{
-    .blockWithCreds{
+  .bottomInfo {
+    .blockWithCreds {
       @include screen1200;
     }
   }
 }
+
 @media screen and (max-width: 1024px) {
-  .addonFullPage{
-    h2{
+  .fullPageContent {
+    grid-row-gap: 60px;
+  }
+  .addonFullPage {
+    h2 {
       font-weight: 700;
       font-size: 40px;
       line-height: 49px;
       letter-spacing: -0.2px;
     }
-    p{
+
+    p {
       font-weight: 600;
       font-size: 18px;
       line-height: 28px;
@@ -508,15 +542,18 @@
   .header {
     //@include screen1024;
     grid-column-gap: 0;
-    .headerLeftSide{
+
+    .headerLeftSide {
       padding-left: 80px;
-      h1{
+
+      h1 {
         font-weight: 800;
         font-size: 40px;
         line-height: 130%;
         letter-spacing: -1.09524px;
       }
     }
+
     .headerRightSide {
       .videoTutorial {
         width: 384px;
@@ -524,14 +561,15 @@
       }
     }
   }
-  .aboutInfo{
-    p{
+  .aboutInfo {
+    p {
       padding: 40px 32px;
     }
-    .aboutInfoTechnicalBlock{
-      ul{
-        li{
-          p{
+
+    .aboutInfoTechnicalBlock {
+      ul {
+        li {
+          p {
             font-size: 18px;
             line-height: 28px;
             letter-spacing: -0.1px;
@@ -555,6 +593,7 @@
     top: 12%;
   }
 }
+
 @media screen and (max-width: 1000px) {
   .topInfo,
   .useInfo,
@@ -562,15 +601,16 @@
   .installInfo,
   .additionalInfo,
   .bottomInfo,
-  .header{
+  .header {
     @include screen1024;
   }
-  .bottomInfo{
-    .blockWithCreds{
+  .bottomInfo {
+    .blockWithCreds {
       @include screen1024;
     }
   }
 }
+
 @media screen and (max-width: 880px) {
   .header {
     @include screen880;
@@ -583,30 +623,35 @@
   .bottomInfo {
     @include screen880;
   }
-  .bottomInfo{
-    .blockWithCreds{
+  .bottomInfo {
+    .blockWithCreds {
       @include screen880;
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   .header {
     padding: 50px 35px 40px;
     grid-template-columns: 1fr;
-    @include screen768;
+    @include screen880;
 
     .headerLeftSide {
       align-items: center;
+      padding-left: 0;
 
       h1 {
         text-align: center;
         font-size: 5vw;
       }
+
       .virtualMashineWarning {
         text-align: center;
-        .virtualMashineWarningparagraph{
+
+        .virtualMashineWarningparagraph {
           font-size: 14px;
           line-height: 17px;
+          text-align: center;
         }
 
 
@@ -622,11 +667,11 @@
   .useInfoMobile,
   .additionalInfo,
   .creditionalInfo {
-    @include screen768;
+    @include screen880;
   }
   .aboutInfo {
     padding: 1rem 0;
-    @include screen768;
+    @include screen880;
 
     p {
       padding: 30px 20px 35px;
@@ -636,13 +681,12 @@
       letter-spacing: -0.1px;
     }
   }
-  .bottomInfo{
-    .blockWithCreds{
-      @include screen768;
+  .bottomInfo {
+    .blockWithCreds {
+      @include screen880;
     }
   }
   .installInfo {
-    padding: 1rem 0;
     @include screen768;
 
     p {
@@ -657,13 +701,22 @@
     ul {
       margin-left: 1rem;
     }
-    li{
+
+    li {
       background-position: 1% 20%;
+    }
+
+    .noListItem {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      letter-spacing: -0.1px;
     }
   }
   .creditionalInfo {
     padding: 0;
     margin-top: 2rem;
+
     ul {
       margin-left: 1rem;
     }
@@ -673,7 +726,7 @@
   }
   .useInfoMobile {
     display: block;
-    @include screen768;
+    @include screen880;
 
     li {
       margin-bottom: 5rem;
@@ -695,7 +748,6 @@
 
     ul {
       padding: 0;
-      margin: 20px 0;
     }
   }
   .blockWithPlayer {
@@ -720,6 +772,26 @@
     margin-bottom: 4rem;
   }
 }
+
+@media screen and (max-width: 700px) {
+  .header,
+  .bottomInfo,
+  .topInfo,
+  .useInfoMobile,
+  .additionalInfo,
+  .creditionalInfo,
+  .aboutInfo,
+  .installInfo,
+  .useInfoMobile{
+    @include screen768;
+  }
+  .bottomInfo {
+    .blockWithCreds {
+      @include screen768;
+    }
+  }
+}
+
 @media screen and (max-width: 570px) {
   .main_container .generalTitleBlock .headingParagraph {
     width: 76%;
@@ -729,15 +801,16 @@
       font-size: 22px;
       padding: 0 0 1rem;
     }
+
     p {
       font-size: 16px;
       margin-top: 0;
     }
   }
-  .useInfoMobile{
-    ul{
-      li{
-        .stepTitle{
+  .useInfoMobile {
+    ul {
+      li {
+        .stepTitle {
           font-size: 18px;
           line-height: 22px;
           letter-spacing: -0.2px;
@@ -745,7 +818,8 @@
           margin-bottom: 7px;
 
         }
-        p{
+
+        p {
           font-size: 16px;
           line-height: 130%;
           letter-spacing: -0.2px;
@@ -757,9 +831,10 @@
     }
   }
 }
+
 @media screen and (max-width: 520px) {
-  .addonFullPage{
-    h2{
+  .addonFullPage {
+    h2 {
       font-size: 28px;
       line-height: 34px;
       letter-spacing: -0.2px;
@@ -794,15 +869,16 @@
         text-align: center;
         margin-bottom: 2rem;
       }
-      .chargeMessage{
+
+      .chargeMessage {
         font-size: 14px;
         line-height: 17px;
         text-align: center;
       }
     }
   }
-  .aboutInfo{
-    p{
+  .aboutInfo {
+    p {
 
     }
   }
@@ -851,9 +927,11 @@
         padding-left: 0;
         background-size: 8%;
       }
+
       .mailItem {
         background-position: 10% 4px;
       }
+
       .skypeItem {
         background-position: 24% 2px;
       }
@@ -878,10 +956,11 @@
       padding: 0 19px;
     }
   }
-  .bottomInfo{
+  .bottomInfo {
     grid-row-gap: 60px;
   }
 }
+
 @media only screen and (max-width: 500px) {
   .header,
   .bottomInfo,
@@ -893,8 +972,8 @@
   .installInfo {
     @include screen500;
   }
-  .bottomInfo{
-    .blockWithCreds{
+  .bottomInfo {
+    .blockWithCreds {
       @include screen500;
     }
   }
@@ -902,6 +981,7 @@
     margin-top: 2rem;
   }
 }
+
 @media only screen and (max-width: 400px) {
   .header,
   .bottomInfo,
@@ -913,39 +993,43 @@
   .installInfo {
     @include screen400;
   }
-  .bottomInfo{
-    .blockWithCreds{
+  .bottomInfo {
+    .blockWithCreds {
       @include screen400;
     }
   }
-  .technicalInfo, .creditionalInfo{
+  .technicalInfo, .creditionalInfo {
     ul {
       padding: 10px;
       //padding-right: 81px;
     }
-    li{
+
+    li {
       background-position: 1% 9px;
     }
   }
-  .technicalInfo{
-    .rowKey{
+  .technicalInfo {
+    .rowKey {
       font-size: 16px;
       line-height: 130%;
       letter-spacing: -0.1px;
     }
   }
-  .aboutInfo{
-    .aboutInfoTechnicalBlock{
-      ul{
+  .aboutInfo {
+    .aboutInfoTechnicalBlock {
+      ul {
         padding: 5px 0 5px 18px;
-        li{
+
+        li {
           background-position: 1% 9px;
-          p{
+
+          p {
             font-size: 14px;
             line-height: 130%;
             letter-spacing: -0.1px;
           }
-          .rowKey{
+
+          .rowKey {
             font-size: 14px;
             line-height: 130%;
             letter-spacing: -0.1px;
@@ -956,6 +1040,7 @@
   }
   .creditionalInfo {
     margin-top: 2rem;
+
     ul {
       margin-left: 17px;
       padding: 10px;
