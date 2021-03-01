@@ -19,7 +19,7 @@ const SideDrawer = (props) => {
             <li><a className={"nav-link"} href='https://uds.systems'>Uds Website</a></li>
             <li><NavLink className={"nav-link"} to='/add-ons' onClick={() => props.setSideDrawerOpen(false)}>Add-ons</NavLink></li>
             <li>
-                <a href="https://calendly.com/rsavran/dynamics">
+                <a style={{width: "105px"}} href="https://calendly.com/rsavran/dynamics">
                     <button className={"bookACall"}>
                         <FormattedMessage id="book.call" />
                     </button>

@@ -2,7 +2,7 @@
 
 .sideDrawer {
   height: fit-content;
-  //background-color: white;
+  background-color: white;
   //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
   //width: 100%;
   //max-width: 400px;
@@ -20,6 +20,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding-left: 0;
   }
 
   li {
@@ -61,6 +62,9 @@
     color: #757689;
     display: flex;
   }
+  a{
+    width: 90px;
+  }
 }
 
 .open {
@@ -85,10 +89,31 @@
     display: none;
   }
 }
+@media screen and (max-width: 768px) {
+  .sideDrawer {
+    ul{
+      @include screen880;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .sideDrawer {
+    ul{
+      @include screen768;
+    }
+  }
+}
+@media screen and (max-width: 500px) {
+  .sideDrawer {
+    ul{
+      @include screen500;
+    }
+  }
+}
 @media screen and (max-width: 540px) {
   .sideDrawer {
     ul{
-      padding-left: 23px;
+
       margin-top: 0;
       margin-bottom: 0;
       li{
@@ -104,12 +129,8 @@
 @media screen and (max-width: 415px) {
   .sideDrawer {
     width: 100%;
-  }
-}
-@media screen and (max-width: 375px) {
-  .sideDrawer {
     ul{
-      padding-left: 23px;
+      @include screen400;
     }
   }
 }
