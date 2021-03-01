@@ -13,6 +13,10 @@
   z-index: 200;
   transform: translateY(-200%);
   transition: transform 0.3s ease-out;
+  opacity: 0;
+  .active {
+    border-bottom: 2px solid $orange;
+  }
 
 
   .top {
@@ -79,6 +83,9 @@
   transform: translateX(0);
   z-index: 10000;
   overflow: hidden;
+  opacity: 1;
+  background-color: #FFFFFF;
+
 
   .burger {
     margin-right: 63px;
