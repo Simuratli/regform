@@ -171,6 +171,9 @@
       grid-template-columns: 1fr 350px 1fr;
       .addonsCard{
         max-width: 350px;
+        .cardSubTitle{
+          top: 14rem;
+        }
       }
     }
   }

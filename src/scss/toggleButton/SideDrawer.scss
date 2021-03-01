@@ -5,7 +5,9 @@
   background-color: #ffffff;
   z-index: 1000000;
   transition: transform 0.3s ease-out;
-  display: none;
+  bottom: 100%;
+  position: absolute;
+  //display: none;
   .active {
     border-bottom: 2px solid $orange;
   }
@@ -70,7 +72,7 @@
   top: 59px;
   left: 0;
   right: 0;
-  display: block;
+  //display: inherit;
 }
 
 @media screen and (min-width: 769px) {
@@ -80,6 +82,7 @@
 }
 @media screen and (max-width: 768px) {
   .sideDrawer {
+
     ul{
       @include screen880;
     }
