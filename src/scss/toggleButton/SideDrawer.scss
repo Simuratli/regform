@@ -2,12 +2,8 @@
 
 .sideDrawer {
   height: fit-content;
-  background-color: white;
-  //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
-  //width: 100%;
-  //max-width: 400px;
-
-  //transform: translateY(-200%);
+  background-color: #ffffff;
+  z-index: 1000000;
   transition: transform 0.3s ease-out;
   display: none;
   .active {
@@ -68,20 +64,13 @@
 }
 
 .open {
-  //transform: translateX(0);
-  z-index: 10000;
+  z-index: 1000000;
   background-color: #FFFFFF;
   position: absolute;
   top: 59px;
   left: 0;
   right: 0;
   display: block;
-
-
-
-  //.burger {
-  //  margin-right: 63px;
-  //}
 }
 
 @media screen and (min-width: 769px) {
