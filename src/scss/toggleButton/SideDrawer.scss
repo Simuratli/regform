@@ -9,12 +9,11 @@
 
   //transform: translateY(-200%);
   transition: transform 0.3s ease-out;
-  opacity: 0;
   display: none;
   .active {
     border-bottom: 2px solid $orange;
   }
-  
+
 
   ul {
     list-style: none;
@@ -67,8 +66,6 @@
 .open {
   //transform: translateX(0);
   z-index: 10000;
-  overflow: hidden;
-  opacity: 1;
   background-color: #FFFFFF;
   position: absolute;
   top: 59px;
