@@ -7,7 +7,12 @@
   transition: transform 0.3s ease-out;
   bottom: 100%;
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
   //display: none;
+  transform: translateY(-100%);
   .active {
     border-bottom: 2px solid $orange;
   }
@@ -66,13 +71,11 @@
 }
 
 .open {
-  z-index: 1000000;
-  background-color: #FFFFFF;
-  position: absolute;
-  top: 59px;
-  left: 0;
-  right: 0;
-  //display: inherit;
+  //z-index: 1000000;
+  //background-color: #FFFFFF;
+  transform: translateY(0);
+  margin-top: 57px;
+
 }
 
 @media screen and (min-width: 769px) {
