@@ -73,8 +73,8 @@
 }
 
 .open {
-  //z-index: 1000000;
-  //background-color: #FFFFFF;
+  z-index: 1000000;
+  background-color: #FFFFFF;
   //transform: translateX(0);
   //margin-top: 57px;
   display: block;
@@ -91,7 +91,7 @@
   .sideDrawer {
 
     ul {
-      //@include screen880;
+      @include screen880;
     }
   }
 }
@@ -99,7 +99,7 @@
 @media screen and (max-width: 700px) {
   .sideDrawer {
     ul {
-      //@include screen768;
+      @include screen768;
     }
   }
 }
@@ -107,7 +107,7 @@
 @media screen and (max-width: 500px) {
   .sideDrawer {
     ul {
-      //@include screen500;
+      @include screen500;
     }
   }
 }
@@ -136,7 +136,7 @@
     width: 100%;
 
     ul {
-      //@include screen400;
+      @include screen400;
     }
   }
 }
