@@ -2,42 +2,41 @@
 
 .sideDrawer {
   height: fit-content;
-  background-color: #ffffff;
-  z-index: 1000000;
-  transition: transform 0.3s ease-out;
-  position: absolute;
+  background-color: white;
+  box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
+  position: fixed;
   top: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  //transform: translateX(-100%);
-  margin-top: 57px;
-  display: none;
-
-  .active {
-    border-bottom: 2px solid $orange;
+  //max-width: 400px;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+  .burgerOnSideDrawer{
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
-
 
   ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-left: 0;
   }
 
   li {
     color: $orange;
     margin: 1rem 0;
   }
-
-  .nav-link {
+  .active {
+    border-bottom: 3px solid $orange;
+  }
+  .nav-link{
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
   }
-
   .bookACall {
     display: flex;
     align-items: center;
@@ -58,27 +57,18 @@
     background-position: 91%;
     background-repeat: no-repeat;
   }
-
-  .logOut {
+  .logOut{
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
     color: #757689;
     display: flex;
   }
-
-  a {
-    width: 90px;
-  }
 }
 
 .open {
-  z-index: 1000000;
-  background-color: #FFFFFF;
-  //transform: translateX(0);
-  //margin-top: 57px;
-  display: block;
-
+  transform: translateX(0);
+  z-index: 10000;
 }
 
 @media screen and (min-width: 769px) {
@@ -87,56 +77,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .sideDrawer {
-
-    ul {
-      @include screen880;
-    }
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .sideDrawer {
-    ul {
-      @include screen768;
-    }
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .sideDrawer {
-    ul {
-      @include screen500;
-    }
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .sideDrawer {
-    ul {
-
-      margin-top: 0;
-      margin-bottom: 0;
-
-      li {
-        margin-top: 20px;
-        margin-bottom: 0;
-
-        &:last-child {
-          margin-bottom: 30px;
-        }
-      }
-    }
-  }
-}
-
 @media screen and (max-width: 415px) {
   .sideDrawer {
-    width: 100%;
-
-    ul {
-      @include screen400;
-    }
+    //width: 74%;
   }
 }

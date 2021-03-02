@@ -1,15 +1,14 @@
 import React from "react";
 import '../../scss/toggleButton/DrawerToggleButton.scss';
 
+
 function DrawerToggleButton(props) {
-    const openNavAndChangeButton = () => {
-        props.sideDrawerOpen ? props.setSideDrawerOpen(false) : props.setSideDrawerOpen(true);
-    }
+    // console.log(props.sideDrawerOpen)
     return (
-        <button className={'burger'} onClick={openNavAndChangeButton}>
-            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
-            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
-            <div className={props.sideDrawerOpen ? 'openNav' : 'closeNav'}/>
+        <button className={'burger'} onClick={() => props.sideDrawerOpen ? props.setSideDrawerOpen(false) : props.setSideDrawerOpen(true)}>
+            <div className={'line'}/>
+            <div className={'line'}/>
+            <div className={'line'}/>
         </button>
     )
 }

@@ -34,9 +34,9 @@
   transform: scale(1, 1);
 }
 .fullWidthWrapper {
+  //width: 100vh;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
-  z-index: 10000;
 }
 .navigationBar {
   font-family: Montserrat;
@@ -165,7 +165,7 @@
 
 @media only screen and (max-width: 1350px) {
   .navigationBar {
-    //padding: 15px 0;
+    padding: 15px 0;
     @include screen1350;
   }
   .logOut {
@@ -181,7 +181,7 @@
 
 @media only screen and (max-width: 1024px) {
   .headerLogo {
-    width: 160px;
+    width: 106px;
     height: auto;
   }
 }
@@ -197,13 +197,9 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .headerLogo{
-    width: 106px;
-  }
   .navigationBar {
     padding: 0;
     height: 60px;
-    @include screen880;
   }
   .navItems {
     display: none;
