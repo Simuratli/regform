@@ -355,10 +355,10 @@ const AddonFullPage = ({ addon, intl }) => {
                 </ul>
               </section>
             </div>
-            <AddonYouMayLikeCont
-              isVirtualMachine={slug === "uds-virtual-machine"}
-              addon={addon}
-            />
+            {/*<AddonYouMayLikeCont*/}
+            {/*  isVirtualMachine={slug === "uds-virtual-machine"}*/}
+            {/*  addon={addon}*/}
+            {/*/>*/}
           </section>
         </div>
       </div>

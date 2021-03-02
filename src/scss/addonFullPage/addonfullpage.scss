@@ -405,6 +405,7 @@
 .helpInfo {
   @include generalSettingsForBlock;
   @include bigScreen;
+  margin-bottom: 60px;
 
   a {
     margin: 1rem;

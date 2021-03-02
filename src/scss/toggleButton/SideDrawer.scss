@@ -10,7 +10,10 @@
   left: 0;
   right: 0;
   width: 100%;
-  transform: translateY(-100%);
+  //transform: translateX(-100%);
+  margin-top: 57px;
+  display: none;
+
   .active {
     border-bottom: 2px solid $orange;
   }
@@ -63,7 +66,8 @@
     color: #757689;
     display: flex;
   }
-  a{
+
+  a {
     width: 90px;
   }
 }
@@ -71,8 +75,9 @@
 .open {
   //z-index: 1000000;
   //background-color: #FFFFFF;
-  transform: translateY(0);
-  margin-top: 57px;
+  //transform: translateX(0);
+  //margin-top: 57px;
+  display: block;
 
 }
 
@@ -81,49 +86,57 @@
     display: none;
   }
 }
+
 @media screen and (max-width: 768px) {
   .sideDrawer {
 
-    ul{
-      @include screen880;
+    ul {
+      //@include screen880;
     }
   }
 }
+
 @media screen and (max-width: 700px) {
   .sideDrawer {
-    ul{
-      @include screen768;
+    ul {
+      //@include screen768;
     }
   }
 }
+
 @media screen and (max-width: 500px) {
   .sideDrawer {
-    ul{
-      @include screen500;
+    ul {
+      //@include screen500;
     }
   }
 }
+
 @media screen and (max-width: 540px) {
   .sideDrawer {
-    ul{
+    ul {
 
       margin-top: 0;
       margin-bottom: 0;
-      li{
+
+      li {
         margin-top: 20px;
         margin-bottom: 0;
-        &:last-child{
+
+        &:last-child {
           margin-bottom: 30px;
         }
       }
     }
   }
 }
+
 @media screen and (max-width: 415px) {
   .sideDrawer {
     width: 100%;
-    ul{
-      @include screen400;
+
+    ul {
+      //@include screen400;
     }
   }
 }
