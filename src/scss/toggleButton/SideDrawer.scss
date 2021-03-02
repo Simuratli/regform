@@ -5,13 +5,11 @@
   background-color: #ffffff;
   z-index: 1000000;
   transition: transform 0.3s ease-out;
-  bottom: 100%;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  //display: none;
   transform: translateY(-100%);
   .active {
     border-bottom: 2px solid $orange;
