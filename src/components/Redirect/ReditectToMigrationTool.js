@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 function RedirectToMigrationTool() {
 
     useEffect(() => {
-        window.location.href = " https://uds-systems-website-fixing.azurewebsites.net/";
+        window.location.href = " https://add-ons.my.uds.systems/migration/";
     }, []);
 
     return (
