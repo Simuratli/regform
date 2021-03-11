@@ -1,10 +1,9 @@
 import React from "react";
 import {injectIntl} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";
-import get from "lodash/get";
-
 import isEmpty from "lodash/isEmpty";
 import authentication from "../../b2c";
+import "../../scss/errorComponent/errorComponent.scss";
 
 const ErrorComponent = () => {
     const state = useSelector((state) => state);
@@ -13,6 +12,7 @@ const ErrorComponent = () => {
     const {error} = app;
     console.log(error.message, "hello")
     console.log(error.response, "hello2")
+    console.log(error, "just error")
 
     let responseError;
 
@@ -38,40 +38,15 @@ const ErrorComponent = () => {
 
 
     return (
-        <>
-            <h1>Error:{responseError.statusCode }</h1>
-            <h1>Message:{responseError.message}</h1>
-            <h1>desc:{responseError.description}</h1>
-        </>
+        <section className={"errorContainer"}>
+            <h1 className={"statusCode"}>{responseError.statusCode }</h1>
+            <h5 className={"errorMessage"}>{responseError.message}</h5>
+            <h5 className={"errorDescription"}>{responseError.description}</h5>
+            <button className={"actionButton"}>Back to Home Page</button>
+        </section>
 
 
     )
 }
 
 export default injectIntl(ErrorComponent);
-
-// import React from "react";
-//
-// class ErrorBoundary extends React.Component {
-//     // constructor(props) {
-//         // super(props);
-//         state = { hasError: false, error: null };
-//     // }
-//
-//     static getDerivedStateFromError(error) {
-//         // Update state so the next render will show the fallback UI.
-//         return { hasError: true , error};
-//     }
-//
-//
-//     render() {
-//         if (this.state.hasError) {
-//             // You can render any custom fallback UI
-//             return <h1>Something went wrong.{this.state.error.message}</h1>;
-//         }
-//
-//         return this.props.children;
-//     }
-// }
-//
-// export default ErrorBoundary;

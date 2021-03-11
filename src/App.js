@@ -40,11 +40,11 @@ const App = () => {
   // const accessToken = authentication.getAccessToken();
   const [modalActive, setModalActive] = useState(true);
   const history = useHistory();
-  const state = useSelector((state) => state);
-
-  const { app } = state;
-
-  const { error } = app;
+  // const state = useSelector((state) => state);
+  //
+  // const { app } = state;
+  //
+  // const { error } = app;
 
 
   // console.log(error, "error");
@@ -52,12 +52,6 @@ const App = () => {
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
   // }
-
-  // useEffect(() => {
-  //   if (!isEmpty(error)){
-  //       return (<ErrorComponent/>)
-  //     }
-  // }, [!isEmpty(error)]);
 
   useEffect(() => {
     ReactGa.initialize("UA-183628794-1");
@@ -75,7 +69,6 @@ const App = () => {
       <Cookie />
       <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
       <Switch>
-          {/*{!isEmpty(error) && (<ErrorComponent/>)}*/}
         <Route path={"/"} exact component={AddonsCardsPage}>
           <Redirect to={"/add-ons"} />
         </Route>

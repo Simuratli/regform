@@ -212,21 +212,6 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .phantom,
-  .footerCopyrightInfo {
-    //@include screen1024;
-  }
-  //.footerCopyrightInfo {
-  //  grid-template-columns: 1fr;
-  //  grid-gap: 10px;
-  //  text-align: center;
-  //
-  //  .iconsBar {
-  //    justify-self: center;
-  //  }
-  //}
-}
 @media screen and (max-width: 1000px) {
   .phantom,
   .footerCopyrightInfo {
@@ -358,18 +343,18 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .phantomб .footerCopyrightInfo {
+  .phantom .footerCopyrightInfo {
     @include screen500;
   }
 }
 
 @media only screen and (max-width: 415px) {
-  .phantomб .footerCopyrightInfo {
+  .phantom .footerCopyrightInfo {
     @include screen400;
   }
 
   .iconsBar {
-    margin-left: 2rem;
+    margin-left: 0;
   }
   .phantom .footerContainer .leftSide .iconsBar img {
     width: 16%;
