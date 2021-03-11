@@ -4,15 +4,17 @@ import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import authentication from "../../b2c";
 import "../../scss/errorComponent/errorComponent.scss";
+import {useHistory} from "react-router-dom";
 
 const ErrorComponent = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const {app} = state;
     const {error} = app;
-    console.log(error.message, "hello")
-    console.log(error.response, "hello2")
-    console.log(error, "just error")
+    // console.log(error.message, "hello")
+    // console.log(error.response, "hello2")
+    // console.log(error, "just error")
+    const history = useHistory();
 
     let responseError;
 
@@ -36,13 +38,20 @@ const ErrorComponent = () => {
         responseError = error.response && error.response.data
     }
 
+    const handleBackToHomePage = () => {
+          history.push("/add-ons");
+    }
+    const handleRefreshPage = () => {
+        document.location.reload();
+    }
+
 
     return (
         <section className={"errorContainer"}>
             <h1 className={"statusCode"}>{responseError.statusCode }</h1>
             <h5 className={"errorMessage"}>{responseError.message}</h5>
             <h5 className={"errorDescription"}>{responseError.description}</h5>
-            <button className={"actionButton"}>Back to Home Page</button>
+            <button className={"actionButton"} onClick={handleBackToHomePage}>Back to Home Page</button>
         </section>
 
 

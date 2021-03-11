@@ -181,7 +181,7 @@
 
 @media only screen and (max-width: 1024px) {
   .headerLogo {
-    width: 106px;
+    width: 99px;
     height: auto;
   }
 }
@@ -197,6 +197,10 @@
   }
 }
 @media screen and (max-width: 768px) {
+  .headerLogo {
+    width: 66px;
+    height: auto;
+  }
   .navigationBar {
     padding: 0;
     height: 60px;

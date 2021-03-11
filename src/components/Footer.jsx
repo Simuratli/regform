@@ -2,7 +2,7 @@ import React from "react";
 import "../scss/footer.scss";
 import "../scss/utils/utils.scss";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/images/uds_portal_logo.svg";
+import logo from "../assets/images/uds_logo_footer.svg";
 import logoDynamic365 from "../assets/images/d365-logo.png";
 import logoMicrosoft from "../assets/images/microsoft_logo.png";
 import { FormattedMessage } from "react-intl";
