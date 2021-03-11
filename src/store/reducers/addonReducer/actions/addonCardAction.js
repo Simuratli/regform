@@ -29,11 +29,9 @@ export const getAddonCard = () => {
         localStorage.setItem("cardsArr", JSON.stringify(res.data));
       })
       .catch((err) => {
-        if (get(err, "response.data")) {
-          dispatch(setError(err.response.data));
-        }
 
-        dispatch(setIsLoading(false));
+          dispatch(setError(err))
+          dispatch(setIsLoading(false));
       });
   };
 };

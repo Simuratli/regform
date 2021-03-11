@@ -25,6 +25,8 @@ import TestPage from "./components/views/TestPage";
 import RedirectToMigrationTool from "./components/Redirect/ReditectToMigrationTool";
 
 import { DownloadFile } from "./components/views/DownloadFile";
+import ErrorBoundary from "./components/Error/ErrorComponent";
+import ErrorComponent from "./components/Error/ErrorComponent";
 
 const GeneralWrapper = styled.div`
   min-height: 100vh;
@@ -44,15 +46,18 @@ const App = () => {
 
   const { error } = app;
 
+
   // console.log(error, "error");
 
   // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
   //   history.push("/forgot");
   // }
 
-  useEffect(() => {
-    !isEmpty(error) && history.push("/error-page");
-  }, [!isEmpty(error)]);
+  // useEffect(() => {
+  //   if (!isEmpty(error)){
+  //       return (<ErrorComponent/>)
+  //     }
+  // }, [!isEmpty(error)]);
 
   useEffect(() => {
     ReactGa.initialize("UA-183628794-1");
@@ -70,6 +75,7 @@ const App = () => {
       <Cookie />
       <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
       <Switch>
+          {/*{!isEmpty(error) && (<ErrorComponent/>)}*/}
         <Route path={"/"} exact component={AddonsCardsPage}>
           <Redirect to={"/add-ons"} />
         </Route>
@@ -82,12 +88,9 @@ const App = () => {
         />
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/terms"} component={Terms} />
-        <Route path={"/error-page"} component={ErrorPageComp} />
         <Route path={"/test/:password"} component={TestPage} />
-
-        <Route render={() => <ErrorPageComp statusCode={404} />} />
+          <Route path={"*"} component={ErrorComponent}/>
       </Switch>
-
       <Footer />
       <Loader />
       {/*<ErrorModal />*/}

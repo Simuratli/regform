@@ -12,32 +12,24 @@ export const getFullAddonPage = (slug) => {
         //   return dispatch({ type: DATA_LOADED, payload: sessionStorage });
         // }
 
-        httpClient
-            .get(`add-ons/${slug}`)
-            .then((res) => {
-                // sessionStorage.setItem(slug, JSON.stringify(res.data));
+    httpClient
+        .get(`add-ons/${slug}`)
+        .then((res) => {
+            // sessionStorage.setItem(slug, JSON.stringify(res.data));
 
-                dispatch({type: FULL_ADDON_PAGE_DATA_LOADED, payload: res.data});
+            dispatch({type: FULL_ADDON_PAGE_DATA_LOADED, payload: res.data});
 
-                dispatch(setIsLoading(false));
-            })
-            .catch((err) => {
+            dispatch(setIsLoading(false));
+        })
+        .catch((err) => {
 
-                if (get(err, "response.data")) {
-                    // dispatch(setError(err.response.data));
-                    dispatch(setError(err.response.data));
-                } else {
-                    const error = {
-                        "statusCode": 404,
-                        "isErrorPage": true,
-                        "message": `The requested ${window.location.pathname} is not found`,
-                        "description": 'Sorry, the page you are looking for does not exist.'
-                    }
-                    dispatch(setError(error));
-                }
+            dispatch(setError(err))
 
-                dispatch(setIsLoading(false));
-            });
+
+            dispatch(setIsLoading(false));
+        });
+
+
     };
 };
 

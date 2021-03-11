@@ -54,7 +54,7 @@ const TestPage = () => {
       })
       .catch((err) => {
         dispatch(setIsLoading(false));
-        dispatch(setError(err.response.data));
+        dispatch(setError(err));
       });
   };
 

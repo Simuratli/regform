@@ -12,12 +12,15 @@ import { FakeCardRow } from "../components/views/FakeCardRow";
 
 import get from "lodash/get";
 import range from "lodash/range";
+import isEmpty from "lodash/isEmpty";
+import ErrorComponent from "../components/Error/ErrorComponent";
 
 const AddonCardContainer = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { addon, app } = state;
   const { addonsSortBy } = app;
+  const { error } = app;
 
   const sortAddonsType = localStorage.getItem("sortAddonsBy") || addonsSortBy;
 
@@ -41,13 +44,15 @@ const AddonCardContainer = () => {
 
   return (
     <>
-      {get(addon, "cards", []).length
+      {!isEmpty(addon) && get(addon, "cards", []).length
         ? filteredAddons.map((addon) => (
             <AnimatedContainer withScale key={addon.id}>
               <AddonCard addon={addon} />
             </AnimatedContainer>
           ))
         : range(0, 6, 1).map((r) => <FakeCardRow key={r} />)}
+
+      {!isEmpty(error) && (<ErrorComponent/>)}
     </>
   );
 };

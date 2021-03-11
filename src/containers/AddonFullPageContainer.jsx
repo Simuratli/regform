@@ -8,6 +8,7 @@ import {
 } from "../store/reducers/addonReducer/actions/fullAddonPageAction";
 
 import isEmpty from "lodash/isEmpty";
+import ErrorComponent from "../components/Error/ErrorComponent";
 
 const AddonFullPage = lazy(() =>
   import("../components/AddonFullPage/AddonFullPage")
@@ -16,6 +17,11 @@ const AddonFullPage = lazy(() =>
 const AddonFullPageContainer = () => {
   const { currentFullAddonPage } = useSelector(({ addon }) => addon);
   const dispatch = useDispatch();
+
+  const state = useSelector((state) => state);
+  const { app } = state;
+  const { error } = app;
+
 
   const { slug } = useParams();
 
@@ -31,6 +37,7 @@ const AddonFullPageContainer = () => {
           <AddonFullPage addon={currentFullAddonPage} />
         </Suspense>
       )}
+      {!isEmpty(error) && (<ErrorComponent/>)}
     </div>
   );
 };
