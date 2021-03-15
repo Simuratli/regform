@@ -1,24 +1,10 @@
 import { httpClient } from "../../../../services/services";
-
 import { SET_CARDS_DATA } from "../types";
 import { setError, setIsLoading } from "../../appReducer/actions/appAction";
-
-import get from "lodash/get";
 
 export const getAddonCard = () => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
-
-    // const dataFromSessionStorage = JSON.parse(
-    //   sessionStorage.getItem("cardsArr")
-    // );
-    //
-    // if (dataFromSessionStorage) {
-    //   return dispatch({
-    //     type: CARDS_DATA_LOADED,
-    //     payload: dataFromSessionStorage,
-    //   });
-    // }
 
     httpClient
       .get("add-ons/cards")

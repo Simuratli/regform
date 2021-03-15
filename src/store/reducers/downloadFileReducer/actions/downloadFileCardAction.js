@@ -14,7 +14,7 @@ export const getDownloadFileCard = ({ resourcePath, slug }) => {
         dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
       })
       .catch((err) => {
-        dispatch(setError(err.response));
+        dispatch(setError(err));
         dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
       });
   };

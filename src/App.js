@@ -14,18 +14,13 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import Cookie from "./components/Cookie/Coockie";
 import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-import ErrorPageComp from "./components/views/ErrorPageComp";
-
 import styled from "styled-components";
 import Loader from "./components/views/Loader";
 import { useSelector } from "react-redux";
-
 import isEmpty from "lodash/isEmpty";
 import TestPage from "./components/views/TestPage";
 import RedirectToMigrationTool from "./components/Redirect/ReditectToMigrationTool";
-
 import { DownloadFile } from "./components/views/DownloadFile";
-import ErrorBoundary from "./components/Error/ErrorComponent";
 import ErrorComponent from "./components/Error/ErrorComponent";
 
 const GeneralWrapper = styled.div`
@@ -37,21 +32,11 @@ const GeneralWrapper = styled.div`
 
 const App = () => {
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
-  // const accessToken = authentication.getAccessToken();
   const [modalActive, setModalActive] = useState(true);
-  const history = useHistory();
-  // const state = useSelector((state) => state);
-  //
-  // const { app } = state;
-  //
-  // const { error } = app;
+  const state = useSelector((state) => state);
 
-
-  // console.log(error, "error");
-
-  // if (window.location.hash.indexOf("AADB2C90118") >= 0) {
-  //   history.push("/forgot");
-  // }
+  const { app } = state;
+  const { error } = app;
 
   useEffect(() => {
     ReactGa.initialize("UA-183628794-1");
@@ -59,6 +44,7 @@ const App = () => {
     ReactPixel.init("382184772775465");
     ReactPixel.pageView();
   }, []);
+
 
   return (
     <GeneralWrapper>
@@ -68,25 +54,28 @@ const App = () => {
       {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
       <Cookie />
       <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
-      <Switch>
-        <Route path={"/"} exact component={AddonsCardsPage}>
-          <Redirect to={"/add-ons"} />
-        </Route>
-        <Route path={"/migration"} exact component={RedirectToMigrationTool} />
-        <Route path={"/add-ons"} exact component={AddonsCardsPage} />
-        <Route
-          path={"/add-ons/:slug"}
-          exact
-          component={AddonFullPageContainer}
-        />
-        <Route path={"/privacy"} component={Privacy} />
-        <Route path={"/terms"} component={Terms} />
-        <Route path={"/test/:password"} component={TestPage} />
-          <Route path={"*"} component={ErrorComponent}/>
-      </Switch>
+        {isEmpty(error)
+            ?
+            <Switch>
+                <Route path={"/"} exact component={AddonsCardsPage}>
+                    <Redirect to={"/add-ons"} />
+                </Route>
+                <Route path={"/migration"} exact component={RedirectToMigrationTool} />
+                <Route path={"/add-ons"} exact component={AddonsCardsPage} />
+                <Route
+                    path={"/add-ons/:slug"}
+                    exact
+                    component={AddonFullPageContainer}
+                />
+                <Route path={"/privacy"} component={Privacy} />
+                <Route path={"/terms"} component={Terms} />
+                <Route path={"/test/:password"} component={TestPage} />
+                <Route path={"*"} component={ErrorComponent}/>
+            </Switch>
+            : <ErrorComponent/>}
+
       <Footer />
       <Loader />
-      {/*<ErrorModal />*/}
       <DownloadFile />
     </GeneralWrapper>
   );

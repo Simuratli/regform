@@ -37,7 +37,6 @@ const AddonFullPageContainer = () => {
           <AddonFullPage addon={currentFullAddonPage} />
         </Suspense>
       )}
-      {!isEmpty(error) && (<ErrorComponent/>)}
     </div>
   );
 };
