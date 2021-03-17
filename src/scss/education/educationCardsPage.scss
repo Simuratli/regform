@@ -1,0 +1,87 @@
+@import "../utils/utils";
+
+.mainContainer {
+  font-family: Montserrat;
+  margin-bottom: 20px;
+  @include bigScreen;
+
+  h2{
+    font-size: 46px;
+    line-height: 56px;
+    font-weight: 700;
+    color: $blue;
+    text-align: center;
+  }
+  p{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: $card-text-color;
+  }
+
+  .headerContent {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    color: $blue;
+    padding: 4rem 0;
+    .headingParagraph {
+      width: 45%;
+      text-align: left;
+      margin: 2rem 0;
+      font-weight: bold;
+      font-size: 46px;
+      line-height: 56px;
+      letter-spacing: -1.09524px;
+    }
+
+    .orangeElement {
+      width: 20%;
+      max-width: 56px;
+      max-height: 86px;
+      position: relative;
+      top: 42px;
+      left: 100px;
+      margin-right: 1rem;
+    }
+
+    .paragraph {
+      width: 30%;
+      text-align: left;
+      margin-top: 2.5rem;
+      color: $card-text-color;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 24px;
+
+    }
+  }
+  .educationBenefits{
+    .benefitsTitle{
+      margin: 30px 0;
+    }
+    .benefitsSubtitle{
+      margin: auto auto 60px;
+      text-align: center;
+      width: 80%;
+    }
+    .benefitsList{
+      padding-left: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 30px;
+      .benefitsListItem{
+        text-align: center;
+        p{
+          text-align: center;
+        }
+        h5{
+          font-size: 20px;
+          line-height: 26px;
+          color: $blue;
+          margin: 30px 0 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,258 @@
+@import "../../scss/utils/utils";
+
+.headerWrapper {
+  max-width: 4000px;
+  width: 100%;
+  background-image: url("../../assets/images/addon_full_page_header_bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+}
+h2 {
+  font-size: 46px;
+  line-height: 56px;
+  text-align: center;
+  letter-spacing: -0.2px;
+  color: $blue;
+  margin-top: 0;
+}
+p {
+  font-size: 18px;
+  line-height: 22px;
+  color: $card-text-color;
+}
+ul{
+  padding-left: 0;
+}
+.educationInfoContent{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 80px;
+}
+.header {
+  @include bigScreen;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 50px;
+  color: #f2f2f2;
+  padding: 150px 0;
+
+  .headerLeftSide {
+    h1 {
+      font-weight: 800;
+      font-size: 46px;
+      line-height: 56px;
+      letter-spacing: -1.09524px;
+      margin: 1rem 0 2rem;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 700;
+      padding: 20px 0 40px 0;
+      margin: 0;
+      color: #ffffff;
+    }
+
+    .downloadButton {
+      max-width: 227px;
+      width: 100%;
+      height: 40px;
+      border: 1px solid $orange;
+      background-color: $orange;
+      font-family: Montserrat;
+      color: #FFFFFF;
+      outline: none;
+      font-weight: 600;
+      transition: ease-in-out .3s;
+    }
+  }
+
+  .headerRightSide {
+    background-image: url("../../assets/images/addon-white-square-with-border.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 554px;
+    height: 400px;
+
+    img {
+      position: relative;
+      top: 19%;
+      left: 0;
+      max-width: 554px;
+      width: 100%;
+      height: 65%;
+    }
+  }
+
+
+}
+.learnInfo{
+  .learnInfoContent {
+    @include bigScreen;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 30px;
+
+    .leftBar {
+      padding: 40px;
+      background: #F2F3F9;
+      text-align: center;
+
+      p {
+        font-weight: 600;
+        margin: 0;
+        text-align: center;
+      }
+
+      ul {
+        padding-left: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 29px;
+        grid-row-gap: 15px;
+        margin: 40px 0;
+        text-align: left;
+
+        li {
+          font-size: 18px;
+          line-height: 28px;
+          letter-spacing: -0.1px;
+          font-weight: 500;
+          color: $card-text-color;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6' fill='none'%3E%3Ccircle cx='3' cy='3' r='3' fill='%23FF8F3E'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: 0 10px;
+          padding-left: 20px;
+        }
+      }
+      .courseLogo{
+        width: 674px;
+        height: 400px;
+      }
+      .takeCourseButton{
+        max-width: 170px;
+        width: 100%;
+        height: 50px;
+        border: 1px solid $orange;
+        background-color: $orange;
+        font-family: Montserrat;
+        color: #FFFFFF;
+        outline: none;
+        font-weight: 600;
+        transition: ease-in-out .3s;
+
+      }
+    }
+
+    .rightBar {
+      border: 10px solid $light-blue;
+      height: fit-content;
+      padding: 33px 31px;
+      ul {
+        padding-left: 0;
+        margin: 0;
+        li {
+          border-bottom: 1px solid #E3E3E3;
+          padding: 23px 0 28px;
+          &:first-child{
+            padding-top: 0;
+          }
+          &:last-child{
+            border-bottom: none;
+            padding-bottom: 0;
+          }
+          .titleOfBenefit{
+            display: flex;
+            .listItemLogo{
+              width: 25px;
+              margin-right: 14px;
+            }
+          }
+          h4{
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 26px;
+            text-transform: uppercase;
+            color: $blue;
+          }
+
+          p {
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 130%;
+            color: #979797;
+            margin-bottom: 0;
+            margin-top: 10px;
+            padding-left: 40px;
+          }
+
+        }
+      }
+    }
+
+  }
+}
+.fullWidth{
+  max-width: 4000px;
+  width: 100%;
+  background-color: $light-blue;
+}
+.conformityInfo{
+  @include bigScreen;
+  padding: 80px 0;
+  h2{
+    //padding-top: 80px;
+  }
+
+  .conformityList{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px;
+
+    .conformityListItem{
+      background-color: #FFFFFF;
+      padding: 35px 40px 30px 109px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30' fill='none'%3E%3Cpath d='M26.6667 0H3.33333C2.44928 0 1.60143 0.351189 0.976311 0.976311C0.351189 1.60143 0 2.44928 0 3.33333V26.6667C0 27.5507 0.351189 28.3986 0.976311 29.0237C1.60143 29.6488 2.44928 30 3.33333 30H26.6667C27.5507 30 28.3986 29.6488 29.0237 29.0237C29.6488 28.3986 30 27.5507 30 26.6667V3.33333C30 2.44928 29.6488 1.60143 29.0237 0.976311C28.3986 0.351189 27.5507 0 26.6667 0ZM26.6667 3.33333V26.6667H3.33333V3.33333H26.6667ZM11.6667 23.3333L5 16.6667L7.35 14.3L11.6667 18.6167L22.65 7.63333L25 10' fill='%23383680'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: 44px 31px;
+      h4{
+        font-size: 20px;
+        line-height: 26px;
+        color: $blue;
+        margin: 0;
+      }
+      p{
+        margin: 0;
+      }
+    }
+  }
+}
+.syllabus{
+  @include bigScreen;
+  text-align: center;
+  ul{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 30px;
+    li{
+      border: 10px solid #F2F3F9;
+      padding: 30px 20px;
+      h4{
+        font-size: 20px;
+        line-height: 26px;
+        color: $blue;
+        margin: 0;
+        text-align: left;
+      }
+    }
+  }
+  .downloadButton{
+    margin-top: 30px;
+  }
+}

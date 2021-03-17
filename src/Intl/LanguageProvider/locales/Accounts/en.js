@@ -43,6 +43,7 @@ const translations = {
   "book.call": "Book a call",
   "more.info": "More info",
   "you.may.also.like": "You may also like",
+  "Education": "Education",
 
   // ERRORS,
 
