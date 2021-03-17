@@ -11,6 +11,7 @@
   margin: 0 auto;
   padding: 0;
 }
+
 h2 {
   font-size: 46px;
   line-height: 56px;
@@ -19,19 +20,30 @@ h2 {
   color: $blue;
   margin-top: 0;
 }
+
 p {
   font-size: 18px;
   line-height: 22px;
   color: $card-text-color;
 }
-ul{
+
+ul {
   padding-left: 0;
 }
-.educationInfoContent{
+h4 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  color: $blue;
+}
+
+.educationInfoContent {
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 80px;
 }
+
 .header {
   @include bigScreen;
   display: grid;
@@ -91,7 +103,8 @@ ul{
 
 
 }
-.learnInfo{
+
+.learnInfo {
   .learnInfoContent {
     @include bigScreen;
     display: grid;
@@ -130,11 +143,13 @@ ul{
           padding-left: 20px;
         }
       }
-      .courseLogo{
+
+      .courseLogo {
         width: 674px;
         height: 400px;
       }
-      .takeCourseButton{
+
+      .takeCourseButton {
         max-width: 170px;
         width: 100%;
         height: 50px;
@@ -153,33 +168,35 @@ ul{
       border: 10px solid $light-blue;
       height: fit-content;
       padding: 33px 31px;
+
       ul {
         padding-left: 0;
         margin: 0;
+
         li {
           border-bottom: 1px solid #E3E3E3;
           padding: 23px 0 28px;
-          &:first-child{
+
+          &:first-child {
             padding-top: 0;
           }
-          &:last-child{
+
+          &:last-child {
             border-bottom: none;
             padding-bottom: 0;
           }
-          .titleOfBenefit{
+
+          .titleOfBenefit {
             display: flex;
-            .listItemLogo{
+
+            .listItemLogo {
               width: 25px;
               margin-right: 14px;
             }
           }
-          h4{
-            margin: 0;
-            font-size: 20px;
-            font-weight: 700;
-            line-height: 26px;
+
+          h4 {
             text-transform: uppercase;
-            color: $blue;
           }
 
           p {
@@ -198,61 +215,143 @@ ul{
 
   }
 }
-.fullWidth{
+
+.fullWidth {
   max-width: 4000px;
   width: 100%;
   background-color: $light-blue;
 }
-.conformityInfo{
+
+.conformityInfo {
   @include bigScreen;
   padding: 80px 0;
-  h2{
-    //padding-top: 80px;
-  }
 
-  .conformityList{
+  .conformityList {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
 
-    .conformityListItem{
+    .conformityListItem {
       background-color: #FFFFFF;
       padding: 35px 40px 30px 109px;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30' fill='none'%3E%3Cpath d='M26.6667 0H3.33333C2.44928 0 1.60143 0.351189 0.976311 0.976311C0.351189 1.60143 0 2.44928 0 3.33333V26.6667C0 27.5507 0.351189 28.3986 0.976311 29.0237C1.60143 29.6488 2.44928 30 3.33333 30H26.6667C27.5507 30 28.3986 29.6488 29.0237 29.0237C29.6488 28.3986 30 27.5507 30 26.6667V3.33333C30 2.44928 29.6488 1.60143 29.0237 0.976311C28.3986 0.351189 27.5507 0 26.6667 0ZM26.6667 3.33333V26.6667H3.33333V3.33333H26.6667ZM11.6667 23.3333L5 16.6667L7.35 14.3L11.6667 18.6167L22.65 7.63333L25 10' fill='%23383680'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: 44px 31px;
-      h4{
-        font-size: 20px;
-        line-height: 26px;
-        color: $blue;
-        margin: 0;
-      }
-      p{
+
+      p {
         margin: 0;
       }
     }
   }
 }
-.syllabus{
+
+.syllabus {
   @include bigScreen;
   text-align: center;
-  ul{
+
+  ul {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 30px;
-    li{
+
+    li {
       border: 10px solid #F2F3F9;
       padding: 30px 20px;
-      h4{
-        font-size: 20px;
-        line-height: 26px;
-        color: $blue;
-        margin: 0;
+
+      h4 {
         text-align: left;
       }
     }
   }
-  .downloadButton{
+
+  .downloadButton {
     margin-top: 30px;
   }
+}
+
+.gettingSkills {
+  @include bigScreen;
+  ul{
+    border: 10px solid #F2F3F9;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    margin: auto;
+    p{
+      background-color: $blue;
+      color: #ffffff;
+      border-radius: 50px;
+      padding: 12px 30px;
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.4px;
+      margin-right: 30px;
+    }
+  }
+}
+.certification{
+  @include bigScreen;
+  .setificationContent{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 31px;
+    img{
+      border: 10px solid #F2F3F9;
+    }
+    h4{
+      font-size: 20px;
+      line-height: 26px;
+      color: $blue;
+    }
+  }
+}
+.mentors{
+  @include bigScreen;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 31px;
+    li{
+      display: grid;
+      grid-template-columns: 1fr 4fr;
+      grid-column-gap: 30px;
+      h4{
+
+      }
+    }
+  }
+}
+.pricePlan{
+  @include bigScreen;
+ .paidCardsContainer{
+
+   .paidCard{
+     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='361' height='120' viewBox='0 0 361 120' fill='none'%3E%3Cg opacity='0.5'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M361 119.478L0 51.2817V0H361' fill='%23F2F3F9'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M149.41 10.1562H350.801V55.5708L149.41 10.1562Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+     background-repeat: no-repeat;
+     background-size: 100%;
+     border: 10px solid #F2F3F9;
+     width: 100%;
+     max-width: 558px;
+     text-align: center;
+     .title{
+       font-size: 46px;
+       line-height: 56px;
+       letter-spacing: -0.2px;
+       color: $orange;
+     }
+     .price{
+       font-size: 20px;
+       line-height: 32px;
+       font-weight: 700;
+       text-align: center;
+       color: #979797;
+     }
+     .startDate{
+
+     }
+   }
+ }
 }

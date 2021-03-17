@@ -157,6 +157,105 @@ const EducationInfoPage = () => {
                         <button className={"downloadButton"}>Download curriculum</button>
                     </section>
                 {/*</div>*/}
+                <section className={"gettingSkills"}>
+                    <h2>Skills you will gain</h2>
+                    <ul>
+                        <li><p>Microsoft Dynamics CRM</p></li>
+                        <li><p>MS CRM Solutions</p> </li>
+                        <li><p>MS CRM Relationships and Records</p></li>
+                        <li><p>MS CRM Forms</p></li>
+                        <li><p>Business Rules</p></li>
+                        <li><p>Workflows</p></li>
+                        <li><p>Document management</p></li>
+                    </ul>
+                </section>
+                <section className={"certification"}>
+                    <h2>Certification</h2>
+                    <div className={"setificationContent"}>
+                        <img src={courseLogo} alt={"Certificate"}/>
+                        <div>
+                            <h4>Improve your CV</h4>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Eleifend quis proin faucibus felis at mauris. Pharetra, non
+                                vel ac iaculis id.</p>
+                            <p>You can share your Course Certificates in the Certifications
+                                section of your LinkedIn profile, on printed resumes, CVs,
+                                or other documents.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+                <section className={"mentors"}>
+                    <h2>Meet your mentors</h2>
+                    <ul>
+                        <li>
+                            <img src={benefitIcon} alt={"Mentor"}/>
+                            <div>
+                                <h4>Peter Ivanov</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src={benefitIcon} alt={"Mentor"}/>
+                            <div>
+                                <h4>Peter Ivanov</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src={benefitIcon} alt={"Mentor"}/>
+                            <div>
+                                <h4>Peter Ivanov</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                </section>
+                <section className={"pricePlan"}>
+                    <h2>Price plans</h2>
+                    <ul className={"paidCardsContainer"}>
+                        <li className={"paidCard"}>
+                            <h3 className={"title"}>FREE</h3>
+                            <span className={"price"}>$ 0</span>
+                            <p className={"description"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Auctor blandit eu quis egestas arcu dui, tempus tellus enim.
+                                Eget nec vel felis, nulla elementum aliquam.</p>
+                            <span className={"startDate"}>
+                                <h3>Start date: <p>notify me</p></h3>
+                            </span>
+                            <ul className={"paidPoint"}>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                                <li>
+                                    <img src={benefitIcon} alt={"Benefit Point"}/>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                </li>
+                            </ul>
+                            <button className={"getAccessButton"}>Get access</button>
+                        </li>
+                    </ul>
+                </section>
+
             </div>
         </>
     );
