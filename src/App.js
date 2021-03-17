@@ -12,7 +12,6 @@ import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import Cookie from "./components/Cookie/Coockie";
 import ModalMobileNotification from "./components/Modal/ModalMobileNotification";
-import styled from "styled-components";
 import Loader from "./components/views/Loader";
 import {useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
@@ -22,13 +21,6 @@ import {DownloadFile} from "./components/views/DownloadFile";
 import ErrorComponent from "./components/Error/ErrorComponent";
 import EducationCardsPage from "./components/EducationComponents/EducationCardsPage";
 import EducationInfoPage from "./components/EducationComponents/EducationInfoPage";
-
-const GeneralWrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -45,7 +37,7 @@ const App = () => {
     }, []);
 
     return (
-        <GeneralWrapper>
+        <div className={"generalWrapper"}>
             <ScrollArrow />
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
@@ -62,15 +54,15 @@ const App = () => {
                     <Route path={"/add-ons"} exact component={AddonsCardsPage} />
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/test/:password"} component={TestPage} />
-                    {/*<Route path={"/education"} component={EducationCardsPage}/>*/}
-                    {/*<Route path={"/course"} component={EducationInfoPage}/>*/}
+                    <Route path={"/education"} component={EducationCardsPage}/>
+                    <Route path={"/course"} component={EducationInfoPage}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}
             <Footer />
             <Loader />
             <DownloadFile />
-        </GeneralWrapper>
+        </div>
     );
 };
 export default App;
