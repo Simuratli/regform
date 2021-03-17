@@ -5,15 +5,13 @@ import isEmpty from "lodash/isEmpty";
 import authentication from "../../b2c";
 import "../../scss/errorComponent/errorComponent.scss";
 import {useHistory} from "react-router-dom";
+import {resetData} from "../../store/reducers/appReducer/actions/appAction";
 
 const ErrorComponent = () => {
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const {app} = state;
     const {error} = app;
-    // console.log(error.message, "hello")
-    // console.log(error.response, "hello2")
-    // console.log(error, "just error")
     const history = useHistory();
 
     let responseError;
@@ -39,6 +37,8 @@ const ErrorComponent = () => {
     }
 
     const handleBackToHomePage = () => {
+        //TODO: clear error from state
+         dispatch(resetData())
           history.push("/add-ons");
     }
     const handleRefreshPage = () => {

@@ -1,6 +1,5 @@
 import { httpClient } from "../../../../services/services";
-import { setError } from "../../appReducer/actions/appAction";
-
+import {setError, setIsLoading} from "../../appReducer/actions/appAction";
 import { DATA_LOADED } from "../types";
 import { SET_ADDON_DOWNLOADING } from "../../downloadFileReducer/types";
 
@@ -16,8 +15,9 @@ export const getLink = (slug) => {
         dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
       })
       .catch((err) => {
-        dispatch(setError(err.response));
-        dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
+          dispatch(setError(err))
+          dispatch(setIsLoading(false));
+          dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
       });
   };
 };

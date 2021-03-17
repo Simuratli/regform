@@ -18,7 +18,7 @@ export const getDownloadFile = (slug) => {
       })
       .catch((err) => {
         dispatch(setIsLoading(false));
-        dispatch(setError(err.response));
+        dispatch(setError(err));
         dispatch({ type: SET_ADDON_DOWNLOADING, payload: null });
       });
   };
