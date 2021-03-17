@@ -150,13 +150,26 @@
 
   .aboutInfoTechnicalBlock {
     background-color: #FFFFFF;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     max-width: 688px;
-    margin: auto;
+    margin: 25px auto auto;
 
     ul {
-      padding: 5px 0 5px 41px;
+      padding: 20px 0 25px 41px;
+      text-align: left;
+      margin: 0;
+
+      .shortDescription {
+        background-color: #FFFFFF;
+        padding: 0;
+      }
+
+      h4 {
+        text-align: center
+      }
 
       li {
         padding-left: 22px;
@@ -171,7 +184,7 @@
         }
 
         p {
-          margin: 11px 0;
+          margin: 6px 0;
           font-weight: 600;
           font-size: 18px;
           line-height: 28px;
@@ -783,7 +796,7 @@
   .creditionalInfo,
   .aboutInfo,
   .installInfo,
-  .useInfoMobile{
+  .useInfoMobile {
     @include screen768;
   }
   .bottomInfo {
@@ -842,6 +855,9 @@
     }
 
   }
+  .aboutInfo .aboutInfoTechnicalBlock ul h4 {
+    margin: 10px;
+  }
   .main_container .generalTitleBlock .headingParagraph {
     width: 80%;
   }
@@ -876,11 +892,6 @@
         line-height: 17px;
         text-align: center;
       }
-    }
-  }
-  .aboutInfo {
-    p {
-
     }
   }
 
