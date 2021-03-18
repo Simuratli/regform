@@ -1,0 +1,167 @@
+@import "../utils/utils";
+
+.educationVideoComponent {
+  @include bigScreen;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 30px;
+  margin: 29px auto 50px;
+
+  .backButton {
+    width: 78px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 28px;
+    color: $card-text-color;
+    letter-spacing: -0.1px;
+    padding-left: 30px;
+    border: transparent;
+    outline: transparent;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M16.0002 6.99813V8.99813H4.00016L9.50016 14.4981L8.08016 15.9181L0.160156 7.99813L8.08016 0.078125L9.50016 1.49813L4.00016 6.99813H16.0002Z' fill='%2361626A'/%3E%3C/svg%3E") no-repeat left center;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      box-shadow: none;
+      text-decoration: underline;
+    }
+  }
+
+  .generalHeadingParagraph {
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 56px;
+    text-align: left;
+    letter-spacing: -1.09524px;
+    margin: 0;
+  }
+
+  .videoContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-column-gap: 31px;
+
+    .leftBar {
+      .author {
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        padding: 20px 0;
+        border-bottom: 1px solid #E3E3E3;
+
+        .authorInfo {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: $card-text-color;
+
+          h4, h5 {
+            margin: 0;
+          }
+        }
+
+        img {
+          width: 79px;
+          margin-right: 20px;
+        }
+
+        .videoDescription {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 28px;
+          letter-spacing: -0.1px;
+        }
+      }
+
+      .attachments {
+        .attachmentsHeadingParagraph {
+          font-size: 20px;
+          line-height: 26px;
+          color: $orange;
+        }
+      }
+    }
+
+    .rightBar {
+      .videoSections {
+        @include bigScreen;
+
+        .videoSectionList {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-row-gap: 20px;
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          z-index: -1;
+        }
+
+        .tab {
+          width: 100%;
+          color: white;
+          overflow: hidden;
+
+          &-label {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background: $light-blue;
+            font-weight: bold;
+            cursor: pointer;
+            color: $blue;
+
+            &::after {
+              content: url("../../assets/images/faq_arrow.svg");
+              width: 1em;
+              height: 1em;
+              text-align: center;
+              transition: all .35s;
+            }
+          }
+
+          &-content {
+            max-height: 0;
+            padding: 0 1em;
+            color: $card-text-color;
+            background: $light-blue;
+            transition: all .35s;
+          }
+
+          &-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: $light-blue;
+            cursor: pointer;
+          }
+        }
+
+        input:checked {
+          + .tab-label {
+
+            &::after {
+              transform: rotate(180deg);
+            }
+          }
+
+          ~ .tab-content {
+            max-height: 100vh;
+            padding: 3px 20px 35px;
+          }
+        }
+
+        .videoPreview {
+          margin: 0;
+          .video{
+            padding: 15px;
+            &:hover {
+              background-color: rgba(57, 54, 129, 0.15);
+            }
+          }
+        }
+      }
+    }
+  }
+}

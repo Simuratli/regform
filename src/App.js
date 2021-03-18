@@ -21,6 +21,7 @@ import {DownloadFile} from "./components/views/DownloadFile";
 import ErrorComponent from "./components/Error/ErrorComponent";
 import EducationCardsPage from "./components/EducationComponents/EducationCardsPage";
 import EducationInfoPage from "./components/EducationComponents/EducationInfoPage";
+import EducationVideoLessons from "./components/EducationComponents/EducationVideoLessons";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -56,6 +57,7 @@ const App = () => {
                     <Route path={"/test/:password"} component={TestPage} />
                     <Route path={"/education"} component={EducationCardsPage}/>
                     <Route path={"/course"} component={EducationInfoPage}/>
+                    <Route path={"/video"} component={EducationVideoLessons}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}

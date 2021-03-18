@@ -2,9 +2,9 @@ import React from "react";
 import "../../scss/education/educationInfoPage.scss";
 import courseLogo from "../../assets/images/consultant.svg";
 import benefitIcon from "../../assets/images/test_icon.svg";
+import {NavLink} from "react-router-dom";
 
 const EducationInfoPage = () => {
-
 
     return (
         <>
@@ -225,7 +225,7 @@ const EducationInfoPage = () => {
                             <span className={"startDate"}>
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
-                            <ul className={"paidPoint"}>
+                            <ul className={"paidPoints"}>
                                 <li>
                                     <img src={benefitIcon} alt={"Benefit Point"}/>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -251,11 +251,35 @@ const EducationInfoPage = () => {
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 </li>
                             </ul>
-                            <button className={"getAccessButton"}>Get access</button>
+                            <NavLink to={"/video"}>
+                                <button className={"getAccessButton"}>Get access</button>
+                            </NavLink>
                         </li>
                     </ul>
                 </section>
-
+                <section className={"educationFAQ"}>
+                    <h2>FAQ</h2>
+                    <div className={"questionList"}>
+                            <div className={"tab"}>
+                                <input type={"checkbox"} id={"chck1"}/>
+                                    <label className={"tab-label"} htmlFor={"chck1"}>Lorem ipsum dolor sit amet,
+                                        consectetur adipiscing elit. At suspendisse amet enim commodo? </label>
+                                    <div className={"tab-content"}>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus et, tristique nunc leo eu id.
+                                    </div>
+                            </div>
+                            <div className={"tab"}>
+                                <input type={"checkbox"} id={"chck2"}/>
+                                    <label className={"tab-label"} htmlFor={"chck2"}>Lorem ipsum dolor sit amet?</label>
+                                    <div className={"tab-content"}>
+                                        Pellentesque nec diam vitae sodales mi vitae nunc purus. Sed urna arcu,
+                                        nisl donec sed. At sit ut dignissim eu, pellentesque duis odio. Eu quis
+                                        eleifend nibh a, non cras vitae ornare. Fusce sit tristique ornare
+                                        diam aliquam nu
+                                    </div>
+                            </div>
+                        </div>
+                </section>
             </div>
         </>
     );
