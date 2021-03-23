@@ -1,31 +1,40 @@
-import React from "react";
-import courseLogo from "../../assets/images/consultant.svg";
+import React from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
 
-const EducationCard = () => {
+const EducationCard = ({educationCard}) => {
 
+    const {
+        name = "",
+        slug = "",
+        duration = 0,
+        courseState = "",
+        courseSubject = "",
+        shortDescription,
+        cardLogo:{
+            imageSource = "",
+            alternateText = "",
+        },
+
+    } = educationCard;
 
     return (
         <>
             <div className="educationCard">
-                <div className={"leftCardSide"}><img src={courseLogo} alt={"Course Logo"}/></div>
+                <div className={"leftCardSide"}><img src={imageSource} alt={alternateText}/></div>
                 <div className={"rightCardSide"}>
-                    <h5>MS Dynamics 365 Consultant</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris,
-                        rhoncus, vulputate nibh orci vulputate in. Congue morbi erat rhoncus eros,
-                        pellentesque vestibulum, sed. Integer tempor lacus proin orci etiam aliquam.</p>
+                    <h5>{name}</h5>
+                    <p>{shortDescription}</p>
                     <div className={"cardBottomInfo"}>
                         <NavLink to={"/course"}>
                         <button className={"moreInfoButton"}>More info</button>
                         </NavLink>
                         <ul>
-                            <li className={"appointment"}>CONSULTING</li>
-                            <li className={"duration"}>2 WEEKS LONG</li>
+                            <li className={"appointment"}>{courseSubject}</li>
+                            <li className={"duration"}>{duration} WEEKS LONG</li>
                         </ul>
                     </div>
                 </div>
-
             </div>
         </>
     );

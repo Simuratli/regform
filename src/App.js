@@ -22,6 +22,7 @@ import ErrorComponent from "./components/Error/ErrorComponent";
 import EducationCardsPage from "./components/EducationComponents/EducationCardsPage";
 import EducationInfoPage from "./components/EducationComponents/EducationInfoPage";
 import EducationVideoLessons from "./components/EducationComponents/EducationVideoLessons";
+import EducationCardContainer from "./containers/EducationCardContainer";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);

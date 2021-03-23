@@ -1,8 +1,8 @@
 import React from "react";
 import orangeElement from "../../assets/images/orange_element.svg";
-import EducationCard from "./EducationCard";
 import "../../scss/education/educationCardsPage.scss";
 import benefitIcon from "../../assets/images/test_icon.svg";
+import EducationCardContainer from "../../containers/EducationCardContainer";
 
 
 const EducationCardsPage = () => {
@@ -44,7 +44,7 @@ const EducationCardsPage = () => {
             </section>
             <section className={"educationCoursesCards"}>
                 <h2 className={"educationTitle"}>Courses</h2>
-                <EducationCard />
+                <EducationCardContainer />
             </section>
         </section>
     );
