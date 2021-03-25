@@ -1,88 +1,152 @@
 @import "../utils/utils";
 
-
-
 .sideDrawer {
-  height: fit-content;
-  background-color: white;
-  //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
-  //box-shadow: 0px 100px 0px -1px rgba(34, 60, 80, 0.2);
-  position: absolute;
+  height: 100%;
+  background: white;
+  position: fixed;
   top: 59px;
   left: 0;
-  width: 100%;
-  //max-width: 400px;
+  //max-width: 768px;
+  //width: 100%;
+  width: 70%;
+  max-width: 400px;
   z-index: 200;
-  transform: translateY(-500%);
-  transition: transform 0.3s ease-out;
-  .burgerOnSideDrawer{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-  }
+  transform: translateX(-100%);
 
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
 
-  li {
-    color: $orange;
-    margin: 1rem 0;
-  }
-  .active {
-    border-bottom: 3px solid $orange;
-  }
-  .nav-link{
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 700;
-  }
-  .bookACall {
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 700;
-    border: 1px solid $orange;
-    color: #ffffff;
-    background-color: $orange;
-    padding: 7px 12.3px;
-    transition: 0.2s;
-    letter-spacing: 0.5px;
-    z-index: 1000;
-    height: 30px;
-    width: 143px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E");
-    background-position: 91%;
-    background-repeat: no-repeat;
-  }
-  .logOut{
-    font-size: 12px;
-    line-height: 15px;
-    font-weight: 700;
-    color: #757689;
-    display: flex;
-  }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    li {
+      color: $orange;
+      margin: 1rem 0;
+    }
+    .active {
+      border-bottom: 3px solid $orange;
+    }
+    .nav-link{
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+    }
+    .bookACall {
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+      border: 1px solid $orange;
+      color: #ffffff;
+      background-color: $orange;
+      padding: 7px 12.3px;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      z-index: 1000;
+      height: 30px;
+      width: 143px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E");
+      background-position: 91%;
+      background-repeat: no-repeat;
+    }
+    .logOut{
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+      color: #757689;
+      display: flex;
+    }
+}
+.open{
+  transform: translateX(0);
 }
 
-.open {
-  transform: translateY(0);
-  z-index: 10000;
-}
 
-@media screen and (min-width: 769px) {
-  .sideDrawer {
-    display: none;
-  }
-}
-
+//.sideDrawer {
+//  height: fit-content;
+//  background-color: white;
+//  //box-shadow: -3px 0px 7px rgba(0, 0, 0, 0.5);
+//  //box-shadow: 0px 100px 0px -1px rgba(34, 60, 80, 0.2);
+//  position: absolute;
+//  top: 59px;
+//  left: 0;
+//  width: 100%;
+//  //max-width: 400px;
+//  z-index: 200;
+//  transform: translateY(-500%);
+//  transition: transform 0.3s ease-out;
+//
+//  .burgerOnSideDrawer{
+//    position: absolute;
+//    top: 10px;
+//    right: 10px;
+//  }
+//
+//  ul {
+//    list-style: none;
+//    display: flex;
+//    flex-direction: column;
+//    height: 100%;
+//  }
+//
+//  li {
+//    color: $orange;
+//    margin: 1rem 0;
+//  }
+//  .active {
+//    border-bottom: 3px solid $orange;
+//  }
+//  .nav-link{
+//    font-size: 12px;
+//    line-height: 15px;
+//    font-weight: 700;
+//  }
+//  .bookACall {
+//    display: flex;
+//    align-items: center;
+//    text-transform: uppercase;
+//    font-size: 12px;
+//    line-height: 15px;
+//    font-weight: 700;
+//    border: 1px solid $orange;
+//    color: #ffffff;
+//    background-color: $orange;
+//    padding: 7px 12.3px;
+//    transition: 0.2s;
+//    letter-spacing: 0.5px;
+//    z-index: 1000;
+//    height: 30px;
+//    width: 143px;
+//    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E");
+//    background-position: 91%;
+//    background-repeat: no-repeat;
+//  }
+//  .logOut{
+//    font-size: 12px;
+//    line-height: 15px;
+//    font-weight: 700;
+//    color: #757689;
+//    display: flex;
+//  }
+//}
+//
+//.open {
+//  transform: translateY(0);
+//  z-index: 10000;
+//}
+//
+//@media screen and (min-width: 769px) {
+//  .sideDrawer {
+//    display: none;
+//  }
+//}
+//
 @media screen and (max-width: 415px) {
-  .sideDrawer ul {
+  .sideDrawer ul{
     @include screen400;
-    margin: auto;
   }
 }
