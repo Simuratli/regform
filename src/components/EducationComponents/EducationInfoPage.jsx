@@ -2,10 +2,10 @@ import React from "react";
 import "../../scss/education/educationInfoPage.scss";
 import courseLogo from "../../assets/images/consultant.svg";
 import benefitIcon from "../../assets/images/test_icon.svg";
-import {NavLink} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 
 const EducationInfoPage = () => {
-
+    // const { slug } = useParams();
     return (
         <>
             <div className="educationInfoContent">
@@ -13,10 +13,7 @@ const EducationInfoPage = () => {
                     <section className={"header"}>
                         <div className={"headerLeftSide"}>
                             <h1>MS Dynamics 365 Consultant</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris, rhoncus,
-                                vulputate nibh orci vulputate in. Congue morbi erat rhoncus eros, pellentesque
-                                vestibulum, sed. Integer tempor lacus proin orci etiam aliquam.
-                            </p>
+                            <p>The course is aimed at those who are interested in getting to know in detail the automation of complex business processes using the Microsoft Dynamics 365 platform. The training is suitable both for those who are already working with the system and would like to get acquainted with the functionality in more detail, and for those who will work with the system for the first time.</p>
                             <button className={"downloadButton"}>Download curriculum</button>
                         </div>
                         <div className={"headerRightSide"}>
@@ -28,16 +25,19 @@ const EducationInfoPage = () => {
                     <h2>What you'll learn</h2>
                     <div className={"learnInfoContent"}>
                         <section className={"leftBar"}>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisi
-                                risus semper urna, suspendisse a nullam. Mauris nulla
-                                id facilisis ipsum.</p>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                <li>A, sit egestas cras adipiscing lacus.</li>
-                                <li>Diam facilisis imperdiet neque vestibulum.</li>
-                                <li>Diam nunc neque suscipit ornare gravida magna amet</li>
-                                <li>In ut tellus urna amet ullamcorper feugiat.</li>
-                            </ul>
+                            <div className={"learnParagraph"}>
+                                <p>The course starts with a slow dive into the subject not to miss a thing or confuse
+                                    the newbies. With each step, you will dig deeper and have to put freshly-obtained
+                                    knowledge to use. Keeping a theory-practice balance guarantees the new career
+                                    start as a Junior Microsoft Dynamics 365 Consultant at UDS Systems.</p>
+                                <ul>
+                                    <li>Business Security</li>
+                                    <li>Sales analytics / Power BI</li>
+                                    <li>How to customize CRM (import, views, dashboards, connections, etc.)</li>
+                                    <li>Microsoft Business Solutions Ecosystem Complementary Products at a glance</li>
+                                    <li>What CRM system is / opportunities overview</li>
+                                </ul>
+                            </div>
                             <img className={"courseLogo"} src={courseLogo} alt={"What you will learn"}/>
                             <button className={"takeCourseButton"}>Take Course</button>
                         </section>
@@ -175,12 +175,7 @@ const EducationInfoPage = () => {
                         <img src={courseLogo} alt={"Certificate"}/>
                         <div>
                             <h4>Improve your CV</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Eleifend quis proin faucibus felis at mauris. Pharetra, non
-                                vel ac iaculis id.</p>
-                            <p>You can share your Course Certificates in the Certifications
-                                section of your LinkedIn profile, on printed resumes, CVs,
-                                or other documents.</p>
+                            <p>The certificate issued by UDS is an assurance of the successful course accomplishment. It proves that you can showcase your competency in the subject area and apply for Junior Microsoft Dynamics 365 Consultant.</p>
                         </div>
 
                     </div>
@@ -211,7 +206,6 @@ const EducationInfoPage = () => {
                             </div>
                         </li>
                     </ul>
-
                 </section>
                 <section className={"pricePlan"}>
                     <h2>Price plans</h2>

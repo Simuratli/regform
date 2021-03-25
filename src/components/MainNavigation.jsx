@@ -134,7 +134,7 @@ function MainNavigation(props) {
 
           </div>
           <div className={"mainNavToggleButton"}>
-            <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} />
+            <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} sideDrawerOpen={props.sideDrawerOpen}/>
           </div>
         </div>
       </div>

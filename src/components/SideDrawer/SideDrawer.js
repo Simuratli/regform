@@ -16,13 +16,14 @@ const SideDrawer = (props) => {
 
     return (
         <nav className={drawerClass}>
-            <div className={"burgerOnSideDrawer"}>
-                <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} sideDrawerOpen={props.sideDrawerOpen}/>
-            </div>
+            {/*<div className={"burgerOnSideDrawer"}>*/}
+            {/*    <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} sideDrawerOpen={props.sideDrawerOpen}/>*/}
+            {/*</div>*/}
 
             <ul>
                 <li><a className={"nav-link"} href='https://uds.systems'>Uds Website</a></li>
                 <li><NavLink className={"nav-link"} to='/add-ons' onClick={() => props.setSideDrawerOpen(false)}>Add-ons</NavLink></li>
+                <li><NavLink className={"nav-link"} to='/education' onClick={() => props.setSideDrawerOpen(false)}>Education</NavLink></li>
                 <li>
                     <a href="https://calendly.com/rsavran/dynamics">
                         <button className={"bookACall"}>
