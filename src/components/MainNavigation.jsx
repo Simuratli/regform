@@ -4,7 +4,7 @@ import "../scss/utils/utils.scss";
 import { Link, NavLink } from "react-router-dom";
 import authentication from "../b2c";
 import logo from "../assets/images/uds_logo_header.svg";
-import logout from "../assets/images/logout.png";
+import logout from "../assets/images/exit.svg";
 import "../../src/scss/toggleButton/DrawerToggleButton.scss";
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 import { FormattedMessage } from "react-intl";

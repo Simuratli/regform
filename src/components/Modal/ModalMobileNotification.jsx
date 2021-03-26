@@ -1,6 +1,7 @@
 import React from "react";
 import "../../scss/modal/modalMobileNotification.scss";
 import warning from "../../assets/images/warning-icon.svg";
+import close from "../../assets/images/window-close.svg";
 import Modal from "./Modal";
 import {useCookies} from "react-cookie";
 
@@ -25,6 +26,7 @@ const ModalMobileNotification = ({setActive}) => {
                 We recommend using the desktop version to download and use any UDS product.
             </p>
             <button className={"agreeButton"} onClick={userHasGotInfo}>
+                <img src={close} alt={"close"}/>
             </button>
         </Modal>
     );

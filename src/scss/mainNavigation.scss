@@ -96,9 +96,13 @@
     transition: ease-out 0.2s;
     margin-left: 1rem;
     margin-right: 0;
+    display: block;
+    margin-bottom: 2px;
 
-    &:hover {
+    &:hover, &:active {
       box-shadow: none;
+      transform: scale(1.1);
+      filter: blur(none);
     }
   }
 

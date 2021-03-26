@@ -94,34 +94,31 @@ const EducationInfoPage = () => {
                     <h2>Who is suitable for the course</h2>
                     <ul className={"conformityList"}>
                         <li className={"conformityListItem"}>
-                            <h4>Students</h4>
+                            <h4>Specialists who already use Dynamics 365 and want to deepen their knowledge</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris, rhoncus,
-                                vulputate nibh orci vulputate in.
-                            </p>
-                        </li>
-                        <li className={"conformityListItem"}>
-                            <h4>If you are looking for new opportunities</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris, rhoncus,
-                                vulputate nibh orci vulputate in.
-                            </p>
-                        </li>
-                        <li className={"conformityListItem"}>
-                            <h4>You are already using Microsoft Dynamics</h4>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris, rhoncus,
-                                vulputate nibh orci vulputate in.
+                                Just a must-have. This course talks about all the nuances of using MS Dynamics 365 directly needed to configure the system and use its maximum capabilities.
                             </p>
                         </li>
                         <li className={"conformityListItem"}>
                             <h4>Business Analysts</h4>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mauris, rhoncus,
-                                vulputate nibh orci vulputate in.
+                                The course provides a deep understanding of all Dynamics 365 advantages and disadvantages. In the future, gained knowledge will enable you to offer the best possible options to meet business needs.
+                            </p>
+                        </li>
+                        <li className={"conformityListItem"}>
+                            <h4>For those who want to change current professional fulfillment</h4>
+                            <p>
+                                A vast majority of the companies use MS Dynamics 365 to automate business processes, and the demand for Dynamics 365 experts is growing every year. We suggest this course as a soft professional switch to Dynamics 365 world and further career development.
+                            </p>
+                        </li>
+                        <li className={"conformityListItem"}>
+                            <h4>Students</h4>
+                            <p>
+                                This course helps to gain all the necessary Dynamics 365 knowledge and determine the direction for further career fulfillment as MS Dynamics 365 Consultant, Business Analyst, or Project Manager.
                             </p>
                         </li>
                     </ul>
+
 
                 </section>
                 </div>

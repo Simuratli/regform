@@ -12,38 +12,35 @@ const Loader = styled.div`
   top: -1px;
   left: -1px;
 
-  .sp-3balls,
-  .sp-3balls:before,
-  .sp-3balls:after {
+  .sp-2balls {
+    margin: 0 10px;
+  }
+
+  .sp-1balls,
+  .sp-2balls,
+  .sp-3balls {
     border-radius: 50%;
     background-color: #fff;
     width: 10px;
     height: 10px;
     transform-origin: center center;
-    display: inline-block;
   }
+
   .sp-3balls {
     position: relative;
-    background-color: #fff;
     opacity: 1;
     -webkit-animation: spScaleAlpha 1s infinite linear;
     animation: spScaleAlpha 1s infinite linear;
   }
-  .sp-3balls:before,
-  .sp-3balls:after {
-    content: "";
-    position: relative;
+
+  .sp-1balls {
     opacity: 0.25;
-  }
-  .sp-3balls:before {
-    left: 30px;
-    top: -3px;
     -webkit-animation: spScaleAlphaBefore 1s infinite linear;
     animation: spScaleAlphaBefore 1s infinite linear;
   }
-  .sp-3balls:after {
-    left: -30px;
-    top: -19px;
+
+  .sp-3balls {
+    opacity: 0.25;
     -webkit-animation: spScaleAlphaAfter 1s infinite linear;
     animation: spScaleAlphaAfter 1s infinite linear;
   }
@@ -89,9 +86,11 @@ const Loader = styled.div`
 `;
 
 export const ButtonLoader = () => {
-  return (
-    <Loader>
-      <div className="sp-3balls" />
-    </Loader>
-  );
+    return (
+        <Loader>
+            <div className="sp-1balls"/>
+            <div className="sp-2balls"/>
+            <div className="sp-3balls"/>
+        </Loader>
+    );
 };
