@@ -44,7 +44,7 @@ const App = () => {
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
             <Cookie />
-            <ModalMobileNotification active={modalActive} setActive={setModalActive}/>
+            <ModalMobileNotification setActive={setModalActive}/>
             {isEmpty(error)
                 ?
                 <Switch>

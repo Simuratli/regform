@@ -1,12 +1,20 @@
 import React from "react";
 import "../../scss/modal/modalMobileNotification.scss";
 import warning from "../../assets/images/warning-icon.svg";
-
 import Modal from "./Modal";
+import {useCookies} from "react-cookie";
 
-const ModalMobileNotification = ({active, setActive}) => {
+
+const ModalMobileNotification = ({setActive}) => {
+
+    const [cookies, setCookie] = useCookies(['userHasGotTheInformation']);
+    const userHasGotInfo = () =>{
+        setActive(false);
+        setCookie('userHasGotTheInformation', true)
+    }
+
     return (
-        <Modal active={active} setActive={setActive}>
+        <Modal active={!cookies.userHasGotTheInformation}>
             <img src={warning} alt={"info"} style={{margin: "auto"}}/>
             <h5 className={"mobileModalTitle boldText"}>For your information</h5>
             <p>
@@ -16,7 +24,7 @@ const ModalMobileNotification = ({active, setActive}) => {
             <p className={"boldText"}>
                 We recommend using the desktop version to download and use any UDS product.
             </p>
-            <button className={"agreeButton"} onClick={() => setActive(false)}>
+            <button className={"agreeButton"} onClick={userHasGotInfo}>
             </button>
         </Modal>
     );
