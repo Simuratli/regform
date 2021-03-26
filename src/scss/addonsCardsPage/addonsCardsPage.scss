@@ -54,7 +54,6 @@
   max-width: 384px;
   position: relative;
   margin-bottom: 30px;
-  //z-index: 900;
   z-index: 1;
   transition: all 275ms;
 
@@ -84,7 +83,6 @@
 
   .arrow {
     position: absolute;
-    //top: 33%;
     right: 12px;
   }
 
@@ -371,7 +369,5 @@
   @media screen and (max-width: 580px) {
     grid-template-columns: repeat(1, 1fr);
   }
-
-
 }
 

@@ -1,10 +1,9 @@
 import React from "react";
-import {Link, NavLink} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import '../../scss/toggleButton/SideDrawer.scss';
 import authentication from "../../b2c";
 import logout from "../../assets/images/logout.png";
 import {FormattedMessage} from "react-intl";
-import DrawerToggleButton from "./DrawerToggleButton";
 
 const SideDrawer = (props) => {
 
@@ -16,14 +15,10 @@ const SideDrawer = (props) => {
 
     return (
         <nav className={drawerClass}>
-            {/*<div className={"burgerOnSideDrawer"}>*/}
-            {/*    <DrawerToggleButton setSideDrawerOpen={props.setSideDrawerOpen} sideDrawerOpen={props.sideDrawerOpen}/>*/}
-            {/*</div>*/}
-
             <ul>
                 <li><a className={"nav-link"} href='https://uds.systems'>Uds Website</a></li>
                 <li><NavLink className={"nav-link"} to='/add-ons' onClick={() => props.setSideDrawerOpen(false)}>Add-ons</NavLink></li>
-                <li><NavLink className={"nav-link"} to='/education' onClick={() => props.setSideDrawerOpen(false)}>Education</NavLink></li>
+                {/*<li><NavLink className={"nav-link"} to='/education' onClick={() => props.setSideDrawerOpen(false)}>Education</NavLink></li>*/}
                 <li>
                     <a href="https://calendly.com/rsavran/dynamics">
                         <button className={"bookACall"}>
