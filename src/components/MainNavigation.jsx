@@ -52,11 +52,11 @@ function MainNavigation(props) {
                     <FormattedMessage id="add.ons" />
                   </NavLink>
                 </li>
-                {/*<li>*/}
-                {/*  <NavLink className={"nav-link"} to="/education">*/}
-                {/*    <FormattedMessage id="Education" />*/}
-                {/*  </NavLink>*/}
-                {/*</li>*/}
+                <li>
+                  <NavLink className={"nav-link"} to="/education">
+                    <FormattedMessage id="Education" />
+                  </NavLink>
+                </li>
                 <li>
                   <a href="https://calendly.com/rsavran/dynamics">
                     <button className={"bookACall"}>

@@ -22,6 +22,7 @@ import ErrorComponent from "./components/Error/ErrorComponent";
 import EducationCardsPage from "./components/EducationComponents/EducationCardsPage";
 import EducationInfoPage from "./components/EducationComponents/EducationInfoPage";
 import EducationVideoLessons from "./components/EducationComponents/EducationVideoLessons";
+import EducationInfoPageContainer from "./containers/EducationInfoPageContainer";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -56,7 +57,7 @@ const App = () => {
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/test/:password"} component={TestPage} />
                     <Route path={"/education"} component={EducationCardsPage}/>
-                    <Route path={"/course"} component={EducationInfoPage}/>
+                    <Route path={"/educations/courses/:slug/preview "} component={EducationInfoPageContainer}/>
                     <Route path={"/video"} component={EducationVideoLessons}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>

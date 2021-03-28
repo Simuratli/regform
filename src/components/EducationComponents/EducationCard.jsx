@@ -26,7 +26,7 @@ const EducationCard = ({educationCard}) => {
                     <h5>{name}</h5>
                     <p>{shortDescription}</p>
                     <div className={"cardBottomInfo"}>
-                        <NavLink to={"/course"}>
+                        <NavLink to={"/educations/courses/" + slug + "/preview"}>
                         <button className={"moreInfoButton"}>More info</button>
                         </NavLink>
                         <ul>

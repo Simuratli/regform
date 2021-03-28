@@ -4,16 +4,31 @@ import courseLogo from "../../assets/images/consultant.svg";
 import benefitIcon from "../../assets/images/test_icon.svg";
 import {NavLink, useParams} from "react-router-dom";
 
-const EducationInfoPage = () => {
-    // const { slug } = useParams();
+const EducationInfoPage = ({education}) => {
+    const {
+        header = "",
+        slug = "",
+        description = "",
+        addOnPageSteps = [],
+        applicationType,
+        addOnPageTables = [],
+        installationGuidePath,
+        troubleshootGuidePath,
+        cardLogo = {},
+    } = education;
+
     return (
         <>
             <div className="educationInfoContent">
                 <div className={"headerWrapper"}>
                     <section className={"header"}>
                         <div className={"headerLeftSide"}>
-                            <h1>MS Dynamics 365 Consultant</h1>
-                            <p>The course is aimed at those who are interested in getting to know in detail the automation of complex business processes using the Microsoft Dynamics 365 platform. The training is suitable both for those who are already working with the system and would like to get acquainted with the functionality in more detail, and for those who will work with the system for the first time.</p>
+                            <h1>{header}</h1>
+                            <p>The course is aimed at those who are interested in getting to know in detail the
+                                automation of complex business processes using the Microsoft Dynamics 365 platform. The
+                                training is suitable both for those who are already working with the system and would
+                                like to get acquainted with the functionality in more detail, and for those who will
+                                work with the system for the first time.</p>
                             <button className={"downloadButton"}>Download curriculum</button>
                         </div>
                         <div className={"headerRightSide"}>
@@ -90,75 +105,83 @@ const EducationInfoPage = () => {
                     </div>
                 </section>
                 <div className={"fullWidth"}>
-                <section className={"conformityInfo"}>
-                    <h2>Who is suitable for the course</h2>
-                    <ul className={"conformityList"}>
-                        <li className={"conformityListItem"}>
-                            <h4>Specialists who already use Dynamics 365 and want to deepen their knowledge</h4>
-                            <p>
-                                Just a must-have. This course talks about all the nuances of using MS Dynamics 365 directly needed to configure the system and use its maximum capabilities.
-                            </p>
-                        </li>
-                        <li className={"conformityListItem"}>
-                            <h4>Business Analysts</h4>
-                            <p>
-                                The course provides a deep understanding of all Dynamics 365 advantages and disadvantages. In the future, gained knowledge will enable you to offer the best possible options to meet business needs.
-                            </p>
-                        </li>
-                        <li className={"conformityListItem"}>
-                            <h4>For those who want to change current professional fulfillment</h4>
-                            <p>
-                                A vast majority of the companies use MS Dynamics 365 to automate business processes, and the demand for Dynamics 365 experts is growing every year. We suggest this course as a soft professional switch to Dynamics 365 world and further career development.
-                            </p>
-                        </li>
-                        <li className={"conformityListItem"}>
-                            <h4>Students</h4>
-                            <p>
-                                This course helps to gain all the necessary Dynamics 365 knowledge and determine the direction for further career fulfillment as MS Dynamics 365 Consultant, Business Analyst, or Project Manager.
-                            </p>
-                        </li>
-                    </ul>
-
-
-                </section>
-                </div>
-                {/*<div className={"fullWidth"}>*/}
-                    <section className={"syllabus"}>
-                        <h2>Syllabus</h2>
-                        <ul>
-                            <li>
-                                <h4>1. Microsoft Dynamics CRM functionality</h4>
-                                <p>Learn Microsoft Dynamics CRM Architecture,
-                                    CRM types, ecosystem and external
-                                    integration. </p>
+                    <section className={"conformityInfo"}>
+                        <h2>Who is suitable for the course</h2>
+                        <ul className={"conformityList"}>
+                            <li className={"conformityListItem"}>
+                                <h4>Specialists who already use Dynamics 365 and want to deepen their knowledge</h4>
+                                <p>
+                                    Just a must-have. This course talks about all the nuances of using MS Dynamics 365
+                                    directly needed to configure the system and use its maximum capabilities.
+                                </p>
                             </li>
-                            <li>
-                                <h4>1. Microsoft Dynamics CRM functionality</h4>
-                                <p>Learn Microsoft Dynamics CRM Architecture,
-                                    CRM types, ecosystem and external
-                                    integration. </p>
+                            <li className={"conformityListItem"}>
+                                <h4>Business Analysts</h4>
+                                <p>
+                                    The course provides a deep understanding of all Dynamics 365 advantages and
+                                    disadvantages. In the future, gained knowledge will enable you to offer the best
+                                    possible options to meet business needs.
+                                </p>
                             </li>
-                            <li>
-                                <h4>1. Microsoft Dynamics CRM functionality</h4>
-                                <p>Learn Microsoft Dynamics CRM Architecture,
-                                    CRM types, ecosystem and external
-                                    integration. </p>
+                            <li className={"conformityListItem"}>
+                                <h4>For those who want to change current professional fulfillment</h4>
+                                <p>
+                                    A vast majority of the companies use MS Dynamics 365 to automate business processes,
+                                    and the demand for Dynamics 365 experts is growing every year. We suggest this
+                                    course as a soft professional switch to Dynamics 365 world and further career
+                                    development.
+                                </p>
                             </li>
-                            <li>
-                                <h4>1. Microsoft Dynamics CRM functionality</h4>
-                                <p>Learn Microsoft Dynamics CRM Architecture,
-                                    CRM types, ecosystem and external
-                                    integration. </p>
+                            <li className={"conformityListItem"}>
+                                <h4>Students</h4>
+                                <p>
+                                    This course helps to gain all the necessary Dynamics 365 knowledge and determine the
+                                    direction for further career fulfillment as MS Dynamics 365 Consultant, Business
+                                    Analyst, or Project Manager.
+                                </p>
                             </li>
                         </ul>
-                        <button className={"downloadButton"}>Download curriculum</button>
+
+
                     </section>
+                </div>
+                {/*<div className={"fullWidth"}>*/}
+                <section className={"syllabus"}>
+                    <h2>Syllabus</h2>
+                    <ul>
+                        <li>
+                            <h4>1. Microsoft Dynamics CRM functionality</h4>
+                            <p>Learn Microsoft Dynamics CRM Architecture,
+                                CRM types, ecosystem and external
+                                integration. </p>
+                        </li>
+                        <li>
+                            <h4>1. Microsoft Dynamics CRM functionality</h4>
+                            <p>Learn Microsoft Dynamics CRM Architecture,
+                                CRM types, ecosystem and external
+                                integration. </p>
+                        </li>
+                        <li>
+                            <h4>1. Microsoft Dynamics CRM functionality</h4>
+                            <p>Learn Microsoft Dynamics CRM Architecture,
+                                CRM types, ecosystem and external
+                                integration. </p>
+                        </li>
+                        <li>
+                            <h4>1. Microsoft Dynamics CRM functionality</h4>
+                            <p>Learn Microsoft Dynamics CRM Architecture,
+                                CRM types, ecosystem and external
+                                integration. </p>
+                        </li>
+                    </ul>
+                    <button className={"downloadButton"}>Download curriculum</button>
+                </section>
                 {/*</div>*/}
                 <section className={"gettingSkills"}>
                     <h2>Skills you will gain</h2>
                     <ul>
                         <li><p>Microsoft Dynamics CRM</p></li>
-                        <li><p>MS CRM Solutions</p> </li>
+                        <li><p>MS CRM Solutions</p></li>
                         <li><p>MS CRM Relationships and Records</p></li>
                         <li><p>MS CRM Forms</p></li>
                         <li><p>Business Rules</p></li>
@@ -172,7 +195,9 @@ const EducationInfoPage = () => {
                         <img src={courseLogo} alt={"Certificate"}/>
                         <div>
                             <h4>Improve your CV</h4>
-                            <p>The certificate issued by UDS is an assurance of the successful course accomplishment. It proves that you can showcase your competency in the subject area and apply for Junior Microsoft Dynamics 365 Consultant.</p>
+                            <p>The certificate issued by UDS is an assurance of the successful course accomplishment. It
+                                proves that you can showcase your competency in the subject area and apply for Junior
+                                Microsoft Dynamics 365 Consultant.</p>
                         </div>
 
                     </div>
@@ -185,21 +210,24 @@ const EducationInfoPage = () => {
                             <img src={benefitIcon} alt={"Mentor"}/>
                             <div>
                                 <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
+                                    arcu morbi sed nunc.</p>
                             </div>
                         </li>
                         <li>
                             <img src={benefitIcon} alt={"Mentor"}/>
                             <div>
                                 <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
+                                    arcu morbi sed nunc.</p>
                             </div>
                         </li>
                         <li>
                             <img src={benefitIcon} alt={"Mentor"}/>
                             <div>
                                 <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit arcu morbi sed nunc.</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
+                                    arcu morbi sed nunc.</p>
                             </div>
                         </li>
                     </ul>
@@ -210,38 +238,39 @@ const EducationInfoPage = () => {
                         <li className={"paidCard"}>
                             <h3 className={"title"}>FREE</h3>
                             <span className={"price"}>$ 0</span>
-                            <p className={"description"}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                Auctor blandit eu quis egestas arcu dui, tempus tellus enim.
-                                Eget nec vel felis, nulla elementum aliquam.</p>
                             <span className={"startDate"}>
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
-                            <ul className={"paidPoints"}>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                                <li>
-                                    <img src={benefitIcon} alt={"Benefit Point"}/>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                </li>
-                            </ul>
+                            <div className={"descriptionSection"}>
+                                <p className={"description"}>Free plan is designated for everyone willing and eager to
+                                    become a member of UDS team. On the successful completion of the course, we afford soft
+                                    ground for students to apply for Junior Microsoft Dynamics 365 Consultant in UDS
+                                    Systems. </p>
+                                <ul className={"checkPoints"}>
+                                    <li>
+                                        <p>small-group format (up to 6 students);</p>
+                                    </li>
+                                    <li>
+                                        <p>short course (2 weeks only);</p>
+                                    </li>
+                                    <li>
+                                        <p>mentor's assistance;</p>
+                                    </li>
+                                    <li>
+                                        <p>practical assignments similar to the tasks of real projects;</p>
+                                    </li>
+                                    <li>
+                                        <p>check of home assignment;</p>
+                                    </li>
+                                    <li>
+                                        <p>employment in UDS Systems;</p>
+                                    </li>
+                                    <li>
+                                        <p>we recruit a group of students only
+                                            two times a year (when the need to expand current projects arises).</p>
+                                    </li>
+                                </ul>
+                            </div>
                             <NavLink to={"/video"}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>
@@ -251,25 +280,35 @@ const EducationInfoPage = () => {
                 <section className={"educationFAQ"}>
                     <h2>FAQ</h2>
                     <div className={"questionList"}>
-                            <div className={"tab"}>
-                                <input type={"checkbox"} id={"chck1"}/>
-                                    <label className={"tab-label"} htmlFor={"chck1"}>Lorem ipsum dolor sit amet,
-                                        consectetur adipiscing elit. At suspendisse amet enim commodo? </label>
-                                    <div className={"tab-content"}>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Faucibus et, tristique nunc leo eu id.
-                                    </div>
-                            </div>
-                            <div className={"tab"}>
-                                <input type={"checkbox"} id={"chck2"}/>
-                                    <label className={"tab-label"} htmlFor={"chck2"}>Lorem ipsum dolor sit amet?</label>
-                                    <div className={"tab-content"}>
-                                        Pellentesque nec diam vitae sodales mi vitae nunc purus. Sed urna arcu,
-                                        nisl donec sed. At sit ut dignissim eu, pellentesque duis odio. Eu quis
-                                        eleifend nibh a, non cras vitae ornare. Fusce sit tristique ornare
-                                        diam aliquam nu
-                                    </div>
+                        <div className={"tab"}>
+                            <input type={"checkbox"} id={"chck1"}/>
+                            <label className={"tab-label"} htmlFor={"chck1"}>What is a course format?</label>
+                            <div className={"tab-content"}>
+                                We carry online most of our courses —
+                                you can study in a convenient mode without being tied to a place.
                             </div>
                         </div>
+                        <div className={"tab"}>
+                            <input type={"checkbox"} id={"chck2"}/>
+                            <label className={"tab-label"} htmlFor={"chck2"}>What if I face difficulties during the
+                                course?</label>
+                            <div className={"tab-content"}>
+                                Your mentor will support you and help you to go through the difficulties that might
+                                arise.
+                            </div>
+                        </div>
+                        <div className={"tab"}>
+                            <input type={"checkbox"} id={"chck3"}/>
+                            <label className={"tab-label"} htmlFor={"chck3"}>Where can I find a job after the course
+                                completion?</label>
+                            <div className={"tab-content"}>
+                                After course completion, you can choose the most attractive position: MS Dynamics 365
+                                Consultant, Business Analyst, or Project Manager.
+                                UDS will provide a job offer for the most successful graduates. Also, upon request, we
+                                will provide a list of companies that run in the related area for all graduates.
+                            </div>
+                        </div>
+                    </div>
                 </section>
             </div>
         </>

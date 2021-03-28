@@ -24,7 +24,7 @@
     justify-content: space-between;
     flex-direction: row;
     color: $blue;
-    padding: 4rem 0;
+    padding: 4rem 0 87px;
     .headingParagraph {
       width: 45%;
       text-align: left;
@@ -58,22 +58,20 @@
   }
   .educationBenefits{
     .benefitsTitle{
-      margin: 30px 0;
-    }
-    .benefitsSubtitle{
-      margin: auto auto 60px;
-      text-align: center;
-      width: 80%;
+      margin: 30px 0 50px;
     }
     .benefitsList{
       padding-left: 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-column-gap: 30px;
+      grid-column-gap: 10px;
+      background-color: $light-blue;
       .benefitsListItem{
         text-align: center;
+        background-color: #ffffff;
         p{
           text-align: center;
+          padding: 0 30px;
         }
         h5{
           font-size: 20px;
@@ -82,6 +80,11 @@
           margin: 30px 0 20px;
         }
       }
+    }
+  }
+  .educationCoursesCards{
+    .educationTitle{
+      margin-top: 80px;
     }
   }
 }
