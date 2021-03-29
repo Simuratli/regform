@@ -6,7 +6,7 @@ export const getEducationCard = () => {
     return (dispatch) => {
         dispatch(setIsLoading(true));
         httpClient
-            .get("educations/courses/cards")
+            .get("education/courses/cards")
             .then((res) => {
                 console.log(res.data, "resEducation")
                 dispatch({ type: SET_EDUCATION_CARDS_DATA, payload: res.data });

@@ -1,20 +1,42 @@
 import React from "react";
 import "../../scss/education/educationInfoPage.scss";
-import courseLogo from "../../assets/images/consultant.svg";
+import certificate from "../../assets/images/education/certificate.svg";
 import benefitIcon from "../../assets/images/test_icon.svg";
-import {NavLink, useParams} from "react-router-dom";
+import intencity from "../../assets/images/education/learn_right_bar_icons/intensity.svg";
+import subject from "../../assets/images/education/learn_right_bar_icons/subject.svg";
+import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
+import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
+import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
+import {NavLink} from "react-router-dom";
 
 const EducationInfoPage = ({education}) => {
+
     const {
         header = "",
         slug = "",
-        description = "",
-        addOnPageSteps = [],
-        applicationType,
-        addOnPageTables = [],
-        installationGuidePath,
-        troubleshootGuidePath,
-        cardLogo = {},
+        courseState = "",
+        coursePermissionState = "",
+        shortDescription = "",
+        courseLogo: {
+            imageSource = "",
+            alternateText = ""
+        },
+        courseRightBar: {
+            courseSubject = "",
+            courseFormat = "",
+            hasCertificate = false,
+            language = "",
+            price = "",
+            courseDuration: {
+                video = 0,
+                practice = 0
+            }
+        },
+        pricePlans,
+        syllabus,
+        mentors,
+        recommendations,
+        certificateDescription = "",
     } = education;
 
     return (
@@ -24,15 +46,11 @@ const EducationInfoPage = ({education}) => {
                     <section className={"header"}>
                         <div className={"headerLeftSide"}>
                             <h1>{header}</h1>
-                            <p>The course is aimed at those who are interested in getting to know in detail the
-                                automation of complex business processes using the Microsoft Dynamics 365 platform. The
-                                training is suitable both for those who are already working with the system and would
-                                like to get acquainted with the functionality in more detail, and for those who will
-                                work with the system for the first time.</p>
+                            <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
                             <button className={"downloadButton"}>Download curriculum</button>
                         </div>
                         <div className={"headerRightSide"}>
-                            <img className={"courseLogo"} src={courseLogo} alt={"MS Dynamics 365 Consultant"}/>
+                            <img className={"courseLogo"} src={imageSource} alt={alternateText}/>
                         </div>
                     </section>
                 </div>
@@ -53,49 +71,49 @@ const EducationInfoPage = ({education}) => {
                                     <li>What CRM system is / opportunities overview</li>
                                 </ul>
                             </div>
-                            <img className={"courseLogo"} src={courseLogo} alt={"What you will learn"}/>
+                            <img className={"courseLogo"} src={imageSource} alt={"What you will learn"}/>
                             <button className={"takeCourseButton"}>Take Course</button>
                         </section>
                         <section className={"rightBar"}>
                             <ul>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
-                                        <h4>Duration</h4>
+                                        <img className={"listItemLogo"} src={intencity} alt={"Benefit"}/>
+                                        <h4>INTENSITY</h4>
                                     </div>
-                                    <p>- video: 20h;<br/> - practice: 30h;</p>
+                                    <p>Theory: {video} hours<br/> + practice</p>
                                 </li>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={subject} alt={"Benefit"}/>
                                         <h4>Subject</h4>
                                     </div>
-                                    <p>Consulting</p>
+                                    <p>{courseSubject}</p>
                                 </li>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={book} alt={"Benefit"}/>
                                         <h4>Format</h4>
                                     </div>
-                                    <p>100% Online</p>
+                                    <p>100% {courseFormat}</p>
                                 </li>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={book} alt={"Benefit"}/>
                                         <h4>Certificate of completion</h4>
                                     </div>
                                     <p>Yes</p>
                                 </li>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={languageIcon} alt={"Benefit"}/>
                                         <h4>Language</h4>
                                     </div>
-                                    <p>Russian</p>
+                                    <p>{language}</p>
                                 </li>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={benefitIcon} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={priceIcon} alt={"Benefit"}/>
                                         <h4>Price</h4>
                                     </div>
                                     <p>FREE</p>
@@ -108,96 +126,44 @@ const EducationInfoPage = ({education}) => {
                     <section className={"conformityInfo"}>
                         <h2>Who is suitable for the course</h2>
                         <ul className={"conformityList"}>
-                            <li className={"conformityListItem"}>
-                                <h4>Specialists who already use Dynamics 365 and want to deepen their knowledge</h4>
-                                <p>
-                                    Just a must-have. This course talks about all the nuances of using MS Dynamics 365
-                                    directly needed to configure the system and use its maximum capabilities.
-                                </p>
-                            </li>
-                            <li className={"conformityListItem"}>
-                                <h4>Business Analysts</h4>
-                                <p>
-                                    The course provides a deep understanding of all Dynamics 365 advantages and
-                                    disadvantages. In the future, gained knowledge will enable you to offer the best
-                                    possible options to meet business needs.
-                                </p>
-                            </li>
-                            <li className={"conformityListItem"}>
-                                <h4>For those who want to change current professional fulfillment</h4>
-                                <p>
-                                    A vast majority of the companies use MS Dynamics 365 to automate business processes,
-                                    and the demand for Dynamics 365 experts is growing every year. We suggest this
-                                    course as a soft professional switch to Dynamics 365 world and further career
-                                    development.
-                                </p>
-                            </li>
-                            <li className={"conformityListItem"}>
-                                <h4>Students</h4>
-                                <p>
-                                    This course helps to gain all the necessary Dynamics 365 knowledge and determine the
-                                    direction for further career fulfillment as MS Dynamics 365 Consultant, Business
-                                    Analyst, or Project Manager.
-                                </p>
-                            </li>
+                            {recommendations.map(recommendationItem =>
+                                <li className={"conformityListItem"} key={recommendationItem}
+                                    dangerouslySetInnerHTML={{__html: recommendationItem}}/>
+                            )}
                         </ul>
-
-
                     </section>
                 </div>
                 {/*<div className={"fullWidth"}>*/}
                 <section className={"syllabus"}>
-                    <h2>Syllabus</h2>
+                    <h2>Course outline</h2>
                     <ul>
-                        <li>
-                            <h4>1. Microsoft Dynamics CRM functionality</h4>
-                            <p>Learn Microsoft Dynamics CRM Architecture,
-                                CRM types, ecosystem and external
-                                integration. </p>
-                        </li>
-                        <li>
-                            <h4>1. Microsoft Dynamics CRM functionality</h4>
-                            <p>Learn Microsoft Dynamics CRM Architecture,
-                                CRM types, ecosystem and external
-                                integration. </p>
-                        </li>
-                        <li>
-                            <h4>1. Microsoft Dynamics CRM functionality</h4>
-                            <p>Learn Microsoft Dynamics CRM Architecture,
-                                CRM types, ecosystem and external
-                                integration. </p>
-                        </li>
-                        <li>
-                            <h4>1. Microsoft Dynamics CRM functionality</h4>
-                            <p>Learn Microsoft Dynamics CRM Architecture,
-                                CRM types, ecosystem and external
-                                integration. </p>
-                        </li>
+                        {syllabus.map(syllabusItem =>
+                            <li>
+                                <h4>{syllabusItem.header}</h4>
+                                <p>{syllabusItem.description}</p>
+                            </li>)}
                     </ul>
                     <button className={"downloadButton"}>Download curriculum</button>
                 </section>
                 {/*</div>*/}
                 <section className={"gettingSkills"}>
-                    <h2>Skills you will gain</h2>
+                    <h2>Become proficient in</h2>
                     <ul>
-                        <li><p>Microsoft Dynamics CRM</p></li>
-                        <li><p>MS CRM Solutions</p></li>
-                        <li><p>MS CRM Relationships and Records</p></li>
-                        <li><p>MS CRM Forms</p></li>
-                        <li><p>Business Rules</p></li>
-                        <li><p>Workflows</p></li>
-                        <li><p>Document management</p></li>
+                        <li><p>MS Dynamics 365 Architecture</p></li>
+                        <li><p>Microsoft Dynamics 365 Web Services creation</p></li>
+                        <li><p>PowerApps customization</p></li>
+                        <li><p>Plugin development</p></li>
+                        <li><p>Integration with external products</p></li>
+                        <li><p>Custom Workflow development</p></li>
                     </ul>
                 </section>
                 <section className={"certification"}>
                     <h2>Certification</h2>
-                    <div className={"setificationContent"}>
-                        <img src={courseLogo} alt={"Certificate"}/>
+                    <div className={"certificationContent"}>
+                        <img src={certificate} alt={"Certificate example"}/>
                         <div>
-                            <h4>Improve your CV</h4>
-                            <p>The certificate issued by UDS is an assurance of the successful course accomplishment. It
-                                proves that you can showcase your competency in the subject area and apply for Junior
-                                Microsoft Dynamics 365 Consultant.</p>
+                            <h4>Stand ahead of other competitors!</h4>
+                            <p>{certificateDescription}</p>
                         </div>
 
                     </div>
@@ -206,30 +172,15 @@ const EducationInfoPage = ({education}) => {
                 <section className={"mentors"}>
                     <h2>Meet your mentors</h2>
                     <ul>
-                        <li>
-                            <img src={benefitIcon} alt={"Mentor"}/>
-                            <div>
-                                <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
-                                    arcu morbi sed nunc.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={benefitIcon} alt={"Mentor"}/>
-                            <div>
-                                <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
-                                    arcu morbi sed nunc.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <img src={benefitIcon} alt={"Mentor"}/>
-                            <div>
-                                <h4>Peter Ivanov</h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vehicula nibh nunc eu, sit
-                                    arcu morbi sed nunc.</p>
-                            </div>
-                        </li>
+                        {mentors.map(mentor =>
+                            <li>
+                                <img src={benefitIcon} alt={"Mentor"}/>
+                                <div>
+                                    <h4>{mentor.firstName}</h4>
+                                    <p>{mentor.biography}</p>
+                                </div>
+                            </li>
+                        )}
                     </ul>
                 </section>
                 <section className={"pricePlan"}>
@@ -241,36 +192,10 @@ const EducationInfoPage = ({education}) => {
                             <span className={"startDate"}>
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
-                            <div className={"descriptionSection"}>
-                                <p className={"description"}>Free plan is designated for everyone willing and eager to
-                                    become a member of UDS team. On the successful completion of the course, we afford soft
-                                    ground for students to apply for Junior Microsoft Dynamics 365 Consultant in UDS
-                                    Systems. </p>
-                                <ul className={"checkPoints"}>
-                                    <li>
-                                        <p>small-group format (up to 6 students);</p>
-                                    </li>
-                                    <li>
-                                        <p>short course (2 weeks only);</p>
-                                    </li>
-                                    <li>
-                                        <p>mentor's assistance;</p>
-                                    </li>
-                                    <li>
-                                        <p>practical assignments similar to the tasks of real projects;</p>
-                                    </li>
-                                    <li>
-                                        <p>check of home assignment;</p>
-                                    </li>
-                                    <li>
-                                        <p>employment in UDS Systems;</p>
-                                    </li>
-                                    <li>
-                                        <p>we recruit a group of students only
-                                            two times a year (when the need to expand current projects arises).</p>
-                                    </li>
-                                </ul>
+                            {pricePlans.map(planItem =>
+                            <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
                             </div>
+                            )}
                             <NavLink to={"/video"}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>

@@ -1,23 +1,14 @@
 import React, { useEffect } from "react";
-
 import { useDispatch, useSelector } from "react-redux";
-
 import "../../scss/addonFullPage/addonfullpage.scss";
 import YouTube from "react-youtube";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import AnimatedContainer from "../../containers/AnimatedContainer";
-
-import {
-  getFile,
-  removeFile,
-} from "../../store/reducers/downloadFileReducer/actions/fileAction";
+import {getFile, removeFile} from "../../store/reducers/downloadFileReducer/actions/fileAction";
 import { getLink } from "../../store/reducers/openButtonReducer/actions/openButtonAction";
-
 import get from "lodash/get";
-
 import { FormattedMessage, injectIntl } from "react-intl";
-import AddonYouMayLikeCont from "../AddonYouMayLikeCont/AddonYouMayLikeCount";
 import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import { ButtonLoader } from "../views/ButtonLoader";
 
