@@ -23,6 +23,7 @@ import EducationCardsPage from "./components/EducationComponents/EducationCardsP
 import EducationInfoPage from "./components/EducationComponents/EducationInfoPage";
 import EducationVideoLessons from "./components/EducationComponents/EducationVideoLessons";
 import EducationInfoPageContainer from "./containers/EducationInfoPageContainer";
+import EducationVideoLessonsContainer from "./containers/EducationVideoLessonsContainer";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -58,7 +59,7 @@ const App = () => {
                     <Route path={"/test/:password"} component={TestPage} />
                     <Route path={"/education"} component={EducationCardsPage}/>
                     <Route path={"/educations/courses/:slug/preview"} exact component={EducationInfoPageContainer}/>
-                    <Route path={"/video"} component={EducationVideoLessons}/>
+                    <Route path={"/educations/courses/:slug"} exact component={EducationVideoLessonsContainer}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}

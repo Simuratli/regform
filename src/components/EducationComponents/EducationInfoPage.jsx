@@ -8,6 +8,7 @@ import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import {NavLink} from "react-router-dom";
+import ScrollSyllabus from "./ScrollSyllabus";
 
 const EducationInfoPage = ({education}) => {
 
@@ -17,6 +18,7 @@ const EducationInfoPage = ({education}) => {
         courseState = "",
         coursePermissionState = "",
         shortDescription = "",
+        description = "",
         courseLogo: {
             imageSource = "",
             alternateText = ""
@@ -58,19 +60,7 @@ const EducationInfoPage = ({education}) => {
                     <h2>What you'll learn</h2>
                     <div className={"learnInfoContent"}>
                         <section className={"leftBar"}>
-                            <div className={"learnParagraph"}>
-                                <p>The course starts with a slow dive into the subject not to miss a thing or confuse
-                                    the newbies. With each step, you will dig deeper and have to put freshly-obtained
-                                    knowledge to use. Keeping a theory-practice balance guarantees the new career
-                                    start as a Junior Microsoft Dynamics 365 Consultant at UDS Systems.</p>
-                                <ul>
-                                    <li>Business Security</li>
-                                    <li>Sales analytics / Power BI</li>
-                                    <li>How to customize CRM (import, views, dashboards, connections, etc.)</li>
-                                    <li>Microsoft Business Solutions Ecosystem Complementary Products at a glance</li>
-                                    <li>What CRM system is / opportunities overview</li>
-                                </ul>
-                            </div>
+                            <div key={description} dangerouslySetInnerHTML={{__html: description}}/>
                             <img className={"courseLogo"} src={imageSource} alt={"What you will learn"}/>
                             <button className={"takeCourseButton"}>Take Course</button>
                         </section>
@@ -133,19 +123,7 @@ const EducationInfoPage = ({education}) => {
                         </ul>
                     </section>
                 </div>
-                {/*<div className={"fullWidth"}>*/}
-                <section className={"syllabus"}>
-                    <h2>Course outline</h2>
-                    <ul>
-                        {syllabus.map(syllabusItem =>
-                            <li>
-                                <h4>{syllabusItem.header}</h4>
-                                <p>{syllabusItem.description}</p>
-                            </li>)}
-                    </ul>
-                    <button className={"downloadButton"}>Download curriculum</button>
-                </section>
-                {/*</div>*/}
+                <ScrollSyllabus education={education}/>
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
                     <ul>
@@ -196,7 +174,7 @@ const EducationInfoPage = ({education}) => {
                             <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
                             </div>
                             )}
-                            <NavLink to={"/video"}>
+                            <NavLink to={"/educations/courses/" + slug}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>
                         </li>
