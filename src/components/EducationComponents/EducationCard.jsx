@@ -11,7 +11,7 @@ const EducationCard = ({educationCard}) => {
         courseState = "",
         courseSubject = "",
         shortDescription,
-        cardLogo:{
+        cardLogo: {
             imageSource = "",
             alternateText = "",
         },
@@ -20,22 +20,22 @@ const EducationCard = ({educationCard}) => {
 
     return (
         <>
-            <div className="educationCard">
-                <div className={"leftCardSide"}><img src={imageSource} alt={alternateText}/></div>
-                <div className={"rightCardSide"}>
-                    <h5>{name}</h5>
-                    <p>{shortDescription}</p>
-                    <div className={"cardBottomInfo"}>
-                        <NavLink to={"/educations/courses/" + slug + "/preview"}>
-                        <button className={"moreInfoButton"}>More info</button>
-                        </NavLink>
-                        <ul>
-                            <li className={"appointment"}>{courseSubject}</li>
-                            <li className={"duration"}>{duration} WEEKS LONG</li>
-                        </ul>
+            <NavLink to={"/education/courses/" + slug + "/preview"}>
+                <div className="educationCard">
+                    <div className={"leftCardSide"}><img src={imageSource} alt={alternateText}/></div>
+                    <div className={"rightCardSide"}>
+                        <h5>{name}</h5>
+                        <p>{shortDescription}</p>
+                        <div className={"cardBottomInfo"}>
+                            <button className={"moreInfoButton"}>More info</button>
+                            <ul>
+                                <li className={"appointment"}>{courseSubject}</li>
+                                <li className={"duration"}>{duration} WEEKS LONG</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </NavLink>
         </>
     );
 };

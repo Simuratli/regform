@@ -1,35 +1,36 @@
 import React, {useState} from "react";
 import "../../scss/education/educationVideoLessons.scss";
-import author from "../../assets/images/test_icon.svg";
 import VideoComponent from "./VideoComponent";
+import {NavLink, useParams} from "react-router-dom";
 
 const EducationVideoLessons = ({education}) => {
 
     const {
+        // slug,
         courseName,
         courseForPageRightBlock: {
             courseForPageBlockSections
         },
     } = education;
+    console.log(education, "education")
 
     courseForPageBlockSections.sort((a, b) =>
         a.position > b.position ? 1 : b.position > a.position ? -1 : 0);
 
     // sorting videos in each section
-    courseForPageBlockSections.forEach(section =>{
+    courseForPageBlockSections.forEach(section => {
         section.courseForPageBlockSections.sort((a, b) =>
             a.position > b.position ? 1 : b.position > a.position ? -1 : 0);
     })
 
     const [activeVideo, setActiveVideo] = useState(null);
 
-if (activeVideo === null){
-    setActiveVideo(courseForPageBlockSections[0].courseForPageBlockSections[0])
-}
+    if (activeVideo === null) {
+        setActiveVideo(courseForPageBlockSections[0].courseForPageBlockSections[0])
+    }
 
-    const chooseVideo = (e) =>{
+    const chooseVideo = (e) => {
         setActiveVideo(e.target.getAttribute('videoToken'))
-
         const sectionPosition = e.target.getAttribute('sectionPosition')
         const videoPosition = e.target.getAttribute('videoPosition')
         const section = courseForPageBlockSections.filter(item => item.position.toString() === sectionPosition).shift()
@@ -37,26 +38,17 @@ if (activeVideo === null){
         setActiveVideo(video)
     }
 
+    const {slug} = useParams();
     return (
         <>
             <div className="educationVideoComponent">
-                <button className={"backButton"}>Back</button>
+                <NavLink to={"/education/courses/" + slug + "/preview"}>
+                    <button className={"backButton"}>Back</button>
+                </NavLink>
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>
                 <section className={"videoContent"}>
                     <div className={"leftBar"}>
                         <VideoComponent video={activeVideo}/>
-                        <section className={"author"}>
-                            <img src={author} alt={"Author"}/>
-                            <div className={"authorInfo"}>
-                                <h5>Author</h5>
-                                <h4>Slava Kostiuk</h4>
-                            </div>
-                        </section>
-                        <p className={"videoDescription"}>descr</p>
-                        <div className={"attachments"}>
-                            <h3 className={"attachmentsHeadingParagraph"}>Attached Files</h3>
-                            <p>Учебка-BLOCK 1_PRACTICE_final_oct-21_KI.docx</p>
-                        </div>
                     </div>
                     <div className={"rightBar"}>
                         <section className={"videoSections"}>

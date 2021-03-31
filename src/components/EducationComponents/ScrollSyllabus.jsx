@@ -52,7 +52,9 @@ const ScrollSyllabus = ({education}) => {
                         <p>{syllabusItem.description}</p>
                     </li>)}
             </ul>
-            <button className={"downloadButton"}>Download curriculum</button>
+            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+                <button className={"downloadButton"}>Download course outline</button>
+            </a>
         </section>
     );
 };

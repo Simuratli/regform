@@ -57,9 +57,9 @@ const App = () => {
                     <Route path={"/add-ons"} exact component={AddonsCardsPage} />
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/test/:password"} component={TestPage} />
-                    <Route path={"/education"} component={EducationCardsPage}/>
-                    <Route path={"/educations/courses/:slug/preview"} exact component={EducationInfoPageContainer}/>
-                    <Route path={"/educations/courses/:slug"} exact component={EducationVideoLessonsContainer}/>
+                    <Route path={"/education"} exact component={EducationCardsPage}/>
+                    <Route path={"/education/courses/:slug/preview"} exact component={EducationInfoPageContainer}/>
+                    <Route path={"/education/courses/:slug"} exact component={EducationVideoLessonsContainer}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}

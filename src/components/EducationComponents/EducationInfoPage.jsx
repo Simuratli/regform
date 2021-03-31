@@ -7,8 +7,10 @@ import subject from "../../assets/images/education/learn_right_bar_icons/subject
 import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
+import pricePlan from "../../assets/images/education/price_price_plan.svg";
 import {NavLink} from "react-router-dom";
 import ScrollSyllabus from "./ScrollSyllabus";
+import YouTube from "react-youtube";
 
 const EducationInfoPage = ({education}) => {
 
@@ -49,7 +51,10 @@ const EducationInfoPage = ({education}) => {
                         <div className={"headerLeftSide"}>
                             <h1>{header}</h1>
                             <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
-                            <button className={"downloadButton"}>Download curriculum</button>
+                            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+                                <button className={"downloadButton"}>Download course outline</button>
+                            </a>
+
                         </div>
                         <div className={"headerRightSide"}>
                             <img className={"courseLogo"} src={imageSource} alt={alternateText}/>
@@ -61,8 +66,19 @@ const EducationInfoPage = ({education}) => {
                     <div className={"learnInfoContent"}>
                         <section className={"leftBar"}>
                             <div key={description} dangerouslySetInnerHTML={{__html: description}}/>
-                            <img className={"courseLogo"} src={imageSource} alt={"What you will learn"}/>
+                            {/*<img className={"courseLogo"} src={imageSource} alt={"What you will learn"}/>*/}
+                            <YouTube
+                                className="reactPlayer"
+                                videoId={"LEG3XcEUmW8"}
+                                opts={{
+                                    playerVars: {
+                                        autoplay: 0,
+                                    },
+                                }}
+                            />
+                            <NavLink to={"/education/courses/" + slug}>
                             <button className={"takeCourseButton"}>Take Course</button>
+                            </NavLink>
                         </section>
                         <section className={"rightBar"}>
                             <ul>
@@ -123,7 +139,7 @@ const EducationInfoPage = ({education}) => {
                         </ul>
                     </section>
                 </div>
-                <ScrollSyllabus education={education}/>
+                {/*<ScrollSyllabus education={education}/>*/}
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
                     <ul>
@@ -152,7 +168,7 @@ const EducationInfoPage = ({education}) => {
                     <ul>
                         {mentors.map(mentor =>
                             <li>
-                                <img src={benefitIcon} alt={"Mentor"}/>
+                                <img src={mentor.photoImage.imageSource} alt={mentor.photoImage.alternateText}/>
                                 <div>
                                     <h4>{mentor.firstName}</h4>
                                     <p>{mentor.biography}</p>
@@ -166,15 +182,14 @@ const EducationInfoPage = ({education}) => {
                     <ul className={"paidCardsContainer"}>
                         <li className={"paidCard"}>
                             <h3 className={"title"}>FREE</h3>
-                            <span className={"price"}>$ 0</span>
+                            <img src={pricePlan} className={"price"}></img>
                             <span className={"startDate"}>
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
                             {pricePlans.map(planItem =>
-                            <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
-                            </div>
-                            )}
-                            <NavLink to={"/educations/courses/" + slug}>
+                                <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                </div>)}
+                            <NavLink to={"/education/courses/" + slug}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>
                         </li>
