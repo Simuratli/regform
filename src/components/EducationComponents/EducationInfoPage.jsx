@@ -140,7 +140,7 @@ const EducationInfoPage = ({education}) => {
                         </ul>
                     </section>
                 </div>
-                {/*<ScrollSyllabus education={education}/>*/}
+                <ScrollSyllabus education={education}/>
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
                     <ul>
