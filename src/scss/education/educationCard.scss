@@ -6,13 +6,18 @@
   grid-template-columns: 1fr 4fr;
   grid-column-gap: 32px;
   margin-bottom: 50px;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.2);
+  }
 
   .leftCardSide {
-    padding: 19px 64px;
+    padding: 0 36px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='361' height='120' viewBox='0 0 361 120' fill='none'%3E%3Cg opacity='0.5'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M361 119.478L0 51.2817V0H361' fill='%23F2F3F9'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M149.41 10.1562H350.801V55.5708L149.41 10.1562Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-size: cover;
-    vertical-align: center;
+    background-size: 103%;
+    background-position: -12px -16px;
+    background-color: rgba(249, 242, 247, 0.3);
   }
 
   .rightCardSide {
@@ -78,4 +83,57 @@
     }
   }
 
+}
+@media screen and (max-width: 1350px) {
+ .educationCard{
+   .rightCardSide{
+     .cardBottomInfo{
+       ul{
+         li{
+           align-self: center;
+         }
+       }
+     }
+
+   }
+   .leftCardSide{
+     padding: 19px;
+   }
+ }
+}
+@media screen and (max-width: 1200px) {
+  .educationCard{
+    .rightCardSide{
+      .cardBottomInfo{
+        ul{
+          grid-column-gap: 18px;
+          grid-template-columns: 0.5fr 1fr;
+        }
+      }
+    }
+    .leftCardSide{
+      img{
+        //max-width: 260px;
+        //width: 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .educationCard{
+    .rightCardSide{
+      .cardBottomInfo{
+        flex-direction: column-reverse;
+      }
+    }
+    .leftCardSide{
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      img{
+        //max-width: 260px;
+        //width: 100%;
+      }
+    }
+  }
 }

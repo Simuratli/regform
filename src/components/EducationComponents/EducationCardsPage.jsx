@@ -1,7 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import orangeElement from "../../assets/images/orange_element.svg";
 import "../../scss/education/educationCardsPage.scss";
-import benefitIcon from "../../assets/images/test_icon.svg";
 import mentors from "../../assets/images/mentors.svg";
 import structure from "../../assets/images/structure.svg";
 import certificate from "../../assets/images/certificate.svg";
@@ -9,6 +8,9 @@ import EducationCardContainer from "../../containers/EducationCardContainer";
 
 
 const EducationCardsPage = () => {
+    useEffect(() => {
+        document.title = `Education | UDS Portal`;
+    }, []);
     return (
         <section className="mainContainer">
             <section className="headerContent">

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../../scss/education/educationVideoLessons.scss";
 import VideoComponent from "./VideoComponent";
 import {NavLink, useParams} from "react-router-dom";
@@ -6,13 +6,15 @@ import {NavLink, useParams} from "react-router-dom";
 const EducationVideoLessons = ({education}) => {
 
     const {
-        // slug,
         courseName,
         courseForPageRightBlock: {
             courseForPageBlockSections
         },
     } = education;
-    console.log(education, "education")
+
+    useEffect(() => {
+        document.title = `Free course | ${courseName} | Education | UDS Portal`;
+    }, [courseName]);
 
     courseForPageBlockSections.sort((a, b) =>
         a.position > b.position ? 1 : b.position > a.position ? -1 : 0);
@@ -42,7 +44,7 @@ const EducationVideoLessons = ({education}) => {
     return (
         <>
             <div className="educationVideoComponent">
-                <NavLink to={"/education/courses/" + slug + "/preview"}>
+                <NavLink to={"/education/" + slug}>
                     <button className={"backButton"}>Back</button>
                 </NavLink>
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>

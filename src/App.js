@@ -58,8 +58,8 @@ const App = () => {
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/test/:password"} component={TestPage} />
                     <Route path={"/education"} exact component={EducationCardsPage}/>
-                    <Route path={"/education/courses/:slug/preview"} exact component={EducationInfoPageContainer}/>
-                    <Route path={"/education/courses/:slug"} exact component={EducationVideoLessonsContainer}/>
+                    <Route path={"/education/:slug"} exact component={EducationInfoPageContainer}/>
+                    <Route path={"/education/:slug/free-course"} exact component={EducationVideoLessonsContainer}/>
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}

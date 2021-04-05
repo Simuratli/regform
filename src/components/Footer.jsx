@@ -30,6 +30,11 @@ function Footer() {
                   <FormattedMessage id="add.ons" />
                 </NavLink>
               </li>
+              <li className={"quickLinkItem"}>
+                <NavLink to="/Education">
+                  Education
+                </NavLink>
+              </li>
             </ul>
           </div>
           <div className={"contactUs"}>

@@ -1,8 +1,7 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../scss/education/educationInfoPage.scss";
 import certificate from "../../assets/images/education/certificate.svg";
-import benefitIcon from "../../assets/images/test_icon.svg";
-import intencity from "../../assets/images/education/learn_right_bar_icons/intensity.svg";
+import intensity from "../../assets/images/education/learn_right_bar_icons/intensity.svg";
 import subject from "../../assets/images/education/learn_right_bar_icons/subject.svg";
 import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
@@ -43,6 +42,10 @@ const EducationInfoPage = ({education}) => {
         certificateDescription = "",
     } = education;
 
+    useEffect(() => {
+        document.title = `${header} | Education | UDS Portal`;
+    }, [header]);
+
     return (
         <>
             <div className="educationInfoContent">
@@ -54,7 +57,6 @@ const EducationInfoPage = ({education}) => {
                             <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
                                 <button className={"downloadButton"}>Download course outline</button>
                             </a>
-
                         </div>
                         <div className={"headerRightSide"}>
                             <img className={"courseLogo"} src={imageSource} alt={alternateText}/>
@@ -66,7 +68,6 @@ const EducationInfoPage = ({education}) => {
                     <div className={"learnInfoContent"}>
                         <section className={"leftBar"}>
                             <div key={description} dangerouslySetInnerHTML={{__html: description}}/>
-                            {/*<img className={"courseLogo"} src={imageSource} alt={"What you will learn"}/>*/}
                             <YouTube
                                 className="reactPlayer"
                                 videoId={"LEG3XcEUmW8"}
@@ -76,7 +77,7 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
-                            <NavLink to={"/education/courses/" + slug}>
+                            <NavLink to={"/education/" + slug + "/free-course"}>
                             <button className={"takeCourseButton"}>Take Course</button>
                             </NavLink>
                         </section>
@@ -84,7 +85,7 @@ const EducationInfoPage = ({education}) => {
                             <ul>
                                 <li>
                                     <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={intencity} alt={"Benefit"}/>
+                                        <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
                                         <h4>INTENSITY</h4>
                                     </div>
                                     <p>Theory: {video} hours<br/> + practice</p>
@@ -189,7 +190,7 @@ const EducationInfoPage = ({education}) => {
                             {pricePlans.map(planItem =>
                                 <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>)}
-                            <NavLink to={"/education/courses/" + slug}>
+                            <NavLink to={"/education/" + slug + "/free-course"}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>
                         </li>
