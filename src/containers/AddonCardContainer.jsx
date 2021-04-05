@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import AddonCard from "../components/AddonsCardsPage/AddonCard";
 import {useDispatch, useSelector} from "react-redux";
+import shortid from 'shortid';
 
 // COMPONENTS
 
@@ -49,7 +50,10 @@ const AddonCardContainer = () => {
             {
                 get(addon, "cards", []).length
                     ? filteredAddons.map((addon) => (
-                        <AnimatedContainer withScale key={addon.id}>
+                        <AnimatedContainer
+                          key={shortid.generate()}
+                          withScale
+                        >
                             <AddonCard addon={addon}/>
                         </AnimatedContainer>
                     ))

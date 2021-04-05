@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import "../../scss/education/educationVideoLessons.scss";
 import VideoComponent from "./VideoComponent";
 import {NavLink, useParams} from "react-router-dom";
+import shortid from 'shortid';
 
 const EducationVideoLessons = ({education}) => {
 
@@ -55,21 +56,23 @@ const EducationVideoLessons = ({education}) => {
                     <div className={"rightBar"}>
                         <section className={"videoSections"}>
                             <div className={"videoSectionList"}>
-                                {courseForPageBlockSections.map(section => <div className={"tab"}>
-                                    <input type={"checkbox"} id={section.position}/>
-                                    <label className={"tab-label"}
-                                           htmlFor={section.position}>Section {section.position.toString()}: {section.header}</label>
-                                    <div className={"tab-content"}>
-                                        {section.courseForPageBlockSections.map(video =>
-                                            <ul className={"videoPreview"}>
-                                                <li className={"video"} onClick={chooseVideo}
-                                                    sectionPosition={section.position}
-                                                    videoPosition={video.position}
-                                                >{video.position.toString()}. {video.header}</li>
-                                            </ul>
-                                        )}
+                                {courseForPageBlockSections.map(section =>
+                                    <div className={"tab"} key={shortid.generate()}>
+                                        <input type={"checkbox"} id={section.position}/>
+                                        <label className={"tab-label"}
+                                               htmlFor={section.position}>Section {section.position.toString()}: {section.header}</label>
+                                        <div className={"tab-content"}>
+                                            {section.courseForPageBlockSections.map(video =>
+                                                <ul className={"videoPreview"} key={shortid.generate()}>
+                                                    <li className={"video"} onClick={chooseVideo}
+                                                        sectionPosition={section.position}
+                                                        videoPosition={video.position}
+                                                    >{video.position.toString()}. {video.header}</li>
+                                                </ul>
+                                            )}
+                                        </div>
                                     </div>
-                                </div>)}
+                                )}
                             </div>
                         </section>
                     </div>

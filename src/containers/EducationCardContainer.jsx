@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import get from "lodash/get";
 import {getEducationCard} from "../store/reducers/educationReducer/actions/educationCardAction";
 import EducationCard from "../components/EducationComponents/EducationCard";
+import shortid from 'shortid';
 
 const EducationCardContainer = () => {
     const {education} = useSelector((state) => state);
@@ -19,7 +20,10 @@ const EducationCardContainer = () => {
         <>
             {
                 get(education, "educationCards", []).map((educationCard) => (
-                            <EducationCard educationCard={educationCard}/>
+                            <EducationCard
+                              key={shortid.generate()}
+                              educationCard={educationCard}
+                            />
                     ))
 
             }

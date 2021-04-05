@@ -10,6 +10,7 @@ import pricePlan from "../../assets/images/education/price_price_plan.svg";
 import {NavLink} from "react-router-dom";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
+import shortid from 'shortid';
 
 const EducationInfoPage = ({education}) => {
 
@@ -134,8 +135,11 @@ const EducationInfoPage = ({education}) => {
                         <h2>Who is suitable for the course</h2>
                         <ul className={"conformityList"}>
                             {recommendations.map(recommendationItem =>
-                                <li className={"conformityListItem"} key={recommendationItem}
-                                    dangerouslySetInnerHTML={{__html: recommendationItem}}/>
+                                <li
+                                  key={shortid.generate()}
+                                  className={"conformityListItem"}
+                                  dangerouslySetInnerHTML={{__html: recommendationItem}}
+                                />
                             )}
                         </ul>
                     </section>
@@ -168,7 +172,7 @@ const EducationInfoPage = ({education}) => {
                     <h2>Meet your mentors</h2>
                     <ul>
                         {mentors.map(mentor =>
-                            <li>
+                            <li key={shortid.generate()}>
                                 <img src={mentor.photoImage.imageSource} alt={mentor.photoImage.alternateText}/>
                                 <div>
                                     <h4>{mentor.firstName}</h4>
@@ -188,8 +192,11 @@ const EducationInfoPage = ({education}) => {
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
                             {pricePlans.map(planItem =>
-                                <div key={planItem} dangerouslySetInnerHTML={{__html: planItem.description}}>
-                                </div>)}
+                                <div
+                                  key={shortid.generate()}
+                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                </div>
+                            )}
                             <NavLink to={"/education/" + slug + "/free-course"}>
                                 <button className={"getAccessButton"}>Get access</button>
                             </NavLink>

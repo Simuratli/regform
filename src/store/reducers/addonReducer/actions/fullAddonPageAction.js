@@ -1,5 +1,5 @@
-import {httpClient} from "../../../../services/services";
-import {setError, setIsLoading} from "../../appReducer/actions/appAction";
+import { httpClient } from "../../../../services/services";
+import { setError, setIsLoading } from "../../appReducer/actions/appAction";
 import {FULL_ADDON_PAGE_DATA_LOADED} from "../types";
 
 export const getFullAddonPage = (slug) => {

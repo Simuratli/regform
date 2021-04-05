@@ -1,17 +1,20 @@
 import React from "react"
 import "../../scss/education/educationInfoPage.scss";
+import shortid from 'shortid';
 
 const ScrollSyllabus = ({education}) => {
     const {
         syllabus
     } = education;
 
+  console.log(syllabus);
+
     return (
         <section className={"syllabus"}>
             <h2>Course outline</h2>
             <ul>
                 {syllabus.map(syllabusItem =>
-                    <li>
+                    <li key={shortid.generate()}>
                         <h4>{syllabusItem.header}</h4>
                         <p>{syllabusItem.description}</p>
                     </li>)}
