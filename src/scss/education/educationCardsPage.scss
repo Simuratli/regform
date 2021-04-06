@@ -88,15 +88,6 @@
     }
   }
 }
-//@media screen and (max-width: 1500px) {
-//  .main_container {
-//    .headerContent {
-//      .headingParagraph {
-//        width: 48%;
-//      }
-//    }
-//  }
-//}
 @media screen and (max-width: 1350px) {
   .mainContainer{
     @include screen1350;
@@ -166,11 +157,70 @@
 @media screen and (max-width: 1000px) {
   .mainContainer{
     @include screen1024;
-    .headerContent{
-      img{
-        max-width: 260px;
-        width: 100%;
+  }
+}
+@media screen and (max-width: 880px) {
+  .mainContainer{
+    @include screen880;
+  }
+}
+@media screen and (max-width: 768px) {
+  .mainContainer{
+    @include screen768;
+    .educationBenefits{
+      .benefitsList{
+        grid-template-columns: 1fr;
+        grid-row-gap: 10px;
+        .benefitsListItem{
+          padding: 30px 0 0 0;
+        }
       }
     }
+    .educationCoursesCards{
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .mainContainer{
+    @include screen500;
+    h2{
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: -0.2px;
+    }
+    p{
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+    }
+    .headerContent{
+      .headingParagraph{
+        font-size: 27px;
+        line-height: 130%;
+        letter-spacing: -1.09524px;
+      }
+      .paragraph{
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+    .educationBenefits{
+      .benefitsTitle{
+        margin: 0;
+      }
+    }
+    .educationCoursesCards{
+      .educationTitle{
+        margin-top: 49px;
+      }
+    }
+  }
+}
+@media screen and (max-width: 375px) {
+  .mainContainer{
+    @include screen400;
   }
 }
