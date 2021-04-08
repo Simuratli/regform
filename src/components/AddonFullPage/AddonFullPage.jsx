@@ -11,6 +11,7 @@ import get from "lodash/get";
 import { FormattedMessage, injectIntl } from "react-intl";
 import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import { ButtonLoader } from "../views/ButtonLoader";
+import YouMayAlsoLikeContainer from "../../containers/YouMayAlsoLikeContainer";
 
 const AddonFullPage = ({ addon, intl }) => {
   const state = useSelector((state) => state);
@@ -354,6 +355,7 @@ const AddonFullPage = ({ addon, intl }) => {
             {/*  isVirtualMachine={slug === "uds-virtual-machine"}*/}
             {/*  addon={addon}*/}
             {/*/>*/}
+            <YouMayAlsoLikeContainer/>
           </section>
         </div>
       </div>
