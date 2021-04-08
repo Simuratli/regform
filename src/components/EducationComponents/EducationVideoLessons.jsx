@@ -54,10 +54,10 @@ const EducationVideoLessons = ({education}) => {
                         <VideoComponent video={activeVideo}/>
                     </div>
                     <div className={"rightBar"}>
-                        <section className={"videoSections"}>
+                        <div className={"videoSections"}>
                             <div className={"videoSectionList"}>
                                 {courseForPageBlockSections.map(section =>
-                                    <div className={"tab"} key={shortid.generate()}>
+                                    <div className={"tab"}>
                                         <input type={"checkbox"} id={section.position}/>
                                         <label className={"tab-label"}
                                                htmlFor={section.position}>Block {section.position.toString()}: {section.header}</label>
@@ -66,15 +66,16 @@ const EducationVideoLessons = ({education}) => {
                                                 <ul className={"videoPreview"} key={shortid.generate()}>
                                                     <li className={"video"} onClick={chooseVideo}
                                                         sectionPosition={section.position}
-                                                        videoPosition={video.position}
-                                                    >{video.position.toString()}. {video.header}</li>
+                                                        videoPosition={video.position}>
+                                                        {video.position.toString()}. {video.header}
+                                                    </li>
                                                 </ul>
                                             )}
                                         </div>
                                     </div>
                                 )}
                             </div>
-                        </section>
+                        </div>
                     </div>
                 </section>
             </div>

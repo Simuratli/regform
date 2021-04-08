@@ -1,23 +1,13 @@
 @import "../utils/utils";
 
-.ytp-expand-pause-overlay .ytp-pause-overlay {
-  display: none;
-}
-.ytp-impression-link a{
-  display: none !important;
-}
-
 .generalVideo{
   width: 100%;
   max-width: 754px;
-  height: 482px;
   display: flex;
   justify-content: flex-start;
-  position: relative;
   .reactPlayer{
     width: 100%;
     height: 482px;
-
   }
 
   .author {
@@ -81,5 +71,37 @@
 
     }
   }
+}
 
+@media screen and (max-width: 1200px) {
+    .generalVideo{
+      .reactPlayer{
+        height: 330px;
+      }
+    }
+
+}
+@media screen and (max-width: 1024px) {
+  .generalVideo{
+    max-width: 950px;
+    .reactPlayer{
+      height: 536px;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .generalVideo {
+    max-width: 768px;
+    .reactPlayer{
+      height: 440px;
+    }
+  }
+}
+@media screen and (max-width: 700px) {
+  .generalVideo {
+    max-width: 500px;
+    .reactPlayer{
+      height: 271px;
+    }
+  }
 }

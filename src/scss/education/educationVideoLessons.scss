@@ -5,7 +5,8 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 30px;
-  margin: 29px auto 50px;
+  padding: 29px 0 50px;
+  margin: auto;
 
   .backButton {
     width: 78px;
@@ -39,12 +40,10 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 31px;
-
-    .leftBar{
-      height: 80vh;
-    }
+    height: 83vh;
 
     .rightBar {
+      overflow: auto;
       .videoSections {
         @include bigScreen;
 
@@ -129,5 +128,41 @@
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .educationVideoComponent {
+    @include screen1350;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .educationVideoComponent {
+    @include screen1200;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .educationVideoComponent {
+    .videoContent{
+      grid-template-columns: 1fr;
+      height: fit-content;
+      grid-row-gap: 67px;
+    }
+
+  }
+}
+@media screen and (max-width: 1000px) {
+  .educationVideoComponent {
+    @include screen1024;
+  }
+}
+@media screen and (max-width: 880px) {
+  .educationVideoComponent {
+    @include screen880;
+  }
+}
+@media screen and (max-width: 700px) {
+  .educationVideoComponent {
+    @include screen768;
   }
 }
