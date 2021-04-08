@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import "../../scss/education/educationInfoPage.scss";
-import certificate from "../../assets/images/education/certificate.svg";
+import certificate from "../../assets/images/education/certificate_example.svg";
 import intensity from "../../assets/images/education/learn_right_bar_icons/intensity.svg";
 import subject from "../../assets/images/education/learn_right_bar_icons/subject.svg";
 import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
@@ -56,7 +56,7 @@ const EducationInfoPage = ({education}) => {
                             <h1>{header}</h1>
                             <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
                             <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
-                                <button className={"downloadButton"}>Download course outline</button>
+                                <button className={"downloadButton"}>Download</button>
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
@@ -145,6 +145,12 @@ const EducationInfoPage = ({education}) => {
                     </section>
                 </div>
                 <ScrollSyllabus education={education}/>
+                <section className={"syllabusMobile"}>
+                    <h5 className={"syllabusMobileTitle"}>Obtain an overall knowledge about Microsoft Dynamics 365</h5>
+                    <a className={"downloadButton"} href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+                        <button className={"downloadButton"}>Download</button>
+                    </a>
+                </section>
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
                     <ul>

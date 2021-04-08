@@ -17,6 +17,10 @@ const AddonFullPage = ({ addon, intl }) => {
   const dispatch = useDispatch();
   const { file } = state;
 
+  // const addonCardsForBottom = state.addon.cards;
+  // console.log(addonCardsForBottom, "ad")
+  // console.log(state.addon, "MYSTATE")
+
   const {
     name = "",
     slug = "",

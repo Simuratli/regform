@@ -23,6 +23,10 @@ const EducationCardsPage = () => {
                         Then UDS Dynamics Education courses will resonate with such curious and enthusiastic persons!
                     </p>
             </section>
+            <section className={"educationCoursesCards"}>
+                <h2 className={"educationTitle"}>Courses</h2>
+                <EducationCardContainer />
+            </section>
             <section className={"educationBenefits"}>
                 <h2 className={"benefitsTitle"}>Our Benefits</h2>
                 <ul className={"benefitsList"}>
@@ -49,10 +53,7 @@ const EducationCardsPage = () => {
                     </li>
                 </ul>
             </section>
-            <section className={"educationCoursesCards"}>
-                <h2 className={"educationTitle"}>Courses</h2>
-                <EducationCardContainer />
-            </section>
+
         </section>
     );
 };

@@ -77,8 +77,8 @@ class ScrollSyllabus extends Component {
           disableTabindex={true}
           alignOnResiz={true}
         />
-        <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
-          <button className={"downloadButton"}>Download course outline</button>
+        <a className={"downloadButton"} href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+          <button className={"downloadButton"}>Download</button>
         </a>
       </div>
     );

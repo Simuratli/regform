@@ -60,7 +60,7 @@ const EducationVideoLessons = ({education}) => {
                                     <div className={"tab"} key={shortid.generate()}>
                                         <input type={"checkbox"} id={section.position}/>
                                         <label className={"tab-label"}
-                                               htmlFor={section.position}>Section {section.position.toString()}: {section.header}</label>
+                                               htmlFor={section.position}>Block {section.position.toString()}: {section.header}</label>
                                         <div className={"tab-content"}>
                                             {section.courseForPageBlockSections.map(video =>
                                                 <ul className={"videoPreview"} key={shortid.generate()}>
