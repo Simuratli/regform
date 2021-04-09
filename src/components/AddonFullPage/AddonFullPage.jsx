@@ -351,11 +351,10 @@ const AddonFullPage = ({ addon, intl }) => {
                 </ul>
               </section>
             </div>
-            {/*<AddonYouMayLikeCont*/}
-            {/*  isVirtualMachine={slug === "uds-virtual-machine"}*/}
-            {/*  addon={addon}*/}
-            {/*/>*/}
-            <YouMayAlsoLikeContainer/>
+            <div className={"bottomScrollBlockWrapper"}>
+              <h2 className={"alsoLikeTitle"}>You may also like</h2>
+              <YouMayAlsoLikeContainer/>
+            </div>
           </section>
         </div>
       </div>

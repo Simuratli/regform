@@ -1,5 +1,6 @@
-.addons {
+@import "../utils/utils";
 
+.bottomCards {
   max-width: 856px;
   margin: auto;
 }
@@ -10,10 +11,7 @@
   justify-content: center;
 }
 
-//.addon-wrapper--inner {
-//}
-
-.addon-wrapper--inner {
+.wrapperForScrollableBlock {
   display: flex;
 
   & :last-child :first-child {
@@ -21,19 +19,17 @@
   }
 }
 
-.scroll-addons-menu-arrow {
+.arrows {
   cursor: pointer;
   position: relative;
 }
 
-//.menu-addons-wrapper {
-//
-//}
-
-
-//.menu-addon-item-wrapper {
-//  margin-right: 68px;
-//}
+.addonCardFromScroll {
+  //width: 428px;
+  display: flex;
+  justify-content: center;
+  margin-right: 90px;
+}
 
 .addon-arrow-prev {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect x='-0.5' y='0.5' width='39' height='39' transform='matrix(-1 0 0 1 39 0)' fill='white' stroke='%23E3E3E3'/%3E%3Cpath d='M23.203 15.0177L18.623 19.5977L23.203 24.1877L21.793 25.5977L15.793 19.5977L21.793 13.5977L23.203 15.0177Z' fill='%23E3E3E3'/%3E%3C/svg%3E");
