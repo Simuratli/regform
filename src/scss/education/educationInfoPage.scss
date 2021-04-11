@@ -1,24 +1,23 @@
 @import "../../scss/utils/utils";
 
-.headerWrapper {
-  max-width: 4000px;
-  width: 100%;
-  background-image: url("../../assets/images/addon_full_page_header_bg.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100%;
-  height: auto;
-  margin: 0 auto;
-  padding: 0;
-}
+//.headerWrapper {
+//  max-width: 4000px;
+//  width: 100%;
+//  background-image: url("../../assets/images/addon_full_page_header_bg.svg");
+//  background-repeat: no-repeat;
+//  background-size: cover;
+//  width: 100%;
+//  height: auto;
+//  margin: 0 auto;
+//  padding: 0;
+//}
 
 h2 {
   font-size: 46px;
-  line-height: 56px;
+  line-height: 120%;
   text-align: center;
-  letter-spacing: -0.2px;
-  color: $blue;
   margin-top: 0;
+  font-weight: 400;
 }
 
 p {
@@ -51,61 +50,39 @@ h4 {
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 50px;
   color: #f2f2f2;
-  padding: 150px 0;
+  padding: 59px 0;
+
 
   .headerLeftSide {
+    align-self: center;
     h1 {
-      font-weight: 800;
+     @include gradientTitleViolet;
+      font-weight: 400;
       font-size: 46px;
       line-height: 56px;
-      letter-spacing: -1.09524px;
       margin: 0;
     }
 
     p {
+      font-weight: 600;
       font-size: 16px;
-      line-height: 20px;
-      font-weight: 700;
-      padding: 20px 0 40px 0;
+      line-height: 140%;
+      padding: 30px 0;
       margin: 0;
-      color: #ffffff;
+      color: $blue-black;
     }
 
     .downloadButton {
       max-width: 227px;
       width: 100%;
-      //height: 40px;
-      //border: 1px solid $orange;
-      //background-color: $orange;
-      //font-family: Montserrat;
-      //color: #FFFFFF;
-      //outline: none;
-      //font-weight: 600;
-      //transition: ease-in-out .3s;
     }
   }
 
   .headerRightSide {
-    background-image: url("../../assets/images/addon-white-square-with-border.svg");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 554px;
-    height: 400px;
-
     img {
-      //position: relative;
-      //top: 19%;
-      //left: 0;
-      //max-width: 554px;
-      //width: 100%;
-      //height: 65%;
-      position: relative;
-      top: 2%;
-      left: 86px;
       width: 100%;
       height: 100%;
-      max-width: 374px;
-      max-height: 374px;
+      max-width: 520px;
     }
   }
 
@@ -115,16 +92,52 @@ h4 {
 .learnInfo {
   .learnInfoContent {
     @include bigScreen;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-column-gap: 30px;
+    h2{
+      @include gradientTitleGray;
+      margin-top: 80px;
+    }
+    .topBar {
 
-    .leftBar {
-      padding: 40px;
-      background: #F2F3F9;
+      ul {
+        padding-left: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+
+        li {
+          display: grid;
+          grid-template-columns: 0.2fr 2fr;
+          grid-column-gap: 27px;
+          .listItemLogo{
+            align-self: center;
+          }
+
+          h4 {
+            font-size: 14px;
+            line-height: 120%;
+            color: $blue-black;
+            font-weight: 400;
+            text-transform: capitalize;
+            margin-bottom: 4px;
+          }
+
+          p {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            color: $education-text-color;
+            margin: 0;
+          }
+
+        }
+      }
+    }
+    .contentBar {
+      padding: 0 80px;
       text-align: center;
 
       p {
+        color: $education-text-color;
         font-weight: 600;
         margin: 0;
         text-align: center;
@@ -144,7 +157,7 @@ h4 {
           line-height: 28px;
           letter-spacing: -0.1px;
           font-weight: 500;
-          color: $card-text-color;
+          color: $blue-black;
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6' fill='none'%3E%3Ccircle cx='3' cy='3' r='3' fill='%23FF8F3E'/%3E%3C/svg%3E");
           background-repeat: no-repeat;
           background-position: 0 10px;
@@ -152,9 +165,9 @@ h4 {
         }
       }
 
-      .courseLogo {
-        width: 674px;
-        height: 400px;
+      .reactPlayer{
+        width: 951px;
+        height: 532px;
       }
 
       .takeCourseButton {
@@ -172,54 +185,6 @@ h4 {
 
       }
     }
-
-    .rightBar {
-      border: 10px solid $light-blue;
-      height: fit-content;
-      //padding: 33px 31px;
-      padding: 33px 23px;
-
-      ul {
-        padding-left: 0;
-        margin: 0;
-
-        li {
-          border-bottom: 1px solid #E3E3E3;
-          padding: 23px 0 28px;
-
-          &:first-child {
-            padding-top: 0;
-          }
-
-          &:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-          }
-
-          .titleOfBenefit {
-            display: grid;
-            grid-template-columns: 1fr 5fr;
-            grid-column-gap: 5px;
-          }
-
-          h4 {
-            text-transform: uppercase;
-          }
-
-          p {
-            font-weight: 500;
-            font-size: 18px;
-            line-height: 130%;
-            color: #979797;
-            margin-bottom: 0;
-            margin-top: 10px;
-            //padding-left: 31px;
-          }
-
-        }
-      }
-    }
-
   }
 }
 
@@ -254,6 +219,10 @@ h4 {
       }
     }
   }
+}
+
+.syllabusMobile{
+  display: none;
 }
 
 .gettingSkills {
@@ -550,7 +519,7 @@ h4 {
   .learnInfo {
     .learnInfoContent {
 
-      .leftBar {
+      .contentBar {
         .reactPlayer {
           width: 576px;
         }
@@ -594,7 +563,7 @@ h4 {
       @include screen1024;
       grid-template-columns: 1fr;
 
-      .rightBar {
+      .topBar {
         display: none;
       }
     }
@@ -656,7 +625,7 @@ h4 {
     .learnInfoContent {
       @include screen768;
 
-      .leftBar {
+      .contentBar {
         padding: 20px;
 
         .reactPlayer {
@@ -753,7 +722,7 @@ h4 {
     .learnInfoContent {
       @include screen500;
 
-      .leftBar {
+      .contentBar {
         background-color: #ffffff;
 
         .learnParagraph {
@@ -796,7 +765,8 @@ h4 {
         line-height: 130%;
         margin-bottom: 20px;
       }
-      .conformityListItem{
+
+      .conformityListItem {
         background-size: 25px;
       }
     }
@@ -832,19 +802,24 @@ h4 {
   }
   .educationFAQ {
     margin-bottom: 40px;
-    .tab{
+
+    .tab {
       border-bottom: 1px solid #E3E3E3;
-      &:last-child{
+
+      &:last-child {
         border-bottom: none;
       }
     }
-    .tab-content{
+
+    .tab-content {
       background-color: #ffffff;
     }
-    .tab-label{
+
+    .tab-label {
       background-color: #ffffff;
       padding: 27px 20px;
     }
+
     input:checked ~ .tab-content {
       max-height: 100vh;
       padding: 5px 20px 30px;

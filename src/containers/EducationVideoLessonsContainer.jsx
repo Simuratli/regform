@@ -1,20 +1,26 @@
 import React, {lazy, Suspense, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import {getEducationVideoLessons} from "../store/reducers/educationReducer/actions/educationVideoLessonsAction";
+import {getEducationAccessStatus} from "../store/reducers/educationReducer/actions/educationGetAccess";
 
 const EducationVideoLessons = lazy(() => import("../components/EducationComponents/EducationVideoLessons"));
 
 const EducationVideoLessonsContainer = () => {
-    const {educationVideoLessons} = useSelector(({education}) => education);
+    const {educationVideoLessons, educationAccessStatus} = useSelector(({education}) => education);
     const dispatch = useDispatch();
     const {slug} = useParams();
 
     useEffect(() => {
+        dispatch(getEducationAccessStatus(slug))
         dispatch(getEducationVideoLessons(slug));
     }, [slug]);
 
+    if(!isEmpty(educationAccessStatus) && educationAccessStatus.coursePermissionState !== 'Allowed'){
+        return <Redirect to={"/education/"+slug} />
+        // return <ErrorComponent />
+    }
     return (
         <div style={{minHeight: "70vh"}}>
             {!isEmpty(educationVideoLessons) && (

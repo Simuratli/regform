@@ -4,6 +4,8 @@ $gray: #757689;
 $card-text-color: #61626A;
 $light-blue: #f2f3f9;
 $light-grey: #f9fafc;
+$blue-black: #1E2432;
+$education-text-color: #696D8C;
 
 @mixin bigScreen {
   width: 100%;
@@ -55,9 +57,21 @@ $light-grey: #f9fafc;
   background-color: $light-blue;
 }
 
+@mixin gradientTitleViolet{
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(321deg, rgba(87, 85, 170, 0.6) 57%, rgba(168, 163, 208, 2.6) 15%, rgba(138, 135, 164, 3.6) 98%);
+}
+@mixin gradientTitleGray{
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(321deg, rgba(119,127,154,1) 0%, rgba(206,210,226,1) 61%);
+}
+
 button {
   cursor: pointer;
   outline: none;
+  box-shadow: 0px 3px 6px rgba(235, 164, 82, 0.08), 0px 6px 12px rgba(14, 31, 53, 0.12), 0px 14px 24px rgba(14, 31, 53, 0.08);
 
   &:hover {
     -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
@@ -100,4 +114,23 @@ ul li {
   transition: ease-in-out .3s;
   text-align: center;
 }
+@font-face {
+  font-family: "Gilroy";
+  src: local('Gilroy-Bold'), url(../../assets/fonts/Gilroy/Gilroy-ExtraBold.otf) format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: local('Gilroy-Light'), url(../../assets/fonts/Gilroy/Gilroy-Light.otf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: local('Gilroy-SemiBold'), url(../../assets/fonts/Gilroy/Gilroy-SemiBold.ttf) format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 

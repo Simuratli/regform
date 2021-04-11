@@ -1,12 +1,14 @@
 import React, {useEffect} from "react";
 import "../../scss/education/educationInfoPage.scss";
 import certificate from "../../assets/images/education/certificate_example.svg";
+import certificateIcon from "../../assets/images/education/learn_right_bar_icons/cetificate.svg";
 import intensity from "../../assets/images/education/learn_right_bar_icons/intensity.svg";
 import subject from "../../assets/images/education/learn_right_bar_icons/subject.svg";
-import book from "../../assets/images/education/learn_right_bar_icons/book.svg";
+import format from "../../assets/images/education/learn_right_bar_icons/format.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import pricePlan from "../../assets/images/education/price_price_plan.svg";
+import courseLogo from "../../assets/images/courseLogo.svg";
 import {NavLink} from "react-router-dom";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
@@ -50,24 +52,70 @@ const EducationInfoPage = ({education}) => {
     return (
         <>
             <div className="educationInfoContent">
-                <div className={"headerWrapper"}>
-                    <section className={"header"}>
-                        <div className={"headerLeftSide"}>
-                            <h1>{header}</h1>
-                            <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
-                            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
-                                <button className={"downloadButton"}>Download</button>
-                            </a>
-                        </div>
-                        <div className={"headerRightSide"}>
-                            <img className={"courseLogo"} src={imageSource} alt={alternateText}/>
-                        </div>
-                    </section>
-                </div>
+                <section className={"header"}>
+                    <div className={"headerLeftSide"}>
+                        <h1>{header}</h1>
+                        <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
+                        <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"}
+                           download>
+                            <button className={"downloadButton"}>Download</button>
+                        </a>
+                    </div>
+                    <div className={"headerRightSide"}>
+                        <img className={"courseLogo"} src={courseLogo} alt={alternateText}/>
+                    </div>
+                </section>
                 <section className={"learnInfo"}>
-                    <h2>What you'll learn</h2>
                     <div className={"learnInfoContent"}>
-                        <section className={"leftBar"}>
+                        <section className={"topBar"}>
+                            <ul>
+                                <li>
+                                    <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>INTENSITY</h4>
+                                        <p>Theory: {video} hours<br/> + practice</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img className={"listItemLogo"} src={subject} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Subject</h4>
+                                        <p>{courseSubject}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img className={"listItemLogo"} src={format} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Format</h4>
+                                        <p>100% {courseFormat}</p>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <img className={"listItemLogo"} src={certificateIcon} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Certificate</h4>
+                                        <p>Yes</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img className={"listItemLogo"} src={languageIcon} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Language</h4>
+                                        <p>{language}</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <img className={"listItemLogo"} src={priceIcon} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Price</h4>
+                                        <p>FREE</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                        <h2>What you'll learn</h2>
+                        <section className={"contentBar"}>
                             <div key={description} dangerouslySetInnerHTML={{__html: description}}/>
                             <YouTube
                                 className="reactPlayer"
@@ -79,54 +127,8 @@ const EducationInfoPage = ({education}) => {
                                 }}
                             />
                             <NavLink to={"/education/" + slug + "/free-course"}>
-                            <button className={"takeCourseButton"}>Take Course</button>
+                                <button className={"takeCourseButton"}>Take Course</button>
                             </NavLink>
-                        </section>
-                        <section className={"rightBar"}>
-                            <ul>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
-                                        <h4>INTENSITY</h4>
-                                    </div>
-                                    <p>Theory: {video} hours<br/> + practice</p>
-                                </li>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={subject} alt={"Benefit"}/>
-                                        <h4>Subject</h4>
-                                    </div>
-                                    <p>{courseSubject}</p>
-                                </li>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={book} alt={"Benefit"}/>
-                                        <h4>Format</h4>
-                                    </div>
-                                    <p>100% {courseFormat}</p>
-                                </li>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={book} alt={"Benefit"}/>
-                                        <h4>Certificate of completion</h4>
-                                    </div>
-                                    <p>Yes</p>
-                                </li>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={languageIcon} alt={"Benefit"}/>
-                                        <h4>Language</h4>
-                                    </div>
-                                    <p>{language}</p>
-                                </li>
-                                <li>
-                                    <div className={"titleOfBenefit"}>
-                                        <img className={"listItemLogo"} src={priceIcon} alt={"Benefit"}/>
-                                        <h4>Price</h4>
-                                    </div>
-                                    <p>FREE</p>
-                                </li>
-                            </ul>
                         </section>
                     </div>
                 </section>
@@ -136,9 +138,9 @@ const EducationInfoPage = ({education}) => {
                         <ul className={"conformityList"}>
                             {recommendations.map(recommendationItem =>
                                 <li
-                                  key={shortid.generate()}
-                                  className={"conformityListItem"}
-                                  dangerouslySetInnerHTML={{__html: recommendationItem}}
+                                    key={shortid.generate()}
+                                    className={"conformityListItem"}
+                                    dangerouslySetInnerHTML={{__html: recommendationItem}}
                                 />
                             )}
                         </ul>
@@ -147,7 +149,9 @@ const EducationInfoPage = ({education}) => {
                 <ScrollSyllabus education={education}/>
                 <section className={"syllabusMobile"}>
                     <h5 className={"syllabusMobileTitle"}>Obtain an overall knowledge about Microsoft Dynamics 365</h5>
-                    <a className={"downloadButton"} href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+                    <a className={"downloadButton"}
+                       href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"}
+                       download>
                         <button className={"downloadButton"}>Download</button>
                     </a>
                 </section>
@@ -191,22 +195,22 @@ const EducationInfoPage = ({education}) => {
                 <section className={"pricePlan"}>
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
-                        <li className={"paidCard"}>
-                            <h3 className={"title"}>FREE</h3>
-                            <img src={pricePlan} className={"price"}></img>
-                            <span className={"startDate"}>
+                        {pricePlans.map(planItem =>
+                            <li className={"paidCard"}>
+                                <h3 className={"title"}>FREE</h3>
+                                <img src={pricePlan} className={"price"}/>
+                                <span className={"startDate"}>
                                 <h3>Start date: <p>notify me</p></h3>
                             </span>
-                            {pricePlans.map(planItem =>
                                 <div
-                                  key={shortid.generate()}
-                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                    key={shortid.generate()}
+                                    dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>
-                            )}
-                            <NavLink to={"/education/" + slug + "/free-course"}>
-                                <button className={"getAccessButton"}>Get access</button>
-                            </NavLink>
-                        </li>
+                                <NavLink to={"/education/" + slug + "/free-course"}>
+                                    <button className={"getAccessButton"}>Get access</button>
+                                </NavLink>
+                            </li>
+                        )}
                     </ul>
                 </section>
                 <section className={"educationFAQ"}>
