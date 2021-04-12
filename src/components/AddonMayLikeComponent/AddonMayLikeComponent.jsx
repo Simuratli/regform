@@ -13,6 +13,7 @@ const Arrow = (className) => {
 const AddonMayLikeComponent = ({addons}) => {
 
     const scrollableAddonCards = addons.map(element => {
+      console.log(element);
         return <AddonCard addon={element} key={shortid.generate()}/>
     });
 
@@ -22,8 +23,8 @@ const AddonMayLikeComponent = ({addons}) => {
                 data={scrollableAddonCards}
                 arrowLeft={Arrow('addon-arrow-prev')}
                 arrowRight={Arrow('addon-arrow-next')}
-                translate={2}
-                scrollBy={2}
+                translate={1}
+                scrollBy={1}
                 wheel={false}
                 hideSingleArrow={'true'}
                 disableTabindex={true}
@@ -32,6 +33,7 @@ const AddonMayLikeComponent = ({addons}) => {
                 itemClass={'addonCardFromScroll'}
                 innerWrapperClass={'wrapperForScrollableBlock'}
                 wrapperClass={'menu-addons-wrapper'}
+                alignCenter={true}
             />
         </section>
     );

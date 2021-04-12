@@ -1,34 +1,15 @@
 @import "../utils/utils";
 
 .bottomCards {
+  width: 100%;
   max-width: 856px;
+  text-align: center;
   margin: auto;
-}
-
-.addon-card-wrapper {
-  width: 428px;
-  display: flex;
-  justify-content: center;
-}
-
-.wrapperForScrollableBlock {
-  display: flex;
-
-  & :last-child :first-child {
-    margin-right: 0;
-  }
 }
 
 .arrows {
   cursor: pointer;
   position: relative;
-}
-
-.addonCardFromScroll {
-  //width: 428px;
-  display: flex;
-  justify-content: center;
-  margin-right: 90px;
 }
 
 .addon-arrow-prev {
