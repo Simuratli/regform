@@ -9,7 +9,6 @@ const EducationCardContainer = () => {
     const {education} = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    console.log(education, 'my education')
     useEffect(() => {
         if (!get(education, "educationCards", []).length) {
             dispatch(getEducationCard());
@@ -20,12 +19,7 @@ const EducationCardContainer = () => {
         <>
             {
                 get(education, "educationCards", []).map((educationCard) => (
-                            <EducationCard
-                              key={shortid.generate()}
-                              educationCard={educationCard}
-                            />
-                    ))
-
+                    <EducationCard key={shortid.generate()} educationCard={educationCard}/>))
             }
         </>
     );

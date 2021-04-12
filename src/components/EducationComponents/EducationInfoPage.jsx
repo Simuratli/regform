@@ -13,8 +13,10 @@ import {NavLink} from "react-router-dom";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
+import GetAccessButton from "./EducationGetAccessButton";
 
-const EducationInfoPage = ({education}) => {
+const EducationInfoPage = ({education, accessStatus}) => {
+    console.log(accessStatus, "accessStatus")
 
     const {
         header = "",
@@ -206,9 +208,10 @@ const EducationInfoPage = ({education}) => {
                                     key={shortid.generate()}
                                     dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>
-                                <NavLink to={"/education/" + slug + "/free-course"}>
-                                    <button className={"getAccessButton"}>Get access</button>
-                                </NavLink>
+                                <GetAccessButton accessStatus={accessStatus}/>
+                                {/*<NavLink to={"/education/" + slug + "/free-course"}>*/}
+                                {/*    <button className={"getAccessButton"}>Get access</button>*/}
+                                {/*</NavLink>*/}
                             </li>
                         )}
                     </ul>

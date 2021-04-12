@@ -3,7 +3,7 @@ import {Redirect, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import {getEducationVideoLessons} from "../store/reducers/educationReducer/actions/educationVideoLessonsAction";
-import {getEducationAccessStatus} from "../store/reducers/educationReducer/actions/educationGetAccess";
+import {getEducationAccessStatus} from "../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationVideoLessons = lazy(() => import("../components/EducationComponents/EducationVideoLessons"));
 

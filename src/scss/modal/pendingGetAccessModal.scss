@@ -1,0 +1,44 @@
+@import "../../scss/utils/utils";
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.pendingTitle {
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: all;
+  display: flex;
+}
+
+.modalContent {
+  width: 30vw;
+}
+
+.gotInfoButton {
+  background-color: $orange;
+  width: 127px;
+  height: 40px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #FFFFFF;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+p {
+  text-align: left;
+}
+
+.modalContent.active {
+  transform: scale(1);
+}

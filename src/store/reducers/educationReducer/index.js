@@ -1,7 +1,7 @@
 import {SET_EDUCATION_CARDS_DATA} from "./actions/educationCardAction";
 import {SET_EDUCATION_INFO_PAGE} from "./actions/educationInfoPageAction";
 import {SET_EDUCATION_VIDEO_LESSONS} from "./actions/educationVideoLessonsAction";
-import {SET_EDUCATION_ACCESS_STATUS} from "./actions/educationGetAccess";
+import {SET_EDUCATION_ACCESS_STATUS} from "./actions/educationGetAccessAction";
 
 const initStore = {
     educationCards: [],
