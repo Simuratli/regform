@@ -1,15 +1,24 @@
-import React from "react";
+import React, {useEffect} from "react";
 import "../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../assets/images/information_popup_icon.svg";
 import close from "../../assets/images/window-close.svg";
 import Modal from "./Modal";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {changeEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationChangeAccessStatusAction";
 import {useParams} from "react-router-dom";
+import {getUserData} from "../../store/reducers/userDataReducer/actions/userDataAction";
+import {getEducationInfoPage} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
+import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const PendingGetAccessModal = ({active, setActive}) => {
     const dispatch = useDispatch();
     const {slug} = useParams();
+    const {userData} = useSelector(({user}) => user);
+
+    useEffect(() => {
+        dispatch(getUserData());
+    }, []);
+
     //close modal and change status from Forbidden to Pending
     const handleChangeAccessStatus = () => {
         dispatch(changeEducationAccessStatus(slug))
@@ -28,7 +37,7 @@ const PendingGetAccessModal = ({active, setActive}) => {
             <h5 className={"pendingTitle"}>Hello!</h5>
             <p>
                 UDS Systems will be glad to see you on board.
-                Our manager will contact you via email <b>someCustomerEmail@gmail.com</b> shortly.
+                Our manager will contact you via email <b>{userData.email}</b> shortly.
             </p>
             <button className={"gotInfoButton"} onClick={handleChangeAccessStatus}>Ok</button>
         </Modal>

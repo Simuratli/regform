@@ -16,13 +16,10 @@ import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
 
 const EducationInfoPage = ({education, accessStatus}) => {
-    console.log(accessStatus, "accessStatus")
 
     const {
         header = "",
         slug = "",
-        courseState = "",
-        coursePermissionState = "",
         shortDescription = "",
         description = "",
         courseLogo: {
@@ -32,15 +29,12 @@ const EducationInfoPage = ({education, accessStatus}) => {
         courseRightBar: {
             courseSubject = "",
             courseFormat = "",
-            hasCertificate = false,
             language = "",
-            price = "",
             courseDuration: {
                 theory = 0
             }
         },
         pricePlans,
-        syllabus,
         mentors,
         recommendations,
         certificateDescription = "",
@@ -73,7 +67,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                                 <li>
                                     <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
                                     <div className={"topBarContent"}>
-                                        <h4>INTENSITY</h4>
+                                        <h4>Intensity</h4>
                                         <p>Theory: {theory} hours<br/> + practice</p>
                                     </div>
                                 </li>
@@ -135,7 +129,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                 </section>
                 <div className={"fullWidth"}>
                     <section className={"conformityInfo"}>
-                        <h2>Who is suitable for the course</h2>
+                        <h2>Who is this course for</h2>
                         <ul className={"conformityList"}>
                             {recommendations.map(recommendationItem =>
                                 <li
@@ -149,6 +143,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                 </div>
                 <ScrollSyllabus education={education}/>
                 <section className={"syllabusMobile"}>
+                    <h2>Course outline</h2>
                     <h5 className={"syllabusMobileTitle"}>Obtain an overall knowledge about Microsoft Dynamics 365</h5>
                     <a className={"downloadButton"}
                        href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"}
@@ -158,24 +153,23 @@ const EducationInfoPage = ({education, accessStatus}) => {
                 </section>
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
-                    <ul>
+                    <ol>
                         <li><p>MS Dynamics 365 Architecture</p></li>
                         <li><p>Microsoft Dynamics 365 Web Services creation</p></li>
                         <li><p>PowerApps customization</p></li>
                         <li><p>Plugin development</p></li>
                         <li><p>Integration with external products</p></li>
                         <li><p>Custom Workflow development</p></li>
-                    </ul>
+                    </ol>
                 </section>
                 <section className={"certification"}>
                     <h2>Certification</h2>
                     <div className={"certificationContent"}>
-                        <img src={certificate} alt={"Certificate example"}/>
-                        <div>
+                        <div className={"certificateTextContent"}>
                             <h4>Stand ahead of other competitors!</h4>
                             <p>{certificateDescription}</p>
                         </div>
-
+                        <img src={certificate} alt={"Certificate example"}/>
                     </div>
 
                 </section>
@@ -201,16 +195,13 @@ const EducationInfoPage = ({education, accessStatus}) => {
                                 <h3 className={"title"}>FREE</h3>
                                 <img src={pricePlan} className={"price"}/>
                                 <span className={"startDate"}>
-                                <h3>Start date: <p>notify me</p></h3>
+                                {/*<h3>Start date: <p>notify me</p></h3>*/}
                             </span>
                                 <div
                                     key={shortid.generate()}
                                     dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>
                                 <GetAccessButton accessStatus={accessStatus}/>
-                                {/*<NavLink to={"/education/" + slug + "/free-course"}>*/}
-                                {/*    <button className={"getAccessButton"}>Get access</button>*/}
-                                {/*</NavLink>*/}
                             </li>
                         )}
                     </ul>

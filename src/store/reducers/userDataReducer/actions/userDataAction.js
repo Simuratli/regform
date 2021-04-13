@@ -1,16 +1,14 @@
 import { httpClient } from "../../../../services/services";
 import { setError, setIsLoading } from "../../appReducer/actions/appAction";
-export const CHANGE_EDUCATION_ACCESS_STATUS = "CHANGE_EDUCATION_ACCESS_STATUS";
+export const SET_USER_DATA = "SET_USER_DATA";
 
-export const changeEducationAccessStatus = (courseSlug) => {
+export const getUserData = () => {
     return (dispatch) => {
         dispatch(setIsLoading(true));
         httpClient
-            .patch(`/education/courses/${courseSlug}/permission-state/call-for-access`, {
-                "permission": "Pending"
-            })
+            .get(`/graph-users/whoami`)
             .then((res) => {
-                dispatch({ type: CHANGE_EDUCATION_ACCESS_STATUS, payload: res.data });
+                dispatch({ type: SET_USER_DATA, payload: res.data});
                 dispatch(setIsLoading(false));
             })
             .catch((err) => {

@@ -56,7 +56,7 @@ function initializeApp(App, store) {
 
 authentication.run(async () => {
   const App = await import("./App");
-  const store = await import("./store");
+  const store = await import("./store/rootReducer");
 
   hotjar.initialize(1994786, 6);
   initializeApp(App.default, store.default);

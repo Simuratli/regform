@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import {getEducationInfoPage} from "../store/reducers/educationReducer/actions/educationInfoPageAction";
 import {getEducationAccessStatus} from "../store/reducers/educationReducer/actions/educationGetAccessAction";
-import {changeEducationAccessStatus} from "../store/reducers/educationReducer/actions/educationChangeAccessStatusAction";
 
 const EducationInfoPage = lazy(() => import("../components/EducationComponents/EducationInfoPage"));
 

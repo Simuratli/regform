@@ -8,11 +8,11 @@ let list = [];
 
 // One item component
 // selected prop will be passed
-const MenuItem = ({header, description, selected}) => {
+const MenuItem = ({header, description, selected, position}) => {
   return <li
     className={`menu-item ${selected ? 'active' : ''}`}
   >
-    <h4>{header}</h4>
+    <h4>Block {position}:</h4>
     <p className={'menu-item-description'}>{description}</p>
   </li>;
 };
@@ -57,7 +57,7 @@ class ScrollSyllabus extends Component {
     // Create menu from items
     const menu = this.menuItems;
 
-    console.log(this.props.education.syllabus)
+    // console.log(this.props.education.syllabus)
 
     return (
       <div className={"syllabus"}>
@@ -77,7 +77,7 @@ class ScrollSyllabus extends Component {
           disableTabindex={true}
           alignOnResiz={true}
         />
-        <a className={"downloadButton"} href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+        <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
           <button className={"downloadButton"}>Download</button>
         </a>
       </div>
