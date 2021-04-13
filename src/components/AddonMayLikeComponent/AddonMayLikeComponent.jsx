@@ -1,42 +1,28 @@
-import React from "react";
+import React, { Component } from "react";
 import AddonCard from "../AddonsCardsPage/AddonCard";
-import ScrollMenu from 'react-horizontal-scrolling-menu';
 import '../../scss/youMayAlsoLike/addonMayLikeComponent.scss';
 import shortid from "shortid";
 
-//TODO: Andrew, please, fix styles for all screens:)
-
-const Arrow = (className) => {
-    return <div className={className}/>
-};
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
 
 const AddonMayLikeComponent = ({addons}) => {
+  return (
+    <div className={'bottomCards'}>
+      <Carousel showThumbs = {false}>
 
-    const scrollableAddonCards = addons.map(element => {
-      console.log(element);
-        return <AddonCard addon={element} key={shortid.generate()}/>
-    });
+        {addons.map(addon => (
+          <div
+            key={shortid.generate()}
+            className={'addon'}
+          >
+            <AddonCard addon={addon}/>
+          </div>
+        ))}
 
-    return (
-        <section className="bottomCards">
-            <ScrollMenu
-                data={scrollableAddonCards}
-                arrowLeft={Arrow('addon-arrow-prev')}
-                arrowRight={Arrow('addon-arrow-next')}
-                translate={1}
-                scrollBy={1}
-                wheel={false}
-                hideSingleArrow={'true'}
-                disableTabindex={true}
-                alignOnResiz={false}
-                arrowClass={'arrows'}
-                itemClass={'addonCardFromScroll'}
-                innerWrapperClass={'wrapperForScrollableBlock'}
-                wrapperClass={'menu-addons-wrapper'}
-                alignCenter={true}
-            />
-        </section>
-    );
+      </Carousel>
+    </div>
+  )
 }
-export default AddonMayLikeComponent;
 
+export default AddonMayLikeComponent;
