@@ -592,3 +592,18 @@
 "description": "<div class=\"descriptionSection\"><p class=\"description\">Free plan is designated for everyone willing and eager to become a member of UDS team. On the successful completion of the course, we afford soft ground for students to apply for Junior Microsoft Dynamics 365 Consultant in UDS Systems. </p><ul class=\"checkPoints\"><li><p>small-group format (up to 6 students);</p></li><li><p>short course (2 weeks only);</p></li><li><p>mentor's assistance;</p></li><li><p>practical assignments similar to the tasks of real projects;</p></li><li><p>check of home assignment;</p></li><li><p>employment in UDS Systems;</p></li><li><p>we recruit a group of students only two times a year (when the need to expand current projects arises).</p></li></ul></div>"
 }
 ]
+
+courseVideo={
+url: "link",
+timing: "02:24"
+}
+"attachments": [
+{
+url: "https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/block4/BLOCK 4_PRACTICE.docx",
+name: "Name of Attach",
+size: {?}
+}
+]
+
+
+"<div class=\"learnParagraph\"><p>The course starts with a slow dive into the subject not to miss a thing or confuse the newbies. With each step, you will dig deeper and have to put freshly-obtained knowledge to use. Keeping a theory-practice balance guarantees the new career start as a Junior Microsoft Dynamics 365 Consultant at UDS Systems.</p><ul><li>Business Security</li><li>Sales analytics / Power BI</li><li>How to customize CRM (import, views, dashboards, connections, etc.)</li><li>Microsoft Business Solutions Ecosystem Complementary Products at a glance</li><li>What CRM system is</li><li>Opportunities overview</li></ul></div>"

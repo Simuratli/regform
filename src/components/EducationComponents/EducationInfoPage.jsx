@@ -36,8 +36,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
             language = "",
             price = "",
             courseDuration: {
-                video = 0,
-                practice = 0
+                theory = 0
             }
         },
         pricePlans,
@@ -75,7 +74,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                                     <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
                                     <div className={"topBarContent"}>
                                         <h4>INTENSITY</h4>
-                                        <p>Theory: {video} hours<br/> + practice</p>
+                                        <p>Theory: {theory} hours<br/> + practice</p>
                                     </div>
                                 </li>
                                 <li>

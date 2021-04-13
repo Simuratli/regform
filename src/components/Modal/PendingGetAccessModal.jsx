@@ -3,12 +3,21 @@ import "../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../assets/images/information_popup_icon.svg";
 import close from "../../assets/images/window-close.svg";
 import Modal from "./Modal";
+import {useDispatch} from "react-redux";
+import {changeEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationChangeAccessStatusAction";
+import {useParams} from "react-router-dom";
 
 const PendingGetAccessModal = ({active, setActive}) => {
-console.log(active, "active")
-console.log(setActive, "setActive")
-    const closeModal = () =>{
-    setActive(false)
+    const dispatch = useDispatch();
+    const {slug} = useParams();
+    //close modal and change status from Forbidden to Pending
+    const handleChangeAccessStatus = () => {
+        dispatch(changeEducationAccessStatus(slug))
+        setActive(false)
+    }
+    //just close modal without changing status
+    const closeModal = () => {
+        setActive(false)
     }
     return (
         <Modal active={active}>
@@ -21,7 +30,7 @@ console.log(setActive, "setActive")
                 UDS Systems will be glad to see you on board.
                 Our manager will contact you via email <b>someCustomerEmail@gmail.com</b> shortly.
             </p>
-            <button className={"gotInfoButton"} onClick={closeModal}>Ok</button>
+            <button className={"gotInfoButton"} onClick={handleChangeAccessStatus}>Ok</button>
         </Modal>
     );
 };
