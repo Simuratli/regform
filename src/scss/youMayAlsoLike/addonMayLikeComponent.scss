@@ -1,60 +1,55 @@
 @import "../utils/utils";
 
 .bottomCards {
+  width: 100%;
   max-width: 856px;
+  text-align: center;
   margin: auto;
 }
 
-.addon-card-wrapper {
-  width: 428px;
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: none !important;
+}
+
+.addon {
   display: flex;
-  justify-content: center;
+  width: 360px;
+  margin: auto;
 }
 
-.wrapperForScrollableBlock {
-  display: flex;
-
-  & :last-child :first-child {
-    margin-right: 0;
-  }
+.carousel .control-dots {
+  bottom: 40px;
 }
 
-.arrows {
-  cursor: pointer;
-  position: relative;
+button:hover {
+  box-shadow: none;
 }
 
-.addonCardFromScroll {
-  //width: 428px;
-  display: flex;
-  justify-content: center;
-  margin-right: 90px;
-}
-
-.addon-arrow-prev {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect x='-0.5' y='0.5' width='39' height='39' transform='matrix(-1 0 0 1 39 0)' fill='white' stroke='%23E3E3E3'/%3E%3Cpath d='M23.203 15.0177L18.623 19.5977L23.203 24.1877L21.793 25.5977L15.793 19.5977L21.793 13.5977L23.203 15.0177Z' fill='%23E3E3E3'/%3E%3C/svg%3E");
+.carousel .control-prev.control-arrow:before {
+  border-right: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M28.2625 30.725L22.5375 25L28.2625 19.2625L26.5 17.5L19 25L26.5 32.5L28.2625 30.725Z' fill='white'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   transition: all 0.3s ease-in-out;
-  position: absolute;
-  right: 126px;
+  right: 20px;
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect opacity='0.2' width='50' height='50'/%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M20.9992 18.775L26.7242 24.5L20.9992 30.2375L22.7617 32L30.2617 24.5L22.7617 17L20.9992 18.775Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+  right: 20px;
 
   &:hover {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect x='-0.5' y='0.5' width='39' height='39' transform='matrix(-1 0 0 1 39 0)' fill='white' stroke='%23383680'/%3E%3Cpath d='M23.203 15.0177L18.623 19.5977L23.203 24.1877L21.793 25.5977L15.793 19.5977L21.793 13.5977L23.203 15.0177Z' fill='%23383680'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect opacity='0.2' width='50' height='50' fill='white'/%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M20.9992 18.775L26.7242 24.5L20.9992 30.2375L22.7617 32L30.2617 24.5L22.7617 17L20.9992 18.775Z' fill='white'/%3E%3C/svg%3E");
   }
 }
 
-.addon-arrow-next {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect x='0.5' y='0.5' width='39' height='39' fill='white' stroke='%23E3E3E3'/%3E%3Cpath d='M16.797 15.0177L21.377 19.5977L16.797 24.1877L18.207 25.5977L24.207 19.5977L18.207 13.5977L16.797 15.0177Z' fill='%23E3E3E3'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  width: 40px;
-  height: 40px;
-  transition: all 0.3s ease-in-out;
-  position: absolute;
-  left: 126px;
-
-  &:hover {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Crect x='0.5' y='0.5' width='39' height='39' fill='white' stroke='%23383680'/%3E%3Cpath d='M16.797 15.0177L21.377 19.5977L16.797 24.1877L18.207 25.5977L24.207 19.5977L18.207 13.5977L16.797 15.0177Z' fill='%23383680'/%3E%3C/svg%3E");
-  }
+.carousel-status, .carousel .control-dots {
+  visibility: hidden !important;
 }
