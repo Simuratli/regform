@@ -20,8 +20,6 @@
   .cardLogo {
     position: absolute;
     top: 1rem;
-    height: 25%;
-    width: 85%;
   }
 
   .cardBody {
@@ -37,6 +35,7 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 26px;
+    text-align: left;
   }
 
   .cardDescription {
@@ -70,6 +69,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 22px;
+    text-align: left;
   }
 
   .description {

@@ -20,7 +20,6 @@ const YouMayAlsoLikeContainer = () => {
     const filteredAddons = get(addon, "cards", []).length
         ? get(addon, "cards")
             .filter((item) => item.slug !== slug)
-            .slice()
             .sort((a, b) => (a.name > b.name ? 1 : b.name > a.name ? -1 : 0))
         : [];
 
