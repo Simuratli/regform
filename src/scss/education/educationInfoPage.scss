@@ -1,16 +1,11 @@
 @import "../../scss/utils/utils";
 
-//.headerWrapper {
-//  max-width: 4000px;
-//  width: 100%;
-//  background-image: url("../../assets/images/addon_full_page_header_bg.svg");
-//  background-repeat: no-repeat;
-//  background-size: cover;
-//  width: 100%;
-//  height: auto;
-//  margin: 0 auto;
-//  padding: 0;
-//}
+.educationTopWrapper {
+  max-width: 4000px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
 
 h2 {
   font-size: 46px;
@@ -44,7 +39,7 @@ h4 {
   grid-row-gap: 80px;
 }
 
-.header {
+.educationHeader {
   @include bigScreen;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -520,7 +515,7 @@ h4 {
 }
 
 @media screen and (max-width: 1350px) {
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen1350;
   }
   .learnInfo {
@@ -543,7 +538,7 @@ h4 {
 }
 
 @media screen and (max-width: 1200px) {
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen1200;
   }
   .learnInfo {
@@ -567,7 +562,7 @@ h4 {
     line-height: 49px;
     letter-spacing: -0.2px;
   }
-  .header {
+  .educationHeader {
     .headerLeftSide {
       h1 {
         font-size: 40px;
@@ -626,7 +621,7 @@ h4 {
 }
 
 @media screen and (max-width: 1000px) {
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen1024;
   }
 
@@ -664,10 +659,10 @@ h4 {
   .educationInfoContent{
     //grid-row-gap: 40px;
   }
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen880;
   }
-  .header {
+  .educationHeader {
     padding: 40px 0 0;
     grid-template-columns: 1fr;
     grid-row-gap: 30px;
@@ -702,10 +697,10 @@ h4 {
   .educationInfoContent {
     grid-row-gap: 40px;
   }
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen768;
   }
-  .header {
+  .educationHeader {
     @include screen768;
   }
   .learnInfo {
@@ -787,10 +782,13 @@ h4 {
     font-size: 16px;
     line-height: 130%;
   }
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationTopWrapper{
+    background-color: #FCFDFF;
+  }
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen500;
   }
-  .header {
+  .educationHeader {
     padding: 40px 0 20px;
 
     .headerLeftSide {
@@ -981,7 +979,7 @@ h4 {
 }
 
 @media screen and (max-width: 375px) {
-  .header, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen400;
   }
   .learnInfo {

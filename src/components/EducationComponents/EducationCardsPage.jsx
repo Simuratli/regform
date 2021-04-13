@@ -13,7 +13,7 @@ const EducationCardsPage = () => {
     }, []);
     return (
         <section className="mainContainer">
-            <section className="headerContent">
+            <section className="educationHeaderContent">
                     <h1 className="headingParagraph">
                         Welcome to UDS Dynamics Education
                     </h1>

@@ -19,20 +19,23 @@
     color: $card-text-color;
   }
 
-  .headerContent {
+  .educationHeaderContent {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     color: $blue;
-    padding: 4rem 0 87px;
+    padding: 4rem 0 108px;
+
     .headingParagraph {
       width: 45%;
       text-align: left;
       margin: 2rem 0;
-      font-weight: bold;
       font-size: 46px;
-      line-height: 56px;
       letter-spacing: -1.09524px;
+      font-size: 46px;
+      line-height: 120%;
+      font-weight: 400;
+      @include gradientTitleGray;
     }
 
     .orangeElement {
@@ -49,16 +52,20 @@
       width: 39%;
       text-align: left;
       margin-top: 2.5rem;
-      color: $card-text-color;
-      font-weight: 500;
+      color: $education-text-color;
+      font-weight: 600;
       font-size: 18px;
-      line-height: 28px;
+      line-height: 120%;
 
     }
   }
   .educationBenefits{
     .benefitsTitle{
       margin: 30px 0 50px;
+      font-size: 46px;
+      line-height: 120%;
+      @include gradientTitleGray;
+      font-weight: 400;
     }
     .benefitsList{
       padding-left: 0;
@@ -84,14 +91,17 @@
   }
   .educationCoursesCards{
     .educationTitle{
-      margin-top: 80px;
+      font-size: 46px;
+      line-height: 120%;
+      @include gradientTitleGray;
+      font-weight: 400;
     }
   }
 }
 @media screen and (max-width: 1350px) {
   .mainContainer{
     @include screen1350;
-    .headerContent{
+    .educationHeaderContent{
       .headingParagraph {
         width: 45%;
       }
@@ -109,7 +119,7 @@
 @media screen and (max-width: 1200px) {
   .mainContainer{
     @include screen1200;
-    .headerContent{
+    .educationHeaderContent{
       padding: 20px 0;
       img{
         max-width: 260px;
@@ -120,7 +130,7 @@
 }
 @media screen and (max-width: 1024px) {
   .mainContainer{
-    .headerContent{
+    .educationHeaderContent{
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -195,7 +205,7 @@
       font-size: 16px;
       line-height: 130%;
     }
-    .headerContent{
+    .educationHeaderContent{
       padding: 30px 0 60px;
       .headingParagraph{
         font-size: 27px;

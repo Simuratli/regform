@@ -47,19 +47,21 @@ const EducationInfoPage = ({education, accessStatus}) => {
     return (
         <>
             <div className="educationInfoContent">
-                <section className={"header"}>
-                    <div className={"headerLeftSide"}>
-                        <h1>{header}</h1>
-                        <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
-                        <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"}
-                           download>
-                            <button className={"downloadButton"}>Download</button>
-                        </a>
-                    </div>
-                    <div className={"headerRightSide"}>
-                        <img className={"courseLogo"} src={courseLogo} alt={alternateText}/>
-                    </div>
-                </section>
+                <div className={"educationTopWrapper"}>
+                    <section className={"educationHeader"}>
+                        <div className={"headerLeftSide"}>
+                            <h1>{header}</h1>
+                            <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
+                            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"}
+                               download>
+                                <button className={"downloadButton"}>Download</button>
+                            </a>
+                        </div>
+                        <div className={"headerRightSide"}>
+                            <img className={"courseLogo"} src={courseLogo} alt={alternateText}/>
+                        </div>
+                    </section>
+                </div>
                 <section className={"learnInfo"}>
                     <div className={"learnInfoContent"}>
                         <section className={"topBar"}>
