@@ -46,7 +46,7 @@ const EducationVideoLessons = ({education}) => {
         <>
             <div className="educationVideoComponent">
                 <NavLink to={"/education/" + slug}>
-                    <button className={"backButton"}>Back</button>
+                    <button className={"backButton"}>Back to course page</button>
                 </NavLink>
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>
                 <section className={"videoContent"}>
