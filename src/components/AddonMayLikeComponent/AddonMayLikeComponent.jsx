@@ -8,7 +8,7 @@ import {Carousel} from 'react-responsive-carousel';
 const AddonMayLikeComponent = ({addons}) => {
 
     let carouselItems = []
-    const isMobile = window.innerWidth < 400;
+    const isMobile = window.innerWidth < 1000;
     if (!isMobile) {
         for (let i = 0; i < addons.length; i += 2) {
 

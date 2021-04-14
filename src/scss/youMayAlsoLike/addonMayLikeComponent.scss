@@ -38,6 +38,10 @@ button:hover {
   width: 50px;
   height: 50px;
   transition: all 0.3s ease-in-out;
+  &:focus, &:active{
+    outline: none;
+    background-color: transparent;
+  }
 }
 
 .carousel .control-next.control-arrow:before {
@@ -51,6 +55,10 @@ button:hover {
   &:hover {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect opacity='0.2' width='50' height='50' fill='white'/%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M20.9992 18.775L26.7242 24.5L20.9992 30.2375L22.7617 32L30.2617 24.5L22.7617 17L20.9992 18.775Z' fill='white'/%3E%3C/svg%3E");
   }
+  &:focus, &:active{
+    outline: none;
+    background-color: transparent;
+  }
 }
 
 .carousel.carousel-slider {
@@ -63,6 +71,21 @@ button:hover {
   visibility: hidden !important;
 }
 
+@media screen and (max-width: 1024px) {
+  .bottomCards {
+    .firstCard{
+      margin-right: 68px;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .bottomCards {
+    max-width: 500px;
+  }
+  .addon {
+    max-width: 360px;
+  }
+}
 @media screen and (max-width: 400px) {
   .bottomCards {
     max-width: 350px;
