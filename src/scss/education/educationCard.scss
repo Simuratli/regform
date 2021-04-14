@@ -37,18 +37,18 @@
     grid-template-columns: 1fr;
 
     h5 {
+      font-weight: 600;
       font-size: 20px;
-      line-height: 26px;
-      font-weight: 700;
-      color: $blue;
+      line-height: 120%;
+      color: $blue-black;
       margin: 0;
     }
 
     p {
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 22px;
-      color: $card-text-color;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+      color: $education-text-color;
     }
 
     .cardBottomInfo {
