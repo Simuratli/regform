@@ -1,88 +1,45 @@
-import React, {Component} from "react"
-import "../../scss/education/educationSyllabus.scss";
+import React from "react"
 import shortid from 'shortid';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
+import "../../scss/education/educationSyllabus.scss";
 
-// list of items
-let list = [];
-
-// One item component
-// selected prop will be passed
-const MenuItem = ({header, description, selected, position}) => {
-  return <li
-    className={`menu-item ${selected ? 'active' : ''}`}
-  >
-    <h4>Block {position}:</h4>
-    <p className={'menu-item-description'}>{description}</p>
-  </li>;
+const Arrow = (className) => {
+  return <div className={className}/>
 };
 
-// All items component
-// Important! add unique key
-export const Menu = (list, selected) =>
-  list.map(el => {
-    const {description, header} = el;
+const ScrollSyllabus = ({education}) => {
 
-    return <MenuItem description={description} header={header} key={shortid.generate()} selected={selected} />;
-  });
-
-
-const Arrow = ({ text, className }) => {
-  return (
-    <div
-      className={className}
-    >{text}</div>
-  );
-};
-
-
-const ArrowLeft = Arrow({ className: 'arrow-prev' });
-const ArrowRight = Arrow({ className: 'arrow-next' });
-
-const selected = 'item1';
-
-class ScrollSyllabus extends Component {
-  constructor(props) {
-    super(props);
-    // call it again if items count changes
-    this.menuItems = Menu(this.props.education.syllabus, selected);
-  }
-
-  state = {
-    selected
-  };
-
-  render() {
-    const { selected } = this.state;
-    // Create menu from items
-    const menu = this.menuItems;
-
-    // console.log(this.props.education.syllabus)
-
+  const scrollableSyllabus = education.syllabus.map(element => {
     return (
-      <div className={"syllabus"}>
-        <h2>Course outline</h2>
-        <ScrollMenu
-          data={menu}
-          arrowLeft={ArrowLeft}
-          arrowRight={ArrowRight}
-          selected={selected}
-          translate={1}
-          innerWrapperClass={'menu-wrapper--inner'}
-          scrollBy={0}
-          wheel={false}
-          alignCenter={false}
-          clickWhenDrag={false}
-          hideSingleArrow={'true'}
-          disableTabindex={true}
-          alignOnResiz={true}
-        />
-        <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
-          <button className={"downloadButton"}>Download</button>
-        </a>
-      </div>
-    );
-  }
+    <li className={'menu-item'} key={shortid.generate()}>
+      <h4>Block {element.position}</h4>
+      <p className={'menu-item-description'}>{element.description}</p>
+    </li>
+    )
+  })
+
+  return (
+    <div className={"syllabus"}>
+      <h2>Course outline</h2>
+      <ScrollMenu
+        data={scrollableSyllabus}
+        arrowLeft={Arrow('arrow-prev')}
+        arrowRight={Arrow('arrow-next')}
+        translate={1}
+        innerWrapperClass={'menu-wrapper--inner'}
+        scrollBy={0}
+        wheel={false}
+        alignCenter={false}
+        clickWhenDrag={false}
+        hideSingleArrow={'true'}
+        disableTabindex={true}
+        alignOnResiz={true}
+      />
+      <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/education/courses/ms-dynamics-365-consultant/assets/syllabus/Syllabus.docx"} download>
+        <button className={"downloadButton"}>Download</button>
+      </a>
+    </div>
+  );
 }
 
 export default ScrollSyllabus;

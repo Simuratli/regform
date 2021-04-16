@@ -51,4 +51,4 @@ const AddonMayLikeComponent = ({addons}) => {
     )
 }
 
-export default AddonMayLikeComponent;
+export default AddonMayLikeComponent
