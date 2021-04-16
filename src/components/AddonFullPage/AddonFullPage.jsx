@@ -13,7 +13,7 @@ import { getDownloadFile } from "../../store/reducers/downloadFileReducer/action
 import { ButtonLoader } from "../views/ButtonLoader";
 import YouMayAlsoLikeContainer from "../../containers/YouMayAlsoLikeContainer";
 
-const AddonFullPage = ({ addon, intl }) => {
+const AddonFullPage = ({ addon, intl, children }) => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { file } = state;
@@ -113,6 +113,7 @@ const AddonFullPage = ({ addon, intl }) => {
 
   return (
     <div className="addonFullPage">
+      {children}
       <div className="headerWrapper" style={{ maxWidth: "4000px" }}>
         <section className="header">
           <AnimatedContainer>
