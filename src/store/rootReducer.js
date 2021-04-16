@@ -7,6 +7,7 @@ import { openButtonReducer } from "./reducers/openButtonReducer";
 import { appReducer } from "./reducers/appReducer";
 import {educationReducer} from "./reducers/educationReducer";
 import {userDataReducer} from "./reducers/userDataReducer/userDataReducer";
+import {metadataReducer} from "./reducers/metadataReducer";
 
 const reducers = combineReducers({
   app: appReducer,
@@ -14,7 +15,8 @@ const reducers = combineReducers({
   file: downloadFileReducer,
   addOnPortalLink: openButtonReducer,
   education: educationReducer,
-  user: userDataReducer
+  user: userDataReducer,
+  metadata: metadataReducer,
 });
 
 const enhanceMiddleware = compose(applyMiddleware(thunk));

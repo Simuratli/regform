@@ -7,15 +7,20 @@ import { FormattedMessage } from "react-intl";
 import { FilterAddonsComponent } from "../FilterAddonsComponent/FilterAddonComponent";
 import { setError } from "../../store/reducers/appReducer/actions/appAction";
 import isEmpty from "lodash/isEmpty";
+import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
+import MetaTags from "react-meta-tags/dist/react-meta-tags.es";
+import Metadata from "../Metadata/MetadataComponent";
 
 const AddonsCardsPage = () => {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { app } = state;
   const { error } = app;
+  const { addonsMetadata } = state.metadata;
 
   useEffect(() => {
     document.title = "Add-ons | UDS Portal";
+    dispatch(getAddonMetadata())
   }, []);
 
   useEffect(() => {
@@ -24,6 +29,8 @@ const AddonsCardsPage = () => {
 
   return (
     <div className="main_container">
+      <Metadata metadata={addonsMetadata}/>
+
       <div className="generalTitleBlock">
         <h1 className="headingParagraph">
           <FormattedMessage id="enhance.system.text" />

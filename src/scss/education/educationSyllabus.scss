@@ -5,6 +5,7 @@
   max-width: 1135px;
   text-align: center;
   margin: auto;
+
   h4 {
     text-align: left;
     font-weight: 600;
@@ -12,6 +13,7 @@
     line-height: 140%;
     color: $blue-black;
   }
+
   p {
     width: 200px;
     white-space: normal;
@@ -20,7 +22,8 @@
     font-weight: 400;
     color: $education-text-color;
   }
-  h2{
+
+  h2 {
     @include gradientTitleGray;
   }
 
@@ -35,6 +38,7 @@
     max-width: 227px;
   }
 }
+
 .menu-item-wrapper{
   height: 372px;
 }
@@ -155,15 +159,3 @@
   }
 }
 
-//
-//@media screen and (max-width: 500px) {
-//  .syllabus {
-//    @include screen500;
-//  }
-//}
-//
-//@media screen and (max-width: 375px) {
-//  .syllabus {
-//    @include screen400;
-//  }
-//}
