@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "../../scss/education/educationInfoPage.scss";
 import certificate from "../../assets/images/education/certificate_example.svg";
 import certificateIcon from "../../assets/images/education/learn_right_bar_icons/cetificate.svg";
@@ -14,9 +14,8 @@ import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
-import {useSelector} from "react-redux";
 
-const EducationInfoPage = ({education, accessStatus}) => {
+const EducationInfoPage = ({education}) => {
 
     const {
         header = "",
@@ -41,10 +40,8 @@ const EducationInfoPage = ({education, accessStatus}) => {
         certificateDescription = "",
     } = education;
 
-    // const dispatch = useDispatch();
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
-        // dispatch(getEducationAccessStatus(slug));
     }, [header]);
 
     return (
@@ -206,7 +203,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                                     key={shortid.generate()}
                                     dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>
-                                <GetAccessButton accessStatus={accessStatus}/>
+                                <GetAccessButton />
                             </li>
                         )}
                     </ul>

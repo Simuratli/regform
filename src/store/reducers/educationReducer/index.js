@@ -8,7 +8,6 @@ const initStore = {
     educationCards: [],
     educationInfoPage: [],
     educationAccessStatus: {},
-    changedAccessStatus: {}
 };
 
 export const educationReducer = (initialState = initStore, action) => {
@@ -22,7 +21,7 @@ export const educationReducer = (initialState = initStore, action) => {
         case SET_EDUCATION_ACCESS_STATUS:
             return { ...initialState, educationAccessStatus: action.payload };
             case CHANGE_EDUCATION_ACCESS_STATUS:
-            return { ...initialState, changedAccessStatus: action.payload };
+            return { ...initialState, educationAccessStatus: action.payload };
         default:
             return initialState;
     }
