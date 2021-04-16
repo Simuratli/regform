@@ -14,6 +14,7 @@ import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
+import {useSelector} from "react-redux";
 
 const EducationInfoPage = ({education, accessStatus}) => {
 
@@ -40,8 +41,10 @@ const EducationInfoPage = ({education, accessStatus}) => {
         certificateDescription = "",
     } = education;
 
+    // const dispatch = useDispatch();
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
+        // dispatch(getEducationAccessStatus(slug));
     }, [header]);
 
     return (
@@ -157,7 +160,7 @@ const EducationInfoPage = ({education, accessStatus}) => {
                     <h2>Become proficient in</h2>
                     <ol>
                         <li><p>MS Dynamics 365 Architecture</p></li>
-                        <li><p>Microsoft Dynamics 365 Web Services creation</p></li>
+                        <li><p>MS Dynamics 365 Web Services creation</p></li>
                         <li><p>PowerApps customization</p></li>
                         <li><p>Plugin development</p></li>
                         <li><p>Integration with external products</p></li>

@@ -1,28 +1,68 @@
 @import "../../scss/utils/utils";
 
-.modal.active {
+.pendingModal {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 2000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  .modalContent {
+    padding: 30px 74px;
+    background-color: #f8f9fb;
+    transform: scale(0.5);
+    transition: 0.4s all;
+    max-width: 558px;
+    width: 100%;
+    font-family: Montserrat;
+    color: $card-text-color;
+    text-align: center;
+    p{
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 140%;
+      color: $education-text-color;
+      text-align: center;
+      margin-bottom: 30px;
+      b{
+        color: $blue-black;
+      }
+    }
+
+  }
+}
+
+.pendingModal.active {
   opacity: 1;
   pointer-events: all;
 }
 
 .pendingTitle {
+  font-weight: 600;
   font-size: 20px;
-  line-height: 24px;
+  line-height: 130%;
+  color: $blue-black;
   text-align: center;
+  margin-top: 52px;
+  margin-bottom: 20px;
 }
 
-.modal.active {
+.pendingModal.active {
   opacity: 1;
   pointer-events: all;
   display: flex;
 }
 
-.modalContent {
-  width: 30vw;
-}
-
 .gotInfoButton {
-  background-color: $orange;
+  background: linear-gradient(269.64deg, #FCAB47 4.23%, #FFBA88 91.19%);
   width: 127px;
   height: 40px;
   font-size: 14px;
@@ -33,6 +73,10 @@
   border: none;
   outline: none;
   transition: all 0.3s ease-in-out;
+  &:hover{
+    background: $orange;
+    box-shadow: none;
+  }
 }
 
 p {
@@ -41,4 +85,11 @@ p {
 
 .modalContent.active {
   transform: scale(1);
+}
+@media screen and (max-width: 500px) {
+  .pendingModal{
+    .modalContent{
+      padding: 30px 10px;
+    }
+  }
 }

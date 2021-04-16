@@ -1,9 +1,19 @@
-import React, {useState} from "react"
+import React, {memo, useEffect, useState} from "react"
 import {NavLink, useParams} from "react-router-dom";
 import PendingGetAccessModal from "../Modal/PendingGetAccessModal";
+import {useDispatch, useSelector} from "react-redux";
+import {getEducationInfoPage} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
+import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
-const GetAccessButton = ({accessStatus}) => {
+const GetAccessButton = memo(({accessStatus}) => {
 
+    const dispatch = useDispatch();
+    // useEffect(() => {
+    //     dispatch(getEducationAccessStatus(slug));
+    // }, [accessStatus]);
+
+    const { educationAccessStatus} = useSelector(({education}) => education);
+    console.log(educationAccessStatus, 'educationAccessStatus')
     const [active, setActive] = useState(false);
     const handleOpenModal = () => {
         setActive(true)
@@ -32,6 +42,6 @@ const GetAccessButton = ({accessStatus}) => {
             return <button className={"getAccessButton"}>Get access</button>
 
     }
-};
+});
 
 export default GetAccessButton;

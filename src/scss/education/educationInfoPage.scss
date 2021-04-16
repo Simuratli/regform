@@ -245,7 +245,7 @@ ul {
   ol {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 200px;
+    grid-column-gap: 100px;
     li{
       font-size: 30px;
       line-height: 32px;
@@ -271,12 +271,10 @@ ul {
     display: grid;
     grid-template-columns:4fr 1fr;
     grid-column-gap: 80px;
+    width: 80%;
+    margin: auto;
     .certificateTextContent{
       align-self: center;
-    }
-
-    img {
-      border: 10px solid #F2F3F9;
     }
 
     h4 {

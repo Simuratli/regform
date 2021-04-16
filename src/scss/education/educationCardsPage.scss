@@ -24,7 +24,7 @@
     justify-content: space-between;
     flex-direction: row;
     color: $blue;
-    padding: 4rem 0 108px;
+    padding: 4rem 0 80px;
 
     .headingParagraph {
       width: 45%;
@@ -100,6 +100,7 @@
       line-height: 120%;
       @include gradientTitleGray;
       font-weight: 400;
+      margin-top: 0;
     }
   }
 }

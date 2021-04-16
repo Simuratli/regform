@@ -1,6 +1,6 @@
 import React from "react";
 import "../../scss/modal/modalMobileNotification.scss";
-import warning from "../../assets/images/warning-icon.svg";
+import info from "../../assets/images/information_popup_icon.svg";
 import close from "../../assets/images/window-close.svg";
 import Modal from "./Modal";
 import {useCookies} from "react-cookie";
@@ -16,7 +16,7 @@ const ModalMobileNotification = ({setActive}) => {
 
     return (
         <Modal active={!cookies.userHasGotTheInformation}>
-            <img src={warning} alt={"info"} style={{margin: "auto"}}/>
+            <img src={info} alt={"info"} style={{margin: "auto"}}/>
             <h5 className={"mobileModalTitle boldText"}>For your information</h5>
             <p>
                 The present mobile version provides general information about UDS
