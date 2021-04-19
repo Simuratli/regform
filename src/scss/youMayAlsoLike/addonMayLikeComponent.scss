@@ -71,6 +71,10 @@ button:hover {
   visibility: hidden !important;
 }
 
+.carousel.carousel-slider {
+  height: 580px;
+}
+
 @media screen and (max-width: 1024px) {
   .bottomCards {
     .firstCard{
@@ -90,7 +94,11 @@ button:hover {
   .bottomCards {
     max-width: 350px;
   }
-  .carousel-status, .carousel .control-dots {
+  .carousel .control-dots {
     visibility: visible !important;
+  }
+
+  .carousel.carousel-slider .control-arrow {
+    visibility: hidden;
   }
 }

@@ -24,9 +24,9 @@ const EducationCard = ({educationCard}) => {
 
     } = educationCard;
 
-    useEffect(() => {
-        dispatch(getEducationAccessStatus(slug));
-    }, [slug]);
+    // useEffect(() => {
+    //     dispatch(getEducationAccessStatus(slug));
+    // }, [slug]);
 
     return (
         <>
