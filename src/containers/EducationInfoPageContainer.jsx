@@ -15,7 +15,7 @@ const EducationInfoPageContainer = () => {
     useEffect(() => {
         dispatch(getEducationInfoPage(slug));
         dispatch(getEducationAccessStatus(slug));
-    }, [slug]);
+    }, []);
 
     return (
         <div style={{minHeight: "70vh"}}>

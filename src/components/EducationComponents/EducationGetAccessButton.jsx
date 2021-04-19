@@ -1,28 +1,18 @@
 import React, {memo, useEffect, useState} from "react"
-import {NavLink, useParams} from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import PendingGetAccessModal from "../Modal/PendingGetAccessModal";
-import {useDispatch, useSelector} from "react-redux";
-import {getEducationInfoPage} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
-import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
+import  { useSelector } from "react-redux";
 
-const GetAccessButton = memo(({accessStatus}) => {
-
-    const dispatch = useDispatch();
-    // useEffect(() => {
-    //     dispatch(getEducationAccessStatus(slug));
-    // }, [accessStatus]);
-
+const GetAccessButton = () => {
     const { educationAccessStatus} = useSelector(({education}) => education);
-    console.log(educationAccessStatus, 'educationAccessStatus')
+    console.log(educationAccessStatus.coursePermissionState, 'educationAccessStatus1')
     const [active, setActive] = useState(false);
-    const handleOpenModal = () => {
-        setActive(true)
-        // console.log(active)
-        // return <PendingGetAccessModal active={active} setActive={setActive}/>
+    const handleOpenModal = (e) => {
+        setActive(true);
     }
     const {slug} = useParams();
 
-    switch (accessStatus.coursePermissionState) {
+    switch (educationAccessStatus.coursePermissionState) {
         case "Forbidden" :
             return (
                 <>
@@ -42,6 +32,6 @@ const GetAccessButton = memo(({accessStatus}) => {
             return <button className={"getAccessButton"}>Get access</button>
 
     }
-});
+};
 
 export default GetAccessButton;
