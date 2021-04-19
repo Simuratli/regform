@@ -1,9 +1,14 @@
-import React from "react"
+import React, {useEffect} from "react"
 import "../../scss/education/educationCard.scss";
-import {NavLink} from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import courseLogo from "../../assets/images/courseLogo.svg";
+import {useDispatch, useSelector} from "react-redux";
+import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationCard = ({educationCard}) => {
+    const { educationAccessStatus} = useSelector(({education}) => education);
+    const dispatch = useDispatch;
+    console.log(educationAccessStatus);
 
     const {
         name = "",
@@ -18,6 +23,10 @@ const EducationCard = ({educationCard}) => {
         },
 
     } = educationCard;
+
+    useEffect(() => {
+        dispatch(getEducationAccessStatus(slug));
+    }, [slug]);
 
     return (
         <>

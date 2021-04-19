@@ -1,5 +1,9 @@
 @import "../../scss/utils/utils";
 
+* {
+  scroll-behavior: smooth;
+}
+
 .educationTopWrapper {
   max-width: 4000px;
   width: 100%;
