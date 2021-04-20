@@ -123,9 +123,9 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
-                            <NavLink to={"/education/" + slug + "/free-course"}>
+                            <a href={'#takeCourse'}>
                                 <button className={"takeCourseButton"}>Take Course</button>
-                            </NavLink>
+                            </a>
                         </section>
                     </div>
                 </section>
@@ -189,7 +189,7 @@ const EducationInfoPage = ({education}) => {
                         )}
                     </ul>
                 </section>
-                <section className={"pricePlan"}>
+                <section className={"pricePlan"} id={'takeCourse'}>
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
                         {pricePlans.map(planItem =>
