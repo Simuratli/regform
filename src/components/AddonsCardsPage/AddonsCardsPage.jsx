@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import "../../scss/addonsCardsPage/addonsCardsPage.scss";
 import orangeElement from "../../assets/images/orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
@@ -10,8 +10,10 @@ import isEmpty from "lodash/isEmpty";
 import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
 import MetaTags from "react-meta-tags/dist/react-meta-tags.es";
 import Metadata from "../Metadata/MetadataComponent";
+import ModalMobileNotification from "../Modal/ModalMobileNotification";
 
 const AddonsCardsPage = () => {
+  const [modalActive, setModalActive] = useState(true)
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { app } = state;
@@ -29,6 +31,7 @@ const AddonsCardsPage = () => {
 
   return (
     <div className="main_container">
+      <ModalMobileNotification setActive={setModalActive}/>
       <Metadata metadata={addonsMetadata}/>
 
       <div className="generalTitleBlock">

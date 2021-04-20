@@ -90,6 +90,17 @@ button:hover {
     max-width: 360px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .carousel.carousel-slider .control-arrow {
+    visibility: hidden;
+  }
+
+  .carousel .control-dots {
+    visibility: visible !important;
+  }
+}
+
 @media screen and (max-width: 400px) {
   .bottomCards {
     max-width: 350px;
