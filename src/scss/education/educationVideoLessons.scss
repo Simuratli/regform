@@ -45,10 +45,12 @@
     height: 83vh;
 
     .rightBar {
+      position: relative;
       overflow: auto;
       .videoSections {
         @include bigScreen;
-
+        position: absolute;
+        clip: rect(0px,auto,auto, 0px);
         .videoSectionList {
           display: grid;
           grid-template-columns: 1fr;
@@ -127,9 +129,6 @@
           .video{
             padding: 15px;
             &:hover, &:focus, &:active {
-              background-color: rgba(57, 54, 129, 0.15);
-            }
-            .active{
               background-color: rgba(57, 54, 129, 0.15);
             }
           }

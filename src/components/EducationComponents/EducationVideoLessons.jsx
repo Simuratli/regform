@@ -39,6 +39,7 @@ const EducationVideoLessons = ({education}) => {
         const section = courseForPageBlockSections.filter(item => item.position.toString() === sectionPosition).shift()
         const video = section.courseForPageBlockSections.filter(item => videoPosition === item.position.toString()).shift()
         setActiveVideo(video)
+        console.log(e.target, "etaget")
     }
 
     const {slug} = useParams();
@@ -64,11 +65,11 @@ const EducationVideoLessons = ({education}) => {
                                         <div className={"tab-content"}>
                                             {section.courseForPageBlockSections.map(video =>
                                                 <ul className={"videoPreview"} key={shortid.generate()}>
-                                                    <li className={"video"} onClick={chooseVideo}
-                                                        sectionPosition={section.position}
-                                                        videoPosition={video.position}>
-                                                        {video.position.toString()}. {video.header}
-                                                    </li>
+                                                        <li className={"video"} onClick={chooseVideo}
+                                                            sectionPosition={section.position}
+                                                            videoPosition={video.position}>
+                                                                {video.position.toString()}.{video.header}
+                                                        </li>
                                                 </ul>
                                             )}
                                         </div>
