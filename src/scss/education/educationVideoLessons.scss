@@ -47,10 +47,12 @@
     .rightBar {
       position: relative;
       overflow: auto;
+
       .videoSections {
         @include bigScreen;
         position: absolute;
-        clip: rect(0px,auto,auto, 0px);
+        clip: rect(0px, auto, auto, 0px);
+
         .videoSectionList {
           display: grid;
           grid-template-columns: 1fr;
@@ -126,8 +128,10 @@
 
         .videoPreview {
           margin: 0;
-          .video{
+
+          .video {
             padding: 15px;
+
             &:hover, &:focus, &:active {
               background-color: rgba(57, 54, 129, 0.15);
             }
@@ -136,6 +140,10 @@
       }
     }
   }
+
+  .mobileVideoBlocks {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1350px) {
@@ -143,31 +151,169 @@
     @include screen1350;
   }
 }
+
 @media screen and (max-width: 1200px) {
   .educationVideoComponent {
     @include screen1200;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .educationVideoComponent {
-    .videoContent{
-      grid-template-columns: 1fr;
-      height: fit-content;
-      grid-row-gap: 67px;
+    .generalHeadingParagraph{
+      font-size: 28px;
+      line-height: 26px;
+      letter-spacing: 1px;
+    }
+    .videoContent {
+      display: none;
     }
 
+    .mobileVideoBlocks {
+      display: flex;
+      flex-direction: column;
+
+      .tabBar {
+        border: transparent;
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        grid-gap: 10px;
+
+        .tabLinks {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+        }
+
+        button {
+          border: none;
+          outline: none;
+          cursor: pointer;
+          width: 105px;
+          height: 42px;
+          transition: 0.3s;
+          font-size: 17px;
+          color: $blue;
+          background: #F9FAFF;
+
+          &:hover {
+            color: #FFFFFF;
+            background-color: $blue;
+          }
+        }
+        .active{
+          color: #FFFFFF;
+          background-color: $blue;
+        }
+      }
+
+      .blockVideoList {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+        .blockHeader{
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+          margin-top: 30px;
+          margin-bottom: 0;
+        }
+
+        .tab {
+          width: 100%;
+          color: white;
+          overflow: hidden;
+          border-bottom: 1px solid #F2F3F9;
+          &:last-child{
+            border-bottom: none;
+          }
+          span{
+            font-size: 30px;
+            line-height: 32px;
+            color: #E8EBFE;
+          }
+
+          &-label {
+            display: grid;
+            grid-template-columns: 0.3fr 8fr 0.3fr;
+            align-items: center;
+            padding: 20px;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 120%;
+            cursor: pointer;
+            color: $education-text-color;
+
+            &::after {
+              content: url("../../assets/images/education/arrow_gray.svg");
+              width: 1em;
+              height: 1em;
+              text-align: center;
+              transition: all .35s;
+            }
+
+          }
+
+          &-content {
+            max-height: 0;
+            padding: 0 1em;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            color: $education-text-color;
+            background: #F9FAFF;
+            transition: all .35s;
+          }
+
+          &-close {
+            display: flex;
+            justify-content: flex-end;
+            padding: 1em;
+            font-size: 0.75em;
+            background: #F9FAFF;
+            cursor: pointer;
+          }
+
+        }
+
+        input {
+          position: absolute;
+          opacity: 0;
+          z-index: -1;
+        }
+
+        input:checked {
+          + .tab-label {
+            color: $blue-black;
+
+            &::after {
+              transform: rotate(180deg);
+            }
+          }
+
+          ~ .tab-content {
+            max-height: 100vh;
+            padding: 3px 20px 35px;
+          }
+        }
+
+      }
+    }
   }
 }
+
 @media screen and (max-width: 1000px) {
   .educationVideoComponent {
     @include screen1024;
   }
 }
+
 @media screen and (max-width: 880px) {
   .educationVideoComponent {
     @include screen880;
   }
 }
+
 @media screen and (max-width: 700px) {
   .educationVideoComponent {
     @include screen768;

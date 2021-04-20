@@ -5,7 +5,7 @@ import download from "../../assets/images/education/docx_icon.svg";
 
 const EducationVideoLessons = ({video}) => {
     //TODO: be attention about url
-    console.log(video, "VIDEVAVA")
+    // console.log(video, "VIDEVAVA")
 
     const {
         description,

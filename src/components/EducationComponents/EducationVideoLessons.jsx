@@ -39,7 +39,6 @@ const EducationVideoLessons = ({education}) => {
         const section = courseForPageBlockSections.filter(item => item.position.toString() === sectionPosition).shift()
         const video = section.courseForPageBlockSections.filter(item => videoPosition === item.position.toString()).shift()
         setActiveVideo(video)
-        console.log(e.target, "etaget")
     }
 
     const {slug} = useParams();
@@ -65,11 +64,11 @@ const EducationVideoLessons = ({education}) => {
                                         <div className={"tab-content"}>
                                             {section.courseForPageBlockSections.map(video =>
                                                 <ul className={"videoPreview"} key={shortid.generate()}>
-                                                        <li className={"video"} onClick={chooseVideo}
-                                                            sectionPosition={section.position}
-                                                            videoPosition={video.position}>
-                                                                {video.position.toString()}.{video.header}
-                                                        </li>
+                                                    <li className={"video"} onClick={chooseVideo}
+                                                        sectionPosition={section.position}
+                                                        videoPosition={video.position}>
+                                                        {video.position.toString()}.{video.header}
+                                                    </li>
                                                 </ul>
                                             )}
                                         </div>
@@ -79,9 +78,63 @@ const EducationVideoLessons = ({education}) => {
                         </div>
                     </div>
                 </section>
+                <section className={"videoContentMobile"}>
+                        <MobileVideoTabs blockVideos={courseForPageBlockSections}/>
+                </section>
             </div>
         </>
     );
 };
+
+
+
+function MobileVideoTabs({blockVideos, courseForPageBlockSections}) {
+    const [ activeTab, setActiveTab ] = useState(null);
+
+    const TabContent = ({ title, content }) => (
+        <div className="blockTabContent">
+            {content}
+        </div>
+    );
+    console.log(blockVideos)
+
+    const videoItems = blockVideos.map( (block) =>{
+        return {
+            title: 'Block ' + block.position,
+            content: <div className={"blockVideoList"}>
+                <h5 className={"blockHeader"}>{block.header}</h5>
+                {block.courseForPageBlockSections.map(videoBlock =>
+                <div className={"tab"}>
+                    <input type={"radio"} id={'mob'+videoBlock.position} name="rd"/>
+                    <label className={"tab-label"}
+                           htmlFor={'mob'+videoBlock.position}><span>{videoBlock.position}.</span> {videoBlock.header}</label>
+                    <div className={"tab-content"}>
+                        <VideoComponent video={videoBlock}/>
+                    </div>
+                </div>
+                )}
+            </div>
+        }
+    })
+
+    const openTab = e => setActiveTab(+e.target.dataset.index);
+
+    return (
+        <div className={"mobileVideoBlocks"}>
+            <div className={"tabBar"}>
+                {videoItems.map((tabName, index) => (
+                    <button
+                        className={`tabLinks ${index === activeTab ? 'active' : ''}`}
+                        onClick={openTab}
+                        data-index={index}
+                    >{tabName.title}</button>
+                ))}
+            </div>
+            {videoItems[activeTab] && <TabContent {...videoItems[activeTab]} />}
+        </div>
+    );
+}
+
+
 
 export default EducationVideoLessons;
