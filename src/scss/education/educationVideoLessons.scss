@@ -72,10 +72,10 @@
             padding: 20px;
             background: #F9FAFF;
             font-weight: 600;
-            font-size: 18px;
-            line-height: 120%;
+            font-size: 16px;
+            line-height: 140%;
             cursor: pointer;
-            color: $blue-black;
+            color: $education-text-color;
 
             &::after {
               content: url("../../assets/images/faq_arrow.svg");
@@ -109,6 +109,7 @@
 
         input:checked {
           + .tab-label {
+            color: $blue-black;
 
             &::after {
               transform: rotate(180deg);

@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink, useParams} from "react-router-dom";
-import courseLogo from "../../assets/images/courseLogo.svg";
+import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 

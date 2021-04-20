@@ -8,8 +8,7 @@ import format from "../../assets/images/education/learn_right_bar_icons/format.s
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import pricePlan from "../../assets/images/education/price_price_plan.svg";
-import courseLogo from "../../assets/images/courseLogo.svg";
-import {NavLink} from "react-router-dom";
+import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
@@ -156,12 +155,12 @@ const EducationInfoPage = ({education}) => {
                 <section className={"gettingSkills"}>
                     <h2>Become proficient in</h2>
                     <ol>
-                        <li><p>MS Dynamics 365 Architecture</p></li>
-                        <li><p>MS Dynamics 365 Web Services creation</p></li>
-                        <li><p>PowerApps customization</p></li>
-                        <li><p>Plugin development</p></li>
-                        <li><p>Integration with external products</p></li>
-                        <li><p>Custom Workflow development</p></li>
+                        <li><p>MS Dynamics 365 <br/> Architecture</p></li>
+                        <li><p>MS Dynamics 365 <br/> Web Services creation</p></li>
+                        <li><p>PowerApps <br/> customization</p></li>
+                        <li><p>Plugin <br/> development</p></li>
+                        <li><p>Integration with external <br/> products</p></li>
+                        <li><p>Custom Workflow <br/> development</p></li>
                     </ol>
                 </section>
                 <section className={"certification"}>
@@ -183,6 +182,7 @@ const EducationInfoPage = ({education}) => {
                                 <img src={mentor.photoImage.imageSource} alt={mentor.photoImage.alternateText}/>
                                 <div>
                                     <h4>{mentor.firstName}</h4>
+                                    <h5>MS Dynamics 365 <br/> Consultant</h5>
                                     <p>{mentor.biography}</p>
                                 </div>
                             </li>
