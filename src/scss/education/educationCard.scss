@@ -71,6 +71,17 @@
         box-shadow: none;
       }
 
+      .watchCourseButton {
+        width: 170px;
+        height: 40px;
+        border: none;
+        font-family: Montserrat;
+        color: #fff;
+        font-weight: 700;
+        background: linear-gradient(269.64deg, #FCAB47 4.23%, #FFBA88 91.19%);
+        box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 8px 24px rgba(14, 31, 53, 0.08);
+      }
+
       ul {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -106,6 +117,7 @@
     .rightCardSide {
       .cardBottomInfo {
         ul {
+          grid-column-gap: 30px;
           li {
             align-self: center;
           }
@@ -128,6 +140,10 @@
           grid-column-gap: 18px;
           grid-template-columns: 0.5fr 1fr;
         }
+
+        .watchCourseButton {
+          margin-right: 20px;
+        }
       }
     }
   }
@@ -142,6 +158,10 @@
         ul {
           margin-bottom: 0;
           grid-template-columns: 1fr 1fr;
+        }
+
+        .watchCourseButton {
+          margin-bottom: 22px;
         }
 
         .moreInfoButton {
@@ -196,7 +216,7 @@
       padding: 0 20px 22px 20px;
 
       .cardBottomInfo {
-        .moreInfoButton {
+        .moreInfoButton, a, .watchCourseButton {
           width: 100%;
         }
       }

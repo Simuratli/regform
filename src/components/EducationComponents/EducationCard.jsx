@@ -1,15 +1,9 @@
-import React, {useEffect} from "react"
+import React from "react"
 import "../../scss/education/educationCard.scss";
-import {NavLink, useParams} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import courseLogo from "../../assets/images/courseLogo.svg";
-import {useDispatch, useSelector} from "react-redux";
-import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationCard = ({educationCard}) => {
-    const { educationAccessStatus} = useSelector(({education}) => education);
-    const dispatch = useDispatch;
-    console.log(educationAccessStatus);
-
     const {
         name = "",
         slug = "",
@@ -17,16 +11,13 @@ const EducationCard = ({educationCard}) => {
         courseState = "",
         courseSubject = "",
         shortDescription,
+        coursePermissionState = "",
         cardLogo: {
             imageSource = "",
             alternateText = "",
         },
 
     } = educationCard;
-
-    // useEffect(() => {
-    //     dispatch(getEducationAccessStatus(slug));
-    // }, [slug]);
 
     return (
         <>
@@ -37,6 +28,11 @@ const EducationCard = ({educationCard}) => {
                         <h5>{name}</h5>
                         <p>{shortDescription}</p>
                         <div className={"cardBottomInfo"}>
+                            {coursePermissionState === "Allowed" &&
+                            <NavLink to={"/education/" + slug + "/free-course"}>
+                                <button className={"watchCourseButton"}>Watch course</button>
+                            </NavLink>
+                            }
                             <button className={"moreInfoButton"}>More info</button>
                             <ul>
                                 <li className={"appointment"}>{courseSubject}</li>
