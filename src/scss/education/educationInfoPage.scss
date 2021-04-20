@@ -574,24 +574,7 @@ ul {
     }
 
     .headerRightSide {
-      width: 389px;
       justify-self: flex-end;
-
-      //img {
-      //  top: -11%;
-      //  left: 69px;
-      //  max-width: 259px;
-      //}
-    }
-  }
-  .learnInfo {
-    .learnInfoContent {
-
-      .contentBar {
-        .reactPlayer {
-          //width: 576px;
-        }
-      }
     }
   }
   .conformityInfo {
@@ -658,9 +641,6 @@ ul {
 }
 
 @media screen and (max-width: 880px) {
-  .educationInfoContent{
-    //grid-row-gap: 40px;
-  }
   .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
     @include screen880;
   }
@@ -775,6 +755,7 @@ ul {
 }
 
 @media screen and (max-width: 500px) {
+.educationInfoContent{
   h2 {
     font-size: 28px;
     line-height: 34px;
@@ -784,6 +765,7 @@ ul {
     font-size: 16px;
     line-height: 130%;
   }
+}
   .educationTopWrapper{
     background-color: #FCFDFF;
   }
