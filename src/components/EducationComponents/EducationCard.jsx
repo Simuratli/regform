@@ -38,7 +38,7 @@ const EducationCard = ({educationCard}) => {
                             <button className={"moreInfoButton"}>More info</button>
                             <ul>
                                 <li className={"appointment"}>{courseSubject}</li>
-                                <li className={"duration"}>{duration} WEEKS LONG</li>
+                                <li className={"duration"}>{duration} Weeks long</li>
                             </ul>
                         </div>
                     </div>
