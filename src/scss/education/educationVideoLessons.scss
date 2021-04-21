@@ -42,7 +42,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 31px;
-    height: 83vh;
+    height: 77vh;
 
     .rightBar {
       position: relative;
@@ -122,7 +122,7 @@
 
           ~ .tab-content {
             max-height: 100vh;
-            padding: 3px 20px 35px;
+            padding: 0px 20px 10px;
           }
         }
 
@@ -130,11 +130,30 @@
           margin: 0;
 
           .video {
-            padding: 15px;
+            padding: 10px 10px 10px 0;
+            display: grid;
+            grid-template-columns: 0.4fr 5fr;
+            align-items: center;
+            grid-gap: 16px;
+            border-bottom: 1px solid #F2F3F9;
+            transition: all 0.3s ease-in-out;
 
-            &:hover, &:focus, &:active {
-              background-color: rgba(57, 54, 129, 0.15);
+            span{
+              font-size: 30px;
+              line-height: 32px;
+              color: #E8EBFE;
+              transition: all 0.3s ease-in-out;
             }
+
+            &:hover {
+              color: $blue-black;
+              span{
+                color: $blue-black;
+              }
+            }
+          }
+          .video .active{
+            background: red;
           }
         }
       }
@@ -183,6 +202,7 @@
           font-weight: 600;
           font-size: 18px;
           line-height: 120%;
+          box-shadow: none;
         }
 
         button {
@@ -237,12 +257,12 @@
             display: grid;
             grid-template-columns: 0.3fr 8fr 0.3fr;
             align-items: center;
-            padding: 20px;
             font-weight: 600;
             font-size: 18px;
             line-height: 120%;
             cursor: pointer;
             color: $education-text-color;
+            padding: 20px 20px 20px 0;
 
             &::after {
               content: url("../../assets/images/education/arrow_gray.svg");
@@ -261,7 +281,6 @@
             font-size: 16px;
             line-height: 140%;
             color: $education-text-color;
-            background: #F9FAFF;
             transition: all .35s;
           }
 
@@ -293,7 +312,7 @@
 
           ~ .tab-content {
             max-height: 100vh;
-            padding: 3px 20px 35px;
+            padding: 0;
           }
         }
 
@@ -305,6 +324,11 @@
 @media screen and (max-width: 1000px) {
   .educationVideoComponent {
     @include screen1024;
+    .mobileVideoBlocks{
+      .tabBar{
+        grid-template-columns: repeat(6, 1fr);
+      }
+    }
   }
 }
 
@@ -317,5 +341,38 @@
 @media screen and (max-width: 700px) {
   .educationVideoComponent {
     @include screen768;
+    .mobileVideoBlocks{
+      .tabBar{
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .blockVideoList{
+        .tab{
+          span{
+            margin-right: 10px;
+          }
+        }
+      }
+    }
   }
 }
+@media screen and (max-width: 500px) {
+  .educationVideoComponent {
+    @include screen500;
+    .mobileVideoBlocks{
+      .tabBar{
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+@media screen and (max-width: 415px) {
+  .educationVideoComponent {
+    @include screen400;
+    .mobileVideoBlocks{
+      .tabBar{
+        //grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+

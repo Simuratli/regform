@@ -27,9 +27,12 @@ const EducationVideoLessons = ({education}) => {
     })
 
     const [activeVideo, setActiveVideo] = useState(null);
+    const [activeSection, setActiveSection] = useState(null);
+    // const [active, setActiveVideo] = useState(null);
 
     if (activeVideo === null) {
         setActiveVideo(courseForPageBlockSections[0].courseForPageBlockSections[0])
+        setActiveSection(courseForPageBlockSections[0].position)
     }
 
     const chooseVideo = (e) => {
@@ -39,6 +42,7 @@ const EducationVideoLessons = ({education}) => {
         const section = courseForPageBlockSections.filter(item => item.position.toString() === sectionPosition).shift()
         const video = section.courseForPageBlockSections.filter(item => videoPosition === item.position.toString()).shift()
         setActiveVideo(video)
+        setActiveSection(sectionPosition)
     }
 
     const {slug} = useParams();
@@ -51,7 +55,7 @@ const EducationVideoLessons = ({education}) => {
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>
                 <section className={"videoContent"}>
                     <div className={"leftBar"}>
-                        <VideoComponent video={activeVideo}/>
+                        <VideoComponent video={activeVideo} activeBlock={activeSection}/>
                     </div>
                     <div className={"rightBar"}>
                         <div className={"videoSections"}>
@@ -67,7 +71,7 @@ const EducationVideoLessons = ({education}) => {
                                                     <li className={"video"} onClick={chooseVideo}
                                                         sectionPosition={section.position}
                                                         videoPosition={video.position}>
-                                                        {video.position.toString()}.{video.header}
+                                                        <span>{video.position.toString()}. </span>{video.header}
                                                     </li>
                                                 </ul>
                                             )}
@@ -88,7 +92,7 @@ const EducationVideoLessons = ({education}) => {
 
 
 
-function MobileVideoTabs({blockVideos, courseForPageBlockSections}) {
+function MobileVideoTabs({blockVideos}) {
     const [ activeTab, setActiveTab ] = useState(null);
 
     const TabContent = ({ title, content }) => (
@@ -96,7 +100,11 @@ function MobileVideoTabs({blockVideos, courseForPageBlockSections}) {
             {content}
         </div>
     );
-    console.log(blockVideos)
+
+    if (activeTab === null) {
+        setActiveTab(0)
+    }
+
 
     const videoItems = blockVideos.map( (block) =>{
         return {
@@ -109,7 +117,7 @@ function MobileVideoTabs({blockVideos, courseForPageBlockSections}) {
                     <label className={"tab-label"}
                            htmlFor={'mob'+videoBlock.position}><span>{videoBlock.position}.</span> {videoBlock.header}</label>
                     <div className={"tab-content"}>
-                        <VideoComponent video={videoBlock}/>
+                        <VideoComponent video={videoBlock} activeBlock={block.position}/>
                     </div>
                 </div>
                 )}
