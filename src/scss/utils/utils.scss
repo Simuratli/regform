@@ -8,12 +8,11 @@ $blue-black: #1E2432;
 $education-text-color: #696D8C;
 $white-blue: #FCFDFF;
 $light_bg: #f9faff;
+$soft-orange: #FFB178;
 
 @mixin bigScreen {
   width: 100%;
   max-width: 1146px;
-  //padding-right: 10px;
-  //padding-left: 10px;
   margin: auto;
 }
 @mixin screen1350 {
@@ -76,8 +75,11 @@ $light_bg: #f9faff;
 button {
   cursor: pointer;
   outline: none;
-  box-shadow: 0px 3px 6px rgba(235, 164, 82, 0.08), 0px 6px 12px rgba(14, 31, 53, 0.12), 0px 14px 24px rgba(14, 31, 53, 0.08);
+  box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08);
   transition: all .3s ease-in-out;
+  font-family: Montserrat, sans-serif;
+  font-weight: bold;
+  color: #fff;
 
   &:hover {
     //-webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
