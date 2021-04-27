@@ -8,11 +8,14 @@ import format from "../../assets/images/education/learn_right_bar_icons/format.s
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import pricePlan from "../../assets/images/education/price_price_plan.svg";
+import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
 import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
+import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const EducationInfoPage = ({education}) => {
 
@@ -42,6 +45,7 @@ const EducationInfoPage = ({education}) => {
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
     }, [header]);
+    const {educationAccessStatus} = useSelector(({education}) => education);
 
     return (
         <>
@@ -69,7 +73,7 @@ const EducationInfoPage = ({education}) => {
                                     <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Intensity</h4>
-                                        <p>Theory: {theory} hours<br/> + practice</p>
+                                        <p>Theory: {theory} hr<br/> + practice</p>
                                     </div>
                                 </li>
                                 <li>
@@ -122,9 +126,16 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
-                            <a href={'#takeCourse'}>
-                                <button className={"takeCourseButton"}>Take Course</button>
-                            </a>
+                            {educationAccessStatus.coursePermissionState === "Allowed"
+                                ?
+                                <NavLink to={"/education/" + slug + "/free-course"}>
+                                    <button className={"watchCourseButton"}>Watch course</button>
+                                </NavLink>
+                                :
+                                <a href={'#takeCourse'}>
+                                    <button className={"takeCourseButton"}>Take Course</button>
+                                </a>
+                            }
                         </section>
                     </div>
                 </section>
@@ -215,7 +226,6 @@ const EducationInfoPage = ({education}) => {
                         </div>
                         <img src={certificate} alt={"Certificate example"}/>
                     </div>
-
                 </section>
                 <section className={"mentors"}>
                     <h2>Meet your mentors</h2>
@@ -241,14 +251,51 @@ const EducationInfoPage = ({education}) => {
                                 <img src={pricePlan} className={"price"}/>
                                 <span className={"startDate"}>
                                 {/*<h3>Start date: <p>notify me</p></h3>*/}
-                            </span>
-                                <div
-                                    key={shortid.generate()}
-                                    dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                </span>
+                                <div key={shortid.generate()}
+                                     dangerouslySetInnerHTML={{__html: planItem.description}}>
                                 </div>
                                 <GetAccessButton/>
                             </li>
                         )}
+                    </ul>
+                </section>
+                <section className={"pricePlanMobile"} id={'takeCourseMobile'}>
+                    <h2>Price plans</h2>
+                    <ul className={"paidCardsContainer"}>
+                        <li className={"paidCard"}>
+                            <div className={"priceTitleBlock"}>
+                                <h3 className={"priceTitleMobile"}>FREE</h3>
+                                <span className={"startDateMobile"}>
+                                    {/*<h3>Start date: <p>notify me</p></h3>*/}
+                                    </span>
+                            </div>
+                            <div className={"priceDetails"}>
+                                <div className={"tab"}>
+                                    <input type={"checkbox"} id={"freePrice"}/>
+                                    <label className={"tab-label"} htmlFor={"freePrice"}>Details</label>
+                                    <div className={"tab-content"}>
+                                        <ul>
+                                            <li>small-group format (up to 6 students);</li>
+                                            <li>short course (2 weeks only);</li>
+                                            <li>mentor's assistance;</li>
+                                            <li>practical assignments similar to the tasks of real projects;</li>
+                                            <li>check of home assignment;</li>
+                                            <li>employment in UDS Systems;</li>
+                                            <li> we recruit a group of students only two times a year (when the need to
+                                                expand current projects arises).
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={"priceDescription"}>
+                                <p>Free plan is designated for everyone willing and eager to become a member of UDS
+                                    team.</p>
+                            </div>
+                            <img src={pricePlanMobile} className={"priceMobile"}/>
+                            <GetAccessButton/>
+                        </li>
                     </ul>
                 </section>
                 <section className={"educationFAQ"}>
