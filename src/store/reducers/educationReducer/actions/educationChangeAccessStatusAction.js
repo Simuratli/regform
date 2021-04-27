@@ -7,7 +7,7 @@ export const changeEducationAccessStatus = (courseSlug) => {
     return (dispatch) => {
         httpClient
             .patch(`/education/courses/${courseSlug}/permission-state/call-for-access`, {
-                "permission": "Pending"
+                "permission": "Allowed"
             })
             .then((res) => {
                 dispatch({ type: CHANGE_EDUCATION_ACCESS_STATUS, payload: res.data });

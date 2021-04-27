@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import orangeElement from "../../assets/images/orange_element.svg";
+import orangeElement from "../../assets/images/education/gradient_orange_element.svg";
 import "../../scss/education/educationCardsPage.scss";
 import mentors from "../../assets/images/education/mentors_icon.svg";
 import structure from "../../assets/images/education/structure_icon.svg";

@@ -1,12 +1,9 @@
 import React from "react";
 import "../../scss/education/videoComponent.scss";
 import YouTube from "react-youtube";
-import download from "../../assets/images/education/docx_icon.svg";
 
-const EducationVideoLessons = ({video}) => {
+const EducationVideoLessons = ({video, activeBlock}) => {
     //TODO: be attention about url
-    console.log(video, "VIDEVAVA")
-
     const {
         description,
         courseVideoUrl,
@@ -21,6 +18,8 @@ const EducationVideoLessons = ({video}) => {
         attachmentUrls = []
     } = video;
 
+    console.log(activeBlock, "kwjsenfkjwbefkjbwekf")
+
     return (
         <>
             <div className="generalVideo">
@@ -34,29 +33,38 @@ const EducationVideoLessons = ({video}) => {
                             },
                         }}
                     />
-                    <section className={"author"}>
-                        <img src={imageSource} alt={alternateText}/>
-                        <div className={"authorInfo"}>
-                            <h5>Author</h5>
-                            <h4>{firstName}</h4>
-                        </div>
-                    </section>
+                    <div className={"underVideoBlock"}>
+                            <section className={"locationLearnProcess"}>
+                                <h5>Block {activeBlock.toString()}</h5>
+                                <h4>{video.header}</h4>
+                            </section>
+                        <section className={"author"}>
+                            <img src={imageSource} alt={alternateText}/>
+                            <div className={"authorInfo"}>
+                                <h5>Author</h5>
+                                <h4>{firstName}</h4>
+                            </div>
+                        </section>
+                    </div>
+
                     <p className={"videoDescription"}>{description}</p>
                     {attachmentUrls.length > 0
                         ?
                         <div className={"attachments"}>
                             <h3 className={"attachmentsHeadingParagraph"}>Attached Files</h3>
                             <div className={"attachment"}>
-                                {/*<img src={download} alt={"Download"}/>*/}
                                 {attachmentUrls.map(attachment => <a href={attachment} download>
-                                    Name of the Attachment.docx
+                                    Block_{activeBlock.toString()}_practice.pdf
                                     <span className={"attachmentSize"}>1.1mb</span>
                                 </a>)}
 
                             </div>
                         </div>
                         :
-                        <h4>Here is no Attachment</h4>
+                        <div className={"noAttachments"}>
+                            <h3 className={"attachmentsHeadingParagraph"}>Attached Files</h3>
+                            <h4>No homework this time. Have a cup of tea and rest.</h4>
+                        </div>
                     }
 
                 </div>

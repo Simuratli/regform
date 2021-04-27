@@ -27,9 +27,12 @@ const EducationVideoLessons = ({education}) => {
     })
 
     const [activeVideo, setActiveVideo] = useState(null);
+    const [activeSection, setActiveSection] = useState(null);
+    // const [active, setActiveVideo] = useState(null);
 
     if (activeVideo === null) {
         setActiveVideo(courseForPageBlockSections[0].courseForPageBlockSections[0])
+        setActiveSection(courseForPageBlockSections[0].position)
     }
 
     const chooseVideo = (e) => {
@@ -39,6 +42,7 @@ const EducationVideoLessons = ({education}) => {
         const section = courseForPageBlockSections.filter(item => item.position.toString() === sectionPosition).shift()
         const video = section.courseForPageBlockSections.filter(item => videoPosition === item.position.toString()).shift()
         setActiveVideo(video)
+        setActiveSection(sectionPosition)
     }
 
     const {slug} = useParams();
@@ -51,7 +55,7 @@ const EducationVideoLessons = ({education}) => {
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>
                 <section className={"videoContent"}>
                     <div className={"leftBar"}>
-                        <VideoComponent video={activeVideo}/>
+                        <VideoComponent video={activeVideo} activeBlock={activeSection}/>
                     </div>
                     <div className={"rightBar"}>
                         <div className={"videoSections"}>
@@ -67,7 +71,7 @@ const EducationVideoLessons = ({education}) => {
                                                     <li className={"video"} onClick={chooseVideo}
                                                         sectionPosition={section.position}
                                                         videoPosition={video.position}>
-                                                        {video.position.toString()}. {video.header}
+                                                        <span>{video.position.toString()}. </span>{video.header}
                                                     </li>
                                                 </ul>
                                             )}
@@ -78,9 +82,79 @@ const EducationVideoLessons = ({education}) => {
                         </div>
                     </div>
                 </section>
+                <section className={"videoContentMobile"}>
+                        <MobileVideoTabs blockVideos={courseForPageBlockSections}/>
+                </section>
             </div>
         </>
     );
 };
 
+
+
+function MobileVideoTabs({blockVideos}) {
+    const [ activeTab, setActiveTab ] = useState(null);
+
+    const TabContent = ({ title, content }) => (
+        <div className="blockTabContent">
+            {content}
+        </div>
+    );
+
+    if (activeTab === null) {
+        setActiveTab(0)
+    }
+
+
+    const videoItems = blockVideos.map( (block) =>{
+        return {
+            title: 'Block ' + block.position,
+            content: <div className={"blockVideoList"}>
+                <h5 className={"blockHeader"}>{block.header}</h5>
+                {block.courseForPageBlockSections.map(videoBlock =>
+                <div className={"tab"}>
+                    <input type={"radio"} id={'mob'+videoBlock.position} name="rd"/>
+                    <label className={"tab-label"}
+                           htmlFor={'mob'+videoBlock.position}><span>{videoBlock.position}.</span> {videoBlock.header}</label>
+                    <div className={"tab-content"}>
+                        <VideoComponent video={videoBlock} activeBlock={block.position}/>
+                    </div>
+                </div>
+                )}
+            </div>
+        }
+    })
+
+    const openTab = e => setActiveTab(+e.target.dataset.index);
+
+    return (
+        <div className={"mobileVideoBlocks"}>
+            <div className={"tabBar"}>
+                {videoItems.map((tabName, index) => (
+                    <button
+                        className={`tabLinks ${index === activeTab ? 'active' : ''}`}
+                        onClick={openTab}
+                        data-index={index}
+                    >{tabName.title}</button>
+                ))}
+            </div>
+            {videoItems[activeTab] && <TabContent {...videoItems[activeTab]} />}
+        </div>
+    );
+}
+
+
+
 export default EducationVideoLessons;
+
+// For scroll
+//
+// onClick={(e) => {
+//     const input = document.getElementById(section.position);
+//     const list = document.getElementsByClassName('videoSections')[0];
+//     console.log(input.getBoundingClientRect())
+//     list.style.paddingBottom = input.getBoundingClientRect().y + 'px';
+//     list.scrollIntoView(false);
+//     console.log(list.getBoundingClientRect().height,  input.y)
+// }
+// }

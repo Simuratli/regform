@@ -8,9 +8,10 @@ import { FilterAddonsComponent } from "../FilterAddonsComponent/FilterAddonCompo
 import { setError } from "../../store/reducers/appReducer/actions/appAction";
 import isEmpty from "lodash/isEmpty";
 import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
-import MetaTags from "react-meta-tags/dist/react-meta-tags.es";
 import Metadata from "../Metadata/MetadataComponent";
 import ModalMobileNotification from "../Modal/ModalMobileNotification";
+import AddonPaginationCont from "../views/AddonPaginationCont";
+import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 
 const AddonsCardsPage = () => {
   const [modalActive, setModalActive] = useState(true)
@@ -19,11 +20,15 @@ const AddonsCardsPage = () => {
   const { app } = state;
   const { error } = app;
   const { addonsMetadata } = state.metadata;
+  const cards = useSelector(({addon}) => addon.cards)
 
   useEffect(() => {
     document.title = "Add-ons | UDS Portal";
     dispatch(getAddonMetadata())
+    dispatch(getAddonCard());
   }, []);
+
+  console.log("aaddd", cards);
 
   useEffect(() => {
     !isEmpty(error) && dispatch(setError({}));
@@ -43,12 +48,12 @@ const AddonsCardsPage = () => {
           <FormattedMessage id="improve.dynamics.text" />
         </p>
       </div>
-      <FilterAddonsComponent />
+      <FilterAddonsComponent cards={cards} />
       <div className={"card"}>
         <AddonCardContainer />
       </div>
 
-      {/*<AddonPaginationCont />*/}
+      <AddonPaginationCont />
     </div>
   );
 };

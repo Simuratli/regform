@@ -36,10 +36,12 @@
   .downloadButton {
     margin-top: 30px;
     max-width: 227px;
+    border: none;
+    @include orangeGradient;
   }
 }
 
-.menu-item-wrapper{
+.menu-item-wrapper {
   height: 372px;
 }
 
@@ -58,6 +60,7 @@
   background-size: 103%;
   background-position: 0 -14px;
   transition: all 0.3s ease-in-out;
+
   &:hover {
     border: 10px solid #F2F3FF;
     box-shadow: 0px 3px 6px rgba(235, 164, 82, 0.08), 0px 6px 12px rgba(14, 31, 53, 0.12), 0px 14px 24px rgba(14, 31, 53, 0.08);

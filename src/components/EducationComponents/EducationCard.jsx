@@ -1,7 +1,9 @@
 import React from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
-import courseLogo from "../../assets/images/courseLogo.svg";
+import courseLogo from "../../assets/images/ms_consultant_logo.svg";
+
+
 
 const EducationCard = ({educationCard}) => {
     const {
@@ -36,7 +38,7 @@ const EducationCard = ({educationCard}) => {
                             <button className={"moreInfoButton"}>More info</button>
                             <ul>
                                 <li className={"appointment"}>{courseSubject}</li>
-                                <li className={"duration"}>{duration} WEEKS LONG</li>
+                                <li className={"duration"}>{duration} Weeks long</li>
                             </ul>
                         </div>
                     </div>
