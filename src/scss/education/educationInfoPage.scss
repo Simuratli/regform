@@ -894,9 +894,6 @@ ul {
       line-height: 130%;
     }
   }
-  //.educationTopWrapper {
-  //  background-color: #FCFDFF;
-  //}
   .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
     @include screen500;
   }
@@ -932,6 +929,13 @@ ul {
 
       h2 {
         margin-top: 30px;
+      }
+      .topBar{
+        ul{
+          li{
+            width: 169px;
+          }
+        }
       }
 
       .contentBar {
@@ -1092,6 +1096,15 @@ ul {
   }
   .certification {
     background: #ffffff;
+    .certificationContent{
+      @include screen500;
+      p{
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 140%;
+        text-align: left;
+      }
+    }
 
     h2 {
       margin-top: 0;
@@ -1183,6 +1196,8 @@ ul {
     .paidCard {
       display: flex;
       flex-direction: column;
+      border-top: 1px solid #E3E3E3;
+      border-bottom: 1px solid #E3E3E3;
 
       .priceTitleBlock {
         padding: 0 20px;
@@ -1301,6 +1316,7 @@ ul {
       .getAccessButton {
         max-width: 370px;
         width: 100%;
+        margin-bottom: 20px;
       }
     }
   }
@@ -1333,8 +1349,13 @@ ul {
 }
 
 @media screen and (max-width: 375px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .certification, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
     @include screen400;
+  }
+  .certification{
+    .certificationContent{
+      @include screen400;
+    }
   }
   .learnInfo {
     .learnInfoContent {
@@ -1342,6 +1363,9 @@ ul {
     }
   }
   .syllabusMobile {
+    @include screen400;
+  }
+  .pricePlanMobile{
     @include screen400;
   }
   .educationFAQ {

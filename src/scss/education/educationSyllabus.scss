@@ -34,7 +34,7 @@
   }
 
   .downloadButton {
-    margin-top: 30px;
+    margin-top: 50px;
     max-width: 227px;
     border: none;
     @include orangeGradient;
@@ -42,14 +42,14 @@
 }
 
 .menu-item-wrapper {
-  height: 372px;
+  height: 260px;
 }
 
 .menu-item {
   cursor: grab;
   box-sizing: border-box;
   width: 264px;
-  height: 336px;
+  height: 260px;
   white-space: normal;
   margin-right: 20px;
   list-style-type: none;

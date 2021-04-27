@@ -172,11 +172,11 @@ const AddonFullPage = ({ addon, intl, children }) => {
           </AnimatedContainer>
           <div className="headerRightSide">
             <div className="videoTutorial">
-              {/*<img*/}
-              {/*  src={get(cardLogo, "imageSource")}*/}
-              {/*  alt={get(cardLogo, "alternateText")}*/}
-              {/*/>*/}
-              <img src={gif}/>
+              <img
+                src={get(cardLogo, "imageSource")}
+                alt={get(cardLogo, "alternateText")}
+              />
+              {/*<img src={gif}/>*/}
             </div>
           </div>
         </section>
