@@ -10,6 +10,11 @@
     border: none;
     padding: 0;
     box-sizing: border-box;
+    box-shadow: none;
+    &:hover{
+        background: #FFFFFF;
+    }
+
     div{
         width: 20px;
         height: 2px;

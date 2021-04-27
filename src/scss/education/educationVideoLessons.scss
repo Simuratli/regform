@@ -141,7 +141,7 @@
             span{
               font-size: 30px;
               line-height: 32px;
-              color: #E8EBFE;
+              color: $dark-bg;
               transition: all 0.3s ease-in-out;
             }
 
@@ -250,7 +250,7 @@
           span{
             font-size: 30px;
             line-height: 32px;
-            color: #E8EBFE;
+            color: $dark-bg;
           }
 
           &-label {

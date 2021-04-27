@@ -8,6 +8,8 @@ $blue-black: #1E2432;
 $education-text-color: #696D8C;
 $white-blue: #FCFDFF;
 $light_bg: #f9faff;
+$dark-bg: #E8EBFE;
+$card-hover-bg: #F8F9FF;
 $soft-orange: #FFB178;
 
 @mixin bigScreen {
@@ -15,40 +17,48 @@ $soft-orange: #FFB178;
   max-width: 1146px;
   margin: auto;
 }
+
 @mixin screen1350 {
   width: 1050px;
   margin: auto;
 }
+
 @mixin screen1200 {
   width: 950px;
   margin: auto;
 }
+
 @mixin screen1024 {
   width: 768px;
   margin: auto;
 }
+
 @mixin screen880 {
   width: 700px;
   margin: auto;
 }
+
 @mixin screen768 {
   width: 500px;
   margin: auto;
 }
+
 @mixin screen500 {
   width: 370px;
   margin: auto;
 }
+
 @mixin screen400 {
   width: 345px;
   margin: auto;
 }
+
 //@mixin screen375 {
 //  width: 334px;
 //  margin: auto;
 //}
 
-@mixin paragraphForBlocksOnFullPage{
+@mixin paragraphForBlocksOnFullPage {
   padding: 2rem 10rem;
   font-weight: 600;
   font-size: 18px;
@@ -58,17 +68,25 @@ $soft-orange: #FFB178;
   background-color: $light-blue;
 }
 
-@mixin gradientTitleViolet{
+@mixin gradientTitleViolet {
   color: transparent;
   -webkit-background-clip: text;
   background-image: linear-gradient(321deg, rgba(87, 85, 170, 0.6) 57%, rgba(168, 163, 208, 2.6) 15%, rgba(138, 135, 164, 3.6) 98%);
 }
-@mixin gradientTitleGray{
+
+@mixin gradientTitleBlue {
   color: transparent;
   -webkit-background-clip: text;
-  background-image: linear-gradient(321deg, rgba(119,127,154,1) 0%, rgba(206,210,226,1) 61%);
+  background-image: linear-gradient(321deg, rgba(13, 59, 124, 0.8) 40%, rgba(97, 143, 208, 0.9) 75%);
 }
-@mixin orangeGradient{
+
+@mixin gradientTitleGray {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(321deg, rgba(119, 127, 154, 1) 0%, rgba(206, 210, 226, 1) 61%);
+}
+
+@mixin orangeGradient {
   background: linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
 }
 
@@ -88,6 +106,31 @@ button {
     background: $orange;
   }
 }
+.watchCourseButton {
+  width: 170px;
+  height: 40px;
+  border: none;
+  font-weight: 700;
+  @include orangeGradient;
+
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+  }
+}
+.getAccessButton {
+  max-width: 170px;
+  width: 100%;
+  height: 40px;
+  color: #FFFFFF;
+  outline: none;
+  font-weight: 600;
+  transition: ease-in-out .3s;
+  border: none;
+  @include orangeGradient;
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+  }
+}
 
 a {
   text-decoration: none;
@@ -102,39 +145,61 @@ ul li {
   max-width: 130px;
   width: 100%;
   height: 40px;
-  border: 1px solid $orange;
-  background-color: $orange;
-  font-family: Montserrat;
+  @include orangeGradient;
   color: #FFFFFF;
   outline: none;
   font-weight: 600;
   transition: ease-in-out .3s;
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+  }
 }
 
 .openButton {
   width: 130px;
   height: 40px;
-  border: 1px solid $orange;
-  background-color: $orange;
-  font-family: Montserrat;
+  border: none;
   color: #FFFFFF;
   outline: none;
   font-weight: 600;
   transition: ease-in-out .3s;
   text-align: center;
+  @include orangeGradient;
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+  }
 }
+.takeCourseButton {
+  max-width: 280px;
+  width: 100%;
+  height: 40px;
+  border: none;
+  @include orangeGradient;
+  font-family: Montserrat, sans-serif;
+  color: #FFFFFF;
+  outline: none;
+  font-weight: 600;
+  transition: ease-in-out .3s;
+  margin-top: 29px;
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+  }
+}
+
 @font-face {
   font-family: "Gilroy";
   src: local('Gilroy-Bold'), url(../../assets/fonts/Gilroy/Gilroy-ExtraBold.otf) format('truetype');
   font-weight: 800;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Gilroy";
   src: local('Gilroy-Light'), url(../../assets/fonts/Gilroy/Gilroy-Light.otf) format('truetype');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: "Gilroy";
   src: local('Gilroy-SemiBold'), url(../../assets/fonts/Gilroy/Gilroy-SemiBold.ttf) format('truetype');

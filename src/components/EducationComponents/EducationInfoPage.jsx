@@ -13,6 +13,8 @@ import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
+import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const EducationInfoPage = ({education}) => {
 
@@ -42,6 +44,7 @@ const EducationInfoPage = ({education}) => {
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
     }, [header]);
+    const { educationAccessStatus} = useSelector(({education}) => education);
 
     return (
         <>
@@ -69,7 +72,7 @@ const EducationInfoPage = ({education}) => {
                                     <img className={"listItemLogo"} src={intensity} alt={"Intensity"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Intensity</h4>
-                                        <p>Theory: {theory} hours<br/> + practice</p>
+                                        <p>Theory: {theory} hr<br/> + practice</p>
                                     </div>
                                 </li>
                                 <li>
@@ -122,9 +125,16 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
-                            <a href={'#takeCourse'}>
-                                <button className={"takeCourseButton"}>Take Course</button>
-                            </a>
+                            {educationAccessStatus.coursePermissionState === "Allowed"
+                                ?
+                                <NavLink to={"/education/" + slug + "/free-course"}>
+                                    <button className={"watchCourseButton"}>Watch course</button>
+                                </NavLink>
+                                :
+                                <a href={'#takeCourse'}>
+                                    <button className={"takeCourseButton"}>Take Course</button>
+                                </a>
+                            }
                         </section>
                     </div>
                 </section>

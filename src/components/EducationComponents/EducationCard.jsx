@@ -30,12 +30,14 @@ const EducationCard = ({educationCard}) => {
                         <h5>{name}</h5>
                         <p>{shortDescription}</p>
                         <div className={"cardBottomInfo"}>
-                            {coursePermissionState === "Allowed" &&
-                            <NavLink to={"/education/" + slug + "/free-course"}>
-                                <button className={"watchCourseButton"}>Watch course</button>
-                            </NavLink>
-                            }
-                            <button className={"moreInfoButton"}>More info</button>
+                            <div className={"courseButtons"}>
+                                {coursePermissionState === "Allowed" &&
+                                <NavLink to={"/education/" + slug + "/free-course"}>
+                                    <button className={"watchCourseButton"}>Watch course</button>
+                                </NavLink>
+                                }
+                                <button className={"moreInfoButton"}>More info</button>
+                            </div>
                             <ul>
                                 <li className={"appointment"}>{courseSubject}</li>
                                 <li className={"duration"}>{duration} Weeks long</li>
