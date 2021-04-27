@@ -53,7 +53,7 @@ const AddonsCardsPage = () => {
         <AddonCardContainer />
       </div>
 
-      <AddonPaginationCont />
+      {/*<AddonPaginationCont />*/}
     </div>
   );
 };
