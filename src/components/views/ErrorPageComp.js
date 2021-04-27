@@ -31,7 +31,7 @@ const ErrorComp = styled.div`
     line-height: 219px;
     text-align: center;
     text-transform: uppercase;
-    color: #383680;
+    color: #1A4F95;
   }
 
   .text {
@@ -41,7 +41,7 @@ const ErrorComp = styled.div`
     line-height: 56px;
     text-align: center;
     letter-spacing: -0.2px;
-    color: #383680;
+    color: #1A4F95;
   }
 
   .btn {

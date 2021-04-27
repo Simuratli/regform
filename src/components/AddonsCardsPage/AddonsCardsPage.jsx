@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import "../../scss/addonsCardsPage/addonsCardsPage.scss";
-import orangeElement from "../../assets/images/orange_element.svg";
+import orangeElement from "../../assets/images/education/gradient_orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { FormattedMessage } from "react-intl";
@@ -8,7 +8,6 @@ import { FilterAddonsComponent } from "../FilterAddonsComponent/FilterAddonCompo
 import { setError } from "../../store/reducers/appReducer/actions/appAction";
 import isEmpty from "lodash/isEmpty";
 import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
-import MetaTags from "react-meta-tags/dist/react-meta-tags.es";
 import Metadata from "../Metadata/MetadataComponent";
 
 const AddonsCardsPage = () => {

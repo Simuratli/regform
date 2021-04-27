@@ -39,9 +39,9 @@ const PaginationCont = styled.div`
     justify-content: center;
     align-items: center;
     margin: 0 5px;
-    border: 1px solid #383680;
+    border: 1px solid #1A4F95;
     font-weight: 500;
-    color: #383680;
+    color: #1A4F95;
 
     &:hover {
       cursor: pointer;
@@ -49,7 +49,7 @@ const PaginationCont = styled.div`
   }
 
   .current {
-    background: #383680;
+    background: #1A4F95;
     font-weight: 700;
     color: #fff;
   }

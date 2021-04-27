@@ -27,7 +27,7 @@ const LoaderComponent = styled.div`
   .box1,
   .box2,
   .box3 {
-    border: 16px solid #383680;
+    border: 16px solid #1A4F95;
     box-sizing: border-box;
     position: absolute;
     display: block;

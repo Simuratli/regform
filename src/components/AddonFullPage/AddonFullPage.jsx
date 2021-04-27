@@ -12,6 +12,7 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import { ButtonLoader } from "../views/ButtonLoader";
 import YouMayAlsoLikeContainer from "../../containers/YouMayAlsoLikeContainer";
+import gif from "../../assets/images/BH_gif.gif"
 
 const AddonFullPage = ({ addon, intl, children }) => {
   const state = useSelector((state) => state);
@@ -171,10 +172,11 @@ const AddonFullPage = ({ addon, intl, children }) => {
           </AnimatedContainer>
           <div className="headerRightSide">
             <div className="videoTutorial">
-              <img
-                src={get(cardLogo, "imageSource")}
-                alt={get(cardLogo, "alternateText")}
-              />
+              {/*<img*/}
+              {/*  src={get(cardLogo, "imageSource")}*/}
+              {/*  alt={get(cardLogo, "alternateText")}*/}
+              {/*/>*/}
+              <img src={gif}/>
             </div>
           </div>
         </section>
