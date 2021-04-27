@@ -64,19 +64,17 @@
 .acceptButton {
   width: 100px;
   height: 35px;
-  background-color: $orange !important;
+  background: linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%) !important;
+  box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08)!important;
   color: #ffffff !important;
-  font-family: Montserrat;
   font-weight: 700;
   transition: all 0.3s;
   font-size: 14px !important;
   line-height: 17px !important;
   letter-spacing: 0.4px !important;
-  //&:hover {
-  //  -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-  //  -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-  //  box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38) !important;
-  //}
+  &:hover {
+    background: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%) !important;
+  }
 }
 .declineButton {
   display: none;
