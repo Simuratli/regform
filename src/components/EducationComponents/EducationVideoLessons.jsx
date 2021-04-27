@@ -146,3 +146,15 @@ function MobileVideoTabs({blockVideos}) {
 
 
 export default EducationVideoLessons;
+
+// For scroll
+//
+// onClick={(e) => {
+//     const input = document.getElementById(section.position);
+//     const list = document.getElementsByClassName('videoSections')[0];
+//     console.log(input.getBoundingClientRect())
+//     list.style.paddingBottom = input.getBoundingClientRect().y + 'px';
+//     list.scrollIntoView(false);
+//     console.log(list.getBoundingClientRect().height,  input.y)
+// }
+// }

@@ -1,8 +1,9 @@
 import React, {useEffect, useRef, useState} from "react";
 import "../../scss/addonsCardsPage/addonsCardsPage.scss";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {FormattedMessage} from "react-intl";
 import {setAddonsSortBy} from "../../store/reducers/appReducer/actions/appAction";
+import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 
 function useOutsideAlerter(ref) {
     const [isOutsideClick, setIsOutsideClick] = useState(false);
@@ -25,8 +26,9 @@ function useOutsideAlerter(ref) {
     return {isOutsideClick, setIsOutsideClick};
 }
 
-export const FilterAddonsComponent = () => {
+export const FilterAddonsComponent = ({cards}) => {
     const [isOpenSelect, setIsOpenSelect] = useState(false);
+
 
     const [sortBy, setSortBy] = useState(
         localStorage.getItem("sortAddonsBy") || "All"
@@ -37,27 +39,34 @@ export const FilterAddonsComponent = () => {
 
     const {isOutsideClick, setIsOutsideClick} = useOutsideAlerter(wrapperRef);
 
+  // const cards = useSelector(({addon}) => addon.cards)
+  const types = ["All"];
+
+  useEffect(() => {
+    [...cards].map(card => {
+      if (types.indexOf(card.applicationType)) {
+        types.push(card.applicationType)
+      }
+    })
+  }, [cards]);
+
     useEffect(() => {
         isOutsideClick && setIsOpenSelect(false);
     }, [isOutsideClick]);
 
-    const sortData  =  [
-        {type: "All", name: "All"},
-        {type: "Dynamics 365", name: "Dynamics 365"},
-        {type: "Portal", name: "Portal   "},
-    ].map(({type, name}) => {
+    const sortData  =  types.map((type) => {
         return (
             <div key={type}
                  className={`row  ${type === sortBy && "chosen"}`}
                  onClick={(e) => {
                      e.stopPropagation();
                      setIsOpenSelect(false);
-                     setSortBy(name);
+                     setSortBy(type);
                      dispatch(setAddonsSortBy(type));
                      localStorage.setItem("sortAddonsBy", type);
                  }}>
                 <div>
-                    <p className="type">{name}</p>
+                    <p className="type">{type}</p>
                 </div>
             </div>
         );

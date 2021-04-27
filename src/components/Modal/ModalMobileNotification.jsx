@@ -9,7 +9,7 @@ import {useCookies} from "react-cookie";
 const ModalMobileNotification = ({setActive}) => {
 
     const [cookies, setCookie] = useCookies(['userHasGotTheInformation']);
-    const userHasGotInfo = () =>{
+    const userHasGotInfo = () => {
         setActive(false);
         setCookie('userHasGotTheInformation', true)
     }

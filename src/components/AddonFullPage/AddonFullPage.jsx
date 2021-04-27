@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "../../scss/addonFullPage/addonfullpage.scss";
 import YouTube from "react-youtube";
@@ -12,9 +12,11 @@ import { FormattedMessage, injectIntl } from "react-intl";
 import { getDownloadFile } from "../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import { ButtonLoader } from "../views/ButtonLoader";
 import YouMayAlsoLikeContainer from "../../containers/YouMayAlsoLikeContainer";
-import gif from "../../assets/images/BH_gif.gif"
+import ModalMobileNotification from "../Modal/ModalMobileNotification";
+
 
 const AddonFullPage = ({ addon, intl, children }) => {
+  const [modalActive, setModalActive] = useState(true)
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { file } = state;
@@ -114,6 +116,7 @@ const AddonFullPage = ({ addon, intl, children }) => {
 
   return (
     <div className="addonFullPage">
+      <ModalMobileNotification setActive={setModalActive}/>
       {children}
       <div className="headerWrapper" style={{ maxWidth: "4000px" }}>
         <section className="header">

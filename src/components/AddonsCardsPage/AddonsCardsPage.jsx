@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 import "../../scss/addonsCardsPage/addonsCardsPage.scss";
 import orangeElement from "../../assets/images/education/gradient_orange_element.svg";
 import AddonCardContainer from "../../containers/AddonCardContainer";
@@ -9,18 +9,26 @@ import { setError } from "../../store/reducers/appReducer/actions/appAction";
 import isEmpty from "lodash/isEmpty";
 import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
 import Metadata from "../Metadata/MetadataComponent";
+import ModalMobileNotification from "../Modal/ModalMobileNotification";
+import AddonPaginationCont from "../views/AddonPaginationCont";
+import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 
 const AddonsCardsPage = () => {
+  const [modalActive, setModalActive] = useState(true)
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const { app } = state;
   const { error } = app;
   const { addonsMetadata } = state.metadata;
+  const cards = useSelector(({addon}) => addon.cards)
 
   useEffect(() => {
     document.title = "Add-ons | UDS Portal";
     dispatch(getAddonMetadata())
+    dispatch(getAddonCard());
   }, []);
+
+  console.log("aaddd", cards);
 
   useEffect(() => {
     !isEmpty(error) && dispatch(setError({}));
@@ -28,6 +36,7 @@ const AddonsCardsPage = () => {
 
   return (
     <div className="main_container">
+      <ModalMobileNotification setActive={setModalActive}/>
       <Metadata metadata={addonsMetadata}/>
 
       <div className="generalTitleBlock">
@@ -39,12 +48,12 @@ const AddonsCardsPage = () => {
           <FormattedMessage id="improve.dynamics.text" />
         </p>
       </div>
-      <FilterAddonsComponent />
+      <FilterAddonsComponent cards={cards} />
       <div className={"card"}>
         <AddonCardContainer />
       </div>
 
-      {/*<AddonPaginationCont />*/}
+      <AddonPaginationCont />
     </div>
   );
 };
