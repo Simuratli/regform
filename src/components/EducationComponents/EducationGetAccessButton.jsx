@@ -1,7 +1,7 @@
 import React, {memo, useEffect, useState} from "react"
 import { NavLink, useParams } from "react-router-dom";
-import PendingGetAccessModal from "../Modal/PendingGetAccessModal";
 import  { useSelector } from "react-redux";
+import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModal";
 
 const GetAccessButton = () => {
     const { educationAccessStatus} = useSelector(({education}) => education);

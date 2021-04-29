@@ -1,0 +1,239 @@
+@import "../utils/utils";
+
+.nav-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-right: 40px;
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 700;
+  color: $gray;
+  letter-spacing: 0.5px;
+  transition: opacity 150ms ease-in-out;
+  position: relative;
+}
+
+.nav-link:not(.active)::before {
+  content: "";
+  display: block;
+  height: 3px;
+  background: $orange;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  transform: scale(0, 1);
+  transition: transform 250ms ease-in-out;
+}
+
+.nav-link-last:not(.active)::before {
+  display: none;
+}
+
+.nav-link:hover::before {
+  transform: scale(1, 1);
+}
+.fullWidthWrapper {
+  //width: 100vh;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  z-index: 10000;
+}
+.navigationBar {
+  font-family: Montserrat;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 1.2rem 0;
+
+  @include bigScreen;
+
+  .rightBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .active {
+    border-bottom: 3px solid $orange;
+  }
+
+  .navItems {
+    .navLinks {
+      display: flex;
+      list-style-type: none;
+      align-items: center;
+
+      .bookACall {
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        line-height: 15px;
+        font-weight: 700;
+        border: transparent;
+        color: #ffffff;
+        padding: 7px 12.3px;
+        transition: all ease-in-out 0.3s;
+        letter-spacing: 0.5px;
+        z-index: 1000;
+        height: 30px;
+        width: 143px;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E"), linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
+        background-position: 91%;
+        background-repeat: no-repeat;
+        box-shadow: none;
+        &:hover{
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E"), linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+        }
+      }
+    }
+  }
+
+  .logOut {
+    width: 17px;
+    height: 16px;
+    cursor: pointer;
+    color: $gray;
+    transition: ease-out 0.2s;
+    margin-left: 1rem;
+    margin-right: 0;
+    display: block;
+    margin-bottom: 2px;
+
+    &:hover, &:active {
+      box-shadow: none;
+      transform: scale(1.1);
+      filter: blur(none);
+    }
+  }
+
+  .change-lang-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 160px;
+    padding: 0 20px;
+    height: 30px;
+    margin: 0 30px 0 20px;
+    background: #f2f3f9;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .lang-title {
+      text-transform: uppercase;
+      margin: 0 0 0 15px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+
+  .custom-select {
+    width: 230px;
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    overflow: hidden;
+
+    .row {
+      padding: 0 20px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #fefefe;
+
+      &:hover {
+        background: #f2f3f9;
+      }
+    }
+
+    .choosen {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      color: #1A4F95;
+      background: #f2f3f9;
+    }
+
+    .row:last-of-type {
+      border: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 1350px) {
+  .navigationBar {
+    padding: 15px 0;
+    @include screen1350;
+  }
+  .logOut {
+    margin-right: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .navigationBar {
+    @include screen1200;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .headerLogo {
+    width: 99px;
+    height: auto;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .navigationBar {
+    @include screen1024;
+  }
+}
+
+@media only screen and (max-width: 880px) {
+  .navigationBar {
+    @include screen880;
+  }
+}
+@media screen and (max-width: 768px) {
+  .headerLogo {
+    width: 66px;
+    height: auto;
+  }
+  .navigationBar {
+    padding: 0;
+    height: 60px;
+  }
+  .navItems {
+    display: none;
+  }
+}
+@media screen and (max-width: 700px) {
+  .navigationBar {
+    @include screen768;
+  }
+}
+@media screen and (min-width: 769px) {
+  .mainNavToggleButton {
+    display: none;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .navigationBar {
+    @include screen500;
+  }
+}
+@media only screen and (max-width: 415px) {
+  .navigationBar {
+    @include screen400;
+  }
+}

@@ -12,9 +12,9 @@ import "react-app-polyfill/stable";
 import "./config/authentication";
 import "./assets/fonts/fonts.css";
 import authentication from "./b2c";
-import ScrollToTop from "./components/ScrollToTop/ScrollToTop";
 import IntelProviderWrapper from "./Intl/IntlProvider";
 import { hotjar } from "react-hotjar";
+import ScrollToTop from "./components/NavigationComponents/ScrollToTop/ScrollToTop";
 
 function initializeApp(App, store) {
   Webfont.load({

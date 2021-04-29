@@ -1,0 +1,115 @@
+@import "../../utils/utils";
+
+.bottomCards {
+  width: 100%;
+  max-width: 1000px;
+  text-align: center;
+  margin: auto;
+
+  .firstCard {
+    margin-right: 50px;
+  }
+}
+
+.carousel.carousel-slider {
+  .control-arrow:hover {
+    background: none !important;
+  }
+}
+
+.addon {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel .control-dots {
+  bottom: 40px;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+.carousel .control-prev.control-arrow:before {
+  border-right: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M28.2625 30.725L22.5375 25L28.2625 19.2625L26.5 17.5L19 25L26.5 32.5L28.2625 30.725Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+  &:focus, &:active{
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.carousel .control-next.control-arrow:before {
+  border-left: none !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect opacity='0.2' width='50' height='50'/%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M20.9992 18.775L26.7242 24.5L20.9992 30.2375L22.7617 32L30.2617 24.5L22.7617 17L20.9992 18.775Z' fill='white'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50' fill='none'%3E%3Crect opacity='0.2' width='50' height='50' fill='white'/%3E%3Crect x='0.5' y='0.5' width='49' height='49' stroke='white'/%3E%3Cpath d='M20.9992 18.775L26.7242 24.5L20.9992 30.2375L22.7617 32L30.2617 24.5L22.7617 17L20.9992 18.775Z' fill='white'/%3E%3C/svg%3E");
+  }
+  &:focus, &:active{
+    outline: none;
+    background-color: transparent;
+  }
+}
+
+.carousel.carousel-slider {
+  .control-arrow {
+    margin: auto !important;
+  }
+}
+
+.carousel-status, .carousel .control-dots {
+  visibility: hidden !important;
+}
+
+.carousel.carousel-slider {
+  height: 580px;
+}
+
+@media screen and (max-width: 1024px) {
+  .bottomCards {
+    .firstCard{
+      margin-right: 68px;
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  .bottomCards {
+    max-width: 500px;
+  }
+  .addon {
+    max-width: 360px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .carousel.carousel-slider .control-arrow {
+    visibility: hidden;
+  }
+
+  .carousel .control-dots {
+    visibility: visible !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .bottomCards {
+    max-width: 350px;
+  }
+  .carousel .control-dots {
+    visibility: visible !important;
+  }
+
+  .carousel.carousel-slider .control-arrow {
+    visibility: hidden;
+  }
+}

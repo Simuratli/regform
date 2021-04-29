@@ -4,7 +4,7 @@ import "../../scss/education/educationCardsPage.scss";
 import mentors from "../../assets/images/education/mentors_icon.svg";
 import structure from "../../assets/images/education/structure_icon.svg";
 import certificate from "../../assets/images/education/certificate_icon.svg";
-import EducationCardContainer from "../../containers/EducationCardContainer";
+import EducationCardContainer from "../../containers/Education/EducationCardContainer";
 
 
 const EducationCardsPage = () => {

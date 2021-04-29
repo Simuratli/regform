@@ -1,0 +1,279 @@
+@import "../../utils/utils";
+
+.addonsCard {
+  background-size: 106%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='264' height='88' viewBox='0 0 264 88' fill='none'%3E%3Cpath opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M264 87.3742L0 37.5024V0H264' fill='url(%23paint0_linear)'/%3E%3Cpath opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M106.266 10.4297H253.543V43.6414L106.266 10.4297Z' fill='white'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='110' y1='84.9472' x2='110.804' y2='-4.91253' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F9FAFF'/%3E%3Cstop offset='1' stop-color='%23FDFDFE'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: -10px -10px;
+  background-color: #FFFFFF;
+  border: 10px solid $white-blue;
+  padding: 15px 25px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  height: 33rem;
+  width: 100%;
+  max-width: 360px;
+
+  &:hover {
+    border: 10px solid $dark-bg;
+    box-shadow: 0px 3px 6px rgba(235, 164, 82, 0.08), 0px 6px 12px rgba(14, 31, 53, 0.12), 0px 14px 24px rgba(14, 31, 53, 0.08);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='361' height='118' viewBox='0 0 361 118' fill='none'%3E%3Cg opacity='0.5'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M361 117.746L0 50.5385V0H361' fill='%23E8EBFE'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M149.41 10.0078H350.801V54.7641L149.41 10.0078Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: $card-hover-bg;
+  }
+
+  .cardLogo {
+    position: absolute;
+    top: 1rem;
+  }
+
+  .cardBody {
+    position: relative;
+    top: 4rem;
+    height: 75%;
+  }
+
+  .cardTitle {
+    position: absolute;
+    top: 0;
+    color: $blue;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: left;
+  }
+
+  .cardDescription {
+    position: absolute;
+    top: 4.5rem;
+    color: $card-text-color;
+    height: 182px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    white-space: normal;
+  }
+
+  .cardsButtons {
+    position: relative;
+    top: 13rem;
+    display: flex;
+    justify-content: space-between;
+
+    .downloadButton {
+      width: 130px;
+      margin: 0 0 0 40px;
+    }
+    .openButton{
+      margin-left: 40px;
+    }
+  }
+
+  .cardSubTitle {
+    text-transform: uppercase;
+    color: $orange;
+    position: relative;
+    top: 15rem;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+  }
+
+  .description {
+    display: flex;
+    justify-content: space-between;
+    color: $education-text-color;
+    position: relative;
+    top: 13rem;
+    font-size: 16px;
+    line-height: 20px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+
+  .moreInfoButton {
+    width: 130px;
+    height: 40px;
+    border: 2px solid $orange;
+    color: $orange;
+    font-family: Montserrat;
+    font-weight: bold;
+    background-color: #ffffff;
+    outline: none;
+    transition: ease-in-out 0.3s;
+
+    &:hover {
+      -webkit-box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
+      -moz-box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
+      box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
+    }
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .addonsCard {
+    .cardDescription {
+      font-size: 18px;
+    }
+
+    .cardTitle {
+      color: $blue;
+      font-size: 22px;
+    }
+
+    .description {
+      font-size: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .addonsCard {
+    .cardAction {
+      position: relative;
+      bottom: 34px;
+
+      .cardSubTitle {
+        font-size: 20px;
+        text-transform: uppercase;
+        color: $orange;
+        position: relative;
+        top: 40px;
+      }
+    }
+
+    .description {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: lighter;
+    }
+
+    .cardsButtons {
+      display: flex;
+      justify-content: space-between;
+
+      .downloadButton {
+        width: 122px;
+      }
+
+      .openButton {
+        width: 122px;
+      }
+
+      .moreInfoButton {
+        width: 122px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .addonsCard {
+    max-width: 472px;
+
+    .cardLogo {
+      .logo {
+        width: 80px;
+        height: auto;
+      }
+    }
+
+    .cardTitle {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    .cardDescription {
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 22px;
+      //text-align: justify;
+    }
+
+    .cardAction {
+      .cardSubTitle {
+        font-size: 16px;
+        text-transform: uppercase;
+        color: $orange;
+        position: relative;
+        top: 40px;
+      }
+    }
+
+    .description {
+      font-size: 16px;
+      line-height: 20px;
+      font-weight: 400;
+    }
+
+    .cardsButtons {
+      .downloadButton {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
+      }
+
+      .moreInfoButton {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
+      }
+
+      .openButton {
+        font-size: 14px;
+        line-height: 17px;
+        letter-spacing: 0.4px;
+        width: 122px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .addonsCard {
+    .description {
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .addonsCard {
+    .cardTitle {
+      font-size: 18px;
+      line-height: 26px;
+    }
+
+    .cardDescription {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .cardSubTitle {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    .description {
+      p {
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .addonsCard {
+    max-width: 343px;
+  }
+}
