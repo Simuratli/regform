@@ -54,7 +54,11 @@ export const FilterAddonsComponent = ({cards}) => {
         isOutsideClick && setIsOpenSelect(false);
     }, [isOutsideClick]);
 
-    const sortData  =  types.map((type) => {
+  const sortData  =  [
+    {type: "All", name: "All"},
+    {type: "Dynamics 365", name: "Dynamics 365"},
+    {type: "Portal", name: "Portal   "},
+  ].map(({type, name}) => {
         return (
             <div key={type}
                  className={`row  ${type === sortBy && "chosen"}`}
