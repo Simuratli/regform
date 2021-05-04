@@ -68,8 +68,7 @@ const EducationVideoLessons = ({education}) => {
                                                         data-index={index}
                                                         sectionPosition={section.position}
                                                         videoPosition={video.position}>
-                                                        <span
-                                                            className={`videoSpan ${activeSection === section.position.toString() && index === isActiveVideoLi ? 'videoSpanActive' : ''}`}>
+                                                        <span className={`videoSpan ${activeSection === section.position.toString() && index === isActiveVideoLi ? 'videoSpanActive' : ''}`}>
                                                             {video.position.toString()}. </span>{video.header}
                                                         <p className={"videoDuration"}>{video.courseVideoDuration.slice(3, 8)}</p>
                                                     </li>

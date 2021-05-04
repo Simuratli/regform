@@ -306,7 +306,7 @@ ul {
       font-size: 30px;
       line-height: 32px;
       font-weight: 700;
-      color: #F2F3FF;
+      color: $education-text-color;
     }
 
     p {
@@ -849,7 +849,7 @@ ul {
     border-bottom: 1px solid #E3E3E3;
 
     h2 {
-      @include gradientTitleGray
+      @include gradientTitleBlue;
     }
 
     .syllabusMobileTitle {
@@ -990,7 +990,7 @@ ul {
     @include screen500;
 
     h2 {
-      @include gradientTitleGray;
+      @include gradientTitleBlue;
     }
 
     .questionList {
@@ -1131,7 +1131,6 @@ ul {
         grid-column-gap: 21px;
 
         h4 {
-          @include gradientTitleViolet;
           font-size: 28px;
           line-height: 32px;
           letter-spacing: 1px;

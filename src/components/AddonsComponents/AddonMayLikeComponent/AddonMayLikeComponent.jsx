@@ -15,10 +15,10 @@ const AddonMayLikeComponent = ({addons}) => {
             if (addons[i + 1]) {
                 carouselItems.push(
                     <div key={shortid.generate()} className={'addon'}>
-                        <div className={"firstCard"}>
+                        <div className={"firstCard mayAlsoCard"}>
                             <AddonCard addon={addons[i]}/>
                         </div>
-                        <div>
+                        <div className={"mayAlsoCard"}>
                             <AddonCard addon={addons[i + 1]}/>
                         </div>
                     </div>
@@ -26,7 +26,7 @@ const AddonMayLikeComponent = ({addons}) => {
             } else {
                 carouselItems.push(
                     <div key={shortid.generate()} className={'addon'}>
-                        <div className={"firstCard"}>
+                        <div className={"firstCard mayAlsoCard"}>
                             <AddonCard addon={addons[i]}/>
                         </div>
                     </div>
@@ -37,7 +37,7 @@ const AddonMayLikeComponent = ({addons}) => {
     } else {
         carouselItems = addons.map(addon => (
             <div key={shortid.generate()} className={'addon'}>
-                <AddonCard addon={addon}/>
+                <AddonCard className={"mayAlsoCard"} addon={addon}/>
             </div>
         ))
     }

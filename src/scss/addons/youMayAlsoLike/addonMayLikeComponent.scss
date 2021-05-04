@@ -7,7 +7,7 @@
   margin: auto;
 
   .firstCard {
-    margin-right: 50px;
+    margin-right: 68px;
   }
 }
 
@@ -22,10 +22,16 @@
   display: flex;
   justify-content: center;
 }
-
-.carousel .control-dots {
-  bottom: 40px;
+.mayAlsoCard{
+  max-width: 360px;
+  width: 100%;
+  .cardsButtons{
+    .downloadButton, .openButton{
+      display: none;
+    }
+  }
 }
+
 
 button:hover {
   box-shadow: none;
@@ -66,6 +72,10 @@ button:hover {
     margin: auto !important;
   }
 }
+.carousel .control-dots {
+  bottom: -9px;
+}
+
 
 .carousel-status, .carousel .control-dots {
   visibility: hidden !important;
@@ -89,6 +99,12 @@ button:hover {
   .addon {
     max-width: 360px;
   }
+  .mayAlsoCard{
+    .cardSubTitle{
+      top: 14rem;
+    }
+  }
+
 }
 
 @media screen and (max-width: 500px) {
