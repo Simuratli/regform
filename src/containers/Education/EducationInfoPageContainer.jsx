@@ -11,7 +11,6 @@ const EducationInfoPageContainer = () => {
     const {educationInfoPage, educationAccessStatus} = useSelector(({education}) => education);
     const dispatch = useDispatch();
     const {slug} = useParams();
-    console.log(slug);
 
     useEffect(() => {
         dispatch(getEducationInfoPage(slug));

@@ -27,8 +27,6 @@ const AddonsCardsPage = () => {
     dispatch(getAddonCard());
   }, []);
 
-  console.log("aaddd", cards);
-
   useEffect(() => {
     !isEmpty(error) && dispatch(setError({}));
   }, [!isEmpty(error)]);

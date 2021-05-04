@@ -9,7 +9,6 @@ const EducationVideoLessons = ({video, activeBlock}) => {
         courseVideoUrl,
         mentor: {
             firstName = "",
-            biography = "",
             photoImage: {
                 imageSource = "",
                 alternateText = ""
@@ -18,7 +17,7 @@ const EducationVideoLessons = ({video, activeBlock}) => {
         attachmentUrls = []
     } = video;
 
-    console.log(activeBlock, "kwjsenfkjwbefkjbwekf")
+    const videoId = courseVideoUrl.split("v=")[1].split("&")[0];
 
     return (
         <>
@@ -26,7 +25,7 @@ const EducationVideoLessons = ({video, activeBlock}) => {
                 <div className="playerWrapper">
                     <YouTube
                         className="reactPlayer"
-                        videoId={courseVideoUrl.split("v=")[1].split("&")[0]}
+                        videoId={videoId}
                         opts={{
                             playerVars: {
                                 autoplay: 0,

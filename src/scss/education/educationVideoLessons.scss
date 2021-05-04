@@ -42,7 +42,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 31px;
-    height: 82vh;
+    max-height: 100vh;
 
     .rightBar {
       position: relative;
@@ -128,33 +128,46 @@
 
         .videoPreview {
           margin: 0;
+          padding-left: 0;
+
+          .videoActive {
+            color: $blue-black;
+          }
+
 
           .video {
             padding: 10px 10px 10px 0;
             display: grid;
-            grid-template-columns: 0.4fr 5fr;
+            grid-template-columns: 0.4fr 5fr 1fr;
             align-items: center;
             grid-gap: 16px;
             border-bottom: 1px solid #F2F3F9;
             transition: all 0.3s ease-in-out;
             cursor: pointer;
 
-            span{
+            .videoSpan {
               font-size: 30px;
               line-height: 32px;
               color: $dark-bg;
               transition: all 0.3s ease-in-out;
             }
+            .videoDuration{
+              font-size: 14px;
+              line-height: 120%;
+              font-weight: 400;
+            }
+
+            .videoSpanActive {
+              color: $blue-black;
+            }
 
             &:hover {
-              color: $blue-black;
-              span{
-                color: $blue-black;
+              color: $education-text-color;
+
+              span {
+                color: $education-text-color;
               }
             }
-          }
-          .video .active{
-            background: red;
           }
         }
       }
@@ -180,11 +193,12 @@
 
 @media screen and (max-width: 1024px) {
   .educationVideoComponent {
-    .generalHeadingParagraph{
+    .generalHeadingParagraph {
       font-size: 28px;
       line-height: 26px;
       letter-spacing: 1px;
     }
+
     .videoContent {
       display: none;
     }
@@ -201,7 +215,7 @@
 
         .tabLinks {
           font-weight: 600;
-          font-size: 18px;
+          font-size: 14px;
           line-height: 120%;
           box-shadow: none;
         }
@@ -222,7 +236,8 @@
             background-color: $blue;
           }
         }
-        .active{
+
+        .active {
           color: #FFFFFF;
           background-color: $blue;
         }
@@ -232,7 +247,8 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 20px;
-        .blockHeader{
+
+        .blockHeader {
           font-weight: 600;
           font-size: 18px;
           line-height: 120%;
@@ -245,10 +261,12 @@
           color: white;
           overflow: hidden;
           border-bottom: 1px solid #F2F3F9;
-          &:last-child{
+
+          &:last-child {
             border-bottom: none;
           }
-          span{
+
+          span {
             font-size: 30px;
             line-height: 32px;
             color: $dark-bg;
@@ -256,14 +274,14 @@
 
           &-label {
             display: grid;
-            grid-template-columns: 0.3fr 8fr 0.3fr;
+            grid-template-columns: 0.3fr 8fr 2.3fr 1fr;
             align-items: center;
             font-weight: 600;
             font-size: 18px;
             line-height: 120%;
             cursor: pointer;
             color: $education-text-color;
-            padding: 20px 20px 20px 0;
+            padding: 20px 0;
 
             &::after {
               content: url("../../assets/images/education/arrow_gray.svg");
@@ -271,6 +289,11 @@
               height: 1em;
               text-align: center;
               transition: all .35s;
+            }
+            .videoDuration{
+              font-size: 14px;
+              line-height: 120%;
+              font-weight: 400;
             }
 
           }
@@ -325,8 +348,9 @@
 @media screen and (max-width: 1000px) {
   .educationVideoComponent {
     @include screen1024;
-    .mobileVideoBlocks{
-      .tabBar{
+
+    .mobileVideoBlocks {
+      .tabBar {
         grid-template-columns: repeat(6, 1fr);
       }
     }
@@ -342,13 +366,15 @@
 @media screen and (max-width: 700px) {
   .educationVideoComponent {
     @include screen768;
-    .mobileVideoBlocks{
-      .tabBar{
+
+    .mobileVideoBlocks {
+      .tabBar {
         grid-template-columns: repeat(4, 1fr);
       }
-      .blockVideoList{
-        .tab{
-          span{
+
+      .blockVideoList {
+        .tab {
+          span {
             margin-right: 10px;
           }
         }
@@ -356,21 +382,25 @@
     }
   }
 }
+
 @media screen and (max-width: 500px) {
   .educationVideoComponent {
     @include screen500;
-    .mobileVideoBlocks{
-      .tabBar{
+
+    .mobileVideoBlocks {
+      .tabBar {
         grid-template-columns: repeat(3, 1fr);
       }
     }
   }
 }
+
 @media screen and (max-width: 415px) {
   .educationVideoComponent {
     @include screen400;
-    .mobileVideoBlocks{
-      .tabBar{
+
+    .mobileVideoBlocks {
+      .tabBar {
         //grid-template-columns: repeat(2, 1fr);
       }
     }
