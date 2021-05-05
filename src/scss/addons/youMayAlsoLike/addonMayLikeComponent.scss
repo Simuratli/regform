@@ -2,7 +2,7 @@
 
 .bottomCards {
   width: 100%;
-  max-width: 1000px;
+  max-width: 1146px;
   text-align: center;
   margin: auto;
 
@@ -11,6 +11,10 @@
   }
   button{
     box-shadow: none;
+  }
+  .carousel.carousel-slider .control-arrow{
+    width: 50px;
+    height: 50px;
   }
 }
 
@@ -69,10 +73,14 @@ button:hover {
     background-color: transparent;
   }
 }
+.carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {
+  margin: 0 -34px !important;
+}
 
 .carousel.carousel-slider {
   .control-arrow {
     margin: auto !important;
+    top: -102px;
   }
 }
 .carousel .control-dots {
@@ -88,6 +96,17 @@ button:hover {
   height: 580px;
 }
 
+@media screen and (max-width: 1350px) {
+  .bottomCards {
+   @include screen1350;
+  }
+}
+@media screen and (max-width: 1350px) {
+  .bottomCards {
+    @include screen1200;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .bottomCards {
     .firstCard{
@@ -97,10 +116,14 @@ button:hover {
 }
 @media screen and (max-width: 1000px) {
   .bottomCards {
-    max-width: 500px;
+  @include screen1024;
+  }
+  .carousel .control-arrow:before, .carousel.carousel-slider .control-arrow:before {
+    margin: 0 -34px;
   }
   .addon {
     max-width: 360px;
+
   }
   .mayAlsoCard{
     .cardSubTitle{
@@ -109,8 +132,16 @@ button:hover {
   }
 
 }
+@media screen and (max-width: 768px) {
+  .bottomCards {
+    @include screen768;
+  }
+}
 
 @media screen and (max-width: 500px) {
+  .bottomCards {
+    @include screen500;
+  }
   .carousel.carousel-slider .control-arrow {
     visibility: hidden;
   }
@@ -122,7 +153,7 @@ button:hover {
 
 @media screen and (max-width: 400px) {
   .bottomCards {
-    max-width: 350px;
+    @include screen400;
   }
   .carousel .control-dots {
     visibility: visible !important;

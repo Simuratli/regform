@@ -8,7 +8,7 @@ import AddonCard from "../AddonsCardsPage/AddonCard";
 const AddonMayLikeComponent = ({addons}) => {
 
     let carouselItems = []
-    const isMobile = window.innerWidth < 1000;
+    const isMobile = window.innerWidth < 1001;
     if (!isMobile) {
         for (let i = 0; i < addons.length; i += 2) {
 
