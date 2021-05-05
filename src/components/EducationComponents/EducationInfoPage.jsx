@@ -9,7 +9,8 @@ import languageIcon from "../../assets/images/education/learn_right_bar_icons/la
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import pricePlan from "../../assets/images/education/price_price_plan.svg";
 import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
-import courseLogo from "../../assets/images/ms_consultant_logo.svg";
+// import courseLogo from "../../assets/images/ms_consultant_logo.svg";
+import courseLogo from "../../assets/images/Women_Consultant.mp4";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
@@ -61,7 +62,8 @@ const EducationInfoPage = ({education}) => {
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            <img className={"courseLogo"} src={courseLogo} alt={alternateText}/>
+                            {/*<img className={"courseLogo"} src={courseLogo} alt={alternateText}/>*/}
+                            <video autostart autoPlay loop src={courseLogo} type="video/mp4" />
                         </div>
                     </section>
                 </div>

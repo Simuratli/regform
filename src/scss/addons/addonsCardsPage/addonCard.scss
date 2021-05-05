@@ -25,6 +25,7 @@
   .cardLogo {
     position: absolute;
     top: 1rem;
+    width: 95%;
   }
 
   .cardBody {
@@ -66,6 +67,12 @@
     }
     .openButton{
       margin-left: 40px;
+    }
+    .moreInfoButton{
+      box-shadow: none;
+      &:hover{
+
+      }
     }
   }
 

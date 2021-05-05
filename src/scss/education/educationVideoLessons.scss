@@ -9,7 +9,7 @@
   margin: auto;
 
   .backButton {
-    width: 248px;
+    max-width: 248px;
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
@@ -26,6 +26,9 @@
       box-shadow: none;
       text-decoration: underline;
     }
+  }
+  a{
+    width: 248px;
   }
 
   .generalHeadingParagraph {
@@ -71,6 +74,9 @@
           overflow: hidden;
 
           &-label {
+            //display: grid;
+            //grid-template-columns: 1fr;
+
             display: flex;
             justify-content: space-between;
             padding: 20px;
@@ -87,7 +93,19 @@
               height: 1em;
               text-align: center;
               transition: all .35s;
+              //position: absolute;
+              //right: 20px;
             }
+            //.totalVideoDuration{
+            //  display: grid;
+            //  grid-template-columns: 1fr 1fr;
+            //  font-size: 14px;
+            //  line-height: 120%;
+            //  font-weight: 400;
+            //  .sumDuration{
+            //    justify-self: end;
+            //  }
+            //}
           }
 
           &-content {

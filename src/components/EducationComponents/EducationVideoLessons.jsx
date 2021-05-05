@@ -58,8 +58,13 @@ const EducationVideoLessons = ({education}) => {
                                 {courseForPageBlockSections.map(section =>
                                     <div className={"tab"}>
                                         <input type={"checkbox"} id={section.position}/>
-                                        <label className={"tab-label"}
-                                               htmlFor={section.position}>Block {section.position.toString()}: {section.header}</label>
+                                        <label className={"tab-label"} htmlFor={section.position}>
+                                            Block {section.position.toString()}: {section.header}
+                                            {/*<div className={"totalVideoDuration"}>*/}
+                                            {/*    <p>Part</p>*/}
+                                            {/*    <p className={"sumDuration"}>Total: {section.sumVideosDuration}</p>*/}
+                                            {/*</div>*/}
+                                        </label>
                                         <div className={"tab-content"}>
                                             {section.courseForPageBlockSections.map((video, index) =>
                                                 <ul className={"videoPreview"} key={shortid.generate()}>
