@@ -6,7 +6,7 @@ export const getUserData = () => {
     return (dispatch) => {
         dispatch(setIsLoading(true));
         httpClient
-            .post(`/graph-users/whoami`)
+            .get(`/graph-users/whoami`)
             .then((res) => {
                 dispatch({ type: SET_USER_DATA, payload: res.data});
                 dispatch(setIsLoading(false));

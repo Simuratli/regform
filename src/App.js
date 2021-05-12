@@ -3,7 +3,7 @@ import "../src/scss/base.scss";
 import {Switch, Route, Redirect} from "react-router-dom";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import EducationCardsPage from "./components/EducationComponents/EducationCardsPage";
 import TicketList from "./components/MyTicketComponents/Tikets/TicketList";
@@ -32,13 +32,17 @@ const App = () => {
     const state = useSelector((state) => state);
     const {app} = state;
     const {error} = app;
+    const dispatch = useDispatch();
+
 
     useEffect(() => {
+        console.log('request start')
+        dispatch(getAuthoriseCheck());
+        console.log('request end')
         ReactGa.initialize("UA-183628794-1");
         ReactGa.pageview(window.location.pathname + window.location.search);
         ReactPixel.init("382184772775465");
         ReactPixel.pageView();
-        getAuthoriseCheck();
     }, []);
 
     return (
