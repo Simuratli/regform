@@ -1,14 +1,16 @@
 import { httpClient } from "../../../../services/services";
 import { setError, setIsLoading } from "../../appReducer/actions/appAction";
-export const SET_USER_DATA = "SET_USER_DATA";
+export const SET_USER_AUTHORIZE_DATA = "SET_USER_AUTHORIZE_DATA";
 
-export const getUserData = () => {
+export const getAuthoriseCheck = () => {
+    console.log("sdvsdv")
     return (dispatch) => {
         dispatch(setIsLoading(true));
         httpClient
-            .post(`/graph-users/whoami`)
+            .get(`/users/authorize`)
             .then((res) => {
-                dispatch({ type: SET_USER_DATA, payload: res.data});
+                console.log("2")
+                dispatch({ type: SET_USER_AUTHORIZE_DATA, payload: res.data});
                 dispatch(setIsLoading(false));
             })
             .catch((err) => {

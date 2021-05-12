@@ -24,6 +24,7 @@ import AddonsCardsPage from "./components/AddonsComponents/AddonsCardsPage/Addon
 import AddonFullPageContainer from "./containers/Addons/AddonFullPageContainer";
 import Footer from "./components/NavigationComponents/Footer";
 import TicketChat from "./components/MyTicketComponents/TicketChat/TicketChat";
+import {getAuthoriseCheck} from "./store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
@@ -37,6 +38,7 @@ const App = () => {
         ReactGa.pageview(window.location.pathname + window.location.search);
         ReactPixel.init("382184772775465");
         ReactPixel.pageView();
+        getAuthoriseCheck();
     }, []);
 
     return (
