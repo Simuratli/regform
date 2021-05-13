@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from "react";
 import "../../../scss/addons/addonsCardsPage/addonsCardsPage.scss";
 import orangeElement from "../../../assets/images/orange_element.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { FormattedMessage } from "react-intl";
-import { setError } from "../../../store/reducers/appReducer/actions/appAction";
+import {useDispatch, useSelector} from "react-redux";
+import {FormattedMessage} from "react-intl";
+import {setError} from "../../../store/reducers/appReducer/actions/appAction";
 import isEmpty from "lodash/isEmpty";
 import {getAddonMetadata} from "../../../store/reducers/metadataReducer/actions/addonsMetadataAction";
 import Metadata from "../../ViewsComponents/Metadata/MetadataComponent";
@@ -12,47 +12,57 @@ import {FilterAddonsComponent} from "../FilterAddonsComponent/FilterAddonCompone
 import AddonCardContainer from "../../../containers/Addons/AddonCardContainer";
 import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNotification";
 
+import get from "lodash/get";
+import {getAuthoriseCheck} from "../../../store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
+
 const AddonsCardsPage = () => {
-  const [modalActive, setModalActive] = useState(true)
-  const state = useSelector((state) => state);
-  const dispatch = useDispatch();
-  const { app } = state;
-  const { error } = app;
-  const { addonsMetadata } = state.metadata;
-  const cards = useSelector(({addon}) => addon.cards)
+    const [modalActive, setModalActive] = useState(true)
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
+    const {addon, app} = state;
+    const {error} = app;
+    const {addonsMetadata} = state.metadata;
+    const cards = useSelector(({addon}) => addon.cards)
 
-  useEffect(() => {
-    document.title = "Add-ons | UDS Portal";
-    dispatch(getAddonMetadata())
-    dispatch(getAddonCard());
-  }, []);
+    async function asyncDispatch () {
+        await dispatch(getAuthoriseCheck());
+        if (!get(addon, "cards", []).length) {
+            await dispatch(getAddonCard());
+        }
+        await dispatch(getAddonMetadata());
+    }
 
-  useEffect(() => {
-    !isEmpty(error) && dispatch(setError({}));
-  }, [!isEmpty(error)]);
+    useEffect(() => {
+        document.title = "Add-ons | UDS Portal";
+        asyncDispatch();
+    }, []);
 
-  return (
-    <div className="main_container">
-      <ModalMobileNotification setActive={setModalActive}/>
-      <Metadata metadata={addonsMetadata}/>
+    useEffect(() => {
+        !isEmpty(error) && dispatch(setError({}));
+    }, [!isEmpty(error)]);
 
-      <div className="generalTitleBlock">
-        <h1 className="headingParagraph">
-          <FormattedMessage id="enhance.system.text" />
-        </h1>
-        <img className="orangeElement" src={orangeElement} alt="orange element"/>
-        <p className="paragraph">
-          <FormattedMessage id="improve.dynamics.text" />
-        </p>
-      </div>
-      <FilterAddonsComponent cards={cards} />
-      <div className={"card"}>
-        <AddonCardContainer />
-      </div>
+    return (
+        <div className="main_container">
+            <ModalMobileNotification setActive={setModalActive}/>
+            <Metadata metadata={addonsMetadata}/>
 
-      {/*<AddonPaginationCont />*/}
-    </div>
-  );
+            <div className="generalTitleBlock">
+                <h1 className="headingParagraph">
+                    <FormattedMessage id="enhance.system.text"/>
+                </h1>
+                <img className="orangeElement" src={orangeElement} alt="orange element"/>
+                <p className="paragraph">
+                    <FormattedMessage id="improve.dynamics.text"/>
+                </p>
+            </div>
+            <FilterAddonsComponent cards={cards}/>
+            <div className={"card"}>
+                <AddonCardContainer/>
+            </div>
+
+            {/*<AddonPaginationCont />*/}
+        </div>
+    );
 };
 
 export default AddonsCardsPage;

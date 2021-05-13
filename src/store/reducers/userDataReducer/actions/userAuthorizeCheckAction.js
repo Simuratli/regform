@@ -3,7 +3,6 @@ import { setError, setIsLoading } from "../../appReducer/actions/appAction";
 export const SET_USER_AUTHORIZE_DATA = "SET_USER_AUTHORIZE_DATA";
 
 export const getAuthoriseCheck = () => {
-    console.log("getAuthoriseCheck")
     return (dispatch) => {
         // dispatch(setIsLoading(true));
         httpClient

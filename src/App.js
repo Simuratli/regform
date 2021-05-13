@@ -24,21 +24,15 @@ import AddonsCardsPage from "./components/AddonsComponents/AddonsCardsPage/Addon
 import AddonFullPageContainer from "./containers/Addons/AddonFullPageContainer";
 import Footer from "./components/NavigationComponents/Footer";
 import TicketChat from "./components/MyTicketComponents/TicketChat/TicketChat";
-import {getAuthoriseCheck} from "./store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
-    const [modalActive, setModalActive] = useState(true);
     const state = useSelector((state) => state);
     const {app} = state;
     const {error} = app;
-    const dispatch = useDispatch();
 
 
     useEffect(() => {
-        console.log('request start')
-        dispatch(getAuthoriseCheck());
-        console.log('request end')
         ReactGa.initialize("UA-183628794-1");
         ReactGa.pageview(window.location.pathname + window.location.search);
         ReactPixel.init("382184772775465");
@@ -47,19 +41,19 @@ const App = () => {
 
     return (
         <div className={"generalWrapper"}>
-            <ScrollArrow />
+            <ScrollArrow/>
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
-            {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen} />}
-            <Cookie />
+            {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen}/>}
+            <Cookie/>
             {isEmpty(error)
                 ?
                 <Switch>
                     <Route path={"/"} exact component={AddonsCardsPage}>
-                        <Redirect to={"/add-ons"} />
+                        <Redirect to={"/add-ons"}/>
                     </Route>
-                    <Route path={"/migration"} exact component={RedirectToMigrationTool} />
-                    <Route path={"/add-ons"} exact component={AddonsCardsPage} />
+                    <Route path={"/migration"} exact component={RedirectToMigrationTool}/>
+                    <Route path={"/add-ons"} exact component={AddonsCardsPage}/>
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/education"} exact component={EducationCardsPage}/>
                     <Route path={"/education/:slug"} exact component={EducationInfoPageContainer}/>
@@ -71,9 +65,9 @@ const App = () => {
                     <Route path={"*"} component={ErrorComponent}/>
                 </Switch>
                 : <ErrorComponent/>}
-            <Footer />
-            <Loader />
-            <DownloadFile />
+            <Footer/>
+            <Loader/>
+            <DownloadFile/>
         </div>
     );
 };

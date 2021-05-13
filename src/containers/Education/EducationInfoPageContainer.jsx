@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
 import {getEducationInfoPage} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
 import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
+import {getAuthoriseCheck} from "../../store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 
 const EducationInfoPage = lazy(() => import("../../components/EducationComponents/EducationInfoPage"));
 
@@ -12,9 +13,15 @@ const EducationInfoPageContainer = () => {
     const dispatch = useDispatch();
     const {slug} = useParams();
 
+
+    async function asyncDispatch () {
+        await dispatch(getAuthoriseCheck());
+        await dispatch(getEducationInfoPage(slug));
+        await dispatch(getEducationAccessStatus(slug));
+    }
+
     useEffect(() => {
-        dispatch(getEducationInfoPage(slug));
-        dispatch(getEducationAccessStatus(slug));
+        asyncDispatch();
     }, []);
 
     return (
