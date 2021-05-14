@@ -45,7 +45,7 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     grid-column-gap: 31px;
-    max-height: 100vh;
+    max-height: 120vh;
 
     .rightBar {
       position: relative;
@@ -312,6 +312,7 @@
               font-size: 14px;
               line-height: 120%;
               font-weight: 400;
+              margin-left: 10px;
             }
 
           }

@@ -4,6 +4,10 @@
   scroll-behavior: smooth;
 }
 
+.scroll-menu-arrow {
+  top: -36px;
+}
+
 .educationTopWrapper {
   max-width: 4000px;
   width: 100%;
@@ -11,6 +15,14 @@
   padding: 0;
   background: $light_bg;
   //background: #FFFFFF;
+
+  .courseLogoMobile {
+    display: none;
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 250px;
+  }
 
 }
 
@@ -82,7 +94,7 @@ ul {
     }
 
     .downloadButton {
-      max-width: 227px;
+      max-width: 370px;
       width: 100%;
     }
   }
@@ -741,7 +753,12 @@ ul {
       }
     }
 
+    .courseLogoMobile {
+      display: block;
+    }
+
     .headerRightSide {
+      display: none;
       justify-self: center;
     }
   }
@@ -816,6 +833,13 @@ ul {
         }
       }
 
+      .watchCourseButton {
+        width: 100%;
+        max-width: 400px;
+        margin-right: 0;
+        margin-left: 0;
+      }
+
       .contentBar {
         padding: 20px;
 
@@ -869,6 +893,8 @@ ul {
     }
 
     .downloadButton {
+      max-width: 400px;
+      width: 100%;
       margin: auto;
     }
   }
@@ -1034,6 +1060,7 @@ ul {
 
           &::after {
             content: url("../../assets/images/education/arrow_gray.svg");
+            transform: rotate(180deg);
             width: 1em;
             height: 1em;
             text-align: center;
@@ -1065,7 +1092,7 @@ ul {
         + .tab-label {
 
           &::after {
-            transform: rotate(180deg);
+            transform: rotate(0deg);
           }
         }
 
@@ -1088,7 +1115,8 @@ ul {
     }
 
     .downloadButton {
-      max-width: 305px;
+      width: 100%;
+      max-width: 330px;
     }
   }
   .gettingSkills {
@@ -1224,7 +1252,6 @@ ul {
           &-label {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 7px 20px;
             background: $light-blue;
             cursor: pointer;
@@ -1232,6 +1259,7 @@ ul {
             font-weight: 600;
             font-size: 16px;
             line-height: 140%;
+            align-items: flex-start;
 
             &::after {
               content: url("../../assets/images/faq_arrow.svg");
@@ -1297,6 +1325,8 @@ ul {
           + .tab-label {
 
             &::after {
+              top: 10px;
+              transform-origin: center 12px;
               transform: rotate(180deg);
             }
           }

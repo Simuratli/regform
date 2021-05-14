@@ -9,8 +9,8 @@ import languageIcon from "../../assets/images/education/learn_right_bar_icons/la
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
 import pricePlan from "../../assets/images/education/price_price_plan.svg";
 import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
-// import courseLogo from "../../assets/images/ms_consultant_logo.svg";
-import courseLogo from "../../assets/images/Women_Consultant.mp4";
+import courseLogo from "../../assets/images/ms_consultant_logo.svg";
+import courseLogoGif from "../../assets/images/Women_Consultant.mp4";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
@@ -45,7 +45,13 @@ const EducationInfoPage = ({education}) => {
 
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
+        console.log(document.documentElement.clientWidth)
     }, [header]);
+
+    useEffect(() => {
+
+    }, document.documentElement.clientWidth)
+
     const {educationAccessStatus} = useSelector(({education}) => education);
 
     return (
@@ -55,6 +61,7 @@ const EducationInfoPage = ({education}) => {
                     <section className={"educationHeader"}>
                         <div className={"headerLeftSide"}>
                             <h1>{header}</h1>
+                            <img className={"courseLogoMobile"} src={courseLogo} alt={alternateText}/>
                             <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
                             <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/b2c-auth-page/Course_outline.pdf"}
                                target={"_blank"}>
@@ -62,8 +69,8 @@ const EducationInfoPage = ({education}) => {
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            {/*<img className={"courseLogo"} src={courseLogo} alt={alternateText}/>*/}
-                            <video autostart autoPlay loop src={courseLogo} type="video/mp4" />
+                            <video autostart autoPlay loop src={courseLogoGif} type="video/mp4" />
+                            {/*<img src="../../assets/images/ms_consultant_logo.svg" alt="logo"/>*/}
                         </div>
                     </section>
                 </div>

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "../../../scss/addons/addonsCardsPage/addonsCardsPage.scss";
-import orangeElement from "../../../assets/images/orange_element.svg";
+import orangeElement from "../../../assets/images/education/gradient_orange_element.svg";
 import {useDispatch, useSelector} from "react-redux";
 import {FormattedMessage} from "react-intl";
 import {setError} from "../../../store/reducers/appReducer/actions/appAction";

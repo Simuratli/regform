@@ -233,6 +233,9 @@
         }
         .moreInfoButton, a, .watchCourseButton {
           width: 100%;
+          max-width: 440px;
+          margin-right: 0;
+          margin-left: 0;
         }
       }
     }

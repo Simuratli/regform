@@ -58,7 +58,7 @@ function MainNavigation(props) {
                   </NavLink>
                 </li>
                 <li>
-                  <a href="https://calendly.com/rsavran/dynamics">
+                  <a target='_blank' href="https://outlook.office365.com/owa/calendar/UDSSYSTEMSLTD@uds.systems/bookings/s/KcmM-oNkQkm9AT7aKGYvkg2">
                     <button className={"bookACall"}>
                       <FormattedMessage id="book.call" />
                     </button>
