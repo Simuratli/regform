@@ -24,17 +24,15 @@ const AddonsCardsPage = () => {
     const {addonsMetadata} = state.metadata;
     const cards = useSelector(({addon}) => addon.cards)
 
-    async function asyncDispatch () {
-        await dispatch(getAuthoriseCheck());
-        if (!get(addon, "cards", []).length) {
-            await dispatch(getAddonCard());
-        }
-        await dispatch(getAddonMetadata());
-    }
-
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
-        asyncDispatch();
+        dispatch(getAuthoriseCheck());
+        setTimeout(() => {
+            if (!get(addon, "cards", []).length) {
+                dispatch(getAddonCard());
+            }
+            dispatch(getAddonMetadata());
+        }, 3000);
     }, []);
 
     useEffect(() => {
