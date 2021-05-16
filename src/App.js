@@ -76,7 +76,7 @@ const App = () => {
             <Loader/>
             <DownloadFile/>
         </div>
-    ) : <span>Waite one moment please... UDS working for you</span>;
+    ) : <Loader/>;
 };
 
 export default App;
