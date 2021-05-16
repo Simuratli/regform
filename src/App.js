@@ -24,22 +24,29 @@ import AddonsCardsPage from "./components/AddonsComponents/AddonsCardsPage/Addon
 import AddonFullPageContainer from "./containers/Addons/AddonFullPageContainer";
 import Footer from "./components/NavigationComponents/Footer";
 import TicketChat from "./components/MyTicketComponents/TicketChat/TicketChat";
+import {getAuthoriseCheck} from "./store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
     const state = useSelector((state) => state);
-    const {app} = state;
+    const {
+        app,
+        user: {userAuth}
+    } = state;
     const {error} = app;
-
+    const dispatch = useDispatch();
 
     useEffect(() => {
+        if (!userAuth) {
+            dispatch(getAuthoriseCheck());
+        }
         ReactGa.initialize("UA-183628794-1");
         ReactGa.pageview(window.location.pathname + window.location.search);
         ReactPixel.init("382184772775465");
         ReactPixel.pageView();
     }, []);
 
-    return (
+    return userAuth ? (
         <div className={"generalWrapper"}>
             <ScrollArrow/>
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
@@ -69,7 +76,7 @@ const App = () => {
             <Loader/>
             <DownloadFile/>
         </div>
-    );
+    ) : <span>Waite one moment please... UDS working for you</span>;
 };
 
 export default App;

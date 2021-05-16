@@ -4,23 +4,17 @@ import get from "lodash/get";
 import {getEducationCard} from "../../store/reducers/educationReducer/actions/educationCardAction";
 import EducationCard from "../../components/EducationComponents/EducationCard";
 import shortid from 'shortid';
-import {getAuthoriseCheck} from "../../store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 import {getAddonMetadata} from "../../store/reducers/metadataReducer/actions/addonsMetadataAction";
 
 const EducationCardContainer = () => {
     const {education} = useSelector((state) => state);
     const dispatch = useDispatch();
 
-    async function asyncDispatch () {
-        await dispatch(getAuthoriseCheck());
+    useEffect(() => {
         if (!get(education, "educationCards", []).length) {
             dispatch(getEducationCard());
         }
-        await dispatch(getAddonMetadata());
-    }
-
-    useEffect(() => {
-        asyncDispatch();
+        dispatch(getAddonMetadata());
     }, []);
 
     return (

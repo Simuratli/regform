@@ -26,13 +26,10 @@ const AddonsCardsPage = () => {
 
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
-        dispatch(getAuthoriseCheck());
-        setTimeout(() => {
-            if (!get(addon, "cards", []).length) {
-                dispatch(getAddonCard());
-            }
-            dispatch(getAddonMetadata());
-        }, 3000);
+        if (!get(addon, "cards", []).length) {
+            dispatch(getAddonCard());
+        }
+        dispatch(getAddonMetadata());
     }, []);
 
     useEffect(() => {
