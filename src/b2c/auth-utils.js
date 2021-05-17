@@ -54,3 +54,7 @@ export const msalAppConfig = {
     storeAuthStateInCookie: isIE(),
   },
 };
+
+// export const forgotPasswordRequest = {
+//   authority:'https://udscustomersdirectory.b2clogin.com/udscustomersdirectory.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_reset_password',
+// };

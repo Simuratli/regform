@@ -22,12 +22,23 @@ const state = {
 
 let msalApp;
 
+// const { instance } = useMsal();
+
 function acquireToken(successCallback) {
   const account = msalApp.getAccount();
 
+  // console.log(msalApp ,'msalApp')
+  // console.log(B2C_SCOPES ,'B2C_SCOPES')
+  // console.log(instance.addEventCallback(event) ,'instance')
+  // let IsAccountInfo = head(instance.getAllAccounts())
+  // console.log(IsAccountInfo, 'IsAccountInfo')
+
   if (!account) {
+    // console.log('!account')
+    // console.log(successCallback, 'successCallback')
     msalApp.loginRedirect(B2C_SCOPES.API_ACCESS);
   } else {
+    // console.log('else')
     msalApp.acquireTokenSilent(B2C_SCOPES.API_ACCESS).then(
       (accessToken) => {
         // console.log(accessToken, "accessToken");

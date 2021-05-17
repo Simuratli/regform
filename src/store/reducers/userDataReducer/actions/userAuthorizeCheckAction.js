@@ -9,8 +9,6 @@ export const getAuthoriseCheck = () => {
         httpClient
             .post(`/users/authorize`)
             .then((res) => {
-                console.log("2")
-                console.log(res.data, "res.data")
                 dispatch({type: SET_USER_AUTHORIZE_DATA, payload: true});
                 dispatch(setIsLoading(false));
             })

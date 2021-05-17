@@ -29,10 +29,7 @@ import {getAuthoriseCheck} from "./store/reducers/userDataReducer/actions/userAu
 const App = () => {
     const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
     const state = useSelector((state) => state);
-    const {
-        app,
-        user: {userAuth}
-    } = state;
+    const {app, user: {userAuth}} = state;
     const {error} = app;
     const dispatch = useDispatch();
 
@@ -45,6 +42,10 @@ const App = () => {
         ReactPixel.init("382184772775465");
         ReactPixel.pageView();
     }, []);
+
+    // if (!isEmpty(error)){
+    //     return <ErrorComponent/>
+    // }
 
     return userAuth ? (
         <div className={"generalWrapper"}>
