@@ -8,7 +8,6 @@ export const getEducationCard = () => {
         httpClient
             .get("education/courses/cards")
             .then((res) => {
-                console.log(res.data, "resEducation")
                 dispatch({ type: SET_EDUCATION_CARDS_DATA, payload: res.data });
                 dispatch(setIsLoading(false));
                 localStorage.setItem("cardsArr", JSON.stringify(res.data));

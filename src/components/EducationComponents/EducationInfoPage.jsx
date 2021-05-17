@@ -45,12 +45,7 @@ const EducationInfoPage = ({education}) => {
 
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
-        console.log(document.documentElement.clientWidth)
     }, [header]);
-
-    useEffect(() => {
-
-    }, document.documentElement.clientWidth)
 
     const {educationAccessStatus} = useSelector(({education}) => education);
 

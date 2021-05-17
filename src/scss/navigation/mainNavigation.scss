@@ -7,7 +7,7 @@
   font-size: 14px;
   line-height: 17px;
   font-weight: 700;
-  color: $gray;
+  color: $education-text-color;
   letter-spacing: 0.5px;
   transition: opacity 150ms ease-in-out;
   position: relative;
@@ -83,7 +83,7 @@
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E"), linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
         background-position: 91%;
         background-repeat: no-repeat;
-        box-shadow: none;
+        //box-shadow: none;
         &:hover{
           background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E"), linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
         }

@@ -4,7 +4,7 @@
   border: 10px solid $white-blue;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-column-gap: 32px;
+  grid-column-gap: 19px;
   margin-bottom: 50px;
   transition: all 0.4s ease-in-out;
 
@@ -29,7 +29,7 @@
     transition: all 0.4s ease-in-out;
 
     img {
-      width: 291px;
+      width: 246px;
     }
   }
 
@@ -59,7 +59,9 @@
       align-items: baseline;
       align-self: flex-end;
       .courseButtons{
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 20px
       }
 
       .watchCourseButton {
@@ -73,7 +75,6 @@
         color: $orange;
         background-color: #ffffff;
         box-shadow: none;
-        margin-left: 20px;
       }
 
       ul {
@@ -84,7 +85,8 @@
         line-height: 140%;
         color: #979797;
         margin-top: 0;
-        margin-left: 60px;
+        margin-left: 94px;
+        padding-left: 0;
 
         li {
           background-repeat: no-repeat;
@@ -147,6 +149,10 @@
         ul {
           grid-template-columns: 1fr;
           grid-gap: 11px;
+          li{
+            font-weight: 400;
+            font-size: 14px;
+          }
         }
       }
     }

@@ -5,7 +5,6 @@ import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModa
 
 const GetAccessButton = () => {
     const { educationAccessStatus} = useSelector(({education}) => education);
-    console.log(educationAccessStatus.coursePermissionState, 'educationAccessStatus1')
     const [active, setActive] = useState(false);
     const handleOpenModal = (e) => {
         setActive(true);
