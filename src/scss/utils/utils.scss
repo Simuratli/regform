@@ -129,7 +129,7 @@ ul li {
 
 
 @font-face {
-  font-family: "Gilroy";
+  font-family: "Gilroy-ExtraBold";
   src: local('Gilroy-Bold'), url(../../assets/fonts/Gilroy/Gilroy-ExtraBold.otf) format('truetype');
   font-weight: 800;
   font-style: normal;
@@ -141,12 +141,10 @@ ul li {
   font-weight: 400;
   font-style: normal;
 }
-
 @font-face {
-  font-family: "Gilroy-SemiBold";
-  src: local('Gilroy-SemiBold'), url(../../assets/fonts/Gilroy/Gilroy-SemiBold.ttf) format('truetype');
-  font-weight: 400;
+  font-family: "Gilroy-Medium";
+  src: local('Gilroy-Medium'), url(../../assets/fonts/Gilroy/Gilroy-Medium.woff) format('truetype');
+  font-weight: 500;
   font-style: normal;
 }
-
 
