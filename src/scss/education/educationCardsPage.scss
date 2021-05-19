@@ -11,6 +11,7 @@
     font-weight: 700;
     color: $blue;
     text-align: center;
+    font-family: Gilroy-Light;
   }
   p{
     font-weight: 500;
@@ -27,11 +28,12 @@
     padding: 4rem 0 80px;
 
     .headingParagraph {
+      font-family: Gilroy-Light;
       width: 45%;
       text-align: left;
       margin: 2rem 0;
       font-size: 46px;
-      letter-spacing: -1.09524px;
+      letter-spacing: -0.09524px;
       font-weight: 400;
       @include gradientTitleBlue;
     }
@@ -150,7 +152,7 @@
       .headingParagraph {
         font-size: 40px;
         line-height: 130%;
-        width: 75%;
+        width: 60%;
         margin-top: 0;
         margin-bottom: 27px;
         text-align: center;
@@ -207,6 +209,11 @@
 @media screen and (max-width: 768px) {
   .mainContainer{
     @include screen768;
+    .educationHeaderContent{
+      .headingParagraph{
+        width: 90%;
+      }
+    }
 
     .educationCoursesCards{
       grid-template-columns: 1fr;

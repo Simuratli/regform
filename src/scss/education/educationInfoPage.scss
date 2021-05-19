@@ -47,6 +47,7 @@ ul {
     text-align: center;
     margin-top: 0;
     font-weight: 400;
+    font-family: Gilroy-Light;
   }
 
   p {
@@ -94,7 +95,7 @@ ul {
     }
 
     .downloadButton {
-      max-width: 370px;
+      max-width: 280px;
       width: 100%;
     }
   }
@@ -1157,6 +1158,7 @@ ul {
   .gettingSkills {
     ol {
       grid-template-columns: repeat(1, 1fr);
+      padding-left: 76px;
 
       p {
         font-weight: 600;
@@ -1205,6 +1207,8 @@ ul {
           letter-spacing: 1px;
           margin-top: 20px;
           margin-bottom: 13px;
+          @include gradientTitleBlue;
+          font-family: Gilroy-Light;
         }
 
         h5 {
@@ -1212,6 +1216,11 @@ ul {
           font-size: 18px;
           line-height: 120%;
           color: $blue-black;
+        }
+        p{
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 140%;
         }
 
         &:first-child {
@@ -1269,6 +1278,13 @@ ul {
 
       .priceTitleBlock {
         padding: 0 20px;
+        .priceTitleMobile{
+          font-size: 28px;
+          line-height: 34px;
+          letter-spacing: -0.2px;
+          @include gradientTitleGray;
+          font-weight: 700;
+        }
       }
 
       .priceDetails {
@@ -1291,9 +1307,9 @@ ul {
             background: $light-blue;
             cursor: pointer;
             color: $blue-black;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 140%;
+            font-size: 18px;
+            line-height: 26px;
+            font-weight: 700;
             align-items: flex-start;
 
             &::after {
@@ -1327,6 +1343,9 @@ ul {
                 background-repeat: no-repeat;
                 background-position: left 0;
                 padding-left: 36px;
+                font-weight: 600;
+                font-size: 14px;
+                line-height: 120%;
 
                 p {
                   margin: 0;
@@ -1376,6 +1395,9 @@ ul {
       .priceDescription {
         p {
           margin: 20px 20px 0;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
         }
       }
 
@@ -1408,11 +1430,17 @@ ul {
     .tab-label {
       background-color: #ffffff;
       padding: 27px 14px;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 120%;
     }
 
     input:checked ~ .tab-content {
       max-height: 100vh;
       padding: 5px 14px 30px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 140%;
     }
 
   }

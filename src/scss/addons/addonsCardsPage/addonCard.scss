@@ -3,10 +3,10 @@
 .addonsCard {
   background-color: #FFFFFF;
   border: 10px solid $white-blue;
-  padding: 15px 25px;
+  padding: 22px 23px;
   transition: box-shadow 0.3s ease-in-out;
   position: relative;
-  height: 33rem;
+  height: 32rem;
   width: 100%;
   max-width: 360px;
 
@@ -38,15 +38,16 @@
     @include gradientTitleBlue;
     position: absolute;
     top: 0;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 26px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
     text-align: left;
   }
 
   .cardDescription {
     position: absolute;
-    top: 4.5rem;
+    top: 3.5rem;
     color: $education-text-color;
     height: 182px;
     font-weight: 500;
@@ -57,16 +58,16 @@
 
   .cardsButtons {
     position: relative;
-    top: 13rem;
-    display: flex;
-    justify-content: space-between;
-
+    top: 12rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 31px;
     .downloadButton {
       width: 130px;
-      margin: 0 0 0 40px;
+      //margin: 0 0 0 40px;
     }
     .openButton{
-      margin-left: 40px;
+      //margin-left: 40px;
     }
     .moreInfoButton{
       box-shadow: none;
@@ -80,10 +81,11 @@
     text-transform: uppercase;
     color: $orange;
     position: relative;
-    top: 15rem;
-    font-weight: bold;
+    top: 13.5rem;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
+    letter-spacing: 1.125px;
     text-align: left;
   }
 
@@ -92,14 +94,12 @@
     justify-content: space-between;
     color: $education-text-color;
     position: relative;
-    top: 13rem;
+    top: 12rem;
     font-size: 16px;
     line-height: 20px;
-
-    p {
-      font-size: 16px;
-    }
+    font-weight: 400;
   }
+
 
   .moreInfoButton {
     width: 130px;
@@ -117,23 +117,6 @@
     //  -moz-box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
     //  box-shadow: 6px 9px 5px 0 rgba(237, 110, 42, 0.38);
     //}
-  }
-}
-
-@media screen and (max-width: 1500px) {
-  .addonsCard {
-    .cardDescription {
-      font-size: 18px;
-    }
-
-    .cardTitle {
-      color: $blue;
-      font-size: 22px;
-    }
-
-    .description {
-      font-size: 15px;
-    }
   }
 }
 

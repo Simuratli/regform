@@ -351,8 +351,50 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .phantom .footerCopyrightInfo {
-    @include screen500;
+  .phantom{
+    .footerContainer{
+      .footerTitle{
+        font-size: 18px;
+      }
+      .quickLinks{
+        grid-gap: 10px;
+        .quickLinkItem{
+          font-weight: 600;
+          font-size: 16px;
+          line-height: 130%;
+          letter-spacing: -0.1px;
+          margin-bottom: 20px;
+        }
+      }
+      .contactUs{
+        ul{
+          li{
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 130%;
+            letter-spacing: -0.1px;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .partnersContainer{
+        .partnerIcon{
+          margin-bottom: 0;
+        }
+        img{
+          width: 134px;
+        }
+      }
+    }
+    .footerCopyrightInfo {
+      @include screen500;
+      //.copyrightTitle{
+      //  font-weight: 600;
+      //  font-size: 16px;
+      //  line-height: 130%;
+      //  padding-bottom: 0;
+      //}
+    }
   }
 }
 
