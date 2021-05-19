@@ -111,14 +111,14 @@
       line-height: 20px;
 
       &:hover {
-        background: #f2f3f9;
+        background: $light_bg;
       }
     }
 
     .chosen {
       color: $blue;
       font-weight: 700;
-      background: #f2f3f9;
+      background: $light_bg;
     }
   }
 }
