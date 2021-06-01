@@ -91,7 +91,7 @@ const EducationInfoPage = ({education}) => {
                                     <img className={"listItemLogo"} src={format} alt={"Benefit"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Format</h4>
-                                        <p>100% {courseFormat}</p>
+                                        <p>Offline/Online</p>
                                     </div>
 
                                 </li>

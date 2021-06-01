@@ -5,6 +5,9 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/uds_logo/uds_logo_footer.svg";
 import logoDynamic365 from "../../assets/images/d365-logo.svg";
 import logoMicrosoft from "../../assets/images/microsoft_logo.svg";
+import phone from  '../../assets/images/footer_icons/phone.svg';
+import mail from '../../assets/images/footer_icons/mail.svg';
+import skype from '../../assets/images/footer_icons/skype.svg';
 import { FormattedMessage } from "react-intl";
 
 function Footer() {
@@ -43,10 +46,16 @@ function Footer() {
             </h3>
             <ul>
               <li className={"phone"}>
+                <img src={phone} alt="phone"/>
                 <a href={"tel:+38 095 383 9341"}>+380953839341</a>
               </li>
               <li className={"email"}>
+                <img src={mail} alt="mail"/>
                 <a href={"mailto:portal@uds.systems"}>portal@uds.systems</a>
+              </li>
+              <li className={"skype"}>
+                <img src={skype} alt="skype"/>
+                <a href={"skype:live:uds_ddt?chat"}>uds.systems</a>
               </li>
             </ul>
           </div>

@@ -73,7 +73,11 @@
     }
 
     .contactUs li {
+      display: flex;
       margin: 21px 0;
+      img {
+        margin-right: 11px;
+      }
     }
 
     .partnersContainer {
@@ -221,6 +225,11 @@
   .footerCopyrightInfo {
     @include screen1024;
   }
+
+  .phantom .footerContainer {
+    grid-template-columns: 1.7fr 1fr 1fr 2fr;
+  }
+
   .footerCopyrightInfo {
     grid-template-columns: 1fr;
     grid-gap: 10px;

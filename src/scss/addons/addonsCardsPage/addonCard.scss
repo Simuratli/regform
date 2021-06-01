@@ -64,6 +64,10 @@
     grid-gap: 31px;
     .downloadButton {
       width: 130px;
+      transition: all 1s linear;
+      &:hover {
+        background-color: #000;
+      }
       //margin: 0 0 0 40px;
     }
     .openButton{
