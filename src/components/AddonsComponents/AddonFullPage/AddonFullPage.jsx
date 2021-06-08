@@ -13,6 +13,7 @@ import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNoti
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import AddonMayLikeContainer from "../../../containers/Addons/AddonMayLikeContainer";
 import closeButton from '../../../assets/images/close_download_btn.svg'
+import attachedFile from '../../../assets/images/attached_file.svg'
 
 
 const AddonFullPage = ({ addon, intl, children }) => {
@@ -69,7 +70,8 @@ const AddonFullPage = ({ addon, intl, children }) => {
   };
 
   const getAddonVersionFile = (e) => {
-    dispatch(getFile(e.target.dataset.path));
+    const button = e.target.closest('button')
+    dispatch(getFile(button.dataset.path));
   }
 
   useEffect(() => {
@@ -112,6 +114,7 @@ const AddonFullPage = ({ addon, intl, children }) => {
 
     dispatch(getLink(slug));
   };
+  console.log(addon.resources, 'addon.resources')
 
   return (
       <div className="addonFullPage">
@@ -131,12 +134,14 @@ const AddonFullPage = ({ addon, intl, children }) => {
                     <p className="virtualMashineWarningparagraph">
                       <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                     </p>
+
                   </span>) : (
                         <button onClick={handleOpenVersionList}
-                            className="downloadButton"
-                            style={{ position: "relative" }}>
+                                className={downloadModalActive ? 'downloadButtonDisable' : 'downloadButton'}
+                                style={{ position: "relative" }} disabled={downloadModalActive && 'disabled'}>
                             Download
                         </button>)
+
                 ) : (
                     <>
                       <button style={{ position: "relative" }}
@@ -161,7 +166,15 @@ const AddonFullPage = ({ addon, intl, children }) => {
                       Choose the archive compatible with your version.
                     </h2>
                     {addon.resources.map(file => (
-                      <button data-path={file.filePath} onClick={getAddonVersionFile}>{file.version}</button>
+                      <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
+                        <div className={'content'}>
+                          <img src={attachedFile} alt="attached File"/>
+                          <div>
+                            <p className={'crmName'}>Dynamics 365 Online</p>
+                            <p className={'fileName'}>uds-bug-handler-9.1@1.0.0.0.zip</p>
+                          </div>
+                        </div>
+                      </button>
                     ))}
                   </div>
                 </div>
