@@ -31,7 +31,7 @@
   }
 }
 
-.downloadButton {
+.downloadFileButton {
   height: 50px;
 
   &Disable {
@@ -181,7 +181,7 @@
     .virtualMashineWarning {
       text-align: left;
 
-      .downloadButton {
+      .downloadFileButton {
         margin-bottom: 2rem;
       }
 
@@ -237,7 +237,7 @@
   }
 }
 
-.downloadButton, .openButton {
+.downloadFileButton, .openButton {
   max-width: 220px;
   width: 100%;
 
@@ -656,6 +656,20 @@
     grid-row-gap: 60px;
   }
   .addonFullPage {
+
+    .downloadModalContent {
+      h2 {
+        font-size: 18px;
+        line-height: 130%;
+        letter-spacing: 0;
+      }
+
+      p {
+        line-height: 140%;
+        font-size: 14px;
+      }
+    }
+
     h2 {
       font-size: 40px;
       line-height: 49px;
@@ -747,7 +761,7 @@
         text-align: center;
       }
 
-      .downloadButton, .openButton, .chargeMessage {
+      .downloadFileButton, .openButton, .chargeMessage {
         align-self: center;
       }
 
@@ -756,7 +770,7 @@
           text-align: center;
         }
 
-        .downloadButton {
+        .downloadFileButton {
           align-self: center;
         }
       }

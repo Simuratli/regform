@@ -32,7 +32,8 @@ const AddonFullPage = ({ addon, intl, children }) => {
     addOnPageTables = [],
     installationGuidePath,
     troubleshootGuidePath,
-    cardLogo = {}
+    cardLogo = {},
+    resources = [],
   } = addon;
 
   const serverHtml =
@@ -72,6 +73,7 @@ const AddonFullPage = ({ addon, intl, children }) => {
   const getAddonVersionFile = (e) => {
     const button = e.target.closest('button')
     dispatch(getFile(button.dataset.path));
+    handleOpenVersionList();
   }
 
   useEffect(() => {
@@ -114,7 +116,8 @@ const AddonFullPage = ({ addon, intl, children }) => {
 
     dispatch(getLink(slug));
   };
-  console.log(addon.resources, 'addon.resources')
+  console.log(addon.resources, 'addon.resources', addon.resources.length);
+  console.log(resources[0].filePath, 'filepath')
 
   return (
       <div className="addonFullPage">
@@ -128,19 +131,30 @@ const AddonFullPage = ({ addon, intl, children }) => {
                 {applicationType === "Dynamics 365" ? (
                     slug === "uds-virtual-machine" ? (
                         <span className="virtualMashineWarning">
-                    <button onClick={handleMethodsForTopDownload} className="downloadButton">
+                    <button onClick={handleMethodsForTopDownload} className="downloadFileButton">
                       <FormattedMessage id="download" />
                     </button>
                     <p className="virtualMashineWarningparagraph">
                       <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                     </p>
 
-                  </span>) : (
-                        <button onClick={handleOpenVersionList}
-                                className={downloadModalActive ? 'downloadButtonDisable' : 'downloadButton'}
-                                style={{ position: "relative" }} disabled={downloadModalActive && 'disabled'}>
-                            Download
-                        </button>)
+                  </span>) : (resources.length === 1 ? (
+                    <button
+                        data-path={resources[0].filePath}
+                        onClick={getAddonVersionFile}
+                        className={'downloadFileButton'}
+                    >
+                      Download
+                    </button>
+                    ) : (
+                      <button
+                          onClick={handleOpenVersionList}
+                          className={downloadModalActive ? 'downloadFileButtonDisable' : 'downloadFileButton'}
+                          style={{ position: "relative" }} disabled={downloadModalActive && 'disabled'}
+                      >
+                        Download
+                      </button>
+                    ))
 
                 ) : (
                     <>
@@ -311,7 +325,7 @@ const AddonFullPage = ({ addon, intl, children }) => {
                       <>
                         <button
                             onClick={handleMethodsForBottomDownload}
-                            className="downloadButton"
+                            className="downloadFileButton"
                             style={{ position: "relative" }}
                         >
                           {file?.addonTypeDownloading === slug ? (
