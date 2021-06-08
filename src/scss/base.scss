@@ -8,6 +8,12 @@
   flex-direction: column;
   justify-content: space-between;
 }
+
+.carousel-root .carousel .control-dots .dot {
+  width: 14px;
+  height: 14px;
+}
+
 .arrowTop {
   width: 60px;
   height: 40px;

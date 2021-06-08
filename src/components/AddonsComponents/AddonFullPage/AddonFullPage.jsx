@@ -13,11 +13,13 @@ import { getDownloadFile } from "../../../store/reducers/downloadFileReducer/act
 import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNotification";
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import AddonMayLikeContainer from "../../../containers/Addons/AddonMayLikeContainer";
+import closeButton from '../../../assets/images/close_download_btn.svg'
 
 
 const AddonFullPage = ({ addon, intl, children }) => {
   const [modalActive, setModalActive] = useState(true)
-  const state = useSelector((state) => state);
+  const [downloadModalActive, setDownloadModalActive] = useState(false)
+  const state = useSelector((state) => state)
   const dispatch = useDispatch();
   const { file } = state;
 
@@ -31,32 +33,33 @@ const AddonFullPage = ({ addon, intl, children }) => {
     installationGuidePath,
     troubleshootGuidePath,
     cardLogo = {},
+    resources = [],
   } = addon;
 
   const serverHtml =
-    addOnPageTables.length &&
-    addOnPageTables.map(({ addOnPageTableContent, addOnPageTableCategory }) => {
-      return (
-        <div key={addOnPageTableCategory}>
-          <h2>{addOnPageTableCategory}</h2>
-          {addOnPageTableContent &&
-            addOnPageTableContent.length &&
-            addOnPageTableContent.map(({ htmlBody }) => {
-              return (
-                <div
-                  key={htmlBody}
-                  dangerouslySetInnerHTML={{
-                    __html: htmlBody,
-                  }}
-                />
-              );
-            })}
-        </div>
-      );
-    });
+      addOnPageTables.length &&
+      addOnPageTables.map(({ addOnPageTableContent, addOnPageTableCategory }) => {
+        return (
+            <div key={addOnPageTableCategory}>
+              <h2>{addOnPageTableCategory}</h2>
+              {addOnPageTableContent &&
+              addOnPageTableContent.length &&
+              addOnPageTableContent.map(({ htmlBody }) => {
+                return (
+                    <div
+                        key={htmlBody}
+                        dangerouslySetInnerHTML={{
+                          __html: htmlBody,
+                        }}
+                    />
+                );
+              })}
+            </div>
+        );
+      });
 
   const sortedAddOnPageSteps = addOnPageSteps.sort((a, b) =>
-    a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
+      a.stepIndex > b.stepIndex ? 1 : b.stepIndex > a.stepIndex ? -1 : 0
   );
 
   useEffect(() => {
@@ -64,9 +67,14 @@ const AddonFullPage = ({ addon, intl, children }) => {
   }, [name]);
 
   const handleDownload = () => {
-    dispatch(getDownloadFile(slug));
-    dispatch(getFile());
+    setDownloadModalActive(!downloadModalActive);
+    // dispatch(getDownloadFile(slug));
+    // dispatch(getFile());
   };
+
+  const getAddonVersionFile = () => {
+
+  }
 
   useEffect(() => {
     if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
@@ -111,256 +119,267 @@ const AddonFullPage = ({ addon, intl, children }) => {
   };
 
   return (
-    <div className="addonFullPage">
-      <ModalMobileNotification setActive={setModalActive}/>
-      {children}
-      <div className="headerWrapper" style={{ maxWidth: "4000px" }}>
-        <section className="header">
-          <AnimatedContainer>
-            <div className="headerLeftSide">
-              <h1>{name}</h1>
-              {applicationType === "Dynamics 365" ? (
-                slug === "uds-virtual-machine" ? (
-                  <span className="virtualMashineWarning">
+      <div className="addonFullPage">
+        <ModalMobileNotification setActive={setModalActive}/>
+        {children}
+        <div className="headerWrapper" style={{ maxWidth: "4000px" }}>
+          <section className="header">
+            <AnimatedContainer>
+              <div className="headerLeftSide">
+                <h1>{name}</h1>
+                {applicationType === "Dynamics 365" ? (
+                    slug === "uds-virtual-machine" ? (
+                        <span className="virtualMashineWarning">
                     <button
-                      onClick={handleMethodsForTopDownload}
-                      className="downloadButton"
+                        onClick={handleMethodsForTopDownload}
+                        className="downloadButton"
                     >
                       <FormattedMessage id="download" />
                     </button>
                     <p className="virtualMashineWarningparagraph">
                       <span
-                        dangerouslySetInnerHTML={{
-                          __html: get(intl, `messages["virtual.machine.text"]`),
-                        }}
+                          dangerouslySetInnerHTML={{
+                            __html: get(intl, `messages["virtual.machine.text"]`),
+                          }}
                       />
                     </p>
                   </span>
+                    ) : (
+                        <button
+                            onClick={handleDownload}
+                            className="downloadButton"
+                            style={{ position: "relative" }}
+                        >
+                          Download
+                        </button>
+                    )
                 ) : (
-                  <button
-                    onClick={handleDownload}
-                    className="downloadButton"
-                    style={{ position: "relative" }}
-                  >
-                    {file?.addonTypeDownloading === slug ? (
-                      <ButtonLoader />
-                    ) : (
-                      <FormattedMessage id="download" />
-                    )}
-                  </button>
-                )
-              ) : (
-                <>
-                  <button
-                    style={{ position: "relative" }}
-                    onClick={() => HandlerTrackerForOpen("Top")}
-                    className="openButton"
-                  >
-                    {file?.addonTypeDownloading === slug ? (
-                      <ButtonLoader />
-                    ) : (
-                      <FormattedMessage id="open" />
-                    )}
-                  </button>
-                  <p className={"chargeMessage"}>
-                    <FormattedMessage id="free.of.charge" />
-                  </p>
-                </>
-              )}
-            </div>
-          </AnimatedContainer>
-          <div className="headerRightSide">
-            <div className="videoTutorial">
-              <img
-                src={get(cardLogo, "imageSource")}
-                alt={get(cardLogo, "alternateText")}
-              />
-              {/*<img src={gif}/>*/}
-            </div>
-          </div>
-        </section>
-      </div>
-      <div className="fullPageContent">
-        <section className={"aboutInfo"}>
-          <h2>
-            <FormattedMessage id="about.add.on" />
-          </h2>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: description,
-            }}
-          />
-        </section>
-        <section className="installInfo">
-          <h2>
-            <FormattedMessage id="how.to.install.and.uninstall" />
-          </h2>
-
-          {slug === "uds-data-migration-tool" ? (
-            <div className={"blockWithPlayer"}>
-              <p>
-                <FormattedMessage id="dmt.text" />
-              </p>
-              <div className="playerWrapper">
-                <YouTube
-                  className="reactPlayer"
-                  videoId={installationGuidePath.split("v=")[1].split("&")[0]}
-                  opts={{
-                    playerVars: {
-                      autoplay: 0,
-                    },
-                  }}
-                />
-              </div>
-            </div>
-          ) : (
-            <>
-              <p>
-                <FormattedMessage id="download" />
-                <a
-                  className="installationGuide"
-                  href={installationGuidePath}
-                  target={"_blank"}
-                  rel="noopener noreferrer"
-                >
-                  {name} <FormattedMessage id="installation.guide" />.
-                </a>
-                <FormattedMessage id="download" />
-                <a
-                  className="installationGuide"
-                  href={troubleshootGuidePath}
-                  target={"_blank"}
-                  rel="noopener noreferrer"
-                >
-                  <FormattedMessage id="hints" />
-                </a>
-                <FormattedMessage id="for.safari.users" />
-              </p>
-            </>
-          )}
-        </section>
-        <section className="useInfo">
-          <h2>
-            <FormattedMessage id="how.to.use" />
-          </h2>
-          <ul className="timeline">
-            {sortedAddOnPageSteps.map(
-              ({ stepTitle, stepDescription, stepImage }) => (
-                <li className="event" key={stepTitle + stepImage}>
-                  <div className="stepDescription">
-                    <span className="stepTitle">{stepTitle}</span>
-                    <p
-                      className="stepDescP"
-                      dangerouslySetInnerHTML={{
-                        __html: stepDescription,
-                      }}
-                    />
-                  </div>
-                  <div className="stepImage">
-                    <img
-                      src={get(stepImage, "imageSource")}
-                      alt={get(stepImage, "alternateText")}
-                    />
-                  </div>
-                </li>
-              )
-            )}
-          </ul>
-        </section>
-        <section className="useInfoMobile">
-          <h2>
-            <FormattedMessage id="how.to.use" />
-          </h2>
-          <ul>
-            {sortedAddOnPageSteps.map(
-              ({ stepTitle, stepDescription, stepImage }) => (
-                <li key={stepTitle + stepImage}>
-                  <span className="stepTitle">{stepTitle}</span>
-                  <p>{stepDescription}</p>
-                  <div className="stepImage">
-                    <img
-                      src={get(stepImage, "imageSource")}
-                      alt={get(stepImage, "alternateText")}
-                    />
-                  </div>
-                </li>
-              )
-            )}
-          </ul>
-        </section>
-        <div className={"wrapperForBottom"}>
-          <section className="bottomWrapper">
-            <div className="bottomInfo">
-              <section className={"blockWithCreds"}>{serverHtml}</section>
-              <section className="downloadInfo">
-                <h2>
-                  <FormattedMessage id="ready.to.get.started" />
-                </h2>
-                {applicationType === "Dynamics 365" ? (
-                  <>
-                    <button
-                      onClick={handleMethodsForBottomDownload}
-                      className="downloadButton"
-                      style={{ position: "relative" }}
-                    >
-                      {file?.addonTypeDownloading === slug ? (
-                        <ButtonLoader />
-                      ) : (
-                        <FormattedMessage id="download" />
-                      )}
-                    </button>
-                  </>
-                ) : (
-                  <button
-                    onClick={() => HandlerTrackerForOpen("Bottom")}
-                    className="openButton"
-                    style={{ position: "relative" }}
-                  >
-                    {file?.addonTypeDownloading === slug ? (
-                      <ButtonLoader />
-                    ) : (
-                      <FormattedMessage id="open" />
-                    )}
-                  </button>
+                    <>
+                      <button
+                          style={{ position: "relative" }}
+                          onClick={() => HandlerTrackerForOpen("Top")}
+                          className="openButton"
+                      >
+                        {file?.addonTypeDownloading === slug ? (
+                            <ButtonLoader />
+                        ) : (
+                            <FormattedMessage id="open" />
+                        )}
+                      </button>
+                      <p className={"chargeMessage"}>
+                        <FormattedMessage id="free.of.charge" />
+                      </p>
+                    </>
                 )}
-              </section>
-              <section className="helpInfo">
-                <h2>
-                  <FormattedMessage id="need.help" />
-                </h2>
-                <p>
-                  <FormattedMessage id="need.help.text" />
-                </p>
-                <ul className="helpList">
-                  <li className="mailItem">
-                    <a
-                      className="mail"
-                      href="mailto:portal@uds.systems"
-                      rel="noreferrer noopener"
-                    >
-                      portal@uds.systems
-                    </a>
-                  </li>
-                  <li className="skypeItem">
-                    <a
-                      className="skype"
-                      href="skype:live:uds_ddt?chat"
-                      rel="noopener noreferrer"
-                    >
-                      uds.systems
-                    </a>
-                  </li>
-                </ul>
-              </section>
-            </div>
-            <div className={"bottomScrollBlockWrapper"}>
-              <h2 className={"alsoLikeTitle"}>You may also like</h2>
-              <AddonMayLikeContainer/>
+                {downloadModalActive &&
+                <div className={'downloadModal'}>
+                  <button className='closeBtn' onClick={handleDownload}>
+                    <img src={closeButton} alt="close"/>
+                  </button>
+                  <div className={'downloadModalContent'}>
+                    <h2>
+                      Choose the archive compatible with your version.
+                    </h2>
+                    {resources.map(file => (
+                      <button onClick={file}>Download</button>
+                    ))}
+                  </div>
+                </div>
+                }
+              </div>
+            </AnimatedContainer>
+            <div className="headerRightSide">
+              <div className="videoTutorial">
+                <img
+                    src={get(cardLogo, "imageSource")}
+                    alt={get(cardLogo, "alternateText")}
+                />
+                {/*<img src={gif}/>*/}
+              </div>
             </div>
           </section>
         </div>
+        <div className="fullPageContent">
+          <section className={"aboutInfo"}>
+            <h2>
+              <FormattedMessage id="about.add.on" />
+            </h2>
+            <p
+                dangerouslySetInnerHTML={{
+                  __html: description,
+                }}
+            />
+          </section>
+          <section className="installInfo">
+            <h2>
+              <FormattedMessage id="how.to.install.and.uninstall" />
+            </h2>
+
+            {slug === "uds-data-migration-tool" ? (
+                <div className={"blockWithPlayer"}>
+                  <p>
+                    <FormattedMessage id="dmt.text" />
+                  </p>
+                  <div className="playerWrapper">
+                    <YouTube
+                        className="reactPlayer"
+                        videoId={installationGuidePath.split("v=")[1].split("&")[0]}
+                        opts={{
+                          playerVars: {
+                            autoplay: 0,
+                          },
+                        }}
+                    />
+                  </div>
+                </div>
+            ) : (
+                <>
+                  <p>
+                    <FormattedMessage id="download" />
+                    <a
+                        className="installationGuide"
+                        href={installationGuidePath}
+                        target={"_blank"}
+                        rel="noopener noreferrer"
+                    >
+                      {name} <FormattedMessage id="installation.guide" />.
+                    </a>
+                    <FormattedMessage id="download" />
+                    <a
+                        className="installationGuide"
+                        href={troubleshootGuidePath}
+                        target={"_blank"}
+                        rel="noopener noreferrer"
+                    >
+                      <FormattedMessage id="hints" />
+                    </a>
+                    <FormattedMessage id="for.safari.users" />
+                  </p>
+                </>
+            )}
+          </section>
+          <section className="useInfo">
+            <h2>
+              <FormattedMessage id="how.to.use" />
+            </h2>
+            <ul className="timeline">
+              {sortedAddOnPageSteps.map(
+                  ({ stepTitle, stepDescription, stepImage }) => (
+                      <li className="event" key={stepTitle + stepImage}>
+                        <div className="stepDescription">
+                          <span className="stepTitle">{stepTitle}</span>
+                          <p
+                              className="stepDescP"
+                              dangerouslySetInnerHTML={{
+                                __html: stepDescription,
+                              }}
+                          />
+                        </div>
+                        <div className="stepImage">
+                          <img
+                              src={get(stepImage, "imageSource")}
+                              alt={get(stepImage, "alternateText")}
+                          />
+                        </div>
+                      </li>
+                  )
+              )}
+            </ul>
+          </section>
+          <section className="useInfoMobile">
+            <h2>
+              <FormattedMessage id="how.to.use" />
+            </h2>
+            <ul>
+              {sortedAddOnPageSteps.map(
+                  ({ stepTitle, stepDescription, stepImage }) => (
+                      <li key={stepTitle + stepImage}>
+                        <span className="stepTitle">{stepTitle}</span>
+                        <p>{stepDescription}</p>
+                        <div className="stepImage">
+                          <img
+                              src={get(stepImage, "imageSource")}
+                              alt={get(stepImage, "alternateText")}
+                          />
+                        </div>
+                      </li>
+                  )
+              )}
+            </ul>
+          </section>
+          <div className={"wrapperForBottom"}>
+            <section className="bottomWrapper">
+              <div className="bottomInfo">
+                <section className={"blockWithCreds"}>{serverHtml}</section>
+                <section className="downloadInfo">
+                  <h2>
+                    <FormattedMessage id="ready.to.get.started" />
+                  </h2>
+                  {applicationType === "Dynamics 365" ? (
+                      <>
+                        <button
+                            onClick={handleMethodsForBottomDownload}
+                            className="downloadButton"
+                            style={{ position: "relative" }}
+                        >
+                          {file?.addonTypeDownloading === slug ? (
+                              <ButtonLoader />
+                          ) : (
+                              <FormattedMessage id="download" />
+                          )}
+                        </button>
+                      </>
+                  ) : (
+                      <button
+                          onClick={() => HandlerTrackerForOpen("Bottom")}
+                          className="openButton"
+                          style={{ position: "relative" }}
+                      >
+                        {file?.addonTypeDownloading === slug ? (
+                            <ButtonLoader />
+                        ) : (
+                            <FormattedMessage id="open" />
+                        )}
+                      </button>
+                  )}
+                </section>
+                <section className="helpInfo">
+                  <h2>
+                    <FormattedMessage id="need.help" />
+                  </h2>
+                  <p>
+                    <FormattedMessage id="need.help.text" />
+                  </p>
+                  <ul className="helpList">
+                    <li className="mailItem">
+                      <a
+                          className="mail"
+                          href="mailto:portal@uds.systems"
+                          rel="noreferrer noopener"
+                      >
+                        portal@uds.systems
+                      </a>
+                    </li>
+                    <li className="skypeItem">
+                      <a
+                          className="skype"
+                          href="skype:live:uds_ddt?chat"
+                          rel="noopener noreferrer"
+                      >
+                        uds.systems
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+              </div>
+              <div className={"bottomScrollBlockWrapper"}>
+                <h2 className={"alsoLikeTitle"}>You may also like</h2>
+                <AddonMayLikeContainer/>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
-    </div>
   );
 };
 

@@ -96,13 +96,6 @@ const EducationInfoPage = ({education}) => {
 
                                 </li>
                                 <li>
-                                    <img className={"listItemLogo"} src={certificateIcon} alt={"Benefit"}/>
-                                    <div className={"topBarContent"}>
-                                        <h4>Certificate</h4>
-                                        <p>Yes</p>
-                                    </div>
-                                </li>
-                                <li>
                                     <img className={"listItemLogo"} src={languageIcon} alt={"Benefit"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Language</h4>
@@ -110,10 +103,19 @@ const EducationInfoPage = ({education}) => {
                                     </div>
                                 </li>
                                 <li>
+                                    <img className={"listItemLogo"} src={certificateIcon} alt={"Benefit"}/>
+                                    <div className={"topBarContent"}>
+                                        <h4>Certificate</h4>
+                                        <p>Yes</p>
+                                        <a className={'detailsButton'} href="#takeCourse">Details</a>
+                                    </div>
+                                </li>
+                                <li>
                                     <img className={"listItemLogo"} src={priceIcon} alt={"Benefit"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Price</h4>
-                                        <p>FREE</p>
+                                        <p>FREE / PAID</p>
+                                        <a className={'detailsButton'} href="#takeCourse">Details</a>
                                     </div>
                                 </li>
                             </ul>
@@ -264,7 +266,7 @@ const EducationInfoPage = ({education}) => {
                         )}
                     </ul>
                 </section>
-                <section className={"pricePlanMobile"} id={'takeCourseMobile'}>
+                <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
                         <li className={"paidCard"}>

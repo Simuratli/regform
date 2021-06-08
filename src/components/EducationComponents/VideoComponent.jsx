@@ -52,7 +52,7 @@ const EducationVideoLessons = ({video, activeBlock}) => {
                         <div className={"attachments"}>
                             <h3 className={"attachmentsHeadingParagraph"}>Attached Files</h3>
                             <div className={"attachment"}>
-                                {attachmentUrls.map(attachment => <a href={attachment} download>
+                                {attachmentUrls.map(attachment => <a rel="noopener noreferrer" target='_blank' href={attachment} download>
                                     Block_{activeBlock.toString()}_practice.pdf
                                     <span className={"attachmentSize"}>1.1mb</span>
                                 </a>)}

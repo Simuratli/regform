@@ -35,11 +35,28 @@ ul {
   padding-left: 0;
 }
 
+.topBar {
+    p {
+      letter-spacing: 1px;
+    }
+  }
+
 
 .educationInfoContent {
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 80px;
+
+  .detailsButton {
+    display: block;
+    text-align: center;
+    border: 2px solid $orange;
+    border-radius: 2px;
+    padding: 4px 21px 4px 21px;
+    width: fit-content;
+    margin-top: 2px;
+    color: $orange;
+  }
 
   h2 {
     font-size: 46px;
@@ -210,6 +227,10 @@ ul {
 
       .takeCourseButton, .watchCourseButton {
         margin-top: 29px;
+        max-width: 100%;
+        width: 280px;
+        height: 50px;
+        letter-spacing: 1px;
       }
     }
   }
@@ -963,6 +984,15 @@ ul {
       line-height: 130%;
     }
   }
+
+  .learnInfo .learnInfoContent .topBar ul li .listItemLogo {
+    padding: 5px;
+  }
+
+  .educationInfoContent .detailsButton {
+    position: absolute;
+  }
+
   .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
     @include screen500;
   }
