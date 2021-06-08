@@ -14,6 +14,7 @@ import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNoti
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import AddonMayLikeContainer from "../../../containers/Addons/AddonMayLikeContainer";
 import closeButton from '../../../assets/images/close_download_btn.svg'
+import attachedFile from '../../../assets/images/attached_file.svg'
 
 
 const AddonFullPage = ({ addon, intl, children }) => {
@@ -147,8 +148,9 @@ const AddonFullPage = ({ addon, intl, children }) => {
                     ) : (
                         <button
                             onClick={handleDownload}
-                            className="downloadButton"
+                            className={downloadModalActive ? 'downloadButtonDisable' : 'downloadButton'}
                             style={{ position: "relative" }}
+                            disabled={downloadModalActive && 'disabled'}
                         >
                           Download
                         </button>
@@ -181,7 +183,15 @@ const AddonFullPage = ({ addon, intl, children }) => {
                       Choose the archive compatible with your version.
                     </h2>
                     {resources.map(file => (
-                      <button onClick={file}>Download</button>
+                      <button className={'downloadFile'} onClick={file}>
+                        <div className={'content'}>
+                          <img src={attachedFile} alt="attached File"/>
+                          <div>
+                            <p className={'crmName'}>Dynamics 365 Online</p>
+                            <p className={'fileName'}>uds-bug-handler-9.1@1.0.0.0.zip</p>
+                          </div>
+                        </div>
+                      </button>
                     ))}
                   </div>
                 </div>

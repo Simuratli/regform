@@ -31,6 +31,23 @@
   }
 }
 
+.downloadButton {
+  height: 50px;
+
+  &Disable {
+    background-color: #E8EBFE;
+    max-width: 220px;
+    color: #fff;
+    height: 50px;
+  }
+}
+
+.downloadModalContent :last-child {
+  &::after {
+    display: none;
+  }
+}
+
 .downloadModal {
   max-width: 100%;
   width: 389px;
@@ -39,6 +56,7 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 3px 6px rgba(14, 31, 53, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 8px 24px rgba(14, 31, 53, 0.08);
 
   .closeBtn {
     box-shadow: none;
@@ -62,6 +80,7 @@
   .downloadModalContent {
     padding-left: 30px;
     padding-right: 30px;
+    margin-bottom: 19px;
   }
 
   h2 {
@@ -71,6 +90,55 @@
     line-height: 23px;
     text-align: left;
     letter-spacing: 0;
+    padding-bottom: 20px;
+  }
+}
+
+.downloadFile {
+  padding: 0;
+  max-width: 100%;
+  margin-bottom: 21px;
+  height: 64px;
+  background-color: #fff;
+  box-shadow: none;
+  position: relative;
+
+  &:hover {
+    background-color: #f9faff;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    background-color: #E8EBFE;
+    top: 74px;
+  }
+
+  .content {
+    display: flex;
+  }
+
+  p {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .crmName {
+    color: #1E2432 !important;
+    font-weight: 600;
+  }
+
+  .fileName {
+    color: #696d8c !important;
+    font-weight: 400;
+  }
+
+  img {
+    margin-left: 18px;
+    margin-right: 31px;
   }
 }
 
