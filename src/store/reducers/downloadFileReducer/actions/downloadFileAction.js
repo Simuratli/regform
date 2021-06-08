@@ -5,9 +5,7 @@ import { DOWNLOADED_FILE, SET_ADDON_DOWNLOADING } from "../types";
 export const getDownloadFile = (slug) => {
   return (dispatch, getState) => {
     const { addon } = getState();
-
     dispatch({ type: SET_ADDON_DOWNLOADING, payload: slug });
-
     httpClient
       .get(addon?.currentFullAddonPage?.resourcePath)
       .then((res) => {

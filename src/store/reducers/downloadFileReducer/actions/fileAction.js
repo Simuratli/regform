@@ -2,12 +2,10 @@ import { httpClient } from "../../../../services/services";
 import { setError } from "../../appReducer/actions/appAction";
 import { DOWNLOADED_FILE, REMOVE_FILE } from "../types";
 
-export const getFile = () => {
-  return (dispatch, getState) => {
-    const { file } = getState().file;
-
+export const getFile = (filePath) => {
+  return (dispatch) => {
     httpClient
-      .get(file)
+      .get(filePath)
       .then((res) => {
         dispatch({ type: DOWNLOADED_FILE, payload: res.data });
       })

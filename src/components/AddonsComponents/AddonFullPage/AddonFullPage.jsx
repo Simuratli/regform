@@ -9,7 +9,6 @@ import {getFile, removeFile} from "../../../store/reducers/downloadFileReducer/a
 import { getLink } from "../../../store/reducers/openButtonReducer/actions/openButtonAction";
 import get from "lodash/get";
 import { FormattedMessage, injectIntl } from "react-intl";
-import { getDownloadFile } from "../../../store/reducers/downloadFileReducer/actions/downloadFileAction";
 import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNotification";
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import AddonMayLikeContainer from "../../../containers/Addons/AddonMayLikeContainer";
@@ -32,8 +31,7 @@ const AddonFullPage = ({ addon, intl, children }) => {
     addOnPageTables = [],
     installationGuidePath,
     troubleshootGuidePath,
-    cardLogo = {},
-    resources = [],
+    cardLogo = {}
   } = addon;
 
   const serverHtml =
@@ -66,20 +64,17 @@ const AddonFullPage = ({ addon, intl, children }) => {
     document.title = `${name.slice(3)} | Add-ons | UDS Portal`;
   }, [name]);
 
-  const handleDownload = () => {
+  const handleOpenVersionList = () => {
     setDownloadModalActive(!downloadModalActive);
-    // dispatch(getDownloadFile(slug));
-    // dispatch(getFile());
   };
 
-  const getAddonVersionFile = () => {
-
+  const getAddonVersionFile = (e) => {
+    dispatch(getFile(e.target.dataset.path));
   }
 
   useEffect(() => {
     if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
       const link = document.getElementById("file");
-
       link.click();
       dispatch(removeFile());
     }
@@ -97,12 +92,12 @@ const AddonFullPage = ({ addon, intl, children }) => {
   };
 
   const handleMethodsForTopDownload = () => {
-    handleDownload();
-    HandlerTrackerDownloads("Top");
+      handleOpenVersionList();
+      HandlerTrackerDownloads("Top");
   };
   const handleMethodsForBottomDownload = () => {
-    handleDownload();
-    HandlerTrackerDownloads("Bottom");
+      handleOpenVersionList();
+      HandlerTrackerDownloads("Bottom");
   };
 
   const HandlerTrackerForOpen = (type) => {
@@ -130,41 +125,26 @@ const AddonFullPage = ({ addon, intl, children }) => {
                 {applicationType === "Dynamics 365" ? (
                     slug === "uds-virtual-machine" ? (
                         <span className="virtualMashineWarning">
-                    <button
-                        onClick={handleMethodsForTopDownload}
-                        className="downloadButton"
-                    >
+                    <button onClick={handleMethodsForTopDownload} className="downloadButton">
                       <FormattedMessage id="download" />
                     </button>
                     <p className="virtualMashineWarningparagraph">
-                      <span
-                          dangerouslySetInnerHTML={{
-                            __html: get(intl, `messages["virtual.machine.text"]`),
-                          }}
-                      />
+                      <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                     </p>
-                  </span>
-                    ) : (
-                        <button
-                            onClick={handleDownload}
+                  </span>) : (
+                        <button onClick={handleOpenVersionList}
                             className="downloadButton"
-                            style={{ position: "relative" }}
-                        >
-                          Download
-                        </button>
-                    )
+                            style={{ position: "relative" }}>
+                            Download
+                        </button>)
                 ) : (
                     <>
-                      <button
-                          style={{ position: "relative" }}
+                      <button style={{ position: "relative" }}
                           onClick={() => HandlerTrackerForOpen("Top")}
-                          className="openButton"
-                      >
-                        {file?.addonTypeDownloading === slug ? (
-                            <ButtonLoader />
-                        ) : (
-                            <FormattedMessage id="open" />
-                        )}
+                          className="openButton">
+                        {file?.addonTypeDownloading === slug
+                            ? (<ButtonLoader />)
+                            : (<FormattedMessage id="open" />)}
                       </button>
                       <p className={"chargeMessage"}>
                         <FormattedMessage id="free.of.charge" />
@@ -173,15 +153,15 @@ const AddonFullPage = ({ addon, intl, children }) => {
                 )}
                 {downloadModalActive &&
                 <div className={'downloadModal'}>
-                  <button className='closeBtn' onClick={handleDownload}>
+                  <button className='closeBtn' onClick={handleOpenVersionList}>
                     <img src={closeButton} alt="close"/>
                   </button>
                   <div className={'downloadModalContent'}>
                     <h2>
                       Choose the archive compatible with your version.
                     </h2>
-                    {resources.map(file => (
-                      <button onClick={file}>Download</button>
+                    {addon.resources.map(file => (
+                      <button data-path={file.filePath} onClick={getAddonVersionFile}>{file.version}</button>
                     ))}
                   </div>
                 </div>
@@ -194,7 +174,6 @@ const AddonFullPage = ({ addon, intl, children }) => {
                     src={get(cardLogo, "imageSource")}
                     alt={get(cardLogo, "alternateText")}
                 />
-                {/*<img src={gif}/>*/}
               </div>
             </div>
           </section>
