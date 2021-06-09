@@ -10,7 +10,7 @@ const translations = {
   openings: "openings DA",
   price: "price DA",
   "virtual.machine.text":
-    "*UDS Virtual Machine exceeds 17.3 GB. <br /> We recommend using Download Master to avoid breakdowns. DA",
+    "*UDS Virtual Machine exceeds 16.4 GB. <br /> We recommend using Download Master to avoid breakdowns. DA",
   "free.of.charge": "Free of charge until August, 2021 DA",
   "about.add.on": "About add-on DA",
   "how.to.install.and.uninstall": "How to install and uninstall DA",

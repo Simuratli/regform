@@ -24,6 +24,8 @@ const AddonsCardsPage = () => {
     const {addonsMetadata} = state.metadata;
     const cards = useSelector(({addon}) => addon.cards)
 
+    console.log(addonsMetadata, 'Metadata');
+
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
         if (!get(addon, "cards", []).length) {
