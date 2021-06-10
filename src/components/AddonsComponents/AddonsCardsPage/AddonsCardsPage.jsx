@@ -14,6 +14,7 @@ import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNoti
 
 import get from "lodash/get";
 import {getAuthoriseCheck} from "../../../store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
+import AddonPaginationCont from "../../ViewsComponents/AddonPaginationCont";
 
 const AddonsCardsPage = () => {
     const [modalActive, setModalActive] = useState(true)
@@ -22,9 +23,7 @@ const AddonsCardsPage = () => {
     const {addon, app} = state;
     const {error} = app;
     const {addonsMetadata} = state.metadata;
-    const cards = useSelector(({addon}) => addon.cards)
-
-    console.log(addonsMetadata, 'Metadata');
+    const types = ['All'];
 
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
@@ -52,12 +51,12 @@ const AddonsCardsPage = () => {
                     <FormattedMessage id="improve.dynamics.text"/>
                 </p>
             </div>
-            <FilterAddonsComponent cards={cards}/>
+            <FilterAddonsComponent/>
             <div className={"card"}>
                 <AddonCardContainer/>
             </div>
 
-            {/*<AddonPaginationCont />*/}
+            {/*<AddonPaginationCont/>*/}
         </div>
     );
 };

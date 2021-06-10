@@ -77,6 +77,10 @@
       margin: 21px 0;
       img {
         margin-right: 11px;
+
+        &:hover {
+          filter: none;
+        }
       }
     }
 

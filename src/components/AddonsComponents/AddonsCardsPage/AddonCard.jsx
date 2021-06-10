@@ -38,8 +38,6 @@ const AddonCard = ({ addon, className }) => {
     resources = [],
   } = addon;
 
-  console.log(addon);
-
   const handleOpenVersionList = () => {
     setDownloadModalActiveCard(!downloadModalActiveCard);
   };

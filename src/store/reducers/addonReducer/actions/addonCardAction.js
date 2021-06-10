@@ -1,5 +1,5 @@
 import { httpClient } from "../../../../services/services";
-import { SET_CARDS_DATA } from "../types";
+import {SET_CARDS_DATA} from "../types";
 import { setError, setIsLoading } from "../../appReducer/actions/appAction";
 
 export const getAddonCard = () => {
