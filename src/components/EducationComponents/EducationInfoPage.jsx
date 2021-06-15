@@ -64,7 +64,7 @@ const EducationInfoPage = ({education}) => {
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            <video autostart autoPlay loop src={courseLogoGif} type="video/mp4" />
+                            <video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>
                             {/*<img src="../../assets/images/ms_consultant_logo.svg" alt="logo"/>*/}
                         </div>
                     </section>
@@ -253,17 +253,58 @@ const EducationInfoPage = ({education}) => {
                     <ul className={"paidCardsContainer"}>
                         {pricePlans.map(planItem =>
                             <li className={"paidCard"}>
-                                <h3 className={"title"}>FREE</h3>
-                                <img src={pricePlan} className={"price"}/>
-                                <span className={"startDate"}>
-                                {/*<h3>Start date: <p>notify me</p></h3>*/}
-                                </span>
-                                <div key={shortid.generate()}
-                                     dangerouslySetInnerHTML={{__html: planItem.description}}>
-                                </div>
-                                <GetAccessButton/>
+                                {
+                                    planItem.price === 0
+                                        ? <>
+                                            <h3 className={"title free"}>FREE</h3>
+                                            <p className={"format free"}>Offline</p>
+                                            <p className={"price free"}>
+                                                <span className={"dollarSign"}>$</span>
+                                                {planItem.price}
+                                            </p>
+                                            <span className={"startDate"}>
+                                            {/*<h3>Start date: <p>notify me</p></h3>*/}
+                                            </span>
+                                            <div key={shortid.generate()}
+                                                 dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                            </div>
+                                            <GetAccessButton/>
+                                        </>
+                                        : <h3 className={"title paid"}>PAID</h3>
+                                }
+
                             </li>
                         )}
+                        <li className={"paidCard"}>
+                            <div className="descriptionSection">
+                                <h3 className={"title"}>PAID</h3>
+                                <p className={"format free"}>Online</p>
+                                <p className={"price"}>
+                                    <span className={"dollarSign"}>$</span>
+                                    29.99
+                                </p>
+
+                                <p className="description">
+                                    Paid plan is an option for self-discipline and independent people whose first aim is
+                                    to
+                                    obtain new knowledge. Its means there are no time restrictions and homework. At the
+                                    same
+                                    time, you can also request for Certificate or apply for employment in UDS Systems
+                                    under
+                                    certain conditions (exam and interview).
+                                </p>
+                                <ul className="checkPointsPaidCard">
+                                    <li><p>no time reference; </p></li>
+                                    <li><p>start the course right after payment;</p></li>
+                                    <li><p>no practical assignment;</p></li>
+                                    <li><p>convenient studying tempo;</p></li>
+                                    <li><p>no mentors’s assistance; </p></li>
+                                    <li><p>we do not grant Certificates on
+                                        completion (without request).</p></li>
+                                </ul>
+                            </div>
+                            <GetAccessButton/>
+                        </li>
                     </ul>
                 </section>
                 <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
@@ -343,3 +384,17 @@ const EducationInfoPage = ({education}) => {
 };
 
 export default EducationInfoPage;
+// [
+//     {
+//         "price": 0,
+//         "description": "<p className=\"description\"> Paid plan is an option for self-discipline and independent people whose first aim is to obtain new knowledge. Its means there are no time restrictions and homework. At the same time, you can also request for Certificate or apply for employment in UDS Systems under certain conditions (exam and interview).</p>",
+//         "checkPoints": "<ul class=\"checkPoints\"><li><p>small-group format (up to 6 students);</p></li><li><p>short course (2 weeks only);</p></li><li><p>mentor's assistance;</p></li><li><p>practical assignments similar to the tasks of real projects;</p></li><li><p>check of home assignment;</p></li><li><p>employment in UDS Systems;</p></li><li><p>we recruit a group of students only two times a year (when the need to expand current projects arises).</p></li></ul>"
+//     },
+// ]
+//     [
+//     {
+//         "price": 29,99,
+//         "description": "  <p className=\"description\">Paid plan is an option for self-discipline and independent people whose first aim is to obtain new knowledge. Its means there are no time restrictions and homework. At the same time, you can also request for Certificate or apply for employment in UDS Systems under certain conditions (exam and interview). </p>",
+//         "checkPoints": "<ul className=\"checkPointsPaidCard\"><li><p>no time reference; </p></li><li><p>start the course right after payment;</p></li><li><p>no practical assignment;</p></li><li><p>convenient studying tempo;</p></li><li><p>no mentors’s assistance; </p></li><li><p>we do not grant Certificates on completion (without request).</p></li></ul>"
+//     },
+//     ]
