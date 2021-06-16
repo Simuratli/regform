@@ -22,9 +22,10 @@ const translations = {
   "for.safari.users": " for Safari users. ",
   "how.to.use": "How to use",
   "ready.to.get.started": "Ready to get started? ",
-  "need.help": "Need help?",
+  "need.help": "Have any questions?",
   "need.help.text":
-    "Are you experiencing any difficulties? - Be sure that we are ready to help you.",
+    "We have the answers.",
+  "need.help.text2": "Feel free to contact us by Skype or Email.",
   "back.home.page": "Back to the home page",
   "recomend.text":
     "We recommend using the desktop version to download and use any UDS product.",

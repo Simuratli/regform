@@ -4,6 +4,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {FormattedMessage} from "react-intl";
 import {setAddonsSortBy} from "../../../store/reducers/appReducer/actions/appAction";
 import {getTypesCard} from "../../../store/reducers/addonReducer/actions/addonTypesAction";
+import {getAddonCard} from "../../../store/reducers/addonReducer/actions/addonCardAction";
+import {getAddonCardForType} from "../../../store/reducers/addonReducer/actions/addonCardForTypesAction";
 
 function useOutsideAlerter(ref) {
     const [isOutsideClick, setIsOutsideClick] = useState(false);
@@ -52,6 +54,7 @@ export const FilterAddonsComponent = () => {
                      e.stopPropagation();
                      setIsOpenSelect(false);
                      setSortBy(type);
+                     type === 'All' ? dispatch(getAddonCard(1)) : dispatch(getAddonCardForType(type))
                      dispatch(setAddonsSortBy(type));
                      localStorage.setItem("sortAddonsBy", type);
                  }}>

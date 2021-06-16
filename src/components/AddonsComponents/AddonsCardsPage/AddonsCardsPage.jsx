@@ -28,7 +28,7 @@ const AddonsCardsPage = () => {
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
         if (!get(addon, "cards", []).length) {
-            dispatch(getAddonCard());
+            dispatch(getAddonCard(1));
         }
         dispatch(getAddonMetadata());
     }, []);
@@ -56,7 +56,10 @@ const AddonsCardsPage = () => {
                 <AddonCardContainer/>
             </div>
 
-            {/*<AddonPaginationCont/>*/}
+            {
+                addon.totalPages.length > 1
+                && <AddonPaginationCont/>
+            }
         </div>
     );
 };

@@ -107,7 +107,7 @@ const EducationInfoPage = ({education}) => {
                                     <div className={"topBarContent"}>
                                         <h4>Certificate</h4>
                                         <p>Yes</p>
-                                        <a className={'detailsButton'} href="#takeCourse">Details</a>
+                                        <a className={'detailsButton'} href="#certificate">Details</a>
                                     </div>
                                 </li>
                                 <li>
@@ -223,7 +223,7 @@ const EducationInfoPage = ({education}) => {
                         <li><p>Custom Workflow <br/> development</p></li>
                     </ol>
                 </section>
-                <section className={"certification"}>
+                <section className={"certification"} id={'certificate'}>
                     <h2>Certification</h2>
                     <div className={"certificationContent"}>
                         <div className={"certificateTextContent"}>
