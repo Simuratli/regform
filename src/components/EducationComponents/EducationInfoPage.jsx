@@ -279,8 +279,8 @@ const EducationInfoPage = ({education}) => {
                                         : <>
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title paid"}>PAID</h3>
-                                                <p className={"format free"}>Online</p>
-                                                <p className={"price free"}>
+                                                <p className={"format paid"}>Online</p>
+                                                <p className={"price paid"}>
                                                     <span className={"dollarSign"}>$</span>
                                                     {planItem.price}
                                                 </p>
