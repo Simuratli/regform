@@ -15,9 +15,11 @@
   transition: 0.5s;
   z-index: 2000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  .agreeButton{
+    background-color: #FFFFFF;
+  }
   .modalContent {
-    padding: 30px 74px;
-    background-color: #f8f9fb;
+    background-color: #ffffff;
     transform: scale(0.5);
     transition: 0.4s all;
     max-width: 558px;
@@ -31,9 +33,28 @@
       line-height: 140%;
       color: $education-text-color;
       text-align: center;
-      margin-bottom: 30px;
       b{
         color: $blue-black;
+      }
+    }
+    .textContent{
+      padding: 30px 43px;
+      p{
+        margin: 0;
+      }
+    }
+    .personalEditableBlock{
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-gap: 10px;
+      justify-items: center;
+      background: #f9faff;
+      padding-top: 30px;
+      border-top: 1px solid #E8EBFE;
+      p{
+        width: 50%;
+        margin-top: 20px;
+        margin-bottom: 30px;
       }
     }
 
@@ -51,7 +72,7 @@
   line-height: 130%;
   color: $blue-black;
   text-align: center;
-  margin-top: 52px;
+  margin-top: 30px;
   margin-bottom: 20px;
 }
 
@@ -62,19 +83,35 @@
 }
 
 .gotInfoButton {
-  background: linear-gradient(269.64deg, #FCAB47 4.23%, #FFBA88 91.19%);
-  width: 127px;
-  height: 40px;
-  font-size: 14px;
-  line-height: 17px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
-  color: #FFFFFF;
-  border: none;
-  outline: none;
-  transition: all 0.3s ease-in-out;
-  &:hover{
-    background: $orange;
+  background-size: 100%;
+  background-image: linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
+  background-color: transparent;
+  color: #ffffff;
+  position: relative;
+  z-index: 100;
+  transition: all ease-in-out .5s;
+  margin-bottom: 30px;
+
+  &:before {
+    border-radius: inherit;
+    background-image: linear-gradient(269.64deg, $orange 4.23%, $orange 91.19%);
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    z-index: -100;
+    transition: opacity .5s;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &:hover {
     box-shadow: none;
   }
 }

@@ -1,0 +1,25 @@
+@import "../utils/utils";
+
+.editableInput {
+  width: 100%;
+  max-width: 400px;
+  height: 42px;
+  background: #FFFFFF;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Montserrat, sans-serif;
+  border: 1px solid $education-text-color;
+  padding-left: 18px;
+  color: $blue-black;
+}
+
+input:focus {
+  outline: none !important;
+  border-color: $blue;
+  box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08);
+}
+textarea:focus {
+  outline: none !important;
+  border-color: $blue;
+  box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08);
+}

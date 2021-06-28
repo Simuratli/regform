@@ -256,55 +256,78 @@ const EducationInfoPage = ({education}) => {
                                 {
                                     planItem.price === 0
                                         ? <>
-                                            <h3 className={"title free"}>FREE</h3>
-                                            <p className={"format free"}>Offline</p>
-                                            <p className={"price free"}>
-                                                <span className={"dollarSign"}>$</span>
-                                                {planItem.price}
-                                            </p>
+                                            <div className={"paidCardHeader"}>
+                                                <h3 className={"title free"}>FREE</h3>
+                                                <p className={"format free"}>Offline</p>
+                                                <p className={"price free"}>
+                                                    <span className={"dollarSign"}>$</span>
+                                                    {planItem.price}
+                                                </p>
+                                            </div>
+
                                             <span className={"startDate"}>
                                             {/*<h3>Start date: <p>notify me</p></h3>*/}
                                             </span>
                                             <div key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
                                             </div>
-                                            <GetAccessButton/>
+                                            <div key={shortid.generate()}
+                                                 dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
+                                            </div>
+                                            <GetAccessButton isPaid={false}/>
                                         </>
-                                        : <h3 className={"title paid"}>PAID</h3>
+                                        : <>
+                                            <div className={"paidCardHeader"}>
+                                                <h3 className={"title paid"}>PAID</h3>
+                                                <p className={"format free"}>Online</p>
+                                                <p className={"price free"}>
+                                                    <span className={"dollarSign"}>$</span>
+                                                    {planItem.price}
+                                                </p>
+                                            </div>
+
+                                            <div key={shortid.generate()}
+                                                 dangerouslySetInnerHTML={{__html: planItem.description}}>
+                                            </div>
+                                            <div key={shortid.generate()}
+                                                 dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
+                                            </div>
+                                            <GetAccessButton isPaid={true} price={planItem.price}/>
+                                        </>
                                 }
 
                             </li>
                         )}
-                        <li className={"paidCard"}>
-                            <div className="descriptionSection">
-                                <h3 className={"title"}>PAID</h3>
-                                <p className={"format free"}>Online</p>
-                                <p className={"price"}>
-                                    <span className={"dollarSign"}>$</span>
-                                    29.99
-                                </p>
+                        {/*<li className={"paidCard"}>*/}
+                        {/*    <div className="descriptionSection">*/}
+                        {/*        <h3 className={"title"}>PAID</h3>*/}
+                        {/*        <p className={"format free"}>Online</p>*/}
+                        {/*        <p className={"price"}>*/}
+                        {/*            <span className={"dollarSign"}>$</span>*/}
+                        {/*            29.99*/}
+                        {/*        </p>*/}
 
-                                <p className="description">
-                                    Paid plan is an option for self-discipline and independent people whose first aim is
-                                    to
-                                    obtain new knowledge. Its means there are no time restrictions and homework. At the
-                                    same
-                                    time, you can also request for Certificate or apply for employment in UDS Systems
-                                    under
-                                    certain conditions (exam and interview).
-                                </p>
-                                <ul className="checkPointsPaidCard">
-                                    <li><p>no time reference; </p></li>
-                                    <li><p>start the course right after payment;</p></li>
-                                    <li><p>no practical assignment;</p></li>
-                                    <li><p>convenient studying tempo;</p></li>
-                                    <li><p>no mentors’s assistance; </p></li>
-                                    <li><p>we do not grant Certificates on
-                                        completion (without request).</p></li>
-                                </ul>
-                            </div>
-                            <GetAccessButton/>
-                        </li>
+                        {/*        <p className="description">*/}
+                        {/*            Paid plan is an option for self-discipline and independent people whose first aim is*/}
+                        {/*            to*/}
+                        {/*            obtain new knowledge. Its means there are no time restrictions and homework. At the*/}
+                        {/*            same*/}
+                        {/*            time, you can also request for Certificate or apply for employment in UDS Systems*/}
+                        {/*            under*/}
+                        {/*            certain conditions (exam and interview).*/}
+                        {/*        </p>*/}
+                        {/*        <ul className="checkPointsPaidCard">*/}
+                        {/*            <li><p>no time reference; </p></li>*/}
+                        {/*            <li><p>start the course right after payment;</p></li>*/}
+                        {/*            <li><p>no practical assignment;</p></li>*/}
+                        {/*            <li><p>convenient studying tempo;</p></li>*/}
+                        {/*            <li><p>no mentors’s assistance; </p></li>*/}
+                        {/*            <li><p>we do not grant Certificates on*/}
+                        {/*                completion (without request).</p></li>*/}
+                        {/*        </ul>*/}
+                        {/*    </div>*/}
+                        {/*    <GetAccessButton/>*/}
+                        {/*</li>*/}
                     </ul>
                 </section>
                 <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
