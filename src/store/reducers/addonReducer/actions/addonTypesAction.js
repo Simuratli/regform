@@ -12,7 +12,6 @@ export const getTypesCard = () => {
             .then((res) => {
                 dispatch({ type: FULL_ADDON_TYPES, payload: types });
                 dispatch(setIsLoading(false));
-                console.log(res.data, 'res data');
 
                 res.data.map(card => {
                     if (types.every((type) => type !== card.applicationType)) {

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "../../scss/education/educationInfoPage.scss";
 import certificate from "../../assets/images/education/certificate_example.svg";
 import certificateIcon from "../../assets/images/education/learn_right_bar_icons/cetificate.svg";
@@ -48,6 +48,20 @@ const EducationInfoPage = ({education}) => {
     }, [header]);
 
     const {educationAccessStatus} = useSelector(({education}) => education);
+
+    //get total price
+    const paidPlan = pricePlans.filter(plan => plan.price > 0)[0]
+    const [totalPrice, setTotalPrice] = useState(paidPlan.price)
+
+
+    const addExtras = (e) => {
+        const price = e.target.value
+        if (e.target.checked){
+            setTotalPrice(totalPrice + Number.parseInt(price))
+        } else {
+            setTotalPrice(totalPrice - Number.parseInt(price))
+        }
+    }
 
     return (
         <>
@@ -292,7 +306,30 @@ const EducationInfoPage = ({education}) => {
                                             <div key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
                                             </div>
-                                            <GetAccessButton isPaid={true} price={planItem.price}/>
+                                            <ul className={"extraBenefitsList"} >
+                                                <li className={"extraBenefit"}>
+                                                    <input type={"checkbox"} name="mentor_assistance"
+                                                           value="20" onClick={addExtras}/>
+                                                    <label htmlFor={"mentor_assistance"}>Need mentor's assistance (1
+                                                        hour) <span className={"paid"}>+20$</span></label>
+                                                </li>
+                                                <li className={"extraBenefit"}>
+                                                    <input type={"checkbox"} name="exam_certificate"
+                                                            value="10" onClick={addExtras}/>
+                                                    <label htmlFor={"exam_certificate"}>Pass an exam and get a
+                                                        certificate <span className={"paid"}>+10$</span></label>
+                                                </li>
+                                            </ul>
+
+                                            <div className={"totalPriceBlock"}>
+                                                <p className={"price paid"}>
+                                                    <h5 className={"totalPriceTitle"}>Total Price</h5>
+                                                    <span className={"dollarSign"}>$</span>
+                                                    {totalPrice}
+                                                </p>
+                                            </div>
+
+                                            <GetAccessButton isPaid={true} price={totalPrice}/>
                                         </>
                                 }
 

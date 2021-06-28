@@ -36,10 +36,10 @@ ul {
 }
 
 .topBar {
-    p {
-      letter-spacing: 1px;
-    }
+  p {
+    letter-spacing: 1px;
   }
+}
 
 
 .educationInfoContent {
@@ -444,6 +444,7 @@ ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 30px;
+
     .paidCard {
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='264' height='88' viewBox='0 0 264 88' fill='none'%3E%3Cpath opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M264 87.3742L0 37.5024V0H264' fill='url(%23paint0_linear)'/%3E%3Cpath opacity='0.5' fill-rule='evenodd' clip-rule='evenodd' d='M106.266 10.4297H253.543V43.6414L106.266 10.4297Z' fill='white'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='110' y1='84.9472' x2='110.804' y2='-4.91253' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23F9FAFF'/%3E%3Cstop offset='1' stop-color='%23FDFDFE'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
       background-repeat: no-repeat;
@@ -464,22 +465,27 @@ ul {
         box-shadow: 0px 3px 6px rgba(235, 164, 82, 0.08), 0px 6px 12px rgba(14, 31, 53, 0.12), 0px 14px 24px rgba(14, 31, 53, 0.08);
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='361' height='118' viewBox='0 0 361 118' fill='none'%3E%3Cg opacity='0.5'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M361 117.746L0 50.5385V0H361' fill='%23E8EBFE'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M149.41 10.0078H350.801V54.7641L149.41 10.0078Z' fill='white'/%3E%3C/g%3E%3C/svg%3E");
       }
-      .free{
+
+      .free {
         color: $blue;
       }
+
       .paid {
         color: $orange;
       }
-      .paidCardHeader{
+
+      .paidCardHeader {
         display: grid;
         grid-template-columns: 1fr 1fr 5fr;
+
         .title {
           font-size: 46px;
           line-height: 56px;
           letter-spacing: -0.2px;
           margin: 0;
         }
-        .format{
+
+        .format {
           font-weight: 600;
           font-size: 18px;
           line-height: 130%;
@@ -487,19 +493,21 @@ ul {
           letter-spacing: 0.01em;
           margin: 0;
         }
+
         .price {
-          margin: 20px 0 27px;
+          margin-top: 20px;
+          margin-bottom: 0;
           justify-self: end;
           font-size: 45px;
           font-weight: 700;
-          .dollarSign{
+
+          .dollarSign {
             font-size: 20px;
             line-height: 32px;
             margin-right: 10px;
           }
         }
       }
-
 
 
       .description {
@@ -509,8 +517,6 @@ ul {
         line-height: 140%;
         color: $education-text-color;
       }
-
-
 
 
       .startDate {
@@ -538,6 +544,7 @@ ul {
         position: absolute;
         top: 168px;
       }
+
       .checkPoints {
         display: grid;
         grid-template-columns: 1fr;
@@ -568,11 +575,12 @@ ul {
         }
 
       }
+
       .checkPointsPaidCard {
         display: grid;
         grid-template-columns: 1fr;
         grid-row-gap: 15px;
-        margin-bottom: 50px;
+        margin-bottom: 30px;
 
         li {
           display: flex;
@@ -589,7 +597,8 @@ ul {
             line-height: 140%;
             color: $education-text-color;
           }
-          &:nth-child(5){
+
+          &:nth-child(5) {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z' fill='url(%23paint0_linear)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear' x1='1.24576' y1='1.03448' x2='13.4059' y2='9.62744' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%23618FD0'/%3E%3Cstop offset='1' stop-color='%230D3B7C'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: left 4px;
@@ -603,9 +612,57 @@ ul {
         }
 
       }
-      .getAccessButton{
+
+      .extraBenefitsList {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+
+        .extraBenefit {
+          background: #F9FAFF;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-left: 15px;
+
+          label {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            color: $education-text-color;
+            padding-left: 16px;
+          }
+        }
+      }
+      .totalPriceBlock{
+        .price{
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          font-size: 45px;
+          font-weight: 700;
+          margin: 30px 0;
+          align-items: baseline;
+          .totalPriceTitle{
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 130%;
+            letter-spacing: 0.01em;
+            margin: 0;
+          }
+          .dollarSign {
+            font-size: 20px;
+            line-height: 32px;
+            margin-right: 10px;
+          }
+        }
+
+      }
+
+      .getAccessButton {
         position: absolute;
-        bottom: 40px;
+        bottom: 20px;
         transform: translate(-50%, -50%)
       }
 
@@ -751,13 +808,15 @@ ul {
   }
   .educationHeader {
     padding: 72px 0;
+
     .headerLeftSide {
       h1 {
         font-size: 40px;
         line-height: 130%;
         letter-spacing: -1.09524px;
       }
-      .downloadButton{
+
+      .downloadButton {
         max-width: 281px;
       }
     }
@@ -766,12 +825,13 @@ ul {
       justify-self: flex-end;
     }
   }
-  .learnInfo{
-    .learnInfoContent{
-      .contentBar{
+  .learnInfo {
+    .learnInfoContent {
+      .contentBar {
         padding: 30px 40px;
-        ul{
-          li{
+
+        ul {
+          li {
             font-weight: 600;
           }
         }
@@ -782,27 +842,33 @@ ul {
     .conformityList {
       grid-column-gap: 56px;
       grid-row-gap: 50px;
-      .conformityListItem{
+
+      .conformityListItem {
         padding: 35px 40px 30px 130px;
+
         &:first-child {
           background-position: 6px 143px;
-          &:hover{
+
+          &:hover {
             background-position: 6px 143px;
           }
         }
+
         &:nth-child(2) {
           background-position: 6px 80px;
-          &:hover{
+
+          &:hover {
             background-position: 6px 80px;
           }
         }
       }
     }
   }
-  .gettingSkills{
-    ol{
+  .gettingSkills {
+    ol {
       grid-column-gap: 106px;
-      p{
+
+      p {
         font-size: 18px;
       }
     }
@@ -825,6 +891,7 @@ ul {
   .pricePlan {
     .paidCardsContainer {
       grid-template-columns: 1fr;
+
       .paidCard {
         max-width: 950px;
       }
@@ -1105,9 +1172,10 @@ ul {
       h2 {
         margin-top: 30px;
       }
-      .topBar{
-        ul{
-          li{
+
+      .topBar {
+        ul {
+          li {
             width: 169px;
           }
         }
@@ -1273,9 +1341,11 @@ ul {
   }
   .certification {
     background: #ffffff;
-    .certificationContent{
+
+    .certificationContent {
       @include screen500;
-      p{
+
+      p {
         font-weight: 600;
         font-size: 14px;
         line-height: 140%;
@@ -1323,7 +1393,8 @@ ul {
           line-height: 120%;
           color: $blue-black;
         }
-        p{
+
+        p {
           font-weight: 600;
           font-size: 14px;
           line-height: 140%;
@@ -1384,7 +1455,8 @@ ul {
 
       .priceTitleBlock {
         padding: 0 20px;
-        .priceTitleMobile{
+
+        .priceTitleMobile {
           font-size: 28px;
           line-height: 34px;
           letter-spacing: -0.2px;
@@ -1511,6 +1583,7 @@ ul {
         width: 30px;
         margin: 20px auto;
       }
+
       .getAccessButton {
         max-width: 370px;
         width: 100%;
@@ -1556,8 +1629,8 @@ ul {
   .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
     @include screen400;
   }
-  .certification{
-    .certificationContent{
+  .certification {
+    .certificationContent {
       @include screen400;
     }
   }
@@ -1569,7 +1642,7 @@ ul {
   .syllabusMobile {
     @include screen400;
   }
-  .pricePlanMobile{
+  .pricePlanMobile {
     @include screen400;
   }
   .educationFAQ {
