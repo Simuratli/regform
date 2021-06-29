@@ -356,6 +356,9 @@ const AddonFullPage = ({ addon, intl, children }) => {
                   <p>
                     <FormattedMessage id="need.help.text" />
                   </p>
+                  <p>
+                    <FormattedMessage id="need.help.text2" />
+                  </p>
                   <ul className="helpList">
                     <li className="mailItem">
                       <a

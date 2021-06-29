@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 
 import styled from "styled-components";
+import {useDispatch, useSelector} from "react-redux";
+import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 
 const PaginationCont = styled.div`
   display: flex;
@@ -57,12 +59,32 @@ const PaginationCont = styled.div`
 
 const AddonPaginationCont = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const pages = [1, 2, 3];
+  const state = useSelector((state) => state);
+  const {addon} = state;
+  const dispatch = useDispatch();
+  const pages = addon.totalPages;
+
+  const setPages = (e) => {
+    const offset = +e.target.attributes.getNamedItem('offset').value;
+    if (currentPage !== offset) {
+      setCurrentPage(offset);
+      dispatch(getAddonCard(offset))
+    }
+  }
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [localStorage.getItem("sortAddonsBy")]);
+
   return (
     <PaginationCont>
       <div className="box">
         <button
-          onClick={() => currentPage >= 1 && setCurrentPage((pr) => pr - 1)}
+          onClick={() => {
+            currentPage >= 1 && setCurrentPage((pr) => pr - 1);
+            dispatch(getAddonCard(currentPage - 1));
+          }}
+          disabled={currentPage === 1 && 'disabled'}
         >
           <svg
             width="8"
@@ -82,9 +104,10 @@ const AddonPaginationCont = () => {
           {pages.map((r) => {
             return (
               <div
-                onClick={() => setCurrentPage(r)}
+                onClick={setPages}
                 className={`page ${r === currentPage && "current"}`}
                 key={r}
+                offset={r}
               >
                 {r}
               </div>
@@ -93,9 +116,11 @@ const AddonPaginationCont = () => {
         </div>
 
         <button
-          onClick={() =>
-            currentPage !== pages.length && setCurrentPage((pr) => pr + 1)
-          }
+          onClick={() => {
+            currentPage !== pages.length && setCurrentPage((pr) => pr + 1);
+            dispatch(getAddonCard(currentPage + 1));
+          }}
+          disabled={currentPage === pages.length && 'disabled'}
         >
           <svg
             width="8"
