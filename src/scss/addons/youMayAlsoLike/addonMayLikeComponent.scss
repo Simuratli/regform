@@ -32,6 +32,9 @@
 .mayAlsoCard{
   max-width: 360px;
   width: 100%;
+  .description p{
+    font-size: 14px;
+  }
   .cardsButtons{
     .downloadButton, .openButton{
       display: none;
