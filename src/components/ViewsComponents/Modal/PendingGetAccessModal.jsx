@@ -8,16 +8,23 @@ import {useParams} from "react-router-dom";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
 import "../../../scss/views/editableInput.scss";
 import {educationRequestMailPayment} from "../../../store/reducers/educationReducer/actions/educationRequestMailPayment";
+import {getEducationAccessStatus} from "../../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     const dispatch = useDispatch();
     const {slug} = useParams();
-    const {userData: {
-        firstName,
-        lastName,
-        email
-    }} = useSelector(({user}) => user);
+    const {
+        userData: {
+            firstName,
+            lastName,
+            email
+        }
+    } = useSelector(({user}) => user);
+    // const {educationAccessStatus: {
+    //     coursePermissionState
+    // }} = useSelector(({education}) => education);
+    // console.log(coursePermissionState, "EDUCATION")
 
     useEffect(() => {
         dispatch(getUserData());
@@ -40,17 +47,16 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     const handleChangeAccessStatusPaid = async () => {
         console.log(paymentData, "paymentData")
 
-        if (!isValidEmail(paymentData.email)){
+        if (!isValidEmail(paymentData.email)) {
             let email = document.getElementById("mail");
             email.setCustomValidity("Don't be shy !");
-        } else if(paymentData.firstName.trim().length === 0 ) {
+        } else if (paymentData.firstName.trim().length === 0) {
             let firstName = document.getElementsByName("firstName")[0];
             firstName.setCustomValidity("can not be empty");
-        } else if(paymentData.lastName.trim().length === 0) {
+        } else if (paymentData.lastName.trim().length === 0) {
             let lastName = document.getElementsByName("lastName")[0];
             lastName.setCustomValidity("can not be empty");
-        }
-        else {
+        } else {
             dispatch(educationRequestMailPayment(paymentData));
             setActive(false);
         }
@@ -88,9 +94,12 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                     </section>
                     <section className={"personalEditableBlock"}>
 
-                        <input className={"editableInput"} type={"text"} defaultValue={firstName} onChange={inputDataChange} name={'firstName'} />
-                        <input className={"editableInput"} type={"text"} defaultValue={lastName} onChange={inputDataChange} name={'lastName'} />
-                        <input className={"editableInput"} type={"text"} defaultValue={email} onChange={inputDataChange} name={'email'} id="mail"/>
+                        <input className={"editableInput"} type={"text"} defaultValue={firstName} onChange={inputDataChange}
+                               name={'firstName'}/>
+                        <input className={"editableInput"} type={"text"} defaultValue={lastName} onChange={inputDataChange}
+                               name={'lastName'}/>
+                        <input className={"editableInput"} type={"text"} defaultValue={email} onChange={inputDataChange}
+                               name={'email'} id="mail"/>
                         <p>
                             Make sure the fields Name, Last name and
                             Email are filled in correctly. <b>Thank you!</b>

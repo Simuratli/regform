@@ -7,7 +7,6 @@ import subject from "../../assets/images/education/learn_right_bar_icons/subject
 import format from "../../assets/images/education/learn_right_bar_icons/format.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
-import pricePlan from "../../assets/images/education/price_price_plan.svg";
 import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
 import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 import courseLogoGif from "../../assets/images/Women_Consultant.mp4";
