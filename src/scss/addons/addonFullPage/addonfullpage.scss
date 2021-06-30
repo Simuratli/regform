@@ -35,7 +35,7 @@
   height: 50px;
 
   &Disable {
-    background-color: #E8EBFE;
+    background-color: $dark-bg;
     max-width: 220px;
     color: #fff;
     height: 50px;
@@ -114,7 +114,7 @@
     width: 100%;
     height: 1px;
     left: 0;
-    background-color: #E8EBFE;
+    background-color: $dark-bg;
     top: 74px;
   }
 

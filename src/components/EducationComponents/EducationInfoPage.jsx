@@ -250,44 +250,6 @@ const EducationInfoPage = ({education}) => {
                     </ul>
                 </section>
                 <CoursePricePlan pricePlans={pricePlans}/>
-                <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
-                    <h2>Price plans</h2>
-                    <ul className={"paidCardsContainer"}>
-                        <li className={"paidCard"}>
-                            <div className={"priceTitleBlock"}>
-                                <h3 className={"priceTitleMobile"}>FREE</h3>
-                                <span className={"startDateMobile"}>
-                                    {/*<h3>Start date: <p>notify me</p></h3>*/}
-                                    </span>
-                            </div>
-                            <div className={"priceDetails"}>
-                                <div className={"tab"}>
-                                    <input type={"checkbox"} id={"freePrice"}/>
-                                    <label className={"tab-label"} htmlFor={"freePrice"}>Details</label>
-                                    <div className={"tab-content"}>
-                                        <ul>
-                                            <li>small-group format (up to 6 students);</li>
-                                            <li>short course (2 weeks only);</li>
-                                            <li>mentor's assistance;</li>
-                                            <li>practical assignments similar to the tasks of real projects;</li>
-                                            <li>check of home assignment;</li>
-                                            <li>employment in UDS Systems;</li>
-                                            <li> we recruit a group of students only two times a year (when the need to
-                                                expand current projects arises).
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className={"priceDescription"}>
-                                <p>Free plan is designated for everyone willing and eager to become a member of UDS
-                                    team.</p>
-                            </div>
-                            <img src={pricePlanMobile} className={"priceMobile"}/>
-                            <GetAccessButton/>
-                        </li>
-                    </ul>
-                </section>
                 <section className={"educationFAQ"}>
                     <h2>FAQ</h2>
                     <div className={"questionList"}>
