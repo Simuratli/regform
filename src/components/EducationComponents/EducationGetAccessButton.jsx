@@ -4,6 +4,7 @@ import  { useSelector } from "react-redux";
 import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModal";
 
 const GetAccessButton = ({isPaid, price}) => {
+
     const { educationAccessStatus} = useSelector(({education}) => education);
     const [active, setActive] = useState(false);
     const handleOpenModal = (e) => {

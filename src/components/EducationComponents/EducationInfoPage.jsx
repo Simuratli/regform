@@ -16,12 +16,14 @@ import shortid from 'shortid';
 import GetAccessButton from "./EducationGetAccessButton";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import CoursePricePlan from "./CoursePricePlan";
 
 const EducationInfoPage = ({education}) => {
 
     const {
         header = "",
         slug = "",
+        coursePermissionState,
         shortDescription = "",
         description = "",
         courseLogo: {
@@ -47,20 +49,6 @@ const EducationInfoPage = ({education}) => {
     }, [header]);
 
     const {educationAccessStatus} = useSelector(({education}) => education);
-
-    //get total price
-    const paidPlan = pricePlans.filter(plan => plan.price > 0)[0]
-    const [totalPrice, setTotalPrice] = useState(paidPlan.price)
-
-
-    const addExtras = (e) => {
-        const price = e.target.value
-        if (e.target.checked){
-            setTotalPrice(totalPrice + Number.parseInt(price))
-        } else {
-            setTotalPrice(totalPrice - Number.parseInt(price))
-        }
-    }
 
     return (
         <>
@@ -261,111 +249,7 @@ const EducationInfoPage = ({education}) => {
                         )}
                     </ul>
                 </section>
-                <section className={"pricePlan"} id={'takeCourse'}>
-                    <h2>Price plans</h2>
-                    <ul className={"paidCardsContainer"}>
-                        {pricePlans.map(planItem =>
-                            <li className={"paidCard"}>
-                                {
-                                    planItem.price === 0
-                                        ? <>
-                                            <div className={"paidCardHeader"}>
-                                                <h3 className={"title free"}>FREE</h3>
-                                                <p className={"format free"}>Offline</p>
-                                                <p className={"price free"}>
-                                                    <span className={"dollarSign"}>$</span>
-                                                    {planItem.price}
-                                                </p>
-                                            </div>
-
-                                            <span className={"startDate"}>
-                                            {/*<h3>Start date: <p>notify me</p></h3>*/}
-                                            </span>
-                                            <div key={shortid.generate()}
-                                                 dangerouslySetInnerHTML={{__html: planItem.description}}>
-                                            </div>
-                                            <div key={shortid.generate()}
-                                                 dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
-                                            </div>
-                                            <GetAccessButton isPaid={false}/>
-                                        </>
-                                        : <>
-                                            <div className={"paidCardHeader"}>
-                                                <h3 className={"title paid"}>PAID</h3>
-                                                <p className={"format paid"}>Online</p>
-                                                <p className={"price paid"}>
-                                                    <span className={"dollarSign"}>$</span>
-                                                    {planItem.price}
-                                                </p>
-                                            </div>
-
-                                            <div key={shortid.generate()}
-                                                 dangerouslySetInnerHTML={{__html: planItem.description}}>
-                                            </div>
-                                            <div key={shortid.generate()}
-                                                 dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
-                                            </div>
-                                            <ul className={"extraBenefitsList"} >
-                                                <li className={"extraBenefit"}>
-                                                    <input type={"checkbox"} name="mentor_assistance"
-                                                           value="20" onClick={addExtras}/>
-                                                    <label htmlFor={"mentor_assistance"}>Need mentor's assistance (1
-                                                        hour) <span className={"paid"}>+20$</span></label>
-                                                </li>
-                                                <li className={"extraBenefit"}>
-                                                    <input type={"checkbox"} name="exam_certificate"
-                                                            value="10" onClick={addExtras}/>
-                                                    <label htmlFor={"exam_certificate"}>Pass an exam and get a
-                                                        certificate <span className={"paid"}>+10$</span></label>
-                                                </li>
-                                            </ul>
-
-                                            <div className={"totalPriceBlock"}>
-                                                <p className={"price paid"}>
-                                                    <h5 className={"totalPriceTitle"}>Total Price</h5>
-                                                    <span className={"dollarSign"}>$</span>
-                                                    {totalPrice}
-                                                </p>
-                                            </div>
-
-                                            <GetAccessButton isPaid={true} price={totalPrice}/>
-                                        </>
-                                }
-
-                            </li>
-                        )}
-                        {/*<li className={"paidCard"}>*/}
-                        {/*    <div className="descriptionSection">*/}
-                        {/*        <h3 className={"title"}>PAID</h3>*/}
-                        {/*        <p className={"format free"}>Online</p>*/}
-                        {/*        <p className={"price"}>*/}
-                        {/*            <span className={"dollarSign"}>$</span>*/}
-                        {/*            29.99*/}
-                        {/*        </p>*/}
-
-                        {/*        <p className="description">*/}
-                        {/*            Paid plan is an option for self-discipline and independent people whose first aim is*/}
-                        {/*            to*/}
-                        {/*            obtain new knowledge. Its means there are no time restrictions and homework. At the*/}
-                        {/*            same*/}
-                        {/*            time, you can also request for Certificate or apply for employment in UDS Systems*/}
-                        {/*            under*/}
-                        {/*            certain conditions (exam and interview).*/}
-                        {/*        </p>*/}
-                        {/*        <ul className="checkPointsPaidCard">*/}
-                        {/*            <li><p>no time reference; </p></li>*/}
-                        {/*            <li><p>start the course right after payment;</p></li>*/}
-                        {/*            <li><p>no practical assignment;</p></li>*/}
-                        {/*            <li><p>convenient studying tempo;</p></li>*/}
-                        {/*            <li><p>no mentors’s assistance; </p></li>*/}
-                        {/*            <li><p>we do not grant Certificates on*/}
-                        {/*                completion (without request).</p></li>*/}
-                        {/*        </ul>*/}
-                        {/*    </div>*/}
-                        {/*    <GetAccessButton/>*/}
-                        {/*</li>*/}
-                    </ul>
-                </section>
+                <CoursePricePlan pricePlans={pricePlans}/>
                 <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
@@ -443,17 +327,3 @@ const EducationInfoPage = ({education}) => {
 };
 
 export default EducationInfoPage;
-// [
-//     {
-//         "price": 0,
-//         "description": "<p className=\"description\"> Paid plan is an option for self-discipline and independent people whose first aim is to obtain new knowledge. Its means there are no time restrictions and homework. At the same time, you can also request for Certificate or apply for employment in UDS Systems under certain conditions (exam and interview).</p>",
-//         "checkPoints": "<ul class=\"checkPoints\"><li><p>small-group format (up to 6 students);</p></li><li><p>short course (2 weeks only);</p></li><li><p>mentor's assistance;</p></li><li><p>practical assignments similar to the tasks of real projects;</p></li><li><p>check of home assignment;</p></li><li><p>employment in UDS Systems;</p></li><li><p>we recruit a group of students only two times a year (when the need to expand current projects arises).</p></li></ul>"
-//     },
-// ]
-//     [
-//     {
-//         "price": 29,99,
-//         "description": "  <p className=\"description\">Paid plan is an option for self-discipline and independent people whose first aim is to obtain new knowledge. Its means there are no time restrictions and homework. At the same time, you can also request for Certificate or apply for employment in UDS Systems under certain conditions (exam and interview). </p>",
-//         "checkPoints": "<ul className=\"checkPointsPaidCard\"><li><p>no time reference; </p></li><li><p>start the course right after payment;</p></li><li><p>no practical assignment;</p></li><li><p>convenient studying tempo;</p></li><li><p>no mentors’s assistance; </p></li><li><p>we do not grant Certificates on completion (without request).</p></li></ul>"
-//     },
-//     ]

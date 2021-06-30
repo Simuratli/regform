@@ -60,6 +60,7 @@ const AddonsCardsPage = () => {
                 addon.totalPages.length > 1
                 && <AddonPaginationCont/>
             }
+            {/*<AddonPaginationCont/>*/}
         </div>
     );
 };
