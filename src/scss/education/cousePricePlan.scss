@@ -20,9 +20,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;
-  width: 100%;
-  max-width: 988px;
-  margin: auto;
+  @include bigScreen;
   background-repeat: no-repeat;
   background-position: right bottom;
 
@@ -32,6 +30,7 @@
     letter-spacing: -0.2px;
     color: #FFFFFF;
     margin: 46px 0 0;
+    text-align: left;
   }
 
   .statusParagraph {
@@ -42,7 +41,7 @@
 
   .pendingParagraph {
     color: $blue-black;
-    width: 54%;
+    width: 47%;
   }
 
   .watchParagraph {
@@ -136,5 +135,10 @@
       -webkit-background-clip: text;
       background-image: linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
     }
+  }
+}
+@media screen and (max-width: 400px) {
+  .statusBlock {
+    @include screen400;
   }
 }

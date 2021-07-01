@@ -15,9 +15,11 @@
   transition: 0.5s;
   z-index: 2000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  .agreeButton{
+
+  .agreeButton {
     background-color: #FFFFFF;
   }
+
   .modalContent {
     background-color: #ffffff;
     transform: scale(0.5);
@@ -27,23 +29,28 @@
     font-family: Montserrat;
     color: $card-text-color;
     text-align: center;
-    p{
+
+    p {
       font-weight: 600;
       font-size: 16px;
       line-height: 140%;
       color: $education-text-color;
       text-align: center;
-      b{
+
+      b {
         color: $blue-black;
       }
     }
-    .textContent{
+
+    .textContent {
       padding: 30px 43px;
-      p{
+
+      p {
         margin: 0;
       }
     }
-    .personalEditableBlock{
+
+    .personalEditableBlock {
       display: grid;
       grid-template-columns: 1fr;
       grid-gap: 10px;
@@ -51,7 +58,8 @@
       background: #f9faff;
       padding-top: 30px;
       border-top: 1px solid #E8EBFE;
-      p{
+
+      p {
         width: 50%;
         margin-top: 20px;
         margin-bottom: 30px;
@@ -60,6 +68,87 @@
 
   }
 }
+
+.file-area {
+  width: 389px;
+  position: relative;
+  text-align: initial;
+
+  input[type=file] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+  label{
+    font-size: 12px;
+    line-height: 120%;
+    color: $education-text-color;
+    letter-spacing: 0.1px;
+  }
+  .uploadField{
+    display: grid;
+    grid-template-columns: 8fr 1fr;
+    align-items: self-end;
+    grid-gap: 20px;
+    .uploadButton{
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M11.7722 3.74346C14.1136 1.39988 17.9126 1.39988 20.2558 3.74302C22.5388 6.02609 22.5974 9.6913 20.4314 12.0452L20.2432 12.2426L11.4432 21.0408L11.4066 21.071C9.94541 22.3878 7.69141 22.3431 6.28404 20.9357C4.96502 19.6167 4.8429 17.554 5.91769 16.0973C5.94103 16.0519 5.96928 16.0082 6.00249 15.967L6.05605 15.9074L6.14295 15.8197L6.28404 15.6718L6.28695 15.6747L13.7227 8.22035C13.9886 7.95373 14.4052 7.92897 14.6991 8.14643L14.7834 8.21894C15.05 8.48485 15.0747 8.90148 14.8573 9.19538L14.7848 9.2796L7.19015 16.8927C6.47251 17.7683 6.52239 19.0626 7.33979 19.88C8.16885 20.709 9.4885 20.7485 10.3643 19.9984L19.197 11.1679C20.9525 9.41028 20.9525 6.56104 19.1951 4.80368C17.4927 3.10124 14.7655 3.04804 12.999 4.64408L12.8312 4.80368L12.8186 4.81799L3.28228 14.3543C2.98939 14.6472 2.51452 14.6472 2.22162 14.3543C1.95536 14.0881 1.93115 13.6714 2.149 13.3778L2.22162 13.2937L11.7705 3.74302L11.7722 3.74346Z' fill='white'/%3E%3C/svg%3E");
+      width: 42px;
+      height: 42px;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: none;
+      background-color: $blue;
+
+    }
+  }
+
+  .file-dummy {
+    width: 100%;
+    background: $light_bg;
+    height: 42px;
+    border: 1px solid $education-text-color;
+    transition: background 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    line-height: 120%;
+    padding-left: 12px;
+    margin-top: 10px;
+
+    .success {
+      display: none;
+    }
+  }
+
+  &:hover .file-dummy {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  input[type=file]:focus + .file-dummy {
+    outline: 2px solid $blue;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
+
+  input[type=file]:valid + .file-dummy {
+    background-color: $dark-bg;
+    color: $blue;
+
+    .success {
+      display: inline-block;
+    }
+
+    .default {
+      display: none;
+    }
+  }
+}
+
 
 .pendingModal.active {
   opacity: 1;
@@ -123,9 +212,10 @@ p {
 .modalContent.active {
   transform: scale(1);
 }
+
 @media screen and (max-width: 500px) {
-  .pendingModal{
-    .modalContent{
+  .pendingModal {
+    .modalContent {
       padding: 30px 10px;
     }
   }

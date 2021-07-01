@@ -4,15 +4,22 @@ import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModa
 import "../../scss/education/cousePricePlan.scss";
 import {NavLink, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
-import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
 import GetAccessButton from "./EducationGetAccessButton";
 
 const CoursePricePlan = ({pricePlans, price}) => {
 
     const {educationAccessStatus} = useSelector(({education}) => education);
     const [active, setActive] = useState(false);
+    const [activeFree, setActiveFree] = useState(false);
     const handleOpenModal = (e) => {
-        setActive(true);
+
+        console.log(e.target.dataset.ispaid, 'bla')
+        if (e.target.dataset.ispaid){
+            setActive(true);
+        } else {
+            setActiveFree(true)
+        }
+
     }
     const {slug} = useParams();
 
@@ -61,13 +68,14 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <div key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
                                             </div>
-                                            <>
-                                                <button onClick={handleOpenModal} className={"getAccessButton"}>Get
-                                                    access
-                                                </button>
-                                                <PendingGetAccessModal active={active} setActive={setActive}
-                                                                       isPaid={false} price={price}/>
-                                            </>
+                                            <GetAccessButton isPaid={false}/>
+                                            {/*<>*/}
+                                            {/*    <button onClick={handleOpenModal} className={"getAccessButton"} data-ispaid={false}>Get*/}
+                                            {/*        access*/}
+                                            {/*    </button>*/}
+                                            {/*    <PendingGetAccessModal active={activeFree} setActive={setActiveFree}*/}
+                                            {/*                           isPaid={false} price={price}/>*/}
+                                            {/*</>*/}
                                         </>
                                         : <>
                                             <div className={"paidCardHeader"}>
@@ -78,7 +86,6 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     {planItem.price}
                                                 </p>
                                             </div>
-
                                             <div key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
                                             </div>
@@ -87,18 +94,17 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             </div>
                                             <ul className={"extraBenefitsList"}>
                                                 <li className={"extraBenefit"}>
-                                                    <input type={"checkbox"} name="mentor_assistance"
-                                                           value="20" onClick={addExtras}/>
-                                                    <label htmlFor={"mentor_assistance"}>Get mentor's assistance (1 hour) <span className={"paid"}>+20$</span></label>
+                                                    <input type={"checkbox"} name="mentor_assistance" id={"mentor_assistance"}
+                                                           value="20" onClick={addExtras} className={"customCheckbox"}/>
+                                                    <label for={"mentor_assistance"} htmlFor={"mentor_assistance"}>Get mentor's assistance (1 hour) <span className={"paid"}>+20$</span></label>
                                                 </li>
                                                 <li className={"extraBenefit"}>
-                                                    <input type={"checkbox"} name="exam_certificate"
-                                                           value="10" onClick={addExtras}/>
-                                                    <label htmlFor={"exam_certificate"}>Pass an exam and get a
+                                                    <input type={"checkbox"} name="exam_certificate" id={"exam_certificate"}
+                                                           value="10" onClick={addExtras} className={"customCheckbox"}/>
+                                                    <label for={"exam_certificate"} htmlFor={"exam_certificate"}>Pass an exam and get a
                                                         certificate <span className={"paid"}>+10$</span></label>
                                                 </li>
                                             </ul>
-
                                             <div className={"totalPriceBlock"}>
                                                 <p className={"price paid"}>
                                                     <h5 className={"totalPriceTitle"}>Total Price</h5>
@@ -106,13 +112,14 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     {totalPrice}
                                                 </p>
                                             </div>
-                                            <>
-                                                <button onClick={handleOpenModal} className={"getAccessButton"}>Get
-                                                    access
-                                                </button>
-                                                <PendingGetAccessModal active={active} setActive={setActive}
-                                                                       isPaid={true} price={totalPrice}/>
-                                            </>
+                                            <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            {/*<>*/}
+                                            {/*    <button onClick={handleOpenModal} className={"getAccessButton"} data-ispaid={true}>Get*/}
+                                            {/*        access*/}
+                                            {/*    </button>*/}
+                                            {/*    <PendingGetAccessModal active={active} setActive={setActive}*/}
+                                            {/*                           isPaid={true} price={totalPrice}/>*/}
+                                            {/*</>*/}
                                         </>
                                     }
 
@@ -152,13 +159,14 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <div className={"priceDescription"} key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
                                             </div>
-                                            <>
-                                                <button onClick={handleOpenModal} className={"getAccessButton"}>Get
-                                                    access
-                                                </button>
-                                                <PendingGetAccessModal active={active} setActive={setActive}
-                                                                       isPaid={false} price={price}/>
-                                            </>
+                                            <GetAccessButton isPaid={false}/>
+                                            {/*<>*/}
+                                            {/*    <button onClick={handleOpenModal} className={"getAccessButton"}>Get*/}
+                                            {/*        access*/}
+                                            {/*    </button>*/}
+                                            {/*    <PendingGetAccessModal active={active} setActive={setActive}*/}
+                                            {/*                           isPaid={false} price={price}/>*/}
+                                            {/*</>*/}
                                         </>
                                         : <>
                                             <div className={"priceTitleBlock"}>
@@ -190,17 +198,21 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <ul className={"extraBenefitsList"}>
                                                 <li className={"extraBenefit"}>
                                                     <input type={"checkbox"} name="mentor_assistance"
-                                                           value="20" onClick={addExtras}/>
-                                                    <label htmlFor={"mentor_assistance"}>Get mentor's assistance (1 hour) <span className={"paid"}>+20$</span></label>
+                                                           id={"mentor_assistance"}
+                                                           value="20" onClick={addExtras} className={"customCheckbox"}/>
+                                                    <label htmlFor={"mentor_assistance"} htmlFor={"mentor_assistance"}>Get
+                                                        mentor's assistance (1 hour) <span
+                                                            className={"paid"}>+20$</span></label>
                                                 </li>
                                                 <li className={"extraBenefit"}>
                                                     <input type={"checkbox"} name="exam_certificate"
-                                                           value="10" onClick={addExtras}/>
-                                                    <label htmlFor={"exam_certificate"}>Pass an exam and get a
+                                                           id={"exam_certificate"}
+                                                           value="10" onClick={addExtras} className={"customCheckbox"}/>
+                                                    <label htmlFor={"exam_certificate"} htmlFor={"exam_certificate"}>Pass
+                                                        an exam and get a
                                                         certificate <span className={"paid"}>+10$</span></label>
                                                 </li>
                                             </ul>
-
                                             <div className={"totalPriceBlock"}>
                                                 <p className={"price paid"}>
                                                     <h5 className={"totalPriceTitle"}>Total Price</h5>
@@ -208,13 +220,14 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     {totalPrice}
                                                 </p>
                                             </div>
-                                            <>
-                                                <button onClick={handleOpenModal} className={"getAccessButton"}>Get
-                                                    access
-                                                </button>
-                                                <PendingGetAccessModal active={active} setActive={setActive}
-                                                                       isPaid={true} price={totalPrice}/>
-                                            </>
+                                            <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            {/*<>*/}
+                                            {/*    <button onClick={handleOpenModal} className={"getAccessButton"}>Get*/}
+                                            {/*        access*/}
+                                            {/*    </button>*/}
+                                            {/*    <PendingGetAccessModal active={active} setActive={setActive}*/}
+                                            {/*                           isPaid={true} price={totalPrice}/>*/}
+                                            {/*</>*/}
                                         </>
 
                                     }

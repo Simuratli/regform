@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "../../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../../assets/images/information_popup_icon.svg";
 import close from "../../../assets/images/window-close.svg";
@@ -8,7 +8,7 @@ import {useParams} from "react-router-dom";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
 import "../../../scss/views/editableInput.scss";
 import {educationRequestMailPayment} from "../../../store/reducers/educationReducer/actions/educationRequestMailPayment";
-import {getEducationAccessStatus} from "../../../store/reducers/educationReducer/actions/educationGetAccessAction";
+import {sendCvAndChangeAccessStatus} from "../../../store/reducers/educationReducer/actions/educationSendCvAndChangeAccessStatusAction";
 
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
@@ -21,14 +21,14 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
             email
         }
     } = useSelector(({user}) => user);
-    // const {educationAccessStatus: {
-    //     coursePermissionState
-    // }} = useSelector(({education}) => education);
-    // console.log(coursePermissionState, "EDUCATION")
 
     useEffect(() => {
         dispatch(getUserData());
     }, []);
+
+
+    const [selectedFile, setSelectedFile] = useState();
+    const [isFilePicked, setIsFilePicked] = useState(false);
 
     let paymentData = {
         "firstName": firstName,
@@ -39,10 +39,16 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     }
 
     //close modal and change status from Forbidden to Pending
-    const handleChangeAccessStatusFree = async () => {
-        dispatch(changeEducationAccessStatus(slug))
+    const handleSubmission = async () => {
+        dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
         setActive(false)
     }
+
+    const changeHandler = (event) => {
+        setSelectedFile(event.target.files[0]);
+        setIsFilePicked(true);
+    };
+
 
     const handleChangeAccessStatusPaid = async () => {
         console.log(paymentData, "paymentData")
@@ -104,9 +110,8 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                             Make sure the fields Name, Last name and
                             Email are filled in correctly. <b>Thank you!</b>
                         </p>
+                        <button className={"gotInfoButton"} onClick={handleChangeAccessStatusPaid}>Confirm</button>
                     </section>
-                    <button className={"gotInfoButton"} onClick={handleChangeAccessStatusPaid}>Confirm</button>
-
                 </div>
             </div>
             : <div className={active ? "pendingModal active" : "pendingModal"}>
@@ -119,10 +124,34 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                         <h5 className={"pendingTitle"}>Hello!</h5>
                         <p>
                             UDS Systems will be glad to see you on board.
+                        </p>
+                    </section>
+                    <section className={"personalEditableBlock"}>
+                        <div>
+                            <div className="form-group file-area">
+                                <label htmlFor="file">Your CV</label>
+                                <input type="file" name="file" id="file" required="required" accept=".pdf, .docx" onChange={changeHandler}/>
+                                {/*<div className={"uploadField"}>*/}
+                                    <div className="file-dummy">
+                                        {isFilePicked ? (
+                                            <div className="success">{selectedFile.name}</div>
+                                        ) : (
+                                            <div className="default">Use PDF or DOCX format</div>
+                                        )}
+
+
+                                    </div>
+                                    {/*<button className={"uploadButton"}/>*/}
+                                {/*</div>*/}
+
+                            </div>
+                        </div>
+                        <p style={{width: "60%"}}>
                             Our manager will contact you via email <b>{email}</b> shortly.
                         </p>
-                        <button className={"gotInfoButton"} onClick={handleChangeAccessStatusFree}>Ok</button>
+                        <button className={"gotInfoButton"} onClick={handleSubmission}>Send</button>
                     </section>
+
                 </div>
             </div>
     );
