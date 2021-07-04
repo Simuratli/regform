@@ -51,13 +51,16 @@
     }
 
     .personalEditableBlock {
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-gap: 10px;
-      justify-items: center;
+
       background: #f9faff;
       padding-top: 30px;
       border-top: 1px solid #E8EBFE;
+      form{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+        justify-items: center;
+      }
 
       p {
         width: 50%;

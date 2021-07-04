@@ -50,31 +50,14 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     };
 
 
-    const handleChangeAccessStatusPaid = async () => {
-        console.log(paymentData, "paymentData")
-
-        if (!isValidEmail(paymentData.email)) {
-            let email = document.getElementById("mail");
-            email.setCustomValidity("Don't be shy !");
-        } else if (paymentData.firstName.trim().length === 0) {
-            let firstName = document.getElementsByName("firstName")[0];
-            firstName.setCustomValidity("can not be empty");
-        } else if (paymentData.lastName.trim().length === 0) {
-            let lastName = document.getElementsByName("lastName")[0];
-            lastName.setCustomValidity("can not be empty");
-        } else {
-            dispatch(educationRequestMailPayment(paymentData));
-            setActive(false);
-        }
+    const handleChangeAccessStatusPaid = async (e) => {
+        e.preventDefault();
+        dispatch(educationRequestMailPayment(paymentData));
+        setActive(false);
     }
     //just close modal without changing status
     const closeModal = () => {
         setActive(false)
-    }
-
-    function isValidEmail(email) {
-        const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(email);
     }
 
     const inputDataChange = (e) => {
@@ -99,18 +82,19 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                         </p>
                     </section>
                     <section className={"personalEditableBlock"}>
-
-                        <input className={"editableInput"} type={"text"} defaultValue={firstName} onChange={inputDataChange}
-                               name={'firstName'}/>
-                        <input className={"editableInput"} type={"text"} defaultValue={lastName} onChange={inputDataChange}
-                               name={'lastName'}/>
-                        <input className={"editableInput"} type={"text"} defaultValue={email} onChange={inputDataChange}
-                               name={'email'} id="mail"/>
+                        <form onSubmit={handleChangeAccessStatusPaid}>
+                        <input className={firstName ? "editableInput" : "emptyField"} type={"text"} defaultValue={firstName} onChange={inputDataChange}
+                               name={'firstName'} required={true}/>
+                        <input className={lastName ? "editableInput" : "emptyField"} type={"text"} defaultValue={lastName} onChange={inputDataChange}
+                               name={'lastName'} required={true}/>
+                        <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email} onChange={inputDataChange}
+                               name={'email'} id="mail" required={true}/>
                         <p>
                             Make sure the fields Name, Last name and
                             Email are filled in correctly. <b>Thank you!</b>
                         </p>
-                        <button className={"gotInfoButton"} onClick={handleChangeAccessStatusPaid}>Confirm</button>
+                        <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
+                        </form>
                     </section>
                 </div>
             </div>
