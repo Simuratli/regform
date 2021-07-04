@@ -55,7 +55,8 @@
       background: #f9faff;
       padding-top: 30px;
       border-top: 1px solid #E8EBFE;
-      form{
+
+      form {
         display: grid;
         grid-template-columns: 1fr;
         grid-gap: 10px;
@@ -88,12 +89,14 @@
     opacity: 0;
     cursor: pointer;
   }
-  label{
+
+  label {
     font-size: 12px;
     line-height: 120%;
     color: $education-text-color;
     letter-spacing: 0.1px;
   }
+
   .uploadField{
     display: grid;
     grid-template-columns: 8fr 1fr;
@@ -124,9 +127,6 @@
     padding-left: 12px;
     margin-top: 10px;
 
-    .success {
-      display: none;
-    }
   }
 
   &:hover .file-dummy {
@@ -206,6 +206,15 @@
   &:hover {
     box-shadow: none;
   }
+}
+
+.disableButton {
+  background: $dark-bg;
+  color: #FFFFFF;
+  box-shadow: none;
+  cursor: auto;
+  margin-bottom: 30px;
+
 }
 
 p {

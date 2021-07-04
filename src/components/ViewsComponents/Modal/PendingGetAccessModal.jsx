@@ -39,7 +39,8 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     }
 
     //close modal and change status from Forbidden to Pending
-    const handleSubmission = async () => {
+    const handleSubmission = async (e) => {
+        e.preventDefault();
         dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
         setActive(false)
     }
@@ -83,17 +84,20 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                     </section>
                     <section className={"personalEditableBlock"}>
                         <form onSubmit={handleChangeAccessStatusPaid}>
-                        <input className={firstName ? "editableInput" : "emptyField"} type={"text"} defaultValue={firstName} onChange={inputDataChange}
-                               name={'firstName'} required={true}/>
-                        <input className={lastName ? "editableInput" : "emptyField"} type={"text"} defaultValue={lastName} onChange={inputDataChange}
-                               name={'lastName'} required={true}/>
-                        <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email} onChange={inputDataChange}
-                               name={'email'} id="mail" required={true}/>
-                        <p>
-                            Make sure the fields Name, Last name and
-                            Email are filled in correctly. <b>Thank you!</b>
-                        </p>
-                        <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
+                            <input className={firstName ? "editableInput" : "emptyField"} type={"text"}
+                                   defaultValue={firstName} onChange={inputDataChange}
+                                   name={'firstName'} required={true}/>
+                            <input className={lastName ? "editableInput" : "emptyField"} type={"text"}
+                                   defaultValue={lastName} onChange={inputDataChange}
+                                   name={'lastName'} required={true}/>
+                            <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email}
+                                   onChange={inputDataChange}
+                                   name={'email'} id="mail" required={true}/>
+                            <p>
+                                Make sure the fields Name, Last name and
+                                Email are filled in correctly. <b>Thank you!</b>
+                            </p>
+                            <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
                         </form>
                     </section>
                 </div>
@@ -111,29 +115,34 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                         </p>
                     </section>
                     <section className={"personalEditableBlock"}>
-                        <div>
-                            <div className="form-group file-area">
-                                <label htmlFor="file">Your CV</label>
-                                <input type="file" name="file" id="file" required="required" accept=".pdf, .docx" onChange={changeHandler}/>
-                                {/*<div className={"uploadField"}>*/}
-                                    <div className="file-dummy">
-                                        {isFilePicked ? (
-                                            <div className="success">{selectedFile.name}</div>
-                                        ) : (
-                                            <div className="default">Use PDF or DOCX format</div>
-                                        )}
+                        <form onSubmit={handleSubmission}>
+                            <div>
+                                <div className="form-group file-area">
 
-
+                                    <label htmlFor="file">Your CV</label>
+                                    <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
+                                           onChange={changeHandler}/>
+                                    <div className={"uploadField"}>
+                                        <div className="file-dummy">
+                                            {isFilePicked ? (
+                                                <div className="success">{selectedFile.name}</div>
+                                            ) : (
+                                                <div className="default">Use PDF or DOCX format</div>
+                                            )}
+                                        </div>
+                                        <button className={"uploadButton"}/>
                                     </div>
-                                    {/*<button className={"uploadButton"}/>*/}
-                                {/*</div>*/}
-
+                                </div>
                             </div>
-                        </div>
-                        <p style={{width: "60%"}}>
-                            Our manager will contact you via email <b>{email}</b> shortly.
-                        </p>
-                        <button className={"gotInfoButton"} onClick={handleSubmission}>Send</button>
+                            <p style={{width: "60%"}}>
+                                Our manager will contact you via email <b>{email}</b> shortly.
+                            </p>
+                            {
+                                selectedFile ?
+                                    <button className={"gotInfoButton"} type={"submit"}>Send</button> :
+                                    <button className={"disableButton"} disabled={true}>Send</button>
+                            }
+                        </form>
                     </section>
 
                 </div>
