@@ -7,13 +7,11 @@ import subject from "../../assets/images/education/learn_right_bar_icons/subject
 import format from "../../assets/images/education/learn_right_bar_icons/format.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
-import pricePlanMobile from "../../assets/images/education/price_mobile.svg";
 import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 import courseLogoGif from "../../assets/images/Women_Consultant.mp4";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
-import GetAccessButton from "./EducationGetAccessButton";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import CoursePricePlan from "./CoursePricePlan";
@@ -66,7 +64,6 @@ const EducationInfoPage = ({education}) => {
                         </div>
                         <div className={"headerRightSide"}>
                             <video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>
-                            {/*<img src="../../assets/images/ms_consultant_logo.svg" alt="logo"/>*/}
                         </div>
                     </section>
                 </div>
@@ -116,7 +113,7 @@ const EducationInfoPage = ({education}) => {
                                     <div className={"topBarContent"}>
                                         <h4>Price</h4>
                                         <p>FREE / PAID</p>
-                                        <a className={'detailsButton'} href="#takeCourse">Details</a>
+                                        <a className={'detailsButton'} href="#chck1">Details</a>
                                     </div>
                                 </li>
                             </ul>
@@ -213,23 +210,15 @@ const EducationInfoPage = ({education}) => {
                         <button className={"downloadButton"}>Download</button>
                     </a>
                 </section>
-                <section className={"gettingSkills"}>
-                    <h2>Become proficient in</h2>
-                    <ol>
-                        <li><p>MS Dynamics 365 <br/> Architecture</p></li>
-                        <li><p>MS Dynamics 365 <br/> Web Services creation</p></li>
-                        <li><p>PowerApps <br/> customization</p></li>
-                        <li><p>Plugin <br/> development</p></li>
-                        <li><p>Integration with external <br/> products</p></li>
-                        <li><p>Custom Workflow <br/> development</p></li>
-                    </ol>
-                </section>
                 <section className={"certification"} id={'certificate'}>
                     <h2>Certification</h2>
                     <div className={"certificationContent"}>
                         <div className={"certificateTextContent"}>
                             <h4>Stand ahead of other competitors!</h4>
                             <p>{certificateDescription}</p>
+                            <p style={{fontWeight: "400", fontSize: "14px"}}>You will get this certificate if you choose the "mentor" option
+                                in the paid version or if you complete a free course
+                                with further employment at UDS.</p>
                         </div>
                         <img src={certificate} alt={"Certificate example"}/>
                     </div>
@@ -255,30 +244,80 @@ const EducationInfoPage = ({education}) => {
                     <div className={"questionList"}>
                         <div className={"tab"}>
                             <input type={"checkbox"} id={"chck1"}/>
-                            <label className={"tab-label"} htmlFor={"chck1"}>What is a course format?</label>
+                            <label className={"tab-label"} htmlFor={"chck1"}>What is the difference between the paid and
+                                free versions of the course?</label>
                             <div className={"tab-content"}>
-                                We carry online most of our courses —
-                                you can study in a convenient mode without being tied to a place.
+                                <p>
+                                    The course content is identical in both versions.<br/>
+                                    The difference is that we hold a free course for consultants only 1-2 times a year
+                                    at
+                                    the request of the CEO. If this case, you apply for a free course, get on the
+                                    waiting
+                                    list, pass an interview and join the training (you’ll receive a notification by
+                                    email as
+                                    soon as we set the starting date). The main goal of the free course is further
+                                    employment at UDS company. We consider candidates from all over the world, but
+                                    always
+                                    with the knowledge of the English language.
+                                </p>
+                                <p>
+                                    The paid version of the course is available to you at any time, there is no binding
+                                    or long waiting. You pay for the course and get access to the training material
+                                    right away. Also, after completion, you can apply for employment at UDS. To do this,
+                                    email UDS HR: <a href={"mailto:t.matsyokha@uds.systems"}>t.matsyokha@uds.systems</a>
+                                </p>
+
+
                             </div>
                         </div>
                         <div className={"tab"}>
                             <input type={"checkbox"} id={"chck2"}/>
-                            <label className={"tab-label"} htmlFor={"chck2"}>What if I face difficulties during the
-                                course?</label>
+                            <label className={"tab-label"} htmlFor={"chck2"}>Do you help with further
+                                employment?</label>
                             <div className={"tab-content"}>
-                                Your mentor will support you and help you to go through the difficulties that might
-                                arise.
+                                <p>Yes, we do. You can apply for a free course, successfully complete it, get
+                                    interviewed, and join UDS team as Junior MS Dynamics 365 Consultant.</p>
+                                <p>If the paid course is more advantageous, we provide a list of companies that run in
+                                    the related area. (upon the graduate's request).</p>
                             </div>
                         </div>
                         <div className={"tab"}>
                             <input type={"checkbox"} id={"chck3"}/>
-                            <label className={"tab-label"} htmlFor={"chck3"}>Where can I find a job after the course
-                                completion?</label>
+                            <label className={"tab-label"} htmlFor={"chck3"}>What if I run into learning
+                                difficulties?</label>
                             <div className={"tab-content"}>
-                                After course completion, you can choose the most attractive position: MS Dynamics 365
-                                Consultant, Business Analyst, or Project Manager.
-                                UDS will provide a job offer for the most successful graduates. Also, upon request, we
-                                will provide a list of companies that run in the related area for all graduates.
+                                <p>Your personal mentor will support you all time.</p>
+                                <p>If you prefer paid version, you can choose the mentor's help option for an extra
+                                    charge. All our mentors are fluent in English, Russian, and Ukrainian, so they will
+                                    help you to find the answer to any question.</p>
+                            </div>
+                        </div>
+                        <div className={"tab"}>
+                            <input type={"checkbox"} id={"chck4"}/>
+                            <label className={"tab-label"} htmlFor={"chck4"}>What is a course format?</label>
+                            <div className={"tab-content"}>
+                                <p>We carry online most of our courses — you can study in a convenient mode without
+                                    being tied to a place. Right now we carry offline free course only.
+                                </p>
+                            </div>
+                        </div>
+                        <div className={"tab"}>
+                            <input type={"checkbox"} id={"chck5"}/>
+                            <label className={"tab-label"} htmlFor={"chck5"}>What skills are required to start the
+                                course?</label>
+                            <div className={"tab-content"}>
+                                <p>
+                                    Everyone who wants to master MS Dynamics 365 can start studying without any
+                                    preparation. But, keep in mind that some advantages allow becoming a successful
+                                    Junior Dynamics 365 faster:
+                                </p>
+                                <ul className={"faqPointList"}>
+                                    <li>excellent knowledge<br/> of the English language;</li>
+                                    <li>understanding of marketing,<br/> economics;</li>
+                                    <li>technical background;</li>
+                                    <li>well-developed soft skills;</li>
+                                    <li>analytical thinking.</li>
+                                </ul>
                             </div>
                         </div>
                     </div>

@@ -325,35 +325,6 @@ ul {
   display: none;
 }
 
-.gettingSkills {
-  @include bigScreen;
-
-  h2 {
-    @include gradientTitleBlue;
-  }
-
-  ol {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 150px;
-
-    li {
-      font-size: 30px;
-      line-height: 32px;
-      font-weight: 700;
-      color: $education-text-color;
-    }
-
-    p {
-      color: $blue-black;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 130%;
-      position: relative;
-      top: -16px;
-    }
-  }
-}
 
 .certification {
   background-color: $light-bg;
@@ -657,6 +628,9 @@ ul {
             line-height: 140%;
             color: $education-text-color;
             padding-left: 16px;
+            span{
+              margin-left: 12px;
+            }
           }
         }
       }
@@ -757,6 +731,26 @@ ul {
       background: #FCFDFF;
       font-size: 14px;
       line-height: 120%;
+      p{
+        font-size: 14px;
+        line-height: 120%;
+      }
+      .faqPointList{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        margin-top: 6px;
+        li{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          color: $blue-black;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6' viewBox='0 0 6 6' fill='none'%3E%3Ccircle cx='3' cy='3' r='3' fill='%23FF8F3E'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: 0 7px;
+          padding-left: 20px;
+        }
+      }
     }
 
     &-close {
@@ -785,7 +779,7 @@ ul {
 }
 
 @media screen and (max-width: 1350px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen1350;
   }
   .learnInfo {
@@ -810,7 +804,7 @@ ul {
 }
 
 @media screen and (max-width: 1200px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen1200;
   }
   .learnInfo {
@@ -893,15 +887,6 @@ ul {
       }
     }
   }
-  .gettingSkills {
-    ol {
-      grid-column-gap: 106px;
-
-      p {
-        font-size: 18px;
-      }
-    }
-  }
   .mentors {
     ul {
       grid-template-columns: 1fr;
@@ -929,7 +914,7 @@ ul {
 }
 
 @media screen and (max-width: 1000px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen1024;
   }
 
@@ -953,11 +938,7 @@ ul {
       }
     }
   }
-  .gettingSkills {
-    ol {
-      grid-column-gap: 48px;
-    }
-  }
+
 
   .educationFAQ {
     margin-bottom: 40px;
@@ -965,7 +946,7 @@ ul {
 }
 
 @media screen and (max-width: 880px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen880;
   }
   .educationHeader {
@@ -1028,7 +1009,7 @@ ul {
   .educationInfoContent {
     grid-row-gap: 40px;
   }
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen768;
   }
   .educationHeader {
@@ -1128,11 +1109,7 @@ ul {
       margin: auto;
     }
   }
-  .gettingSkills {
-    ol {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
+
   .certification {
     .certificationContent {
       @include screen768;
@@ -1165,7 +1142,7 @@ ul {
     position: absolute;
   }
 
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen500;
   }
   .educationHeader {
@@ -1213,6 +1190,7 @@ ul {
       .contentBar {
         background-color: #ffffff;
 
+
         ul {
           margin: 0 0 40px 0;
 
@@ -1226,6 +1204,7 @@ ul {
         .learnParagraph {
           p {
             display: none;
+
           }
 
           ul {
@@ -1356,16 +1335,6 @@ ul {
     .downloadButton {
       width: 100%;
       max-width: 330px;
-    }
-  }
-  .gettingSkills {
-    ol {
-      grid-template-columns: repeat(1, 1fr);
-      padding-left: 76px;
-
-      p {
-        font-weight: 600;
-      }
     }
   }
   .certification {
@@ -1686,6 +1655,9 @@ ul {
             line-height: 120%;
             color: $education-text-color;
             padding-left: 16px;
+            span{
+              margin-left: 12px;
+            }
           }
         }
       }
@@ -1744,6 +1716,12 @@ ul {
 
     .tab-content {
       background-color: #ffffff;
+      .faqPointList{
+        grid-template-columns: 1fr;
+        li{
+          font-size: 14px;
+        }
+      }
     }
 
     .tab-label {
@@ -1766,7 +1744,7 @@ ul {
 }
 
 @media screen and (max-width: 375px) {
-  .educationHeader, .conformityInfo, .syllabus, .gettingSkills, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen400;
   }
   .certification {
