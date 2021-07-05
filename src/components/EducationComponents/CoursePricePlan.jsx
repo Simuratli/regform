@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
 import shortid from "shortid";
-import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModal";
 import "../../scss/education/cousePricePlan.scss";
 import {NavLink, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import GetAccessButton from "./EducationGetAccessButton";
+import oldPrice from "../../assets/images/education/old_price.svg";
 
 const CoursePricePlan = ({pricePlans, price}) => {
 
@@ -53,6 +53,7 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title free"}>FREE</h3>
                                                 <p className={"format free"}>Offline</p>
+                                                <img style={{opacity: "0"}} src={oldPrice} alt={"Old price"}/>
                                                 <p className={"price free"}>
                                                     <span className={"dollarSign"}>$</span>
                                                     {planItem.price}
@@ -74,6 +75,7 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title paid"}>PAID</h3>
                                                 <p className={"format paid"}>Online</p>
+                                               <img src={oldPrice} alt={"Old price"}/>
                                                 <p className={"price paid"}>
                                                     <span className={"dollarSign"}>$</span>
                                                     {planItem.price}

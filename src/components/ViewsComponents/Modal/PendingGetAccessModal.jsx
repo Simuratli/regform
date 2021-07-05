@@ -3,7 +3,6 @@ import "../../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../../assets/images/information_popup_icon.svg";
 import close from "../../../assets/images/window-close.svg";
 import {useDispatch, useSelector} from "react-redux";
-import {changeEducationAccessStatus} from "../../../store/reducers/educationReducer/actions/educationChangeAccessStatusAction";
 import {useParams} from "react-router-dom";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
 import "../../../scss/views/editableInput.scss";
@@ -46,8 +45,13 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     }
 
     const changeHandler = (event) => {
-        setSelectedFile(event.target.files[0]);
-        setIsFilePicked(true);
+        const file = event.target.files[0]
+        setSelectedFile(file);
+        if (file) {
+            setIsFilePicked(true);
+        } else {
+            setIsFilePicked(false);
+        }
     };
 
 

@@ -14,7 +14,7 @@ import "./assets/fonts/fonts.css";
 import authentication from "./b2c";
 import IntelProviderWrapper from "./Intl/IntlProvider";
 import { hotjar } from "react-hotjar";
-import ScrollToTop from "./components/NavigationComponents/ScrollToTop/ScrollToTop";
+import useScrollMemory from "./components/NavigationComponents/ScrollToTop/ScrollToTop";
 
 function initializeApp(App, store) {
   Webfont.load({
@@ -28,7 +28,6 @@ function initializeApp(App, store) {
   ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter history={history}>
-          <ScrollToTop />
           <IntelProviderWrapper>
             <App />
           </IntelProviderWrapper>
