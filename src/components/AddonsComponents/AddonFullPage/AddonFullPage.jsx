@@ -184,8 +184,8 @@ const AddonFullPage = ({ addon, intl, children }) => {
                         <div className={'content'}>
                           <img src={attachedFile} alt="attached File"/>
                           <div>
-                            <p className={'crmName'}>Dynamics 365 Online</p>
-                            <p className={'fileName'}>uds-bug-handler-9.1@1.0.0.0.zip</p>
+                            <p className={'crmName'}>{file.resourceName}</p>
+                            <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
                           </div>
                         </div>
                       </button>
