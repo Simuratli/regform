@@ -1,5 +1,10 @@
 @import "../../utils/utils";
 
+.addonsCardWrapper {
+  position: relative;
+  width: 360px;
+}
+
 .bottomCards {
   width: 100%;
   max-width: 1146px;
@@ -159,6 +164,9 @@ button:hover {
 @media screen and (max-width: 400px) {
   .bottomCards {
     @include screen400;
+    .mayAlsoCard .cardSubTitle {
+      top: 13.5rem;
+    }
   }
   .carousel .control-dots {
     visibility: visible !important;
