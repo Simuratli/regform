@@ -57,6 +57,9 @@
   display: flex;
   flex-direction: column;
   box-shadow: 0 3px 6px rgba(14, 31, 53, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 8px 24px rgba(14, 31, 53, 0.08);
+  position: absolute;
+  top: 150px;
+  left: 0;
 
   .closeBtn {
     box-shadow: none;
@@ -522,12 +525,21 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-row-gap: 80px;
+  .downloadInfo {
+    @include generalSettingsForBlock;
+    @include bigScreen;
+    .downloadFileButton{
+      position: relative;
+    }
+    .downloadModal {
+      position: absolute;
+      top: 480px;
+      left: 548px;
+    }
+  }
 }
 
-.downloadInfo {
-  @include generalSettingsForBlock;
-  @include bigScreen;
-}
+
 
 .helpInfo {
   @include generalSettingsForBlock;

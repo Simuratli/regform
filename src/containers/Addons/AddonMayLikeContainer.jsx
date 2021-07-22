@@ -15,8 +15,6 @@ const AddonMayLikeContainer = () => {
     const dispatch = useDispatch();
     const {slug} = useParams();
 
-    console.log(addon);
-
     //Add-on cards that enter this component from the state are filtered by the slug
     // (example: if the Bug Handler page is open, we can see another 5 cards without the BH card).
     //Then the cards are sorted by name

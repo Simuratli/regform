@@ -11,13 +11,11 @@ import {getLink} from "../../../store/reducers/openButtonReducer/actions/openBut
 import get from "lodash/get";
 import {FormattedMessage} from "react-intl";
 import {getDownloadFileCard} from "../../../store/reducers/downloadFileReducer/actions/downloadFileCardAction";
-import {
-    getFile,
-    removeFile,
-} from "../../../store/reducers/downloadFileReducer/actions/fileAction";
+import {getFile, removeFile,} from "../../../store/reducers/downloadFileReducer/actions/fileAction";
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import closeButton from "../../../assets/images/close_download_btn.svg";
 import attachedFile from "../../../assets/images/attached_file.svg";
+import DownloadAddonButton from "../DownloadAddonButton/DownloadAddonButton";
 
 const AddonCard = ({addon, className}) => {
     const [downloadModalActiveCard, setDownloadModalActiveCard] = useState(false);
@@ -33,7 +31,6 @@ const AddonCard = ({addon, className}) => {
         isFree = false,
         applicationType,
         downloads = 0,
-        price = 0,
         resourcePath = "",
         resources = [],
     } = addon;
@@ -42,10 +39,10 @@ const AddonCard = ({addon, className}) => {
         setDownloadModalActiveCard(!downloadModalActiveCard);
     };
 
-    const handleDownload = () => {
-        dispatch(getDownloadFileCard({resourcePath, slug}));
-        dispatch(getFile());
-    };
+    // const handleDownload = () => {
+    //     dispatch(getDownloadFileCard({resourcePath, slug}));
+    //     dispatch(getFile());
+    // };
 
     useEffect(() => {
         if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
@@ -89,11 +86,11 @@ const AddonCard = ({addon, className}) => {
 
         dispatch(getLink(slug));
     };
-
-    const handleMethodsForDownload = () => {
-        handleDownload();
-        HandlerTrackerCardDownloads();
-    };
+    //
+    // const handleMethodsForDownload = () => {
+    //     handleDownload();
+    //     HandlerTrackerCardDownloads();
+    // };
 
     const getAddonVersionFile = (e) => {
         const button = e.target.closest('button')
@@ -151,7 +148,8 @@ const AddonCard = ({addon, className}) => {
                                         className={applicationType === "Dynamics 365"
                                             ? "downloadButton"
                                             : "openButton"}
-                                        data-path={resources[0].filePath}>{file?.addonTypeDownloading === slug
+                                        data-path={resources[0].filePath}>
+                                    {file?.addonTypeDownloading === slug
                                     ? (<ButtonLoader/>)
                                     : applicationType === "Dynamics 365"
                                         ? (<FormattedMessage id="download"/>)

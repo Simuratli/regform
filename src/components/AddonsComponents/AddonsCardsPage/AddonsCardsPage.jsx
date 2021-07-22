@@ -11,13 +11,11 @@ import {getAddonCard} from "../../../store/reducers/addonReducer/actions/addonCa
 import {FilterAddonsComponent} from "../FilterAddonsComponent/FilterAddonComponent";
 import AddonCardContainer from "../../../containers/Addons/AddonCardContainer";
 import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNotification";
-
 import get from "lodash/get";
-import {getAuthoriseCheck} from "../../../store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
 import AddonPaginationCont from "../../ViewsComponents/AddonPaginationCont";
 
 const AddonsCardsPage = () => {
-    const [modalActive, setModalActive] = useState(true)
+    const [, setModalActive] = useState(true)
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const {addon, app} = state;
