@@ -7,7 +7,7 @@ const Loader = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #979797;
+  background: #E8EBFE;
   position: absolute;
   top: -1px;
   left: -1px;
@@ -20,7 +20,7 @@ const Loader = styled.div`
   .sp-2balls,
   .sp-3balls {
     border-radius: 50%;
-    background-color: #fff;
+    background-color: #696D8C;
     width: 10px;
     height: 10px;
     transform-origin: center center;
