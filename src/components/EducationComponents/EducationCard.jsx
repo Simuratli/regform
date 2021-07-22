@@ -3,8 +3,6 @@ import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
 import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 
-
-
 const EducationCard = ({educationCard}) => {
     const {
         name = "",

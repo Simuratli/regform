@@ -218,7 +218,36 @@ ul {
         width: 100%;
         height: 532px;
         border-radius: 10px;
+        margin-bottom: 30px;
       }
+      .attentionBlock{
+        background-color: #fff;
+        max-width: 667px;
+        width: 100%;
+        margin: auto;
+        padding: 20px 65px;
+        h3{
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 130%;
+          letter-spacing: 0.01em;
+          margin-bottom: 20px;
+          margin-top: 0;
+        }
+        p{
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 140%;
+          display: block;
+        }
+        .attentionLink{
+          color: $blue;
+          &:hover{
+            text-decoration: underline;
+          }
+        }
+      }
+
 
       .takeCourseButton, .watchCourseButton {
         margin-top: 29px;
@@ -729,7 +758,7 @@ ul {
 
     &-content {
       max-height: 0;
-      padding: 0 1em;
+      padding: -50px 1em;
       color: $education-text-color;
       transition: all .35s;
       background: #FCFDFF;
@@ -1123,317 +1152,22 @@ ul {
     margin-bottom: 40px;
   }
 }
-
-@media screen and (max-width: 500px) {
-  .educationInfoContent {
-    h2 {
-      font-size: 28px;
-      line-height: 34px;
-    }
-
-    p {
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 130%;
-    }
-  }
-
-  .learnInfo .learnInfoContent .topBar ul li .listItemLogo {
-    padding: 5px;
-  }
-
-  .educationInfoContent .detailsButton {
-    position: absolute;
-  }
-
-  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
-    @include screen500;
-  }
-  .educationHeader {
-    padding: 40px 0;
-
-    .headerLeftSide {
-      h1 {
-        font-size: 28px;
-        line-height: 130%;
-        letter-spacing: -1.09524px;
-      }
-
-      p {
-        font-size: 14px;
-        line-height: 17px;
-        padding: 20px 0;
-      }
-
-    }
-
-    .headerRightSide {
-      text-align: center;
-
-      img {
-        max-width: 303px;
-      }
-    }
-  }
-  .learnInfo {
-    .learnInfoContent {
-      @include screen500;
-
-      h2 {
-        margin-top: 30px;
-      }
-
-      .topBar {
-        ul {
-          li {
-            width: 169px;
-          }
+@media screen and (max-width: 667px){
+  .conformityInfo{
+    .conformityList{
+      .conformityListItem{
+        background-size: 15%;
+        &:first-child, &:first-child:hover {
+          background-position: 11px 86px;
         }
-      }
-
-      .contentBar {
-        background-color: #ffffff;
-
-
-        ul {
-          margin: 0 0 40px 0;
-
-          li {
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 140%;
-          }
+        &:nth-child(2){
+          background-position: 1px 55px;
         }
-
-        .learnParagraph {
-          p {
-            display: none;
-
-          }
-
-          ul {
-            margin: 25px 0;
-            grid-template-columns: 1fr;
-
-          }
+        &:nth-child(3){
+          background-position: 4px 22px;
         }
-
-        .reactPlayer {
-          height: 183px;
-          border-radius: 10px;
-        }
-
-        .ytp-large-play-button {
-          width: 36px;
-        }
-
-        .ytp-title-channel-logo {
-          width: 30px;
-          height: 30px;
-        }
-      }
-    }
-  }
-  .fullWidth {
-    background-color: #ffffff;
-  }
-  .conformityInfo {
-    display: none;
-  }
-  .conformityInfoMobile {
-    display: block;
-    @include screen500;
-
-    h2 {
-      @include gradientTitleBlue;
-    }
-
-    .questionList {
-      .questionList {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-row-gap: 20px;
-      }
-
-      input {
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-      }
-
-      .tab {
-        width: 100%;
-        color: white;
-        overflow: hidden;
-        border-bottom: 1px solid #E3E3E3;
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        &-label {
-          display: flex;
-          justify-content: space-between;
-          padding: 20px 14px;
-          cursor: pointer;
-          color: $blue-black;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 120%;
-
-          &::after {
-            content: url("../../assets/images/education/accordeon_arrow.svg");
-            width: 1em;
-            height: 1em;
-            text-align: center;
-            transition: all .35s;
-          }
-        }
-
-        &-content {
-          max-height: 0;
-          padding: 0 1em;
-          color: $education-text-color;
-          transition: all .35s;
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 140%;
-        }
-
-        &-close {
-          display: flex;
-          justify-content: flex-end;
-          padding: 1em;
-          font-size: 0.75em;
-          background: $light-blue;
-          cursor: pointer;
-        }
-      }
-
-      input:checked {
-        + .tab-label {
-
-          &::after {
-            transform: rotate(180deg);
-          }
-        }
-
-        ~ .tab-content {
-          max-height: 100vh;
-          padding: 0px 14px 12px;
-        }
-      }
-    }
-
-  }
-  .syllabusMobile {
-    @include screen500;
-
-    .syllabusMobileTitle {
-      font-weight: 600;
-      font-size: 14px;
-      line-height: 140%;
-      color: $blue-black;
-    }
-
-    .downloadButton {
-      width: 100%;
-      max-width: 330px;
-    }
-  }
-  .certification {
-    background: #ffffff;
-
-    .certificationContent {
-      @include screen500;
-
-      p {
-        font-weight: 600;
-        font-size: 14px;
-        line-height: 140%;
-        text-align: left;
-      }
-    }
-
-    h2 {
-      margin-top: 0;
-    }
-
-    .certificationContent {
-      margin: 0;
-      @include screen500;
-
-      p {
-        color: $blue-black;
-      }
-
-      h4, img {
-        display: none;
-      }
-    }
-  }
-  .mentors {
-    ul {
-      grid-row-gap: 0;
-
-      li {
-        grid-column-gap: 21px;
-
-        h4 {
-          font-size: 28px;
-          line-height: 32px;
-          letter-spacing: 1px;
-          margin-top: 20px;
-          margin-bottom: 13px;
-          @include gradientTitleBlue;
-          font-family: Gilroy-Light;
-        }
-
-        h5 {
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 120%;
-          color: $blue-black;
-        }
-
-        p {
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 140%;
-        }
-
-        &:first-child {
-          border-bottom: 1px solid #E3E3E3;
-          padding-bottom: 20px;
-          display: block;
-
-          img {
-            float: left;
-            margin: 0 30px 20px 0;
-          }
-        }
-
-        &:last-child {
-          padding-bottom: 20px;
-          display: block;
-
-          img {
-            float: right;
-            margin: 0 0 20px 30px;
-          }
-        }
-
-        &:last-child {
-          padding-top: 20px;
-        }
-
-        p {
-          margin-top: 33px;
-          font-weight: 600;
-        }
-
-        img {
-          width: 120px;
+        &:nth-child(4){
+          background-position: 4px 25px;
         }
       }
     }
@@ -1704,6 +1438,330 @@ ul {
         max-width: 370px;
         width: 100%;
         margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .educationInfoContent {
+    h2 {
+      font-size: 28px;
+      line-height: 34px;
+    }
+
+    p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+    }
+    .detailsButton {
+      position: absolute;
+      font-size: 14px;
+    }
+  }
+
+  .learnInfo .learnInfoContent .topBar ul li .listItemLogo {
+    padding: 5px;
+  }
+
+  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
+    @include screen500;
+  }
+  .educationHeader {
+    padding: 40px 0;
+
+    .headerLeftSide {
+      h1 {
+        font-size: 28px;
+        line-height: 130%;
+        letter-spacing: -1.09524px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 20px 0;
+      }
+
+    }
+
+    .headerRightSide {
+      text-align: center;
+
+      img {
+        max-width: 303px;
+      }
+    }
+  }
+  .learnInfo {
+    .learnInfoContent {
+      @include screen500;
+
+      h2 {
+        margin-top: 30px;
+      }
+
+      .topBar {
+        ul {
+          li {
+            width: 169px;
+          }
+        }
+      }
+
+      .contentBar {
+        background-color: #ffffff;
+
+
+        ul {
+          margin: 0 0 40px 0;
+
+          li {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+          }
+        }
+
+        .learnParagraph {
+          p {
+            display: none;
+
+          }
+
+          ul {
+            margin: 25px 0;
+            grid-template-columns: 1fr;
+
+          }
+        }
+
+        .reactPlayer {
+          height: 183px;
+          border-radius: 10px;
+        }
+
+        .ytp-large-play-button {
+          width: 36px;
+        }
+
+        .ytp-title-channel-logo {
+          width: 30px;
+          height: 30px;
+        }
+        .attentionBlock{
+          background-color: #F9FAFF;
+          padding: 20px 7px;
+          p{
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .fullWidth {
+    background-color: #ffffff;
+  }
+  .conformityInfo {
+    display: none;
+  }
+  .conformityInfoMobile {
+    display: block;
+    @include screen500;
+
+    h2 {
+      @include gradientTitleBlue;
+    }
+
+    .questionList {
+      .questionList {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .tab {
+        width: 100%;
+        color: white;
+        overflow: hidden;
+        border-bottom: 1px solid #E3E3E3;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        &-label {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px 14px;
+          cursor: pointer;
+          color: $blue-black;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+
+          &::after {
+            content: url("../../assets/images/education/accordeon_arrow.svg");
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all .35s;
+          }
+        }
+
+        &-content {
+          max-height: 0;
+          padding: 0 1em;
+          color: $education-text-color;
+          transition: all .35s;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+        &-close {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1em;
+          font-size: 0.75em;
+          background: $light-blue;
+          cursor: pointer;
+        }
+      }
+
+      input:checked {
+        + .tab-label {
+
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+
+        ~ .tab-content {
+          max-height: 100vh;
+          padding: 0px 14px 12px;
+        }
+      }
+    }
+
+  }
+
+  .syllabusMobile {
+    @include screen500;
+
+    .syllabusMobileTitle {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 140%;
+      color: $blue-black;
+    }
+
+    .downloadButton {
+      width: 100%;
+      max-width: 330px;
+    }
+  }
+  .certification {
+    background: #ffffff;
+
+    .certificationContent {
+      @include screen500;
+
+      p {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 140%;
+        text-align: left;
+      }
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .certificationContent {
+      margin: 0;
+      @include screen500;
+
+      p {
+        color: $blue-black;
+      }
+
+      h4, img {
+        display: none;
+      }
+    }
+  }
+  .mentors {
+    ul {
+      grid-row-gap: 0;
+
+      li {
+        grid-column-gap: 21px;
+
+        h4 {
+          font-size: 28px;
+          line-height: 32px;
+          letter-spacing: 1px;
+          margin-top: 20px;
+          margin-bottom: 13px;
+          @include gradientTitleBlue;
+          font-family: Gilroy-Light;
+        }
+
+        h5 {
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+          color: $blue-black;
+        }
+
+        p {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+        &:first-child {
+          border-bottom: 1px solid #E3E3E3;
+          padding-bottom: 20px;
+          display: block;
+
+          img {
+            float: left;
+            margin: 0 30px 20px 0;
+          }
+        }
+
+        &:last-child {
+          padding-bottom: 20px;
+          display: block;
+
+          img {
+            float: right;
+            margin: 0 0 20px 30px;
+          }
+        }
+
+        &:last-child {
+          padding-top: 20px;
+        }
+
+        p {
+          margin-top: 33px;
+          font-weight: 600;
+        }
+
+        img {
+          width: 120px;
+        }
       }
     }
   }

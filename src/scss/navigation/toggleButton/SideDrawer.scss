@@ -86,5 +86,6 @@
 @media screen and (max-width: 415px) {
   .sideDrawer ul{
     @include screen400;
+    padding-left: 0;
   }
 }

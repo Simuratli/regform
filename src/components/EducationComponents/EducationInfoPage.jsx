@@ -130,6 +130,12 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
+                            <div className={"attentionBlock"}>
+                                <h3>Please pay attention.</h3>
+                                <p style={{marginBottom: "10px"}}>The course is available in Russian. English version is coming soon. </p>
+                                <p>If you want to be notified about the launch of training in English,
+                                    contact us: <a className={"attentionLink"} href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
+                            </div>
                             {educationAccessStatus.coursePermissionState === "Allowed"
                                 ?
                                 <NavLink to={"/education/" + slug + "/free-course"}>

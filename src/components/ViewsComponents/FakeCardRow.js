@@ -1,9 +1,5 @@
 import React from "react";
-
 import styled from "styled-components";
-
-// LODASH
-
 import range from "lodash/range";
 
 const FakeRow = styled.div`
@@ -60,11 +56,8 @@ const FaceLine = ({ height = 10, width = "100%", style }) => {
 export const FakeCardRow = () => {
   return (
     <FakeRow>
-      <img
-        className="img"
-        src={require("../../assets/images/image.svg")}
-        alt="svg"
-      />
+      <img className="img" src={require("../../assets/images/image.svg")} alt="svg"/>
+
       <div className="rows-container">
         <FaceLine height={20} style={{ margin: "30px 0 40px 0" }} />
         {range(0, 3, 1).map((r) => (
@@ -73,8 +66,8 @@ export const FakeCardRow = () => {
       </div>
 
       <div className="rows-container">
-        <FaceLine height={20} width={40} />
-        <FaceLine height={40} style={{ margin: "15px 0" }} />
+        <FaceLine height={20} width={40}/>
+        <FaceLine height={40} style={{ margin: "15px 0" }}/>
       </div>
     </FakeRow>
   );
