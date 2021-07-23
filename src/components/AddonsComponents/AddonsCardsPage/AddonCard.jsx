@@ -1,21 +1,17 @@
 import React, {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-
 import "../../../scss/addons/addonsCardsPage/addonCard.scss";
 import {NavLink} from "react-router-dom";
 import ReactGa from "react-ga";
 import ReactPixel from "react-facebook-pixel";
-
 import {getLink} from "../../../store/reducers/openButtonReducer/actions/openButtonAction";
-
 import get from "lodash/get";
 import {FormattedMessage} from "react-intl";
-import {getDownloadFileCard} from "../../../store/reducers/downloadFileReducer/actions/downloadFileCardAction";
 import {getFile, removeFile,} from "../../../store/reducers/downloadFileReducer/actions/fileAction";
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import closeButton from "../../../assets/images/close_download_btn.svg";
 import attachedFile from "../../../assets/images/attached_file.svg";
-import DownloadAddonButton from "../DownloadAddonButton/DownloadAddonButton";
+
 
 const AddonCard = ({addon, className}) => {
     const [downloadModalActiveCard, setDownloadModalActiveCard] = useState(false);
@@ -31,7 +27,6 @@ const AddonCard = ({addon, className}) => {
         isFree = false,
         applicationType,
         downloads = 0,
-        resourcePath = "",
         resources = [],
     } = addon;
 
@@ -39,10 +34,6 @@ const AddonCard = ({addon, className}) => {
         setDownloadModalActiveCard(!downloadModalActiveCard);
     };
 
-    // const handleDownload = () => {
-    //     dispatch(getDownloadFileCard({resourcePath, slug}));
-    //     dispatch(getFile());
-    // };
 
     useEffect(() => {
         if (get(file, "file.rootAddOnFilePathWithAccessToken")) {
@@ -86,15 +77,10 @@ const AddonCard = ({addon, className}) => {
 
         dispatch(getLink(slug));
     };
-    //
-    // const handleMethodsForDownload = () => {
-    //     handleDownload();
-    //     HandlerTrackerCardDownloads();
-    // };
 
     const getAddonVersionFile = (e) => {
         const button = e.target.closest('button')
-        dispatch(getFile(button.dataset.path));
+        dispatch(getFile(button.dataset.path, slug));
     }
 
     return (
@@ -155,36 +141,37 @@ const AddonCard = ({addon, className}) => {
                                         ? (<FormattedMessage id="download"/>)
                                         : (<FormattedMessage id="open"/>)}</button>)
                             : (<button
+                                style={{position: "relative"}}
                                 className={downloadModalActiveCard ? 'downloadFileButtonCardDisable' : 'downloadFileButtonCard'}
                                 onClick={handleOpenVersionList}>
                                 Download
                             </button>)}
                     </div>
                 </div>
-            </div>
-            {downloadModalActiveCard && (
-                <div className={'downloadModalOnCard'}>
-                    <button className='closeBtn' onClick={handleOpenVersionList}>
-                        <img src={closeButton} alt="close"/>
-                    </button>
-                    <div className={'downloadModalContentOnCard'}>
-                        <h2>
-                            Choose the archive compatible with your version.
-                        </h2>
-                        {addon.resources.map(file => (
-                            <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
-                                <div className={'content'}>
-                                    <img src={attachedFile} alt="attached File"/>
-                                    <div>
-                                        <p className={'crmName'}>{file.resourceName}</p>
-                                        <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                {downloadModalActiveCard && (
+                    <div className={'downloadModalOnCard'}>
+                        <button className='closeBtn' onClick={handleOpenVersionList}>
+                            <img src={closeButton} alt="close"/>
+                        </button>
+                        <div className={'downloadModalContentOnCard'}>
+                            <h2>
+                                Choose the archive compatible with your version.
+                            </h2>
+                            {addon.resources.map(file => (
+                                <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
+                                    <div className={'content'}>
+                                        <img src={attachedFile} alt="attached File"/>
+                                        <div>
+                                            <p className={'crmName'}>{file.resourceName}</p>
+                                            <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </button>
-                        ))}
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </div>
         </div>
     );
 };

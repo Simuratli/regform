@@ -375,6 +375,13 @@ ul {
     .certificateTextContent {
       align-self: center;
     }
+    img {
+      transition: all 0.8s ease-out;
+    }
+
+    & img:hover {
+      transform: scale(1.2)
+    }
 
     h4 {
       font-weight: 600;
@@ -739,7 +746,7 @@ ul {
     &-label {
       display: flex;
       justify-content: space-between;
-      padding: 27px 17px;
+      padding: 23px 40px;
       background: #FCFDFF;
       cursor: pointer;
       color: $blue-black;
@@ -758,21 +765,24 @@ ul {
 
     &-content {
       max-height: 0;
-      padding: -50px 1em;
+      //padding: -50px 1em;
+      padding: 0px 40px;
       color: $education-text-color;
       transition: all .35s;
       background: #FCFDFF;
       font-size: 14px;
       line-height: 120%;
       p{
-        font-size: 14px;
-        line-height: 120%;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 140%;
       }
       .faqPointList{
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
         margin-top: 6px;
+        width: 62%;
         li{
           font-weight: 500;
           font-size: 16px;
@@ -806,7 +816,7 @@ ul {
 
     ~ .tab-content {
       max-height: 100vh;
-      padding: 20px 16px;
+      padding: 0px 40px;
     }
   }
 }
@@ -975,6 +985,12 @@ ul {
 
   .educationFAQ {
     margin-bottom: 40px;
+    .tab-content{
+      .faqPointList{
+        width: 100%;
+      }
+    }
+
   }
 }
 
