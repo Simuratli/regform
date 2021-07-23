@@ -88,12 +88,10 @@ const AddonFullPage = ({addon, intl, children}) => {
                         </div>
                     </AnimatedContainer>
                     <div className="headerRightSide">
-                        <div className="videoTutorial">
                             <img
                                 src={get(cardLogo, "imageSource")}
                                 alt={get(cardLogo, "alternateText")}
                             />
-                        </div>
                     </div>
                 </section>
             </div>
