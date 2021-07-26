@@ -178,9 +178,6 @@
   }
 }
 
-//Responsive design
-
-//iPad PRO and top Android tablets: up to 1024×1366
 @media screen and (max-width: 1350px) {
   .phantom,
   .footerCopyrightInfo {
@@ -256,7 +253,6 @@
   }
 }
 
-// Medium devices (landscape tablets, 768px and up)
 @media only screen and (max-width: 768px) {
   .phantom {
     @include screen768;
@@ -299,6 +295,8 @@
 
         li {
           margin: 12px 0;
+          width: 100%;
+          justify-content: center;
         }
       }
     }
@@ -319,7 +317,6 @@
   }
 }
 
-//Extra small devices (phones, 600px and down)
 @media only screen and (max-width: 600px) {
   .phantom {
     text-align: center;

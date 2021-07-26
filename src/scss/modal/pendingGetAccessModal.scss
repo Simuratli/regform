@@ -1,7 +1,7 @@
 @import "../../scss/utils/utils";
 
 .pendingModal {
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.4);
   position: fixed;
@@ -29,6 +29,8 @@
     font-family: Montserrat;
     color: $card-text-color;
     text-align: center;
+    max-height: 100%;
+    overflow: auto;
 
     p {
       font-weight: 600;
@@ -51,20 +53,29 @@
     }
 
     .personalEditableBlock {
-
       background: #f9faff;
       padding-top: 30px;
       border-top: 1px solid #E8EBFE;
+      padding-left: 70px;
+      padding-right: 87px;
+      label{
+        font-size: 12px;
+        line-height: 120%;
+        color: $education-text-color;
+        letter-spacing: 0.1px;
+        justify-self: left;
+        margin-bottom: -10px;
+      }
 
       form {
         display: grid;
         grid-template-columns: 1fr;
-        grid-gap: 10px;
+        grid-gap: 15px;
         justify-items: center;
       }
 
       p {
-        width: 50%;
+        width: 70%;
         margin-top: 20px;
         margin-bottom: 30px;
       }
@@ -74,7 +85,8 @@
 }
 
 .file-area {
-  width: 389px;
+  width: 100%;
+  max-width: 389px;
   position: relative;
   text-align: initial;
 
@@ -224,11 +236,43 @@ p {
 .modalContent.active {
   transform: scale(1);
 }
-
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 736px){
   .pendingModal {
     .modalContent {
-      padding: 30px 10px;
+      .personalEditableBlock{
+        p{
+          width: 88%;
+        }
+      }
     }
   }
 }
+@media screen and (max-width: 580px){
+  .pendingModal {
+    .modalContent {
+      max-width: 344px;
+      padding: 0;
+      .textContent{
+        padding: 0 20px 30px;
+      }
+      p{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 140%;
+      }
+      .personalEditableBlock{
+        padding: 20px;
+        p{
+          width: 88%;
+        }
+      }
+    }
+  }
+  .pendingTitle{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+  }
+}
+

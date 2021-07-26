@@ -90,17 +90,17 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <ul className={"extraBenefitsList"}>
                                                 <li className={"extraBenefit"}>
                                                     <input type={"checkbox"} name="mentor_assistance"
-                                                           id={"mentor_assistance"}
+                                                           id={"mentor_assistance_mobile"}
                                                            value="20" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label for={"mentor_assistance"} htmlFor={"mentor_assistance"}>Get
+                                                    <label for={"mentor_assistance_mobile"} htmlFor={"mentor_assistance_mobile"}>Get
                                                         mentor's assistance (1 hour) <span
                                                             className={"paid"}>+20$</span></label>
                                                 </li>
                                                 <li className={"extraBenefit"}>
                                                     <input type={"checkbox"} name="exam_certificate"
-                                                           id={"exam_certificate"}
+                                                           id={"exam_certificate_mobile"}
                                                            value="10" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label for={"exam_certificate"} htmlFor={"exam_certificate"}>Pass an
+                                                    <label for={"exam_certificate_mobile"} htmlFor={"exam_certificate_mobile"}>Pass an
                                                         exam and get a
                                                         certificate <span className={"paid"}>+10$</span></label>
                                                 </li>
@@ -188,7 +188,7 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     <input type={"checkbox"} name="mentor_assistance"
                                                            id={"mentor_assistance"}
                                                            value="20" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label htmlFor={"mentor_assistance"} htmlFor={"mentor_assistance"}>Get
+                                                    <label htmlFor={"mentor_assistance"}>Get
                                                         mentor's assistance (1 hour) <span
                                                             className={"paid"}>+20$</span></label>
                                                 </li>
@@ -196,7 +196,7 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     <input type={"checkbox"} name="exam_certificate"
                                                            id={"exam_certificate"}
                                                            value="10" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label htmlFor={"exam_certificate"} htmlFor={"exam_certificate"}>Pass
+                                                    <label htmlFor={"exam_certificate"}>Pass
                                                         an exam and get a
                                                         certificate <span className={"paid"}>+10$</span></label>
                                                 </li>

@@ -29,6 +29,10 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
 
+    // if {selectedFile.name.lenght > 10}{
+    //     const successFile =  selectedFile.fileName.substring(0, 10);
+    // }
+
     let paymentData = {
         "firstName": firstName,
         "lastName": lastName,
@@ -40,6 +44,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     //close modal and change status from Forbidden to Pending
     const handleSubmission = async (e) => {
         e.preventDefault();
+        e.disabled = true;
         dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
         setActive(false)
     }
@@ -53,7 +58,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
             setIsFilePicked(false);
         }
     };
-
 
     const handleChangeAccessStatusPaid = async (e) => {
         e.preventDefault();
@@ -88,12 +92,15 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                     </section>
                     <section className={"personalEditableBlock"}>
                         <form onSubmit={handleChangeAccessStatusPaid}>
+                            <label htmlFor="firstName">First name</label>
                             <input className={firstName ? "editableInput" : "emptyField"} type={"text"}
                                    defaultValue={firstName} onChange={inputDataChange}
                                    name={'firstName'} required={true}/>
+                            <label htmlFor="lastName">Last name</label>
                             <input className={lastName ? "editableInput" : "emptyField"} type={"text"}
                                    defaultValue={lastName} onChange={inputDataChange}
                                    name={'lastName'} required={true}/>
+                            <label htmlFor="email">Email</label>
                             <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email}
                                    onChange={inputDataChange}
                                    name={'email'} id="mail" required={true}/>
@@ -123,13 +130,16 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                             <div>
                                 <div className="form-group file-area">
 
-                                    <label htmlFor="file">Your CV</label>
+                                    <label htmlFor="file">Add your CV</label>
                                     <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                            onChange={changeHandler}/>
                                     <div className={"uploadField"}>
                                         <div className="file-dummy">
                                             {isFilePicked ? (
-                                                <div className="success">{selectedFile.name}</div>
+                                                selectedFile.name.length > 35 ?
+                                                    <div className="success">{selectedFile.name.slice(0, 35)}...</div>:
+                                                    <div className="success">{selectedFile.name}</div>
+
                                             ) : (
                                                 <div className="default">Use PDF or DOCX format</div>
                                             )}
@@ -138,7 +148,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                                     </div>
                                 </div>
                             </div>
-                            <p style={{width: "60%"}}>
+                            <p>
                                 Our manager will contact you via email <b>{email}</b> shortly.
                             </p>
                             {
