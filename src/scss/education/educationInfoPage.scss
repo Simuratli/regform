@@ -747,7 +747,7 @@ ul {
       display: flex;
       justify-content: space-between;
       padding: 23px 40px;
-      background: #FCFDFF;
+      background: $white-blue;
       cursor: pointer;
       color: $blue-black;
       font-weight: 600;
@@ -765,6 +765,7 @@ ul {
 
     &-content {
       max-height: 0;
+      display: none;
       //padding: -50px 1em;
       padding: 0px 40px;
       color: $education-text-color;
@@ -815,6 +816,7 @@ ul {
     }
 
     ~ .tab-content {
+      display: block;
       max-height: 100vh;
       padding: 0px 40px;
     }
@@ -1169,24 +1171,94 @@ ul {
   }
 }
 @media screen and (max-width: 667px){
-  .conformityInfo{
-    .conformityList{
-      .conformityListItem{
-        background-size: 15%;
-        &:first-child, &:first-child:hover {
-          background-position: 11px 86px;
+  .conformityInfo {
+    display: none;
+  }
+  .conformityInfoMobile {
+    display: block;
+    @include screen500;
+
+    h2 {
+      @include gradientTitleBlue;
+    }
+
+    .questionList {
+      .questionList {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 20px;
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+      }
+
+      .tab {
+        width: 100%;
+        color: white;
+        overflow: hidden;
+        border-bottom: 1px solid #E3E3E3;
+
+        &:last-child {
+          border-bottom: none;
         }
-        &:nth-child(2){
-          background-position: 1px 55px;
+
+        &-label {
+          display: flex;
+          justify-content: space-between;
+          padding: 20px 14px;
+          cursor: pointer;
+          color: $blue-black;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 120%;
+
+          &::after {
+            content: url("../../assets/images/education/accordeon_arrow.svg");
+            width: 1em;
+            height: 1em;
+            text-align: center;
+            transition: all .35s;
+          }
         }
-        &:nth-child(3){
-          background-position: 4px 22px;
+
+        &-content {
+          max-height: 0;
+          padding: 0 1em;
+          color: $education-text-color;
+          transition: all .35s;
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 140%;
         }
-        &:nth-child(4){
-          background-position: 4px 25px;
+
+        &-close {
+          display: flex;
+          justify-content: flex-end;
+          padding: 1em;
+          font-size: 0.75em;
+          background: $light-blue;
+          cursor: pointer;
+        }
+      }
+
+      input:checked {
+        + .tab-label {
+
+          &::after {
+            transform: rotate(180deg);
+          }
+        }
+
+        ~ .tab-content {
+          max-height: 100vh;
+          padding: 0px 14px 12px;
         }
       }
     }
+
   }
   .pricePlan {
     display: none;
@@ -1579,95 +1651,7 @@ ul {
   .fullWidth {
     background-color: #ffffff;
   }
-  .conformityInfo {
-    display: none;
-  }
-  .conformityInfoMobile {
-    display: block;
-    @include screen500;
 
-    h2 {
-      @include gradientTitleBlue;
-    }
-
-    .questionList {
-      .questionList {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-row-gap: 20px;
-      }
-
-      input {
-        position: absolute;
-        opacity: 0;
-        z-index: -1;
-      }
-
-      .tab {
-        width: 100%;
-        color: white;
-        overflow: hidden;
-        border-bottom: 1px solid #E3E3E3;
-
-        &:last-child {
-          border-bottom: none;
-        }
-
-        &-label {
-          display: flex;
-          justify-content: space-between;
-          padding: 20px 14px;
-          cursor: pointer;
-          color: $blue-black;
-          font-weight: 600;
-          font-size: 18px;
-          line-height: 120%;
-
-          &::after {
-            content: url("../../assets/images/education/accordeon_arrow.svg");
-            width: 1em;
-            height: 1em;
-            text-align: center;
-            transition: all .35s;
-          }
-        }
-
-        &-content {
-          max-height: 0;
-          padding: 0 1em;
-          color: $education-text-color;
-          transition: all .35s;
-          font-weight: 600;
-          font-size: 14px;
-          line-height: 140%;
-        }
-
-        &-close {
-          display: flex;
-          justify-content: flex-end;
-          padding: 1em;
-          font-size: 0.75em;
-          background: $light-blue;
-          cursor: pointer;
-        }
-      }
-
-      input:checked {
-        + .tab-label {
-
-          &::after {
-            transform: rotate(180deg);
-          }
-        }
-
-        ~ .tab-content {
-          max-height: 100vh;
-          padding: 0px 14px 12px;
-        }
-      }
-    }
-
-  }
 
   .syllabusMobile {
     @include screen500;
