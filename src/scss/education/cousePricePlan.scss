@@ -133,6 +133,23 @@
       -webkit-background-clip: text;
       background-image: linear-gradient(269.64deg, #FF8F3E 4.23%, #FFB178 91.19%);
     }
+    .watchTitle{
+      color: $blue;
+    }
+    .watchParagraph{
+      color: $blue-black;
+    }
+    a{
+      text-align: center;
+    }
+    .pendingButton, .watchButton{
+      width: 100%;
+      max-width: 350px;
+    }
+    .pendingButton{
+      text-align: center;
+      margin: auto auto 46px;
+    }
   }
 }
 @media screen and (max-width: 400px) {

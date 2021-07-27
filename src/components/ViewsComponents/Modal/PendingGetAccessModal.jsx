@@ -29,10 +29,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     const [selectedFile, setSelectedFile] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
 
-    // if {selectedFile.name.lenght > 10}{
-    //     const successFile =  selectedFile.fileName.substring(0, 10);
-    // }
-
     let paymentData = {
         "firstName": firstName,
         "lastName": lastName,
@@ -44,7 +40,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     //close modal and change status from Forbidden to Pending
     const handleSubmission = async (e) => {
         e.preventDefault();
-        e.disabled = true;
         dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
         setActive(false)
     }
@@ -137,7 +132,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                                         <div className="file-dummy">
                                             {isFilePicked ? (
                                                 selectedFile.name.length > 35 ?
-                                                    <div className="success">{selectedFile.name.slice(0, 35)}...</div>:
+                                                    <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
                                                     <div className="success">{selectedFile.name}</div>
 
                                             ) : (

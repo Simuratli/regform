@@ -783,7 +783,7 @@ ul {
         grid-template-columns: 1fr 1fr;
         grid-gap: 10px;
         margin-top: 6px;
-        width: 62%;
+        width: 88%;
         li{
           font-weight: 500;
           font-size: 16px;
@@ -1022,6 +1022,9 @@ ul {
     .headerRightSide {
       display: none;
       justify-self: center;
+      .video{
+        display: none;
+      }
     }
   }
   .learnInfo {
@@ -1056,7 +1059,7 @@ ul {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 813px) {
   .educationInfoContent {
     grid-row-gap: 40px;
   }
@@ -1065,10 +1068,14 @@ ul {
   }
   .educationHeader {
     @include screen768;
+    padding: 40px 0;
   }
   .learnInfo {
     .learnInfoContent {
       @include screen768;
+      h2{
+        margin-top: 30px;
+      }
 
       .topBar {
         border-bottom: 1px solid #E3E3E3;
@@ -1130,47 +1137,6 @@ ul {
       }
     }
   }
-
-  .syllabusMobile {
-    @include screen768;
-    display: grid;
-    grid-template-columns: 1fr;
-    align-content: center;
-    padding: 30px 0;
-    border-top: 1px solid #E3E3E3;
-    border-bottom: 1px solid #E3E3E3;
-
-    h2 {
-      @include gradientTitleBlue;
-    }
-
-    .syllabusMobileTitle {
-      font-weight: 600;
-      font-size: 18px;
-      line-height: 22px;
-      text-align: center;
-      letter-spacing: -0.2px;
-      color: $card-text-color;
-      margin-top: 0;
-    }
-
-    .downloadButton {
-      max-width: 400px;
-      width: 100%;
-      margin: auto;
-    }
-  }
-
-  .certification {
-    .certificationContent {
-      @include screen768;
-    }
-  }
-  .educationFAQ {
-    margin-bottom: 40px;
-  }
-}
-@media screen and (max-width: 667px){
   .conformityInfo {
     display: none;
   }
@@ -1180,6 +1146,7 @@ ul {
 
     h2 {
       @include gradientTitleBlue;
+      margin: 20px;
     }
 
     .questionList {
@@ -1260,6 +1227,49 @@ ul {
     }
 
   }
+
+  .syllabusMobile {
+    @include screen768;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-content: center;
+    padding: 30px 0;
+    border-top: 1px solid #E3E3E3;
+    border-bottom: 1px solid #E3E3E3;
+
+    h2 {
+      @include gradientTitleBlue;
+    }
+
+    .syllabusMobileTitle {
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
+      text-align: center;
+      letter-spacing: -0.2px;
+      color: $card-text-color;
+      margin-top: 0;
+    }
+
+    .downloadButton {
+      max-width: 400px;
+      width: 100%;
+      margin: auto;
+    }
+  }
+
+  .certification {
+    .certificationContent {
+      @include screen768;
+      margin-bottom: 20px;
+    }
+  }
+  .educationFAQ {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 667px){
+
   .pricePlan {
     display: none;
   }

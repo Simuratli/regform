@@ -64,6 +64,7 @@ const EducationInfoPage = ({education}) => {
                         </div>
                         <div className={"headerRightSide"}>
                             <video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>
+                            {/*<img src={courseLogo.imageSource} alt={courseLogo.}/>*/}
                         </div>
                     </section>
                 </div>
@@ -318,8 +319,8 @@ const EducationInfoPage = ({education}) => {
                                     Junior Dynamics 365 faster:
                                 </p>
                                 <ul className={"faqPointList"}>
-                                    <li>excellent knowledge<br/> of the English language;</li>
-                                    <li>understanding of marketing,<br/> economics;</li>
+                                    <li>excellent knowledge of the English language;</li>
+                                    <li>understanding of marketing, economics;</li>
                                     <li>technical background;</li>
                                     <li>well-developed soft skills;</li>
                                     <li>analytical thinking.</li>
