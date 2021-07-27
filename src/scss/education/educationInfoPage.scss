@@ -1063,7 +1063,7 @@ ul {
   .educationInfoContent {
     grid-row-gap: 40px;
   }
-  .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
+  .educationHeader, .conformityInfo, .mentors, .pricePlan, .educationFAQ {
     @include screen768;
   }
   .educationHeader {
@@ -1226,6 +1226,9 @@ ul {
       }
     }
 
+  }
+  .syllabus{
+    display: none;
   }
 
   .syllabusMobile {
