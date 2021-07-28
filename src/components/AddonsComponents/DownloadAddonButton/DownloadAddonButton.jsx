@@ -78,9 +78,6 @@ const DownloadAddonButton = ({addon}) => {
                             {file?.addonTypeDownloading === slug ? (<ButtonLoader/>) : (
                                 <FormattedMessage id="open"/>)}
                         </button>
-                        <p className={"chargeMessage"}>
-                            <FormattedMessage id="free.of.charge"/>
-                        </p>
                     </>
                 )}
             {downloadAddonTooltipActive && <DownloadAddonTooltip addon={addon}

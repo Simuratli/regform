@@ -85,6 +85,11 @@ const AddonFullPage = ({addon, intl, children}) => {
                                 <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                             </p>: ""}
                             <DownloadAddonButton addon={addon}/>
+                            {slug === "uds-data-migration-tool" ?
+                                <p className={"chargeMessage"}>
+                                    <FormattedMessage id="free.of.charge"/>
+                                </p> : ""
+                            }
                         </div>
                     </AnimatedContainer>
                     <div className="headerRightSide">
