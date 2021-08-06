@@ -73,6 +73,11 @@
     @include screen880;
   }
 }
+@media screen and (min-width: 717px){
+  .sideDrawer ul{
+      padding-left: 0;
+  }
+}
 @media screen and (max-width: 700px) {
   .sideDrawer ul{
     @include screen768;

@@ -127,13 +127,7 @@ ul li {
   outline: none;
   transition: ease-in-out 0.3s;
 }
-/*.addonsCard .cardsButtons .moreInfoButton:after {*/
-/*  !*content: url("../../assets/images/more_info_icon.png");*!*/
-/*  position: relative;*/
-/*  top: 2px;*/
-/*  left: 5px;*/
-/*  border-radius: 4px;*/
-/*}*/
+
 .addonsCard .cardsButtons .moreInfoButton:hover {
   -webkit-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);
   -moz-box-shadow: 6px 9px 5px 0px rgba(237, 110, 42, 0.38);

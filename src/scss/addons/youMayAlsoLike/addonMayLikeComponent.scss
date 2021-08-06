@@ -3,6 +3,18 @@
 .addonsCardWrapper {
   position: relative;
   width: 360px;
+  .addonsCard{
+    background: linear-gradient(152.9deg, rgba(255, 255, 255, 0.5) 3.95%, rgba(255, 255, 255, 0) 104.5%);
+    border: 1px solid $light_bg;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    &:hover {
+      background: linear-gradient(152.9deg, rgba(255, 255, 255, 0.5) 3.95%, rgba(255, 255, 255, 0) 104.5%);
+      border: 1px solid $light_bg;
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+  }
 }
 
 .bottomCards {
@@ -39,8 +51,20 @@
 .mayAlsoCard{
   max-width: 360px;
   width: 100%;
+
+  .cardDescription{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+  }
+  .cardTitle, .cardDescription, .description{
+    color: #FFFFFF;
+  }
   .description p{
     font-size: 14px;
+    line-height: 140%;
+    color: #fff;
+    font-weight:400;
   }
   .cardsButtons{
     .downloadButton, .openButton, .downloadFileButtonCard{
@@ -48,6 +72,7 @@
     }
   }
 }
+
 
 
 button:hover {
@@ -151,6 +176,9 @@ button:hover {
 @media screen and (max-width: 500px) {
   .bottomCards {
     @include screen500;
+    .mayAlsoCard .cardSubTitle {
+      top: 13rem;
+    }
   }
   .carousel.carousel-slider .control-arrow {
     visibility: hidden;
@@ -162,12 +190,7 @@ button:hover {
 }
 
 @media screen and (max-width: 400px) {
-  .bottomCards {
-    @include screen400;
-    .mayAlsoCard .cardSubTitle {
-      top: 13.5rem;
-    }
-  }
+
   .carousel .control-dots {
     visibility: visible !important;
   }
