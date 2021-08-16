@@ -23,7 +23,7 @@ const EducationCard = ({educationCard}) => {
         <>
             <NavLink to={"/education/" + slug}>
                 <div className="educationCard">
-                    <div className={"leftCardSide"}><img src={courseLogo} alt={alternateText}/></div>
+                    <div className={"leftCardSide"}><img src={imageSource} alt={alternateText}/></div>
                     <div className={"rightCardSide"}>
                         <h5>{name}</h5>
                         <p>{shortDescription}</p>

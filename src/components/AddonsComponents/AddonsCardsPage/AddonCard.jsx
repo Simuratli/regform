@@ -177,3 +177,4 @@ const AddonCard = ({addon, className}) => {
 };
 
 export default AddonCard;
+
