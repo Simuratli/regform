@@ -9,10 +9,12 @@ import {FakeCardRow} from "../../components/ViewsComponents/FakeCardRow";
 
 const AddonCardContainer = () => {
     const state = useSelector((state) => state);
-    const {addon, app} = state;
-    const {addonsSortBy} = app;
-
-    const sortAddonsType = localStorage.getItem("sortAddonsBy") || addonsSortBy;
+    const {
+        addon,
+        app:{
+            addonsSortBy:sortAddonsType
+        }
+    } = state;
 
     const filteredAddons = get(addon, "cards", []).length
         ? get(addon, "cards")

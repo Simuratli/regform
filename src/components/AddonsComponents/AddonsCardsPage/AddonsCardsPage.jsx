@@ -21,7 +21,6 @@ const AddonsCardsPage = () => {
     const {addon, app} = state;
     const {error} = app;
     const {addonsMetadata} = state.metadata;
-    const types = ['All'];
 
     useEffect(() => {
         document.title = "Add-ons | UDS Portal";
@@ -58,7 +57,6 @@ const AddonsCardsPage = () => {
                 addon.totalPages.length > 1
                 && <AddonPaginationCont/>
             }
-            {/*<AddonPaginationCont/>*/}
         </div>
     );
 };

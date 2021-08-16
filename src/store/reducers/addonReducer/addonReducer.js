@@ -1,7 +1,7 @@
 import {SET_CARDS_DATA, FULL_ADDON_PAGE_DATA_LOADED, FULL_ADDON_TYPES, TOTAL_PAGES, ALL_CARDS} from "./types";
 
 const initStore = {
-  types: ['All'],
+  types: ["All", "Dynamics 365", "Portal"],
   cards: [],
   allCards: [],
   currentFullAddonPage: {},
