@@ -10,7 +10,7 @@ const translations = {
   "sort.by": "Sort by:",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 20.1 GB.<br /> We recommend using Download Master to avoid breakdowns.",
-  "free.of.charge": "Free of charge until August, 2021",
+  "free.of.charge": "Free of charge until December, 2021",
   "about.add.on": "About add-on",
   "how.to.install.and.uninstall": "How to install and uninstall",
   "dmt.text":

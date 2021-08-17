@@ -28,6 +28,7 @@ const PaginationCont = styled.div`
     align-items: center;
     background: #fff;
     border: 1px solid #e3e3e3;
+    box-shadow: none;
   }
 
   button:hover {
@@ -56,68 +57,6 @@ const PaginationCont = styled.div`
     color: #fff;
   }
 `;
-
-
-// const AddonPaginationCont = () => {
-//   const [currentPage, setCurrentPage] = useState(1);
-//   const pages = [1, 2, 3];
-//   return (
-//       <PaginationCont>
-//         <div className="box">
-//           <button
-//               onClick={() => currentPage >= 1 && setCurrentPage((pr) => pr - 1)}
-//           >
-//             <svg
-//                 width="8"
-//                 height="12"
-//                 viewBox="0 0 8 12"
-//                 fill="none"
-//                 xmlns="http://www.w3.org/2000/svg"
-//             >
-//               <path
-//                   d="M7.41 10.58L2.83 6L7.41 1.41L6 0L0 6L6 12L7.41 10.58Z"
-//                   fill={currentPage === 1 ? "#E3E3E3" : "#383680"}
-//               />
-//             </svg>
-//           </button>
-//
-//           <div className="pages-counter">
-//             {pages.map((r) => {
-//               return (
-//                   <div
-//                       onClick={() => setCurrentPage(r)}
-//                       className={`page ${r === currentPage && "current"}`}
-//                       key={r}
-//                   >
-//                     {r}
-//                   </div>
-//               );
-//             })}
-//           </div>
-//
-//           <button
-//               onClick={() =>
-//                   currentPage !== pages.length && setCurrentPage((pr) => pr + 1)
-//               }
-//           >
-//             <svg
-//                 width="8"
-//                 height="12"
-//                 viewBox="0 0 8 12"
-//                 fill="none"
-//                 xmlns="http://www.w3.org/2000/svg"
-//             >
-//               <path
-//                   d="M0.589844 10.58L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.58Z"
-//                   fill={currentPage !== pages.length  ? "#383680" : "#E3E3E3"}
-//               />
-//             </svg>
-//           </button>
-//         </div>
-//       </PaginationCont>
-//   );
-// };
-
 
 const AddonPaginationCont = () => {
   const [currentPage, setCurrentPage] = useState(1);
