@@ -31,9 +31,7 @@ const AddonCardContainer = () => {
             {
                 get(addon, "cards", []).length
                     ? filteredAddons.map((addon) => (
-                        // <AnimatedContainer key={shortid.generate()} withScale>
                             <AddonCard addon={addon} key={shortid.generate()}/>
-                        // </AnimatedContainer>
                     ))
                     : range(0, 6, 1).map((r) => <FakeCardRow key={r}/>)
 

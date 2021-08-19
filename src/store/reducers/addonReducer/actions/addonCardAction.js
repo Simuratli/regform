@@ -7,7 +7,7 @@ export const getAddonCard = (offset, type) => {
   return (dispatch) => {
     dispatch(setIsLoading(true));
 
-    let url = `add-ons/cards?offset=${offset}&limit=3`
+    let url = `add-ons/cards?offset=${offset}&limit=9`
 
       if (type && type !== 'All') {
           url += `&expression=addOnApplicationType.applicationType%20eq%20%22${type}%22`

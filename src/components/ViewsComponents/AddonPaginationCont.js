@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-
 import styled from "styled-components";
 import {useDispatch, useSelector} from "react-redux";
 import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
@@ -83,24 +82,13 @@ const AddonPaginationCont = () => {
   return (
     <PaginationCont>
       <div className="box">
-        <button
-          onClick={() => {
+        <button onClick={() => {
             currentPage >= 1 && setCurrentPage((currentPage) => currentPage - 1);
             dispatch(getAddonCard(currentPage - 1, addonsSortBy));
           }}
-          disabled={currentPage === 1 && 'disabled'}
-        >
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.41 10.58L2.83 6L7.41 1.41L6 0L0 6L6 12L7.41 10.58Z"
-              fill={currentPage === 1 ? "#E3E3E3" : "#383680"}
-            />
+          disabled={currentPage === 1 && 'disabled'}>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7.41 10.58L2.83 6L7.41 1.41L6 0L0 6L6 12L7.41 10.58Z" fill={currentPage === 1 ? "#E3E3E3" : "#383680"}/>
           </svg>
         </button>
 
@@ -108,12 +96,7 @@ const AddonPaginationCont = () => {
           {
             pages.map((pageNumber) => {
             return (
-              <div
-                onClick={setPages}
-                className={`page ${pageNumber === currentPage && "current"}`}
-                key={pageNumber}
-                data-offset={pageNumber}
-              >
+              <div onClick={setPages} className={`page ${pageNumber === currentPage && "current"}`} key={pageNumber} data-offset={pageNumber}>
                 {pageNumber}
               </div>
             );
@@ -121,23 +104,10 @@ const AddonPaginationCont = () => {
         </div>
 
         <button
-          onClick={() => {
-            currentPage !== pages.length && setCurrentPage((pr) => pr + 1);
-            dispatch(getAddonCard(currentPage + 1, addonsSortBy));
-          }}
-          disabled={currentPage === pages.length && 'disabled'}
-        >
-          <svg
-            width="8"
-            height="12"
-            viewBox="0 0 8 12"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0.589844 10.58L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.58Z"
-              fill={currentPage !== pages.length  ? "#383680" : "#E3E3E3"}
-            />
+          onClick={() => {currentPage !== pages.length && setCurrentPage((pr) => pr + 1);dispatch(getAddonCard(currentPage + 1, addonsSortBy));}}
+          disabled={currentPage === pages.length && 'disabled'}>
+          <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0.589844 10.58L5.16984 6L0.589844 1.41L1.99984 0L7.99984 6L1.99984 12L0.589844 10.58Z" fill={currentPage !== pages.length  ? "#383680" : "#E3E3E3"}/>
           </svg>
         </button>
       </div>
