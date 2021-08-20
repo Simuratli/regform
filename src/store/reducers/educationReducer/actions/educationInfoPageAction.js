@@ -19,3 +19,12 @@ export const getEducationInfoPage = (courseSlug) => {
             });
     };
 };
+
+export const resetEducationInfoPage = () => {
+
+    return (dispatch) => {
+        dispatch(setIsLoading(true));
+        dispatch({type: SET_EDUCATION_INFO_PAGE, payload: {}});
+        dispatch(setIsLoading(true));
+    };
+};

@@ -1,5 +1,6 @@
 import React from "react";
 import "../../scss/education/videoComponent.scss";
+import mentorPlaceholder from "../../assets/images/education/logo_placeholder_mentor.svg";
 import YouTube from "react-youtube";
 
 const EducationVideoLessons = ({video, activeBlock}) => {
@@ -38,7 +39,13 @@ const EducationVideoLessons = ({video, activeBlock}) => {
                                 <h4>{video.header}</h4>
                             </section>
                         <section className={"author"}>
-                            <img src={imageSource} alt={alternateText}/>
+                            {
+                                imageSource === "" ?
+                                    <img src={imageSource} alt={alternateText}/>:
+                                    <img src={mentorPlaceholder} alt={alternateText}/>
+
+                            }
+
                             <div className={"authorInfo"}>
                                 <h5>Author</h5>
                                 <h4>{firstName}</h4>

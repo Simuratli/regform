@@ -63,8 +63,8 @@ const EducationInfoPage = ({education}) => {
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            <video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>
-                            {/*<img src={courseLogo.imageSource} alt={courseLogo.}/>*/}
+                            {/*<video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>*/}
+                            <img src={imageSource} alt={alternateText}/>
                         </div>
                     </section>
                 </div>

@@ -2,7 +2,10 @@ import React, {lazy, Suspense, useEffect} from "react";
 import {useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import isEmpty from "lodash/isEmpty";
-import {getEducationInfoPage} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
+import {
+    getEducationInfoPage,
+    resetEducationInfoPage
+} from "../../store/reducers/educationReducer/actions/educationInfoPageAction";
 import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationInfoPage = lazy(() => import("../../components/EducationComponents/EducationInfoPage"));
@@ -14,6 +17,7 @@ const EducationInfoPageContainer = () => {
 
     useEffect(() => {
          dispatch(getEducationInfoPage(slug));
+         dispatch(resetEducationInfoPage());
          dispatch(getEducationAccessStatus(slug));
     }, []);
 
