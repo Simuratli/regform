@@ -33,7 +33,7 @@
     overflow: auto;
 
     p {
-      font-weight: 600;
+      font-weight: 500;
       font-size: 16px;
       line-height: 140%;
       color: $education-text-color;
@@ -75,7 +75,7 @@
       }
 
       p {
-        width: 70%;
+        width: 88%;
         margin-top: 20px;
         margin-bottom: 30px;
       }
@@ -161,6 +161,20 @@
     .default {
       display: none;
     }
+  }
+}
+.testTaskBlock{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  margin-top: 10px;
+  input[type=text] {
+    border: 1px solid $education-text-color;
+    cursor: pointer;
+    height: 42px;
+    padding-left: 12px;
+    font-size: 14px;
+    line-height: 120%;
   }
 }
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "../../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../../assets/images/information_popup_icon.svg";
 import close from "../../../assets/images/window-close.svg";
@@ -7,7 +7,8 @@ import {useParams} from "react-router-dom";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
 import "../../../scss/views/editableInput.scss";
 import {educationRequestMailPayment} from "../../../store/reducers/educationReducer/actions/educationRequestMailPayment";
-import {sendCvAndChangeAccessStatus} from "../../../store/reducers/educationReducer/actions/educationSendCvAndChangeAccessStatusAction";
+import FreeGetAccessModalConsultant from "./FreeGetAccessModalConsultant";
+import FreeGetAccessModalDeveloper from "./FreeGetAccessModalDeveloper";
 
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
@@ -26,9 +27,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     }, []);
 
 
-    const [selectedFile, setSelectedFile] = useState();
-    const [isFilePicked, setIsFilePicked] = useState(false);
-
     let paymentData = {
         "firstName": firstName,
         "lastName": lastName,
@@ -37,22 +35,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
         "paymentMessage": price?.toString()
     }
 
-    //close modal and change status from Forbidden to Pending
-    const handleSubmission = async (e) => {
-        e.preventDefault();
-        dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
-        setActive(false)
-    }
-
-    const changeHandler = (event) => {
-        const file = event.target.files[0]
-        setSelectedFile(file);
-        if (file) {
-            setIsFilePicked(true);
-        } else {
-            setIsFilePicked(false);
-        }
-    };
 
     const handleChangeAccessStatusPaid = async (e) => {
         e.preventDefault();
@@ -108,54 +90,14 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
                     </section>
                 </div>
             </div>
-            : <div className={active ? "pendingModal active" : "pendingModal"}>
-                <div className={active ? "modalContent active" : "modalContent"}>
-                    <button className={"agreeButton"} onClick={closeModal}>
-                        <img src={close} alt={"close"}/>
-                    </button>
-                    <section className={"textContent"}>
-                        <img src={info} alt={"info"} style={{margin: "auto", marginTop: "31px"}}/>
-                        <h5 className={"pendingTitle"}>Hello!</h5>
-                        <p>
-                            UDS Systems will be glad to see you on board.
-                        </p>
-                    </section>
-                    <section className={"personalEditableBlock"}>
-                        <form onSubmit={handleSubmission}>
-                            <div>
-                                <div className="form-group file-area">
+            :
+            <>
+                {slug === "ms-dynamics-365-consultant" ?
+                    <FreeGetAccessModalConsultant email={email} active={active} setActive={setActive}/> :
+                    <FreeGetAccessModalDeveloper email={email} active={active} setActive={setActive}/>
+                }
+            </>
 
-                                    <label htmlFor="file">Add your CV</label>
-                                    <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
-                                           onChange={changeHandler}/>
-                                    <div className={"uploadField"}>
-                                        <div className="file-dummy">
-                                            {isFilePicked ? (
-                                                selectedFile.name.length > 35 ?
-                                                    <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
-                                                    <div className="success">{selectedFile.name}</div>
-
-                                            ) : (
-                                                <div className="default">Use PDF or DOCX format</div>
-                                            )}
-                                        </div>
-                                        <button className={"uploadButton"}/>
-                                    </div>
-                                </div>
-                            </div>
-                            <p>
-                                Our manager will contact you via email <b>{email}</b> shortly.
-                            </p>
-                            {
-                                selectedFile ?
-                                    <button className={"gotInfoButton"} type={"submit"}>Send</button> :
-                                    <button className={"disableButton"} disabled={true}>Send</button>
-                            }
-                        </form>
-                    </section>
-
-                </div>
-            </div>
     );
 };
 export default PendingGetAccessModal;

@@ -4,12 +4,16 @@ import {getEducationAccessStatus} from "./educationGetAccessAction";
 
 export const SEND_FILE_AND_CHANGE_ACCESS_STATUS = "SEND_FILE_AND_CHANGE_ACCESS_STATUS";
 
-export const sendCvAndChangeAccessStatus = (courseSlug, file) => {
+export const sendCvAndChangeAccessStatus = (courseSlug, file, taskUrl) => {
 
      let fd = new FormData()
 
     fd.append('resume', file)
-    fd.append('taskUrl', 0)
+    if (taskUrl) {
+        fd.append('taskUrl', taskUrl)
+    } else {
+        fd.append('taskUrl', 0)
+    }
 
     return (dispatch) => {
         httpClient

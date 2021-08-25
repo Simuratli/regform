@@ -42,9 +42,11 @@
   }
 }
 
-.downloadModalContent :last-child {
-  &::after {
-    display: none;
+.downloadPoint {
+  border-bottom: 1px solid $dark-bg;
+
+  &:last-child {
+    border-bottom: none;
   }
 }
 
@@ -77,18 +79,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    //margin-top: 14px;
-    //margin-left: 359px;
     position: absolute;
     top: 15px;
     right: 15px;
-  }
-
-  .downloadModalContent {
-    //padding-left: 30px;
-    //padding-right: 30px;
-    //margin-bottom: 19px;
-    padding: 30px;
   }
 
   h2 {
@@ -101,55 +94,64 @@
     letter-spacing: 0;
     padding-bottom: 20px;
   }
+
+  .downloadModalContent {
+    padding: 30px;
+
+    .downloadFile {
+      padding: 0;
+      max-width: 100%;
+      margin-bottom: 10px;
+      height: 64px;
+      background-color: #fff;
+      box-shadow: none;
+      position: relative;
+
+      &:after {
+        display: none;
+      }
+
+
+      &:hover {
+        background-color: #f9faff;
+      }
+
+      .content {
+        display: flex;
+      }
+
+      p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .crmName {
+        color: #1E2432 !important;
+        font-weight: 600;
+      }
+
+      .fileName {
+        color: #696d8c !important;
+        font-weight: 400;
+      }
+
+      img {
+        margin-right: 20px;
+        margin-left: 0;
+      }
+    }
+
+    .appSourceDescription {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 140%;
+      color: $education-text-color;
+      margin-top: 0;
+    }
+  }
+
 }
 
-.downloadFile {
-  padding: 0;
-  max-width: 100%;
-  margin-bottom: 21px;
-  height: 64px;
-  background-color: #fff;
-  box-shadow: none;
-  position: relative;
-
-  &:hover {
-    background-color: #f9faff;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 1px;
-    left: 0;
-    background-color: $dark-bg;
-    top: 74px;
-  }
-
-  .content {
-    display: flex;
-  }
-
-  p {
-    margin: 0;
-    font-size: 14px;
-  }
-
-  .crmName {
-    color: #1E2432 !important;
-    font-weight: 600;
-  }
-
-  .fileName {
-    color: #696d8c !important;
-    font-weight: 400;
-  }
-
-  img {
-    margin-left: 18px;
-    margin-right: 31px;
-  }
-}
 
 .useInfoMobile {
   display: none;
@@ -529,8 +531,10 @@
 
     .downloadModal {
       position: absolute;
-      top: 460px;
-      left: 548px;
+      top: 431px;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
   }
 }
@@ -620,6 +624,13 @@
       }
     }
   }
+  .bottomInfo{
+    .downloadInfo{
+      .downloadModal{
+        top: 431px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -630,11 +641,21 @@
       }
     }
   }
+  .bottomInfo{
+    .downloadInfo{
+      .downloadModal{
+        top: 500px;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1350px) {
   .header {
     @include screen1350;
+  }
+  .downloadModal{
+    top: 204px;
   }
   .topInfo,
   .useInfo,
@@ -643,8 +664,13 @@
   .installInfo {
     @include screen1350;
   }
-  .bottomInfo {
+  .bottomInfo{
     padding: 1rem 0px;
+    .downloadInfo{
+      .downloadModal{
+        top: 445px;
+      }
+    }
   }
 }
 
@@ -662,6 +688,11 @@
   .bottomInfo {
     .blockWithCreds {
       @include screen1200;
+    }
+    .downloadInfo{
+      .downloadModal{
+        top: 514px;
+      }
     }
   }
 }
@@ -716,8 +747,10 @@
         line-height: 130%;
         letter-spacing: -1.09524px;
       }
-      .downloadModal{
+
+      .downloadModal {
         left: 80px;
+        top: 197px;
       }
     }
 
@@ -748,10 +781,10 @@
   .helpInfo {
     margin-bottom: 0;
   }
-  .bottomInfo{
-    .downloadInfo{
-      .downloadModal{
-        left: 402px;
+  .bottomInfo {
+    .downloadInfo {
+      .downloadModal {
+       top: 501px;
       }
     }
   }
@@ -767,8 +800,8 @@
   .header {
     @include screen1024;
   }
-  .headerLeftSide{
-    .downloadModal{
+  .headerLeftSide {
+    .downloadModal {
       top: 202px;
     }
   }
@@ -776,11 +809,11 @@
     .blockWithCreds {
       @include screen1024;
     }
-    .downloadInfo{
-      .downloadModal{
-        left: 390px;
-      }
-    }
+    //.downloadInfo{
+    //  .downloadModal{
+    //    top: 434px;
+    //  }
+    //}
   }
 }
 
@@ -798,9 +831,11 @@
       h1 {
         text-align: center;
       }
-      .downloadFileButtonDisable{
+
+      .downloadFileButtonDisable {
         margin: auto;
       }
+
       .downloadModal {
         left: 240px;
         top: 151px;
@@ -834,14 +869,14 @@
     @include screen880;
   }
   .bottomInfo {
-    .downloadInfo{
-      .downloadModal{
-        left: 330px;
-      }
-    }
     .blockWithCreds {
       @include screen880;
     }
+    //.downloadInfo{
+    //  .downloadModal{
+    //    top: 434px;
+    //  }
+    //}
   }
 }
 
@@ -859,7 +894,8 @@
         text-align: center;
         font-size: 5vw;
       }
-     .downloadModal {
+
+      .downloadModal {
         left: 206px;
       }
 
@@ -878,6 +914,9 @@
 
     .headerRightSide {
       padding: 5rem;
+      .videoTutorial{
+        display: none;
+      }
     }
   }
   .bottomInfo,
@@ -983,29 +1022,20 @@
       margin-top: 0;
     }
   }
-  .header .headerRightSide .videoTutorial {
-    display: none;
-  }
-  .bottomInfo{
-    .downloadInfo {
-      .downloadModal{
-        left: 276px;
-      }
-    }
-  }
+  //.bottomInfo{
+  //  .downloadInfo{
+  //    .downloadModal{
+  //      top: 432px;
+  //    }
+  //  }
+  //}
 
 }
-@media screen and (max-width: 717px){
+
+@media screen and (max-width: 717px) {
   .technicalInfo {
-    li{
+    li {
       background-position: 1% 47%;
-    }
-  }
-  .bottomInfo{
-    .downloadInfo{
-      .downloadModal{
-        left: 162px;
-      }
     }
   }
 }
@@ -1022,11 +1052,13 @@
   .useInfoMobile {
     @include screen768;
   }
-  .header{
-    .headerLeftSide{
-      .downloadModal{
-        left: 106px;
-        top: 143px;
+  .header {
+    .headerLeftSide {
+      .downloadModal {
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 149px;
       }
     }
   }
@@ -1034,43 +1066,24 @@
     .blockWithCreds {
       @include screen768;
     }
-    .downloadInfo{
-      .downloadModal {
-        left: 241px;
-        top: 515px;
-      }
-    }
-  }
-}
-@media only screen and (max-width: 668px) {
-  .header{
-    .headerLeftSide{
-      .downloadModal{
-        left: 34px;
-        top: 141px;
-      }
-    }
-  }
-  .bottomInfo{
-    .downloadInfo{
-      .downloadModal{
-        left: 137px;
-        top: 512px;
-      }
-    }
-  }
+    //.downloadInfo{
+    //  .downloadModal{
+    //    top: 459px;
+    //  }
+    //}
 
+  }
 }
+
 
 @media screen and (max-width: 570px) {
   .main_container .generalTitleBlock .headingParagraph {
     width: 76%;
   }
-  .header{
-    .headerLeftSide{
-      .downloadModal{
-        left: 25px;
-        top: 135px;
+  .header {
+    .headerLeftSide {
+      .downloadModal {
+        top: 140px;
       }
     }
   }
@@ -1108,11 +1121,10 @@
       }
     }
   }
-  .bottomInfo{
-    .downloadInfo{
-      .downloadModal{
-        left: 92px;
-        top: 476px;
+  .bottomInfo {
+    .downloadInfo {
+      .downloadModal {
+        top: 486px;
       }
     }
   }
@@ -1134,8 +1146,7 @@
   .additionalInfo,
   .creditionalInfo,
   .aboutInfo,
-  .installInfo,
-  .useInfoMobile {
+  .installInfo {
     @include screen500;
   }
   .aboutInfo .aboutInfoTechnicalBlock ul h4 {
@@ -1144,7 +1155,7 @@
   .main_container .generalTitleBlock .headingParagraph {
     width: 80%;
   }
-  .headerWrapper{
+  .headerWrapper {
     height: 300px;
   }
   .header {
@@ -1176,9 +1187,6 @@
         font-size: 14px;
         line-height: 17px;
         text-align: center;
-      }
-      .downloadModal {
-        left: 64px;
       }
     }
   }
@@ -1258,38 +1266,23 @@
   }
   .bottomInfo {
     grid-row-gap: 60px;
-    .downloadInfo{
+    .blockWithCreds{
+      @include screen500;
+    }
+    .downloadInfo {
       .downloadModal {
-        left: 71px;
-        top: 425px;
+        top: 464px;
       }
     }
   }
-  .technicalInfo, .creditionalInfo{
-    ul{
+  .technicalInfo, .creditionalInfo {
+    ul {
       margin-right: 1rem;
     }
   }
 }
 
 @media only screen and (max-width: 500px) {
-  .header,
-  .bottomInfo,
-  .topInfo,
-  .useInfoMobile,
-  .additionalInfo,
-  .creditionalInfo,
-  .aboutInfo,
-  .installInfo {
-    @include screen500;
-  }
-  .header{
-    .headerLeftSide{
-      .downloadModal{
-        left: 1px;
-      }
-    }
-  }
   .bottomScrollBlockWrapper {
     padding-bottom: 100px;
     padding-top: 60px;
@@ -1298,37 +1291,36 @@
     .blockWithCreds {
       @include screen500;
     }
-    .downloadInfo{
-      .downloadModal{
-        left: 52px;
-        top: 483px;
-      }
-    }
+    //.downloadInfo {
+    //  .downloadModal {
+    //    top:395px;
+    //  }
+    //}
   }
   .creditionalInfo {
     margin-top: 2rem;
   }
 }
-@media only screen and (max-width: 445px){
-  .addonFullPage{
-    .downloadModalContent{
-      h2{
+
+@media only screen and (max-width: 445px) {
+  .addonFullPage {
+    .downloadModalContent {
+      h2 {
         font-size: 16px;
       }
     }
   }
-  .header{
-    .headerLeftSide{
+  .header {
+    .headerLeftSide {
       .downloadModal {
         max-width: 332px;
-        left: 7px;
       }
     }
   }
 
-  .downloadFile{
-    .content{
-      img{
+  .downloadFile {
+    .content {
+      img {
         margin-left: 0;
         margin-right: 13px;
         font-size: 16px;
@@ -1336,11 +1328,10 @@
     }
   }
   .bottomInfo {
-    .downloadInfo{
-      .downloadModal{
+    .downloadInfo {
+      .downloadModal {
         max-width: 332px;
-        left: 48px;
-        top: 483px;
+        //top: 395px;
       }
     }
   }
@@ -1357,15 +1348,15 @@
   .installInfo {
     @include screen400;
   }
-  .addonFullPage{
-    .downloadModalContent{
-      h2{
+  .addonFullPage {
+    .downloadModalContent {
+      h2 {
         padding: 6px 0 20px;
       }
     }
   }
-  .downloadFile{
-    img{
+  .downloadFile {
+    img {
       margin-left: 2px;
       margin-right: 20px;
     }
@@ -1374,11 +1365,10 @@
     .blockWithCreds {
       @include screen400;
     }
-    .downloadInfo{
-      .downloadModal{
-        left: 34px;
-        top: 497px;
-        width: 370px;
+
+    .downloadInfo {
+      .downloadModal {
+        top: 510px;
       }
     }
   }
@@ -1429,15 +1419,22 @@
       padding: 10px;
     }
   }
+  //.bottomInfo {
+  //  .downloadInfo {
+  //    .downloadModal {
+  //      top:415px;
+  //    }
+  //  }
+  //}
 
 }
+
 @media only screen and (max-width: 375px) {
-  .bottomInfo{
-    .downloadInfo{
-      .downloadModal{
-        left: 15px;
-        top: 497px;
-        width: 345px;
+  .bottomInfo {
+    .downloadInfo {
+      .downloadModal {
+        width: 307px;
+        //top:414px;
       }
     }
   }

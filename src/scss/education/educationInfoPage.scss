@@ -495,7 +495,11 @@ ul {
           line-height: 56px;
           letter-spacing: -0.2px;
           margin: 0;
+
         }
+        //.free{
+        //  @include gradientTitleBlue;
+        //}
 
         .format {
           font-weight: 600;
@@ -524,7 +528,7 @@ ul {
 
       .description {
         margin: 30px 0;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 16px;
         line-height: 140%;
         color: $education-text-color;
@@ -707,6 +711,19 @@ ul {
           }
         }
 
+      }
+      .downloadTestTaskButton{
+        background: $blue;
+        color: #ffffff;
+        position: absolute;
+        bottom: 74px;
+        transform: translate(-50%, -50%);
+        max-width: 100%;
+        width: 170px;
+        height: 40px;
+        &:hover{
+          box-shadow: none;
+        }
       }
 
       .getAccessButton {

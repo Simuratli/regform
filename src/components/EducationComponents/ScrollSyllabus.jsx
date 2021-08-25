@@ -39,7 +39,7 @@ const ScrollSyllabus = ({education}) => {
                 disableTabindex={true}
                 alignOnResiz={true}
             />
-            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/b2c-auth-page/Course_outline.pdf"}
+            <a href={education.courseOutlinePath}
                target={"_blank"}>
                 <button className={"downloadButton"}>Download</button>
             </a>

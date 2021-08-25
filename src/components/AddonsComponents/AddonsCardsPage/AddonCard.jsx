@@ -11,6 +11,7 @@ import {getFile, removeFile,} from "../../../store/reducers/downloadFileReducer/
 import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import closeButton from "../../../assets/images/close_download_btn.svg";
 import attachedFile from "../../../assets/images/attached_file.svg";
+import appSource from "../../../assets/images/web_icon.svg";
 
 
 const AddonCard = ({addon, className}) => {
@@ -82,6 +83,8 @@ const AddonCard = ({addon, className}) => {
         const button = e.target.closest('button')
         dispatch(getFile(button.dataset.path, slug));
     }
+
+    addon.resources.sort((a, b) => (a.isAppSourceLink < b.isAppSourceLink ? 1 : b.isAppSourceLink < a.isAppSourceLink ? -1 : 0))
 
     return (
         <div className={'addonsCardWrapper'}>
@@ -158,15 +161,45 @@ const AddonCard = ({addon, className}) => {
                                 Choose the archive compatible with your version.
                             </h2>
                             {addon.resources.map(file => (
-                                <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
-                                    <div className={'content'}>
-                                        <img src={attachedFile} alt="attached File"/>
-                                        <div>
-                                            <p className={'crmName'}>{file.resourceName}</p>
-                                            <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
-                                        </div>
-                                    </div>
-                                </button>
+                                file.isAppSourceLink === true ?
+                                    <section className={"downloadPoint"}>
+                                        <a href={file.filePath} target={"_blank"}>
+                                            <button className={'downloadFile'}>
+                                                <div className={'content'}>
+                                                    <img src={appSource} alt="AppSource"/>
+                                                    <div>
+                                                        <p className={'crmName'}>{file.resourceName}</p>
+                                                        <p className={'fileName'}>appsource.microsoft.com</p>
+                                                    </div>
+                                                </div>
+                                            </button>
+                                        </a>
+                                        <p className={'appSourceDescription'}>
+                                            After click the field you will be redirected to the official Microsoft resource.
+                                        </p>
+                                    </section>
+                                    :
+                                    <section className={"downloadPoint"}>
+                                        <button className={'downloadFile'} data-path={file.filePath}
+                                                onClick={getAddonVersionFile}>
+                                            <div className={'content'}>
+                                                <img src={attachedFile} alt="attached File"/>
+                                                <div>
+                                                    <p className={'crmName'}>{file.resourceName}</p>
+                                                    <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </section>
+                                // <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
+                                //     <div className={'content'}>
+                                //         <img src={attachedFile} alt="attached File"/>
+                                //         <div>
+                                //             <p className={'crmName'}>{file.resourceName}</p>
+                                //             <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                                //         </div>
+                                //     </div>
+                                // </button>
                             ))}
                         </div>
                     </div>

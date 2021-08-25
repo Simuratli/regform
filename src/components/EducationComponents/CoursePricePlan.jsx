@@ -6,22 +6,13 @@ import {useSelector} from "react-redux";
 import GetAccessButton from "./EducationGetAccessButton";
 import oldPrice from "../../assets/images/education/old_price.svg";
 
-const CoursePricePlan = ({pricePlans, price}) => {
+const CoursePricePlan = ({pricePlans}) => {
 
     const {educationAccessStatus} = useSelector(({education}) => education);
-    const [active, setActive] = useState(false);
-    const [activeFree, setActiveFree] = useState(false);
-    const handleOpenModal = (e) => {
 
-        console.log(e.target.dataset.ispaid, 'bla')
-        if (e.target.dataset.ispaid) {
-            setActive(true);
-        } else {
-            setActiveFree(true)
-        }
-
-    }
     const {slug} = useParams();
+
+    pricePlans.sort((a, b) => (a.price > b.price ? 1 : b.price > a.price ? -1 : 0))
 
     //get total price
     const paidPlan = pricePlans.filter(plan => plan.price > 0)[0]
@@ -69,13 +60,25 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                             <div key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
                                             </div>
+                                            {
+                                               slug === "ms-dynamics-365-developer" ?
+                                                    <a href={pricePlans[1].technicalTaskUrl} target={"_blank"}>
+                                                        <button className={"downloadTestTaskButton"}>Download test task</button>
+                                                    </a> : ""
+                                            }
+
                                             <GetAccessButton isPaid={false}/>
                                         </>
                                         : <>
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title paid"}>PAID</h3>
                                                 <p className={"format paid"}>Online</p>
-                                               <img src={oldPrice} alt={"Old price"}/>
+                                                {
+                                                    slug === "ms-dynamics-365-consultant" ?
+                                                        <img src={oldPrice} alt={"Old price"}/> :
+                                                        <img style={{opacity: "0"}} src={oldPrice} alt={"Old price"}/>
+                                                }
+
                                                 <p className={"price paid"}>
                                                     <span className={"dollarSign"}>$</span>
                                                     {planItem.price}
@@ -92,7 +95,8 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     <input type={"checkbox"} name="mentor_assistance"
                                                            id={"mentor_assistance_mobile"}
                                                            value="20" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label for={"mentor_assistance_mobile"} htmlFor={"mentor_assistance_mobile"}>Get
+                                                    <label for={"mentor_assistance_mobile"}
+                                                           htmlFor={"mentor_assistance_mobile"}>Get
                                                         mentor's assistance (1 hour) <span
                                                             className={"paid"}>+20$</span></label>
                                                 </li>
@@ -100,7 +104,8 @@ const CoursePricePlan = ({pricePlans, price}) => {
                                                     <input type={"checkbox"} name="exam_certificate"
                                                            id={"exam_certificate_mobile"}
                                                            value="10" onClick={addExtras} className={"customCheckbox"}/>
-                                                    <label for={"exam_certificate_mobile"} htmlFor={"exam_certificate_mobile"}>Pass an
+                                                    <label for={"exam_certificate_mobile"}
+                                                           htmlFor={"exam_certificate_mobile"}>Pass an
                                                         exam and get a
                                                         certificate <span className={"paid"}>+10$</span></label>
                                                 </li>

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "../../scss/education/educationInfoPage.scss";
 import certificate from "../../assets/images/education/certificate_example.svg";
 import certificateIcon from "../../assets/images/education/learn_right_bar_icons/cetificate.svg";
@@ -7,8 +7,6 @@ import subject from "../../assets/images/education/learn_right_bar_icons/subject
 import format from "../../assets/images/education/learn_right_bar_icons/format.svg";
 import languageIcon from "../../assets/images/education/learn_right_bar_icons/language.svg";
 import priceIcon from "../../assets/images/education/learn_right_bar_icons/price.svg";
-import courseLogo from "../../assets/images/ms_consultant_logo.svg";
-import courseLogoGif from "../../assets/images/Women_Consultant.mp4";
 import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
@@ -21,8 +19,8 @@ const EducationInfoPage = ({education}) => {
     const {
         header = "",
         slug = "",
-        coursePermissionState,
-        shortDescription = "",
+        logoGifPath = "",
+        courseOutlinePath = "",
         description = "",
         courseLogo: {
             imageSource = "",
@@ -30,7 +28,6 @@ const EducationInfoPage = ({education}) => {
         },
         courseRightBar: {
             courseSubject = "",
-            courseFormat = "",
             language = "",
             courseDuration: {
                 theory = 0
@@ -55,16 +52,17 @@ const EducationInfoPage = ({education}) => {
                     <section className={"educationHeader"}>
                         <div className={"headerLeftSide"}>
                             <h1>{header}</h1>
-                            <img className={"courseLogoMobile"} src={courseLogo} alt={alternateText}/>
-                            <div key={shortDescription} dangerouslySetInnerHTML={{__html: shortDescription}}/>
-                            <a href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/b2c-auth-page/Course_outline.pdf"}
+                            <img className={"courseLogoMobile"} src={imageSource} alt={alternateText}/>
+                            <div>
+                                <p>Find out more details in the Course Outline</p>
+                            </div>
+                            <a href={courseOutlinePath}
                                target={"_blank"}>
                                 <button className={"downloadButton"}>Download</button>
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            {/*<video autostart autoPlay loop src={courseLogoGif} type="video/mp4"/>*/}
-                            <img src={imageSource} alt={alternateText}/>
+                            <video autostart autoPlay loop src={logoGifPath} type="video/mp4"/>
                         </div>
                     </section>
                 </div>
@@ -212,7 +210,7 @@ const EducationInfoPage = ({education}) => {
                     <h2>Course outline</h2>
                     <h5 className={"syllabusMobileTitle"}>Obtain an overall knowledge about Microsoft Dynamics 365</h5>
                     <a className={"downloadButton"}
-                       href={"https://myudssystemsstorageprod.blob.core.windows.net/uds-portal-assets/b2c-auth-page/Course_outline.pdf"}
+                       href={courseOutlinePath}
                        target={"_blank"}>
                         <button className={"downloadButton"}>Download</button>
                     </a>

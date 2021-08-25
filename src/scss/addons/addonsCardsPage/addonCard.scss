@@ -49,6 +49,13 @@
   .downloadModalContentOnCard {
     padding: 30px;
   }
+  .appSourceDescription {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 140%;
+    color: $education-text-color;
+    margin-top: 0;
+  }
 
   h2 {
     cursor: default;
@@ -66,11 +73,18 @@
     margin: 0;
   }
 }
+.downloadPoint {
+  border-bottom: 1px solid $dark-bg;
+  margin-bottom: 13px;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
 
 .downloadFile {
   padding: 0;
   max-width: 100%;
-  margin-bottom: 21px;
   height: 64px;
   background-color: #fff;
   box-shadow: none;
@@ -120,9 +134,9 @@
   }
 
   img {
-    margin-left: 18px;
-    margin-right: 31px;
+    margin-right: 20px;
   }
+
 }
 
 .addonsCard {
