@@ -61,9 +61,11 @@ const CoursePricePlan = ({pricePlans}) => {
                                                  dangerouslySetInnerHTML={{__html: planItem.checkPoints}}>
                                             </div>
                                             {
-                                               slug === "ms-dynamics-365-developer" ?
+                                                slug === "ms-dynamics-365-developer" ?
                                                     <a href={pricePlans[1].technicalTaskUrl} target={"_blank"}>
-                                                        <button className={"downloadTestTaskButton"}>Download test task</button>
+                                                        <button className={"downloadTestTaskButton"}>Download test
+                                                            task
+                                                        </button>
                                                     </a> : ""
                                             }
 
@@ -180,10 +182,24 @@ const CoursePricePlan = ({pricePlans}) => {
                                                     </div>
                                                 </div>
                                             </div>
-                                            <p className={"price paid"}>
-                                                <span className={"dollarSign"}>$</span>
-                                                {planItem.price}
-                                            </p>
+
+                                                {
+                                                    slug === "ms-dynamics-365-consultant" ?
+                                                        <div className={"pricesMobile"}>
+                                                        <img src={oldPrice} alt={"Old price"}/>
+                                                        <p className={"price paid"}>
+                                                            <span className={"dollarSign"}>$</span>
+                                                            {planItem.price}
+                                                        </p>
+                                                        </div>
+                                                        : <p className={"price paid"}>
+                                                            <span className={"dollarSign"}>$</span>
+                                                            {planItem.price}
+                                                        </p>
+                                                        // <img style={{opacity: "0"}} src={oldPrice} alt={"Old price"}/>
+                                                }
+
+
                                             <div className={"priceDescription"} key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
                                             </div>

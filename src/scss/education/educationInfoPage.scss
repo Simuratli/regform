@@ -652,6 +652,7 @@ ul {
             display: inline-flex;
             align-items: center;
             user-select: none;
+            cursor: pointer;
           }
           .customCheckbox+label::before {
             content: '';
@@ -1322,7 +1323,7 @@ ul {
       }
 
       .price {
-        margin: 20px 0;
+        margin: 20px 0 20px;
         text-align: center;
         font-size: 28px;
         line-height: 28px;
@@ -1462,6 +1463,15 @@ ul {
           }
         }
       }
+      .pricesMobile{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img{
+          width: 61px;
+          margin-right: 20px;
+        }
+      }
 
       .priceDescription {
         p {
@@ -1491,6 +1501,7 @@ ul {
             display: inline-flex;
             align-items: center;
             user-select: none;
+            cursor: pointer;
           }
           .customCheckbox+label::before {
             content: '';
