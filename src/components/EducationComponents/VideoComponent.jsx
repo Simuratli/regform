@@ -40,12 +40,10 @@ const EducationVideoLessons = ({video, activeBlock}) => {
                             </section>
                         <section className={"author"}>
                             {
-                                imageSource === "" ?
-                                    <img src={imageSource} alt={alternateText}/>:
-                                    <img src={mentorPlaceholder} alt={alternateText}/>
-
+                                imageSource === null ?
+                                    <img src={mentorPlaceholder} alt={alternateText}/> :
+                                    <img src={imageSource} alt={alternateText}/>
                             }
-
                             <div className={"authorInfo"}>
                                 <h5>Author</h5>
                                 <h4>{firstName}</h4>

@@ -28,6 +28,7 @@ const EducationInfoPage = ({education}) => {
         },
         courseRightBar: {
             courseSubject = "",
+            courseFormat = "",
             language = "",
             courseDuration: {
                 theory = 0
@@ -36,7 +37,7 @@ const EducationInfoPage = ({education}) => {
         pricePlans,
         mentors,
         recommendations,
-        certificateDescription = "",
+        courseCertificateForPagePreview,
     } = education;
 
     useEffect(() => {
@@ -88,7 +89,7 @@ const EducationInfoPage = ({education}) => {
                                     <img className={"listItemLogo"} src={format} alt={"Benefit"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Format</h4>
-                                        <p>Offline/Online</p>
+                                        <p>{courseFormat}</p>
                                     </div>
 
                                 </li>
@@ -220,12 +221,12 @@ const EducationInfoPage = ({education}) => {
                     <div className={"certificationContent"}>
                         <div className={"certificateTextContent"}>
                             <h4>Stand ahead of other competitors!</h4>
-                            <p>{certificateDescription}</p>
+                            <p>{courseCertificateForPagePreview.description}</p>
                             <p style={{fontWeight: "400", fontSize: "14px"}}>You will get this certificate if you choose the "mentor" option
                                 in the paid version or if you complete a free course
                                 with further employment at UDS.</p>
                         </div>
-                        <img src={certificate} alt={"Certificate example"}/>
+                        <img src={courseCertificateForPagePreview.certificateLogoPath} alt={"Certificate example"}/>
                     </div>
                 </section>
                 <section className={"mentors"}>
