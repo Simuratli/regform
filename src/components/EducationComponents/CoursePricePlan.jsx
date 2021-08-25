@@ -196,7 +196,6 @@ const CoursePricePlan = ({pricePlans}) => {
                                                             <span className={"dollarSign"}>$</span>
                                                             {planItem.price}
                                                         </p>
-                                                        // <img style={{opacity: "0"}} src={oldPrice} alt={"Old price"}/>
                                                 }
 
 

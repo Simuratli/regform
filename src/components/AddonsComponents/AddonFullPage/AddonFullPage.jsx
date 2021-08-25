@@ -22,6 +22,7 @@ const AddonFullPage = ({addon, intl, children}) => {
         name = "",
         slug = "",
         description = "",
+        shortDescription = "",
         addOnPageSteps = [],
         addOnPageTables = [],
         installationGuidePath,
@@ -78,25 +79,25 @@ const AddonFullPage = ({addon, intl, children}) => {
             </ModalMobileNotification>
             <div className="headerWrapper" style={{maxWidth: "4000px"}}>
                 <section className="header">
-                    <AnimatedContainer>
+                    <AnimatedContainer style={{display: "flex", alignItems: "center"}}>
                         <div className="headerLeftSide">
                             <h1>{name}</h1>
+                            <p className={"shortDescription"}>{shortDescription}</p>
                             { slug === "uds-virtual-machine"?  <p className="virtualMashineWarningparagraph">
                                 <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                             </p>: ""}
-                            <DownloadAddonButton addon={addon}/>
-                            {slug === "uds-data-migration-tool" ?
-                                <p className={"chargeMessage"}>
-                                    <FormattedMessage id="free.of.charge"/>
-                                </p> : ""
-                            }
+                            <div style={{position: "relative", width: "100%"}}>
+                                <DownloadAddonButton addon={addon}/>
+                                {slug === "uds-data-migration-tool" ?
+                                    <p className={"chargeMessage"}>
+                                        <FormattedMessage id="free.of.charge"/>
+                                    </p> : ""
+                                }
+                            </div>
                         </div>
                     </AnimatedContainer>
                     <div className="headerRightSide">
-                            <img
-                                src={get(cardLogo, "imageSource")}
-                                alt={get(cardLogo, "alternateText")}
-                            />
+                            <img src={get(cardLogo, "imageSource")} alt={get(cardLogo, "alternateText")}/>
                     </div>
                 </section>
             </div>
@@ -105,11 +106,7 @@ const AddonFullPage = ({addon, intl, children}) => {
                     <h2>
                         <FormattedMessage id="about.add.on"/>
                     </h2>
-                    <p
-                        dangerouslySetInnerHTML={{
-                            __html: description,
-                        }}
-                    />
+                    <p dangerouslySetInnerHTML={{__html: description}}/>
                 </section>
                 <section className="installInfo">
                     <h2>
@@ -125,12 +122,7 @@ const AddonFullPage = ({addon, intl, children}) => {
                                 <YouTube
                                     className="reactPlayer"
                                     videoId={installationGuidePath.split("v=")[1].split("&")[0]}
-                                    opts={{
-                                        playerVars: {
-                                            autoplay: 0,
-                                        },
-                                    }}
-                                />
+                                    opts={{playerVars: {autoplay: 0}}}/>
                             </div>
                         </div>
                     ) : (
@@ -212,7 +204,9 @@ const AddonFullPage = ({addon, intl, children}) => {
                                 <h2>
                                     <FormattedMessage id="ready.to.get.started"/>
                                 </h2>
+                                <div style={{position: "relative", width: "100%"}}>
                                 <DownloadAddonButton addon={addon}/>
+                                </div>
                             </section>
                             <section className="helpInfo">
                                 <h2>

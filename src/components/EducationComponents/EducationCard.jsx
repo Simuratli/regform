@@ -1,14 +1,12 @@
 import React from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
-import courseLogo from "../../assets/images/ms_consultant_logo.svg";
 
 const EducationCard = ({educationCard}) => {
     const {
         name = "",
         slug = "",
         duration = 0,
-        courseState = "",
         courseSubject = "",
         shortDescription,
         coursePermissionState = "",
