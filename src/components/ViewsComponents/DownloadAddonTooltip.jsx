@@ -35,18 +35,24 @@ const DownloadAddonTooltip = ({addon, handleOpenVersionList, getAddonVersionFile
                             </p>
                         </section>
                         :
-                        <section className={"downloadPoint"}>
-                            <button className={'downloadFile'} data-path={file.filePath}
-                                    onClick={getAddonVersionFile}>
-                                <div className={'content'}>
-                                    <img src={attachedFile} alt="attached File"/>
-                                    <div>
-                                        <p className={'crmName'}>{file.resourceName}</p>
-                                        <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
-                                    </div>
-                                </div>
-                            </button>
-                        </section>
+                        <>
+
+                        {
+                            file.isDisabled === true ?
+                                <section className={"downloadPoint"}>
+                                    <button className={'downloadFile'} data-path={file.filePath}
+                                            onClick={getAddonVersionFile}>
+                                        <div className={'content'}>
+                                            <img src={attachedFile} alt="attached File"/>
+                                            <div>
+                                                <p className={'crmName'}>{file.resourceName}</p>
+                                                <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                                            </div>
+                                        </div>
+                                    </button>
+                                </section> : ""
+                        }
+                        </>
 
                 ))}
             </div>

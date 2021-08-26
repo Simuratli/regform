@@ -139,10 +139,10 @@ const AddonCard = ({addon, className}) => {
                                             : "openButton"}
                                         data-path={resources[0].filePath}>
                                     {file?.addonTypeDownloading === slug
-                                    ? (<ButtonLoader/>)
-                                    : applicationType === "Dynamics 365"
-                                        ? (<FormattedMessage id="download"/>)
-                                        : (<FormattedMessage id="open"/>)}</button>)
+                                        ? (<ButtonLoader/>)
+                                        : applicationType === "Dynamics 365"
+                                            ? (<FormattedMessage id="download"/>)
+                                            : (<FormattedMessage id="open"/>)}</button>)
                             : (<button
                                 style={{position: "relative"}}
                                 className={downloadModalActiveCard ? 'downloadFileButtonCardDisable' : 'downloadFileButtonCard'}
@@ -175,31 +175,29 @@ const AddonCard = ({addon, className}) => {
                                             </button>
                                         </a>
                                         <p className={'appSourceDescription'}>
-                                            After click the field you will be redirected to the official Microsoft resource.
+                                            After click the field you will be redirected to the official Microsoft
+                                            resource.
                                         </p>
                                     </section>
                                     :
-                                    <section className={"downloadPoint"}>
-                                        <button className={'downloadFile'} data-path={file.filePath}
-                                                onClick={getAddonVersionFile}>
-                                            <div className={'content'}>
-                                                <img src={attachedFile} alt="attached File"/>
-                                                <div>
-                                                    <p className={'crmName'}>{file.resourceName}</p>
-                                                    <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
-                                                </div>
-                                            </div>
-                                        </button>
-                                    </section>
-                                // <button className={'downloadFile'} data-path={file.filePath} onClick={getAddonVersionFile}>
-                                //     <div className={'content'}>
-                                //         <img src={attachedFile} alt="attached File"/>
-                                //         <div>
-                                //             <p className={'crmName'}>{file.resourceName}</p>
-                                //             <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
-                                //         </div>
-                                //     </div>
-                                // </button>
+                                    <>
+                                        {
+                                            file.isDisabled === true ? <section className={"downloadPoint"}>
+                                                    <button className={'downloadFile'} data-path={file.filePath}
+                                                            onClick={getAddonVersionFile}>
+                                                        <div className={'content'}>
+                                                            <img src={attachedFile} alt="attached File"/>
+                                                            <div>
+                                                                <p className={'crmName'}>{file.resourceName}</p>
+                                                                <p className={'fileName'}>{file.filePath.split("/")[3]}</p>
+                                                            </div>
+                                                        </div>
+                                                    </button>
+                                                </section>
+                                                : ""
+                                        }
+                                    </>
+
                             ))}
                         </div>
                     </div>

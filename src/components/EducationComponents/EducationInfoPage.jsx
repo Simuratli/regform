@@ -40,6 +40,7 @@ const EducationInfoPage = ({education}) => {
         courseCertificateForPagePreview,
     } = education;
 
+
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
     }, [header]);

@@ -16,10 +16,10 @@
 .downloadModalOnCard {
   right: 25px;
   position: absolute;
-  top: 18px;
+  bottom: 91px;
   width: 100%;
   max-width: 389px;
-  height: 370px;
+  height: fit-content;
   background-color: #fff;
   margin-top: 10px;
   display: flex;
@@ -262,7 +262,7 @@
 @media screen and (max-width: 1350px) {
   .downloadModalOnCard {
     right: 23px;
-    top: 17px
+    //top: 17px
   }
   .addonsCard {
     .cardAction {
@@ -307,7 +307,7 @@
 @media screen and (max-width: 1024px) {
   .downloadModalOnCard {
     right: 23px;
-    top: 20px;
+    //top: 20px;
   }
   .addonsCard {
     max-width: 472px;
@@ -420,7 +420,7 @@
   }
   .downloadModalOnCard {
     right: 23px;
-    top: 6px;
+    bottom: 106px;
   }
 }
 
@@ -429,8 +429,7 @@
     max-width: 343px;
   }
   .downloadModalOnCard {
-    right: -17px;
-    top: 3px;
+    right: 0;
 
     .downloadModalContentOnCard {
       padding: 21px;
@@ -456,7 +455,7 @@
 @media screen and (max-width: 400px) {
   .downloadModalOnCard {
     right: -1px;
-    top: 0;
+    //top: 0;
   }
 
 }
