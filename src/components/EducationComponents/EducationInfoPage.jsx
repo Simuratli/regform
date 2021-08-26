@@ -90,7 +90,11 @@ const EducationInfoPage = ({education}) => {
                                     <img className={"listItemLogo"} src={format} alt={"Benefit"}/>
                                     <div className={"topBarContent"}>
                                         <h4>Format</h4>
-                                        <p>{courseFormat}</p>
+                                        {
+                                            slug === "ms-dynamics-365-consultant" ?
+                                                <p>Online/Offline</p> : <p>Online</p>
+                                        }
+
                                     </div>
 
                                 </li>
