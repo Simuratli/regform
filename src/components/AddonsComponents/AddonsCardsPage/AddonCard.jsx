@@ -182,7 +182,8 @@ const AddonCard = ({addon, className}) => {
                                     :
                                     <>
                                         {
-                                            file.isDisabled === true ? <section className={"downloadPoint"}>
+                                            file.isDisabled === false ?
+                                                <section className={"downloadPoint"}>
                                                     <button className={'downloadFile'} data-path={file.filePath}
                                                             onClick={getAddonVersionFile}>
                                                         <div className={'content'}>
@@ -194,7 +195,7 @@ const AddonCard = ({addon, className}) => {
                                                         </div>
                                                     </button>
                                                 </section>
-                                                : ""
+                                            :  ""
                                         }
                                     </>
 

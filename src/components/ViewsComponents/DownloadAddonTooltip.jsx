@@ -38,7 +38,7 @@ const DownloadAddonTooltip = ({addon, handleOpenVersionList, getAddonVersionFile
                         <>
 
                         {
-                            file.isDisabled === true ?
+                            file.isDisabled === false ?
                                 <section className={"downloadPoint"}>
                                     <button className={'downloadFile'} data-path={file.filePath}
                                             onClick={getAddonVersionFile}>
