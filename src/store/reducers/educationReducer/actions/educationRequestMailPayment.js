@@ -6,6 +6,7 @@ export const SET_EDUCATION_REQUEST_PAYMENT = "SET_EDUCATION_REQUEST_PAYMENT";
 
 export const educationRequestMailPayment = (paymentData) => {
     return (dispatch) => {
+        dispatch(setIsLoading(true));
         httpClient
             .post(`/payment/request-mail-payment`, paymentData)
             .then((res) => {

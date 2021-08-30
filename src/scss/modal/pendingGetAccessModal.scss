@@ -178,7 +178,16 @@
   }
 }
 
-
+.errorInputMessage{
+  color: $error;
+  display: flex;
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 120%;
+}
+.errorInput{
+  border: 1px solid $error !important;
+}
 .pendingModal.active {
   opacity: 1;
   pointer-events: all;

@@ -43,7 +43,11 @@ const CoursePricePlan = ({pricePlans}) => {
                                         ? <>
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title free"}>FREE</h3>
-                                                <p className={"format free"}>Offline</p>
+                                                {
+                                                    slug === "ms-dynamics-365-developer" ?
+                                                        <p style={{opacity: "0"}}>Online</p>:
+                                                        <p className={"format free"}>Offline</p>
+                                                }
                                                 <img style={{opacity: "0"}} src={oldPrice} alt={"Old price"}/>
                                                 <p className={"price free"}>
                                                     <span className={"dollarSign"}>$</span>
@@ -74,7 +78,12 @@ const CoursePricePlan = ({pricePlans}) => {
                                         : <>
                                             <div className={"paidCardHeader"}>
                                                 <h3 className={"title paid"}>PAID</h3>
-                                                <p className={"format paid"}>Online</p>
+                                                {
+                                                    slug === "ms-dynamics-365-developer" ?
+                                                        <p style={{opacity: "0"}}>Online</p>:
+                                                        <p className={"format paid"}>Online</p>
+                                                }
+
                                                 {
                                                     slug === "ms-dynamics-365-consultant" ?
                                                         <img src={oldPrice} alt={"Old price"}/> :
@@ -119,7 +128,12 @@ const CoursePricePlan = ({pricePlans}) => {
                                                     {totalPrice}
                                                 </p>
                                             </div>
-                                            <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            {
+                                                slug === "ms-dynamics-365-developer" ?
+                                                    <button className={"comingSoonButton"}>Coming soon</button> :
+                                                    <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            }
+
                                         </>
                                     }
 
@@ -137,7 +151,12 @@ const CoursePricePlan = ({pricePlans}) => {
                                             <div className={"priceTitleBlock"}>
                                                 <div className={"paidCardHeader"}>
                                                     <h3 className={"title free"}>FREE</h3>
-                                                    <p className={"format free"}>Offline</p>
+                                                    {
+                                                        slug === "ms-dynamics-365-developer" ?
+                                                            <p style={{opacity: "0"}}>Online</p>:
+                                                            <p className={"format free"}>Offline</p>
+                                                    }
+
                                                     <span
                                                         className={"startDateMobile"}>{/*<h3>Start date: <p>notify me</p></h3>*/}</span>
                                                 </div>
@@ -166,7 +185,12 @@ const CoursePricePlan = ({pricePlans}) => {
                                             <div className={"priceTitleBlock"}>
                                                 <div className={"paidCardHeader"}>
                                                     <h3 className={"title paid"}>PAID</h3>
-                                                    <p className={"format paid"}>Online</p>
+                                                    {
+                                                        slug === "ms-dynamics-365-developer" ?
+                                                            <p style={{opacity: "0"}}>Online</p>:
+                                                            <p className={"format paid"}>Online</p>
+                                                    }
+
                                                     <span
                                                         className={"startDateMobile"}>{/*<h3>Start date: <p>notify me</p></h3>*/}</span>
                                                 </div>
@@ -228,7 +252,11 @@ const CoursePricePlan = ({pricePlans}) => {
                                                     {totalPrice}
                                                 </p>
                                             </div>
-                                            <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            {
+                                                slug === "ms-dynamics-365-developer" ?
+                                                    <button className={"comingSoonButton"}>Coming soon</button> :
+                                                    <GetAccessButton isPaid={true} price={totalPrice}/>
+                                            }
                                         </>
 
                                     }

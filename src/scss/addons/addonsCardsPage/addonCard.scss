@@ -19,7 +19,7 @@
   bottom: 91px;
   width: 100%;
   max-width: 389px;
-  height: fit-content;
+  max-height: 100vh;
   background-color: #fff;
   margin-top: 10px;
   display: flex;
@@ -378,6 +378,11 @@
     .description {
       font-size: 12px;
     }
+  }
+}
+@media screen and (max-width: 570px){
+  .downloadFile p {
+    font-size: 13px;
   }
 }
 

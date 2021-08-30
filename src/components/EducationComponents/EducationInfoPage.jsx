@@ -242,7 +242,7 @@ const EducationInfoPage = ({education}) => {
                                 <img src={mentor.photoImage.imageSource} alt={mentor.photoImage.alternateText}/>
                                 <div>
                                     <h4>{mentor.firstName}</h4>
-                                    <h5>MS Dynamics 365 <br/> Consultant</h5>
+                                    <h5>{mentor.jobPosition}</h5>
                                     <p>{mentor.biography}</p>
                                 </div>
                             </li>

@@ -12,14 +12,20 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
     const [selectedLink, setSelectedLink] = useState();
     const [isFilePicked, setIsFilePicked] = useState(false);
     const [isLinkPicked, setIsLinkPicked] = useState(false);
+    const [isValidFile, setIsValidFile] = useState(true);
 
     const changeHandler = (event) => {
         const file = event.target.files[0]
-        setSelectedFile(file);
-        if (file) {
-            setIsFilePicked(true);
+        if (file.size > 5242880){
+            setIsValidFile(false);
         } else {
-            setIsFilePicked(false);
+            setIsValidFile(true);
+            setSelectedFile(file);
+            if (file) {
+                setIsFilePicked(true);
+            } else {
+                setIsFilePicked(false);
+            }
         }
     };
     const changeHandlerForLink = (event) => {
@@ -61,11 +67,11 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                     <form onSubmit={handleSubmission}>
                         <div>
                             <div className="form-group file-area">
-                                <label htmlFor="file">Add your CV</label>
+                                <label htmlFor="file">Add your CV (no more than 5 MB)</label>
                                 <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                        onChange={changeHandler}/>
                                 <div className={"uploadField"}>
-                                    <div className="file-dummy">
+                                    <div className={isValidFile ? "file-dummy" : " file-dummy errorInput"}>
                                         {isFilePicked ? (
                                             selectedFile.name.length > 35 ?
                                                 <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
@@ -78,6 +84,9 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                     <button className={"uploadButton"}/>
                                 </div>
                             </div>
+                            {
+                                isValidFile ? "" : <span className={"errorInputMessage"}>The file is larger than 5 MB</span>
+                            }
                             <div className="testTaskBlock">
                                 <label htmlFor="link">Add test task</label>
                                 <input type="text" name="link" id="link" required="required" onChange={changeHandlerForLink}

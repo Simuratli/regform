@@ -9,16 +9,23 @@ const FreeGetAccessModalConsultant = ({email, active, setActive}) => {
     const dispatch = useDispatch();
     const {slug} = useParams();
     const [selectedFile, setSelectedFile] = useState();
+    const [isValidFile, setIsValidFile] = useState(true);
     const [isFilePicked, setIsFilePicked] = useState(false);
 
     const changeHandler = (event) => {
         const file = event.target.files[0]
-        setSelectedFile(file);
-        if (file) {
-            setIsFilePicked(true);
+        if (file.size > 5242880){
+          setIsValidFile(false);
         } else {
-            setIsFilePicked(false);
+            setIsValidFile(true);
+            setSelectedFile(file);
+            if (file) {
+                setIsFilePicked(true);
+            } else {
+                setIsFilePicked(false);
+            }
         }
+
     };
 
     //close modal and change status from Forbidden to Pending
@@ -54,7 +61,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive}) => {
                                 <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                        onChange={changeHandler}/>
                                 <div className={"uploadField"}>
-                                    <div className="file-dummy">
+                                    <div className={isValidFile ? "file-dummy" : " file-dummy errorInput"}>
                                         {isFilePicked ? (
                                             selectedFile.name.length > 35 ?
                                                 <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
@@ -67,6 +74,9 @@ const FreeGetAccessModalConsultant = ({email, active, setActive}) => {
                                     <button className={"uploadButton"}/>
                                 </div>
                             </div>
+                            {
+                                isValidFile ? "" : <span className={"errorInputMessage"}>The file is larger than 5 MB</span>
+                            }
                         </div>
                         <p>
                             Our manager will contact you via email <b>{email}</b> shortly.

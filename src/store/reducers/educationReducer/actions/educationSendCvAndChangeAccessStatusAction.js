@@ -16,6 +16,7 @@ export const sendCvAndChangeAccessStatus = (courseSlug, file, taskUrl) => {
     }
 
     return (dispatch) => {
+        dispatch(setIsLoading(true));
         httpClient
             .post(`/education/courses/${courseSlug}/permission-state/call-for-access`, fd)
             .then((res) => {

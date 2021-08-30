@@ -732,6 +732,15 @@ ul {
         bottom: 20px;
         transform: translate(-50%, -50%)
       }
+      .comingSoonButton{
+        position: absolute;
+        bottom: 20px;
+        transform: translate(-50%, -50%);
+        background: $dark-bg;
+        color: $education-text-color;
+        box-shadow: none;
+        cursor: text;
+      }
 
     }
   }
@@ -1573,6 +1582,13 @@ ul {
         max-width: 370px;
         width: 100%;
         margin-bottom: 20px;
+      }
+      .comingSoonButton{
+        max-width: 370px;
+        width: 100%;
+        margin-bottom: 20px;
+        box-shadow: none;
+        pointer-events: none;
       }
     }
   }
