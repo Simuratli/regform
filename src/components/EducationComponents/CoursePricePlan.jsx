@@ -179,6 +179,14 @@ const CoursePricePlan = ({pricePlans}) => {
                                             <div className={"priceDescription"} key={shortid.generate()}
                                                  dangerouslySetInnerHTML={{__html: planItem.description}}>
                                             </div>
+                                            {
+                                                slug === "ms-dynamics-365-developer" ?
+                                                    <a href={pricePlans[1].technicalTaskUrl} target={"_blank"}>
+                                                        <button className={"downloadTestTaskButton"}>Download test
+                                                            task
+                                                        </button>
+                                                    </a> : ""
+                                            }
                                             <GetAccessButton isPaid={false}/>
                                         </>
                                         : <>
