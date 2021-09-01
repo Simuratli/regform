@@ -22,6 +22,7 @@ const EducationInfoPage = ({education}) => {
         logoGifPath = "",
         courseOutlinePath = "",
         description = "",
+        introVideoUrl = "",
         courseLogo: {
             imageSource = "",
             alternateText = ""
@@ -39,6 +40,8 @@ const EducationInfoPage = ({education}) => {
         recommendations,
         courseCertificateForPagePreview,
     } = education;
+
+    const intro = introVideoUrl.split("v=")[1].split("&")[0]
 
 
     useEffect(() => {
@@ -128,7 +131,7 @@ const EducationInfoPage = ({education}) => {
                             <div key={description} dangerouslySetInnerHTML={{__html: description}}/>
                             <YouTube
                                 className="reactPlayer"
-                                videoId={"LEG3XcEUmW8"}
+                                videoId={intro}
                                 opts={{
                                     playerVars: {
                                         autoplay: 0,
