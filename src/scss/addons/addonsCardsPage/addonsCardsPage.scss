@@ -136,7 +136,8 @@
       .orangeElement {
         left: 46px;
       }
-      .paragraph{
+
+      .paragraph {
         width: 30%;
       }
     }
@@ -250,8 +251,9 @@
 @media only screen and (max-width: 768px) {
   .main_container {
     @include screen768;
-    .generalTitleBlock{
-      .headingParagraph{
+
+    .generalTitleBlock {
+      .headingParagraph {
         width: 100%;
       }
     }
@@ -294,13 +296,15 @@
 @media only screen and (max-width: 500px) {
   .main_container {
     @include screen500;
-    .generalTitleBlock{
-      .headingParagraph{
+
+    .generalTitleBlock {
+      .headingParagraph {
         font-size: 28px;
         line-height: 130%;
         width: 88%;
       }
-      .paragraph{
+
+      .paragraph {
         font-weight: 500;
         font-size: 16px;
         line-height: 130%;
@@ -313,14 +317,17 @@
   .sortField {
     display: grid;
     grid-template-columns: 1fr;
-    .title{
+
+    .title {
       padding-bottom: 19px;
     }
-    .sortBox{
+
+    .sortBox {
       max-width: 344px;
       padding-left: 20px;
     }
-    .customSelect{
+
+    .customSelect {
       left: 0;
     }
   }
@@ -337,6 +344,7 @@
     @include screen400;
   }
 }
+
 @media screen and (max-width: 375px) {
   .main_container {
     @include screen400;
@@ -380,4 +388,40 @@
     grid-template-columns: repeat(1, 1fr);
   }
 }
+
+@media print {
+  .card {
+    display: grid;
+    grid-template-columns: 1fr;
+    break-after: page;
+    grid-row-gap: 10px;
+  }
+  .main_container{
+    .generalTitleBlock {
+      display: grid;
+      grid-template-columns: 1fr;
+
+      .headingParagraph {
+        color: $blue;
+        width: 100%;
+        font-size: 30px;
+      }
+
+      .orangeElement {
+        display: none;
+      }
+
+      .paragraph {
+        width: 100%;
+        font-size: 15px;
+      }
+    }
+  }
+
+  .sortField{
+    display: none;
+  }
+
+}
+
 

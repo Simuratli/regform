@@ -237,3 +237,9 @@
     @include screen400;
   }
 }
+
+@media print {
+  .navigationBar{
+    display: none;
+  }
+}

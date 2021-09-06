@@ -214,7 +214,8 @@
       line-height: 120%;;
       letter-spacing: -1.09524px;
     }
-    .shortDescription{
+
+    .shortDescription {
       font-weight: 500;
       font-size: 16px;
       line-height: 140%;
@@ -838,9 +839,11 @@
       align-items: center;
       padding-left: 0;
       text-align: center;
-      .shortDescription{
+
+      .shortDescription {
         text-align: center;
       }
+
       .downloadModal {
         left: 0;
         right: 0;
@@ -1008,19 +1011,19 @@
 }
 
 @media screen and (max-width: 570px) {
-  .header{
-    .headerLeftSide{
-      .shortDescription{
+  .header {
+    .headerLeftSide {
+      .shortDescription {
         font-weight: 500;
         font-size: 14px;
         line-height: 140%;
       }
     }
   }
-  .downloadModal{
-    .downloadModalContent{
-      .downloadFile{
-        p{
+  .downloadModal {
+    .downloadModalContent {
+      .downloadFile {
+        p {
           font-size: 13px;
         }
       }
@@ -1039,7 +1042,8 @@
       font-size: 16px;
       margin-top: 0;
     }
-    .virtualMashineWarningparagraph{
+
+    .virtualMashineWarningparagraph {
       text-align: center;
       font-size: 14px;
       line-height: 140%;
@@ -1099,9 +1103,9 @@
   .headerWrapper {
     height: 340px;
   }
-  .downloadModal{
-    .downloadModalContent{
-      .appSourceDescription{
+  .downloadModal {
+    .downloadModalContent {
+      .appSourceDescription {
         font-weight: 500;
         font-size: 14px;
         line-height: 140%;
@@ -1362,6 +1366,122 @@
       .downloadModal {
         width: 307px;
       }
+    }
+  }
+}
+
+@media print {
+  .addonFullPage {
+    h2 {
+      color: $blue;
+      font-size: 25px;
+      padding: 10px;
+    }
+    p{
+      font-size: 15px;
+    }
+  }
+  button {
+    display: none;
+  }
+  .headerWrapper {
+    background: none;
+    height: 400px;
+  }
+  .header {
+    grid-template-columns: 1fr;
+    padding: 50px 0;
+
+    .headerLeftSide {
+      h1 {
+        color: $blue;
+        font-size: 35px;
+      }
+
+      .shortDescription {
+        color: $education-text-color;
+      }
+      .chargeMessage{
+        color: $education-text-color;
+        margin: 0;
+      }
+      .virtualMashineWarningparagraph{
+        color: $education-text-color;
+      }
+    }
+
+    .headerRightSide {
+      img {
+        max-width: 140px;
+      }
+    }
+  }
+  .fullPageContent {
+    display: block;
+  }
+  .aboutInfo {
+    p {
+      padding: 10px;
+      text-align: left;
+    }
+
+    .aboutInfoTechnicalBlock {
+      margin: 10px;
+
+      ul {
+        padding: 0;
+      }
+    }
+  }
+  .installInfo {
+    margin: 10px;
+    p{
+      text-align: left;
+      padding: 0;
+      a{
+        text-decoration: underline;
+      }
+    }
+    .blockWithPlayer{
+      .playerWrapper{
+        visibility: hidden;
+        height: 10px;
+      }
+    }
+
+  }
+  .useInfo{
+    display: none;
+  }
+  .useInfoMobile{
+    display: block;
+    ul{
+      padding-left: 0;
+      li{
+        margin-bottom: 10px;
+      }
+    }
+  }
+  .downloadInfo{
+    display: none;
+  }
+  .helpInfo{
+    a{
+      text-decoration: underline;
+    }
+    .helpList{
+      .mailItem, .skypeItem{
+        background-image: none;
+        padding-left: 0;
+      }
+    }
+  }
+  .bottomScrollBlockWrapper{
+    display: none;
+  }
+  .bottomInfo{
+    .blockWithCreds{
+      grid-row-gap: 0;
     }
   }
 }

@@ -423,3 +423,10 @@
     margin-bottom: 1rem;
   }
 }
+
+@media print {
+  .fullWidthWrapperFooter{
+    display: none;
+  }
+}
+

@@ -149,3 +149,11 @@
     opacity: 0.5;
   }
 }
+@media print {
+  .scrollTop{
+    visibility: hidden;
+  }
+  html, body{
+    margin: 5px;
+  }
+}

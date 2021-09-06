@@ -206,19 +206,10 @@
 
     .downloadButton {
       width: 130px;
-      //margin: 0 0 0 40px;
-    }
-
-    .openButton {
-      //margin-left: 40px;
     }
 
     .moreInfoButton {
       box-shadow: none;
-
-      &:hover {
-
-      }
     }
   }
 
@@ -463,4 +454,43 @@
     //top: 0;
   }
 
+}
+
+@media print {
+  .addonsCard {
+    padding: 10px;
+    height: 12rem;
+    border: none;
+    box-shadow: none;
+    .cardLogo{
+      top: 0rem;
+      break-after: avoid-page;
+      .logo{
+        width: 40px;
+      }
+    }
+    .cardBody{
+      top: 3rem;
+      break-inside: avoid-page;
+    }
+    .cardTitle{
+      color: $blue;
+      top: -30px;
+      font-size: 15px;
+    }
+    .cardDescription{
+      font-size: 14px;
+      top: 0.5rem;
+    }
+    .cardSubTitle{
+      display: none;
+    }
+    .description{
+      display: none;
+    }
+    button{
+      display: none;
+    }
+
+  }
 }
