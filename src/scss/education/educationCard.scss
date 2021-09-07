@@ -136,8 +136,6 @@
     }
   }
 }
-
-
 @media screen and (max-width: 1024px) {
   .educationCard {
     .rightCardSide {
@@ -156,7 +154,6 @@
     }
   }
 }
-
 @media screen and (max-width: 1000px) {
   .educationCard {
     .rightCardSide {
@@ -194,7 +191,6 @@
     }
   }
 }
-
 @media screen and (max-width: 880px) {
   .educationCard {
     .rightCardSide {
@@ -214,7 +210,6 @@
     }
   }
 }
-
 @media screen and (max-width: 768px) {
   .educationCard {
     grid-template-columns: 1fr;
@@ -250,7 +245,6 @@
     }
   }
 }
-
 @media screen and (max-width: 500px) {
   .educationCard {
     grid-template-columns: 1fr;
@@ -274,4 +268,41 @@
       }
     }
   }
+}
+@media print {
+ button{
+   display: none;
+ }
+
+  .educationCard{
+    grid-template-columns: 1fr;
+    border: none;
+    &:hover{
+      border: none;
+      box-shadow: none;
+    }
+    .leftCardSide{
+      background-color: #fff;
+      img{
+        width: 172px;
+        margin: auto;
+      }
+    }
+    .rightCardSide{
+      .cardBottomInfo{
+        justify-content: center;
+        ul{
+          margin: 0;
+          li{
+            padding-left: 0;
+          }
+          .appointment, .duration{
+            background-image: none;
+          }
+        }
+      }
+    }
+  }
+
+
 }

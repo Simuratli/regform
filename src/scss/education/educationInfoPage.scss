@@ -14,7 +14,6 @@
   margin: 0 auto;
   padding: 0;
   background: $light_bg;
-  //background: #FFFFFF;
 
   .courseLogoMobile {
     display: none;
@@ -40,7 +39,6 @@ ul {
     letter-spacing: 1px;
   }
 }
-
 
 .educationInfoContent {
   display: grid;
@@ -359,7 +357,6 @@ ul {
 .syllabusMobile {
   display: none;
 }
-
 
 .certification {
   background-color: $light-bg;
@@ -880,7 +877,6 @@ ul {
     margin-bottom: 40px;
   }
 }
-
 @media screen and (max-width: 1200px) {
   .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen1200;
@@ -900,7 +896,6 @@ ul {
     margin-bottom: 40px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   h2 {
     font-size: 40px;
@@ -990,7 +985,6 @@ ul {
     }
   }
 }
-
 @media screen and (max-width: 1000px) {
   .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen1024;
@@ -1028,7 +1022,6 @@ ul {
 
   }
 }
-
 @media screen and (max-width: 880px) {
   .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen880;
@@ -1091,7 +1084,6 @@ ul {
     margin-bottom: 40px;
   }
 }
-
 @media screen and (max-width: 813px) {
   .educationInfoContent {
     grid-row-gap: 40px;
@@ -1604,7 +1596,6 @@ ul {
     }
   }
 }
-
 @media screen and (max-width: 500px) {
   .educationInfoContent {
     h2 {
@@ -1878,7 +1869,6 @@ ul {
 
   }
 }
-
 @media screen and (max-width: 375px) {
   .educationHeader, .conformityInfo, .syllabus, .mentors, .pricePlan, .educationFAQ {
     @include screen400;
@@ -1901,5 +1891,113 @@ ul {
   }
   .educationFAQ {
     margin-bottom: 40px;
+  }
+}
+
+@media print {
+  .educationInfoContent{
+    display: block;
+    .detailsButton{
+      display: none;
+    }
+  }
+  .educationHeader{
+    grid-template-columns: 1fr;
+    .headerLeftSide{
+      h1{
+        color: $blue;
+        font-size: 35px;
+        white-space: break-spaces;
+      }
+    }
+    .headerRightSide{
+      video{
+        max-width: 293px;
+      }
+    }
+  }
+  .learnInfo{
+    .learnInfoContent{
+      h2{
+        color: $blue;
+        font-size: 25px;
+        padding: 10px;
+        margin: 0;
+      }
+      .topBar{
+        ul{
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .contentBar{
+        padding: 0;
+        ul{
+          grid-template-columns: 1fr;
+          margin: 0;
+        }
+        .reactPlayer{
+          visibility: hidden;
+          height: 1px;
+        }
+        .attentionBlock{
+          padding: 5px;
+          .attentionLink{
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  .conformityInfo{
+    padding: 10px 0;
+    h2{
+      color: $blue;
+      font-size: 25px;
+      padding: 10px;
+      margin: 0;
+    }
+    .conformityList{
+      grid-template-columns: 1fr;
+      grid-gap: 0;
+      .conformityListItem{
+        padding: 20px;
+        &:hover{
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  .syllabus{
+    display: none;
+  }
+  .certification{
+    h2{
+      color: $blue;
+      font-size: 25px;
+      padding: 10px;
+      margin: 0;
+    }
+    .certificationContent{
+      grid-template-columns: 1fr;
+    }
+  }
+  .mentors{
+    h2{
+      color: $blue;
+      font-size: 25px;
+      padding: 10px;
+      margin: 0;
+    }
+    ul{
+      grid-template-columns: 1fr;
+    }
+  }
+  .educationFAQ{
+    h2{
+      color: $blue;
+      font-size: 25px;
+      padding: 10px;
+      margin: 0;
+    }
   }
 }

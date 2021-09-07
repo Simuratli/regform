@@ -5,7 +5,7 @@
   margin-bottom: 20px;
   @include bigScreen;
 
-  h2{
+  h2 {
     font-size: 46px;
     line-height: 56px;
     font-weight: 700;
@@ -13,7 +13,8 @@
     text-align: center;
     font-family: Gilroy-Light;
   }
-  p{
+
+  p {
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
@@ -59,37 +60,44 @@
 
     }
   }
-  .educationBenefits{
+
+  .educationBenefits {
     margin-bottom: 60px;
-    .benefitsTitle{
+
+    .benefitsTitle {
       margin: 30px 0 50px;
       font-size: 46px;
       line-height: 120%;
       @include gradientTitleBlue;
       font-weight: 400;
     }
-    .benefitsList{
+
+    .benefitsList {
       padding-left: 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       grid-column-gap: 1px;
       background-color: $light-blue;
-      .benefitsListItem{
+
+      .benefitsListItem {
         text-align: center;
         background-color: #ffffff;
-        img{
+
+        img {
           padding: 17px;
           background-color: $light_bg;
           border-radius: 4px;
         }
-        p{
+
+        p {
           text-align: center;
           padding: 0 48px;
           font-size: 14px;
           line-height: 120%;
           color: $education-text-color;
         }
-        h5{
+
+        h5 {
           font-weight: 600;
           font-size: 16px;
           line-height: 140%;
@@ -99,8 +107,9 @@
       }
     }
   }
-  .educationCoursesCards{
-    .educationTitle{
+
+  .educationCoursesCards {
+    .educationTitle {
       font-size: 46px;
       line-height: 120%;
       @include gradientTitleBlue;
@@ -109,10 +118,12 @@
     }
   }
 }
+
 @media screen and (max-width: 1350px) {
-  .mainContainer{
+  .mainContainer {
     @include screen1350;
-    .educationHeaderContent{
+
+    .educationHeaderContent {
       .headingParagraph {
         width: 45%;
       }
@@ -127,21 +138,25 @@
     }
   }
 }
+
 @media screen and (max-width: 1200px) {
-  .mainContainer{
+  .mainContainer {
     @include screen1200;
-    .educationHeaderContent{
+
+    .educationHeaderContent {
       padding: 20px 0;
-      img{
+
+      img {
         max-width: 260px;
         width: 100%;
       }
     }
   }
 }
+
 @media screen and (max-width: 1024px) {
-  .mainContainer{
-    .educationHeaderContent{
+  .mainContainer {
+    .educationHeaderContent {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -173,10 +188,11 @@
       }
 
     }
-    .educationBenefits{
-      .benefitsList{
-        .benefitsListItem{
-          p{
+
+    .educationBenefits {
+      .benefitsList {
+        .benefitsListItem {
+          p {
             padding: 0 35px;
           }
         }
@@ -184,21 +200,26 @@
     }
   }
 }
+
 @media screen and (max-width: 1000px) {
-  .mainContainer{
+  .mainContainer {
     @include screen1024;
   }
 }
+
 @media screen and (max-width: 880px) {
-  .mainContainer{
+  .mainContainer {
     @include screen880;
-    .educationBenefits{
-      .benefitsList{
+
+    .educationBenefits {
+      .benefitsList {
         grid-template-columns: 1fr;
         grid-row-gap: 1px;
-        .benefitsListItem{
+
+        .benefitsListItem {
           padding: 30px 0 30px 0;
-          &:first-child{
+
+          &:first-child {
             padding-top: 0;
           }
         }
@@ -206,81 +227,93 @@
     }
   }
 }
+
 @media screen and (max-width: 768px) {
-  .mainContainer{
+  .mainContainer {
     @include screen768;
-    .educationHeaderContent{
-      .headingParagraph{
+
+    .educationHeaderContent {
+      .headingParagraph {
         width: 90%;
       }
     }
 
-    .educationCoursesCards{
+    .educationCoursesCards {
       grid-template-columns: 1fr;
     }
   }
 }
 
 @media screen and (max-width: 500px) {
-  .mainContainer{
+  .mainContainer {
     @include screen500;
-    .educationCoursesCards{
-      .educationTitle{
+
+    .educationCoursesCards {
+      .educationTitle {
         font-size: 28px;
         line-height: 26px;
         letter-spacing: -0.2px;
       }
     }
 
-    p{
+    p {
       font-weight: 500;
       font-size: 16px;
       line-height: 130%;
     }
-    .educationHeaderContent{
+
+    .educationHeaderContent {
       padding: 30px 0 60px;
 
-      .headingParagraph{
+      .headingParagraph {
         font-size: 26px;
         line-height: 26px;
         letter-spacing: -1.09524px;
       }
-      .paragraph{
+
+      .paragraph {
         font-weight: 600;
         font-size: 14px;
         line-height: 140%;
         color: $blue-black;
       }
     }
-    .educationCoursesCards{
-      .educationTitle{
+
+    .educationCoursesCards {
+      .educationTitle {
         margin-top: 0;
       }
     }
-    .educationBenefits{
-      .benefitsTitle{
+
+    .educationBenefits {
+      .benefitsTitle {
         font-size: 28px;
         line-height: 26px;
         letter-spacing: -0.2px;
         margin: 0;
       }
-      .benefitsList{
-        .benefitsListItem{
+
+      .benefitsList {
+        .benefitsListItem {
           text-align: left;
           padding: 30px 0 0 0;
-          &:first-child{
+
+          &:first-child {
             padding-top: 30px;
           }
-          img{
+
+          img {
             float: left;
             margin-right: 20px;
             margin-bottom: 90px
           }
-          h5{
+
+          h5 {
             text-align: left;
             margin: 0;
           }
-          p{
+
+          p {
             text-align: left;
             padding: 0;
             margin-top: 20px;
@@ -293,8 +326,63 @@
     }
   }
 }
+
 @media screen and (max-width: 375px) {
-  .mainContainer{
+  .mainContainer {
     @include screen400;
   }
+}
+
+@media print {
+  .mainContainer {
+    .educationCoursesCards{
+      .educationTitle{
+        color: $blue;
+        font-size: 25px;
+        padding: 10px;
+      }
+    }
+    .educationBenefits{
+      .benefitsTitle{
+        color: $blue;
+        font-size: 25px;
+        padding: 10px;
+      }
+      .benefitsList{
+        //grid-template-columns: none;
+
+        .benefitsListItem{
+          p{
+            //padding: 1px;
+            //text-align: left;
+            //padding: 0;
+          }
+
+        }
+      }
+    }
+
+    .educationHeaderContent {
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0;
+
+      .headingParagraph {
+        color: $blue;
+        width: 100%;
+        font-size: 35px;
+        margin: 20px 0;
+      }
+
+      .orangeElement {
+        display: none;
+      }
+
+      .paragraph {
+        width: 100%;
+        margin: 18px 0;
+      }
+    }
+  }
+
 }
