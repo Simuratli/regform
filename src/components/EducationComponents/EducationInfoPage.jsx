@@ -12,7 +12,10 @@ import YouTube from "react-youtube";
 import shortid from 'shortid';
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-import CoursePricePlan from "./CoursePricePlan";
+import PaidCard from "./PricePlanCards/PaidCard";
+import FreeCard from "./PricePlanCards/FreeCard";
+import PaidCardMobile from "./PricePlanCards/PaidCardMobile";
+import FreeCardMobile from "./PricePlanCards/FreeCardMobile";
 
 const EducationInfoPage = ({education}) => {
 
@@ -42,7 +45,6 @@ const EducationInfoPage = ({education}) => {
     } = education;
 
     const intro = introVideoUrl.split("v=")[1].split("&")[0]
-
 
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
@@ -140,9 +142,11 @@ const EducationInfoPage = ({education}) => {
                             />
                             <div className={"attentionBlock"}>
                                 <h3>Please pay attention.</h3>
-                                <p style={{marginBottom: "10px"}}>The course is available in Russian. English version is coming soon. </p>
+                                <p style={{marginBottom: "10px"}}>The course is available in Russian. English version is
+                                    coming soon. </p>
                                 <p>If you want to be notified about the launch of training in English,
-                                    contact us: <a className={"attentionLink"} href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
+                                    contact us: <a className={"attentionLink"}
+                                                   href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
                             </div>
                             {educationAccessStatus.coursePermissionState === "Allowed"
                                 ?
@@ -230,7 +234,8 @@ const EducationInfoPage = ({education}) => {
                         <div className={"certificateTextContent"}>
                             <h4>Stand ahead of other competitors!</h4>
                             <p>{courseCertificateForPagePreview.description}</p>
-                            <p style={{fontWeight: "400", fontSize: "14px"}}>You will get this certificate if you choose the "mentor" option
+                            <p style={{fontWeight: "400", fontSize: "14px"}}>You will get this certificate if you choose
+                                the "mentor" option
                                 in the paid version or if you complete a free course
                                 with further employment at UDS.</p>
                         </div>
@@ -252,7 +257,32 @@ const EducationInfoPage = ({education}) => {
                         )}
                     </ul>
                 </section>
-                <CoursePricePlan pricePlans={pricePlans}/>
+
+
+                <section className={"pricePlan"} id={'takeCourse'}>
+                    <h2>Price plans</h2>
+                    <ul className={"paidCardsContainer"}>
+                        {
+                            pricePlans.map((plan) => plan.price > 0
+                                ? <li className={"paidCard"}><PaidCard coursePlan={plan} pricePlans={pricePlans}/></li>
+                                : <li className={"paidCard"}><FreeCard coursePlan={plan}/></li>)
+                        }
+                    </ul>
+                </section>
+                <section className={"pricePlanMobile"} id={'takeCourseMobile'} name="takeCourse">
+                    <h2>Price plans</h2>
+                    <ul className={"paidCardsContainer"}>
+                        {
+                            pricePlans.map((plan) => plan.price > 0
+                                ? <li className={"paidCard"}><PaidCardMobile coursePlanMobile={plan} pricePlans={pricePlans}/></li>
+                                : <li className={"paidCard"}><FreeCardMobile coursePlanMobile={plan}/></li>)
+                        }
+                    </ul>
+                </section>
+
+
+                {/*<CoursePricePlan pricePlans={pricePlans}/>*/}
+
                 <section className={"educationFAQ"}>
                     <h2>FAQ</h2>
                     <div className={"questionList"}>

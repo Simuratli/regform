@@ -76,7 +76,6 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                             selectedFile.name.length > 35 ?
                                                 <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
                                                 <div className="success">{selectedFile.name}</div>
-
                                         ) : (
                                             <div className="default">Use PDF or DOCX format</div>
                                         )}

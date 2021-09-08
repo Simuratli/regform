@@ -3,16 +3,16 @@ import { NavLink, useParams } from "react-router-dom";
 import  { useSelector } from "react-redux";
 import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModal";
 
-const GetAccessButton = ({isPaid, price}) => {
+const GetAccessButton = ({isPaid, price, currentPlanAccessStatus}) => {
 
-    const { educationAccessStatus} = useSelector(({education}) => education);
+    const {slug} = useParams();
     const [active, setActive] = useState(false);
+
     const handleOpenModal = (e) => {
         setActive(true);
     }
-    const {slug} = useParams();
 
-    switch (educationAccessStatus.coursePermissionState) {
+    switch (currentPlanAccessStatus) {
         case "Forbidden" :
             return (
                 <>
