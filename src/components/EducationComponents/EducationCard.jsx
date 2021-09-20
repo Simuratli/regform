@@ -2,6 +2,7 @@ import React from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
 
+
 const EducationCard = ({educationCard}) => {
     const {
         name = "",
@@ -10,12 +11,21 @@ const EducationCard = ({educationCard}) => {
         courseSubject = "",
         shortDescription,
         coursePermissionState = "",
+        coursePricePlanForPermissions,
         cardLogo: {
             imageSource = "",
             alternateText = "",
         },
 
     } = educationCard;
+
+    let accessStatus = false;
+
+    coursePricePlanForPermissions.forEach(item => {
+        if(item.coursePermissionState === "Allowed") {
+            accessStatus = true;
+        }
+    })
 
     return (
         <>
@@ -27,7 +37,7 @@ const EducationCard = ({educationCard}) => {
                         <p>{shortDescription}</p>
                         <div className={"cardBottomInfo"}>
                             <div className={"courseButtons"}>
-                                {coursePermissionState === "Allowed" &&
+                                {accessStatus === true &&
                                 <NavLink to={"/education/" + slug + "/video-course"}>
                                     <button className={"watchCourseButton"}>Watch course</button>
                                 </NavLink>
