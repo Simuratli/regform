@@ -29,7 +29,7 @@ const GetAccessButton = ({isPaid, price, currentPlanAccessStatus, currentPricePl
             return  <button className={"pendingButton"}>In pending...</button>
         case "Allowed":
             return (
-                <NavLink to={"/education/" + slug + "/free-course"}>
+                <NavLink to={"/education/" + slug + "/video-course"}>
                     {/*<button className={"getAccessButton"}>Watch course</button>*/}
                     <button className={"getAccessButton watchButton"}>Watch course</button>
                 </NavLink>

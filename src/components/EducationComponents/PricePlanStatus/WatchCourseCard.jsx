@@ -11,7 +11,7 @@ const WatchCourseCard = () => {
                 <h3 className={"statusTitle watchTitle"}>Activate the study mode!</h3>
                 <p className={"statusParagraph watchParagraph"}>Your access to the course has been
                     successfully verified.</p>
-                <NavLink to={"/education/" + slug + "/free-course"}>
+                <NavLink to={"/education/" + slug + "/video-course"}>
                     <button className={"getAccessButton watchButton"}>Watch course</button>
                 </NavLink>
             </div>

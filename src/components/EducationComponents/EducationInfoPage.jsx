@@ -150,7 +150,7 @@ const EducationInfoPage = ({education}) => {
                             </div>
                             {educationAccessStatus.coursePermissionState === "Allowed"
                                 ?
-                                <NavLink to={"/education/" + slug + "/free-course"}>
+                                <NavLink to={"/education/" + slug + "/video-course"}>
                                     <button className={"watchCourseButton"}>Watch course</button>
                                 </NavLink>
                                 :
