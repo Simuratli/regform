@@ -1,17 +1,18 @@
 import authentication from "../b2c";
 import axios from "axios";
+import environment from "../environment";
 
 const { accessToken } = authentication.getAccessToken();
 
-const BASE_URL =
-    process.env.NODE_ENV === "development"
-        ? "http://localhost:5000/api/v1/"
-        : `https://my-uds-systems-website-development.azurewebsites.net/api/v1/`;
+// const BASE_URL =
+//     process.env.NODE_ENV === "development"
+//         ? "http://localhost:5000/api/v1/"
+//         : `https://my-uds-systems-website-development.azurewebsites.net/api/v1/`;
 
 // const BASE_URL = `https://my.uds.systems/api/v1/`;
 
 const httpClient = axios.create({
-    baseURL: BASE_URL,
+    baseURL: environment.BASE_URL,
     headers: {
         Authorization: `Bearer ${accessToken}`,
     }
