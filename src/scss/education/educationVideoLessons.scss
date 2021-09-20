@@ -94,19 +94,7 @@
               height: 1em;
               text-align: center;
               transition: all .35s;
-              //position: absolute;
-              //right: 20px;
             }
-            //.totalVideoDuration{
-            //  display: grid;
-            //  grid-template-columns: 1fr 1fr;
-            //  font-size: 14px;
-            //  line-height: 120%;
-            //  font-weight: 400;
-            //  .sumDuration{
-            //    justify-self: end;
-            //  }
-            //}
           }
 
           &-content {
@@ -427,10 +415,19 @@
 @media screen and (max-width: 415px) {
   .educationVideoComponent {
     @include screen400;
+  }
+}
 
-    .mobileVideoBlocks {
-      .tabBar {
-        //grid-template-columns: repeat(2, 1fr);
+@media print {
+  .educationVideoComponent{
+    .generalHeadingParagraph{
+      color: $blue;
+      font-size: 35px;
+    }
+    .videoContent{
+      grid-template-columns: 1fr;
+      .rightBar{
+        display: none;
       }
     }
   }

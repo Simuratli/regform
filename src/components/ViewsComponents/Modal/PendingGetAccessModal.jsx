@@ -11,7 +11,7 @@ import FreeGetAccessModalConsultant from "./FreeGetAccessModalConsultant";
 import FreeGetAccessModalDeveloper from "./FreeGetAccessModalDeveloper";
 
 
-const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
+const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePlanId}) => {
     const dispatch = useDispatch();
     const {slug} = useParams();
     const {
@@ -26,13 +26,13 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
         dispatch(getUserData());
     }, []);
 
-
     let paymentData = {
         "firstName": firstName,
         "lastName": lastName,
         "email": email,
         "courseSlug": slug,
-        "paymentMessage": price?.toString()
+        "paymentMessage": price?.toString(),
+        "coursePricePlanId": currentPricePlanId
     }
 
 
@@ -44,6 +44,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
     //just close modal without changing status
     const closeModal = () => {
         setActive(false)
+        window.localStorage.removeItem('currentPricePlanId')
     }
 
     const inputDataChange = (e) => {
@@ -93,8 +94,8 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price}) => {
             :
             <>
                 {slug === "ms-dynamics-365-consultant" ?
-                    <FreeGetAccessModalConsultant email={email} active={active} setActive={setActive}/> :
-                    <FreeGetAccessModalDeveloper email={email} active={active} setActive={setActive}/>
+                    <FreeGetAccessModalConsultant email={email} active={active} setActive={setActive} currentPricePlanId={currentPricePlanId}/> :
+                    <FreeGetAccessModalDeveloper email={email} active={active} setActive={setActive} currentPricePlanId={currentPricePlanId}/>
                 }
             </>
 

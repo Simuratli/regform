@@ -12,10 +12,10 @@ import YouTube from "react-youtube";
 import shortid from 'shortid';
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-import PaidCard from "./PricePlanCards/PaidCard";
-import FreeCard from "./PricePlanCards/FreeCard";
-import PaidCardMobile from "./PricePlanCards/PaidCardMobile";
-import FreeCardMobile from "./PricePlanCards/FreeCardMobile";
+import PaidCard from "./PricePlanStatus/PaidCard";
+import FreeCard from "./PricePlanStatus/FreeCard";
+import PaidCardMobile from "./PricePlanStatus/PaidCardMobile";
+import FreeCardMobile from "./PricePlanStatus/FreeCardMobile";
 
 const EducationInfoPage = ({education}) => {
 
@@ -32,7 +32,6 @@ const EducationInfoPage = ({education}) => {
         },
         courseRightBar: {
             courseSubject = "",
-            courseFormat = "",
             language = "",
             courseDuration: {
                 theory = 0
@@ -51,6 +50,7 @@ const EducationInfoPage = ({education}) => {
     }, [header]);
 
     const {educationAccessStatus} = useSelector(({education}) => education);
+    pricePlans.sort((a, b) => (a.price > b.price ? 1 : b.price > a.price ? -1 : 0))
 
     return (
         <>
@@ -257,8 +257,6 @@ const EducationInfoPage = ({education}) => {
                         )}
                     </ul>
                 </section>
-
-
                 <section className={"pricePlan"} id={'takeCourse'}>
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
@@ -279,10 +277,6 @@ const EducationInfoPage = ({education}) => {
                         }
                     </ul>
                 </section>
-
-
-                {/*<CoursePricePlan pricePlans={pricePlans}/>*/}
-
                 <section className={"educationFAQ"}>
                     <h2>FAQ</h2>
                     <div className={"questionList"}>

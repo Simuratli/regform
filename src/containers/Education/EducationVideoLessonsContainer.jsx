@@ -17,10 +17,22 @@ const EducationVideoLessonsContainer = () => {
         dispatch(getEducationVideoLessons(slug));
     }, [slug]);
 
-    if(!isEmpty(educationAccessStatus) && educationAccessStatus.coursePermissionState !== 'Allowed'){
-        return <Redirect to={"/education/"+slug} />
-        // return <ErrorComponent />
+    let accessStatus = false;
+
+    !isEmpty(educationAccessStatus) && educationAccessStatus.forEach(item => {
+        if(item.coursePermissionState === "Allowed") {
+            accessStatus = true;
+        }
+    })
+
+    if(!accessStatus){
+        return <Redirect to={"/education/" + slug} />
     }
+
+    // if(!isEmpty(educationAccessStatus) && educationAccessStatus.coursePermissionState !== 'Allowed'){
+    //     return <Redirect to={"/education/" + slug} />
+    //     // return <ErrorComponent />
+    // }
     return (
         <div style={{minHeight: "70vh"}}>
             {!isEmpty(educationVideoLessons) && (

@@ -47,6 +47,7 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
     //just close modal without changing status
     const closeModal = () => {
         setActive(false)
+        window.localStorage.removeItem('currentPricePlanId')
     }
 
     return (

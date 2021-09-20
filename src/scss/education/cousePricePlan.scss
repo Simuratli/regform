@@ -50,12 +50,14 @@
 
   .pendingButton {
     background: $dark-bg;
-    position: relative;
     z-index: 100;
     transition: all ease-in-out .5s;
     color: $education-text-color;
     box-shadow: none;
     cursor: auto;
+    position: absolute;
+    bottom: 20px;
+    transform: translate(-50%, -50%)
   }
 
   .pendingButton, .watchButton {

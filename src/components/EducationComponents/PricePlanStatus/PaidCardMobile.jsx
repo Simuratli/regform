@@ -23,14 +23,14 @@ const PaidCardMobile = ({coursePlanMobile, pricePlans}) => {
     const {educationAccessStatus} = useSelector(({education}) => education);
     const currentPlanAccessStatus = educationAccessStatus.filter(statusItem => statusItem.pricePlanId === coursePlanMobile.pricePlanId)[0]
 
-    return(
+    return (
         <>
             <div className={"priceTitleBlock"}>
                 <div className={"paidCardHeader"}>
                     <h3 className={"title paid"}>PAID</h3>
                     {
                         slug === "ms-dynamics-365-developer" ?
-                            <p style={{opacity: "0"}}>Online</p>:
+                            <p style={{opacity: "0"}}>Online</p> :
                             <p className={"format paid"}>Online</p>
                     }
 
@@ -98,7 +98,9 @@ const PaidCardMobile = ({coursePlanMobile, pricePlans}) => {
             {
                 slug === "ms-dynamics-365-developer" ?
                     <button className={"comingSoonButton"}>Coming soon</button> :
-                    <GetAccessButton isPaid={true} price={totalPrice} currentPlanAccessStatus={currentPlanAccessStatus.coursePermissionState}/>
+                    <GetAccessButton isPaid={true} price={totalPrice}
+                                     currentPlanAccessStatus={currentPlanAccessStatus.coursePermissionState}
+                                     currentPricePlanId={currentPlanAccessStatus.pricePlanId}/>
             }
         </>
     )

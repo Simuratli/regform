@@ -729,6 +729,17 @@ ul {
         bottom: 20px;
         transform: translate(-50%, -50%)
       }
+
+      .pendingButton{
+        position: absolute;
+        bottom: 20px;
+        transform: translate(-50%, -50%);
+        cursor: text;
+        box-shadow: none;
+        color: $education-text-color;
+        width: 170px;
+        height: 40px;
+      }
       .comingSoonButton{
         position: absolute;
         bottom: 20px;
@@ -1569,7 +1580,7 @@ ul {
         margin: 20px auto;
       }
 
-      .getAccessButton {
+      .getAccessButton, .pendingButton {
         max-width: 370px;
         width: 100%;
         margin-bottom: 20px;

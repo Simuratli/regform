@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {sendCvAndChangeAccessStatus} from "../../../store/reducers/educationReducer/actions/educationSendCvAndChangeAccessStatusAction";
 import {useParams} from "react-router-dom";
 
-const FreeGetAccessModalConsultant = ({email, active, setActive}) => {
+const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePlanId}) => {
     const dispatch = useDispatch();
     const {slug} = useParams();
     const [selectedFile, setSelectedFile] = useState();
@@ -37,6 +37,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive}) => {
     //just close modal without changing status
     const closeModal = () => {
         setActive(false)
+        window.localStorage.removeItem('currentPricePlanId')
     }
 
     return (

@@ -23,9 +23,7 @@ const PaidCard = ({coursePlan, pricePlans}) => {
             setTotalPrice(totalPrice - Number.parseInt(price))
         }
     }
-
-
-    return(
+    return (
         <>
             <div className={"paidCardHeader"}>
                 <h3 className={"title paid"}>PAID</h3>
@@ -82,11 +80,13 @@ const PaidCard = ({coursePlan, pricePlans}) => {
             {
                 slug === "ms-dynamics-365-developer" ?
                     <button className={"comingSoonButton"}>Coming soon</button> :
-                    <GetAccessButton isPaid={true} price={totalPrice} currentPlanAccessStatus={currentPlanAccessStatus.coursePermissionState}/>
+                    <GetAccessButton isPaid={true} price={totalPrice} currentPlanAccessStatus={currentPlanAccessStatus.coursePermissionState}
+                                     currentPricePlanId={currentPlanAccessStatus.pricePlanId}/>
             }
 
         </>
-        )
+    )
+
 }
 
 export default PaidCard;
