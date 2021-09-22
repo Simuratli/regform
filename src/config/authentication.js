@@ -1,8 +1,5 @@
 import authentication from '../b2c';
-
-const redirectUri = process.env.NODE_ENV === 'production'
-    ? `https://my-uds-systems-website-development.azurewebsites.net`
-    : 'http://localhost:6420'
+import environment from "../environment";
 
 authentication.initialize({
     instance: 'https://udscustomersdirectory.b2clogin.com/tfp/',
@@ -16,6 +13,6 @@ authentication.initialize({
         'https://udscustomersdirectory.onmicrosoft.com/uds-portal/prod/write',
         'https://udscustomersdirectory.onmicrosoft.com/uds-portal/prod/read'
     ],
-    redirectUri,
-    postLogoutRedirectUri: redirectUri
+    redirectUri: environment.REDIRECT_URI,
+    postLogoutRedirectUri: environment.REDIRECT_URI
 });

@@ -1,16 +1,26 @@
-const environment = {
-    BASE_URL: "http://localhost:5000/api/v1/"
-};
+const environment = (() => {
+    switch (process.env.REACT_APP_ENV) {
+        case "development":
+            return {
+                BASE_URI: 'http://localhost:5000/api/v1/',
+                REDIRECT_URI: 'http://localhost:6420'
+            };
 
-if (process.env.REACT_APP_ENV === "development") {
-    environment.BASE_URL = "http://localhost:5000/api/v1/";
-}
+        case "production":
+            return {
+                BASE_URI: 'https://my.uds.systems/api/v1/',
+                REDIRECT_URI: 'https://my.uds.systems'
+            };
 
-if (process.env.REACT_APP_ENV === "production") {
-    environment.BASE_URL = "https://my.uds.systems/api/v1/";
-}
-if (process.env.REACT_APP_ENV === "stage") {
-    environment.BASE_URL = "https://my-uds-systems-website-development.azurewebsites.net/api/v1/";
-}
+        case "stage":
+            return {
+                BASE_URI: 'https://my-uds-systems-website-development.azurewebsites.net/api/v1/',
+                REDIRECT_URI: 'https://my-uds-systems-website-development.azurewebsites.net/'
+            };
+
+        default:
+            throw new Error("No valid environment");
+    }
+})();
 
 export default environment;
