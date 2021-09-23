@@ -6,20 +6,26 @@ const environment = (() => {
     switch (process.env.REACT_APP_ENV) {
         case DEVELOPMENT_ENVIRONMENT:
             return {
-                BASE_URI: 'http://localhost:5000/api/v1/',
+                BASE_URL: 'http://localhost:5000/api/v1/',
                 REDIRECT_URI: 'http://localhost:6420'
             };
 
         case PRODUCTION_ENVIRONMENT:
             return {
-                BASE_URI: 'https://my.uds.systems/api/v1/',
+                BASE_URL: 'https://my.uds.systems/api/v1/',
                 REDIRECT_URI: 'https://my.uds.systems'
             };
 
         case STAGE_ENVIRONMENT:
             return {
-                BASE_URI: 'https://my-uds-systems-website-development.azurewebsites.net/api/v1/',
+                BASE_URL: 'https://my-uds-systems-website-development.azurewebsites.net/api/v1/',
                 REDIRECT_URI: 'https://my-uds-systems-website-development.azurewebsites.net/'
+            };
+
+        case undefined:
+            return {
+                BASE_URL: 'http://localhost:5000/api/v1/',
+                REDIRECT_URI: 'http://localhost:6420'
             };
 
         default:
