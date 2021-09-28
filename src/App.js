@@ -44,9 +44,6 @@ const App = () => {
         ReactPixel.pageView();
     }, []);
 
-    // if (!isEmpty(error)){
-    //     return <ErrorComponent/>
-    // }
 
     return userAuth ? (
         <div className={"generalWrapper"}>
@@ -66,7 +63,7 @@ const App = () => {
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/education"} exact component={EducationCardsPage}/>
                     <Route path={"/education/:slug"} exact component={EducationInfoPageContainer}/>
-                    <Route path={"/education/:slug/video-course"} exact component={EducationVideoLessonsContainer}/>
+                    <Route path={"/education/:slug/:courseID"} exact component={EducationVideoLessonsContainer}/>
                     <Route path={"my-ticket"} exact component={TicketStartPageContainer}/>
                     <Route path={"my-ticket/ticket-list"} exact component={TicketList}/>
                     <Route path={"my-ticket/:slug"} exact component={TicketDetails}/>

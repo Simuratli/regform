@@ -1,6 +1,5 @@
 import React, {useState} from "react"
 import {NavLink, useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
 import PendingGetAccessModal from "../ViewsComponents/Modal/PendingGetAccessModal";
 
 const GetAccessButton = ({isPaid, price, currentPlanAccessStatus, currentPricePlanId}) => {
@@ -25,12 +24,10 @@ const GetAccessButton = ({isPaid, price, currentPlanAccessStatus, currentPricePl
                 </>
             )
         case "Pending" :
-            // return <button className={"getAccessButton"}>Pending for access</button>
             return  <button className={"pendingButton"}>In pending...</button>
         case "Allowed":
             return (
-                <NavLink to={"/education/" + slug + "/video-course"}>
-                    {/*<button className={"getAccessButton"}>Watch course</button>*/}
+                <NavLink to={"/education/" + slug + "/" + currentPricePlanId}>
                     <button className={"getAccessButton watchButton"}>Watch course</button>
                 </NavLink>
             )

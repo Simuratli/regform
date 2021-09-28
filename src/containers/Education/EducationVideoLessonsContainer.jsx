@@ -29,10 +29,6 @@ const EducationVideoLessonsContainer = () => {
         return <Redirect to={"/education/" + slug} />
     }
 
-    // if(!isEmpty(educationAccessStatus) && educationAccessStatus.coursePermissionState !== 'Allowed'){
-    //     return <Redirect to={"/education/" + slug} />
-    //     // return <ErrorComponent />
-    // }
     return (
         <div style={{minHeight: "70vh"}}>
             {!isEmpty(educationVideoLessons) && (

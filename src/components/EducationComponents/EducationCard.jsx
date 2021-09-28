@@ -10,7 +10,6 @@ const EducationCard = ({educationCard}) => {
         duration = 0,
         courseSubject = "",
         shortDescription,
-        coursePermissionState = "",
         coursePricePlanForPermissions,
         cardLogo: {
             imageSource = "",
@@ -20,10 +19,12 @@ const EducationCard = ({educationCard}) => {
     } = educationCard;
 
     let accessStatus = false;
+    let allowedPricePlanId = '';
 
     coursePricePlanForPermissions.forEach(item => {
         if(item.coursePermissionState === "Allowed") {
             accessStatus = true;
+            allowedPricePlanId = item.pricePlanId
         }
     })
 
@@ -38,7 +39,7 @@ const EducationCard = ({educationCard}) => {
                         <div className={"cardBottomInfo"}>
                             <div className={"courseButtons"}>
                                 {accessStatus === true &&
-                                <NavLink to={"/education/" + slug + "/video-course"}>
+                                <NavLink to={"/education/" + slug + "/" + allowedPricePlanId}>
                                     <button className={"watchCourseButton"}>Watch course</button>
                                 </NavLink>
                                 }
