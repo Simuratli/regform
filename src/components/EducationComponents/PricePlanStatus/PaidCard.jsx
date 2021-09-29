@@ -47,6 +47,8 @@ const PaidCard = ({coursePlan, pricePlans}) => {
             <div key={shortid.generate()}
                  dangerouslySetInnerHTML={{__html: coursePlan.description}}>
             </div>
+
+
             <div key={shortid.generate()}
                  dangerouslySetInnerHTML={{__html: coursePlan.checkPoints}}>
             </div>

@@ -458,7 +458,7 @@ ul {
       border: 10px solid #FCFDFF;
       width: 100%;
       max-width: 558px;
-      height: 800px;
+      height: 842px;
       margin: auto;
       text-align: center;
       padding: 40px 30px;
@@ -524,7 +524,7 @@ ul {
 
 
       .description {
-        margin: 30px 0;
+        margin: 65px 0 30px;
         font-weight: 500;
         font-size: 16px;
         line-height: 140%;
@@ -724,22 +724,22 @@ ul {
         }
       }
 
-      .getAccessButton {
-        position: absolute;
-        bottom: 20px;
-        transform: translate(-50%, -50%)
-      }
+      //.getAccessButton {
+      //  position: absolute;
+      //  bottom: 20px;
+      //  transform: translate(-50%, -50%)
+      //}
 
-      .pendingButton{
-        position: absolute;
-        bottom: 20px;
-        transform: translate(-50%, -50%);
-        cursor: text;
-        box-shadow: none;
-        color: $education-text-color;
-        width: 170px;
-        height: 40px;
-      }
+      //.pendingButton{
+      //  position: absolute;
+      //  bottom: 20px;
+      //  transform: translate(-50%, -50%);
+      //  cursor: text;
+      //  box-shadow: none;
+      //  color: $education-text-color;
+      //  width: 170px;
+      //  height: 40px;
+      //}
       .comingSoonButton{
         position: absolute;
         bottom: 20px;

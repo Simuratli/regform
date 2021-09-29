@@ -12,10 +12,9 @@ import YouTube from "react-youtube";
 import shortid from 'shortid';
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
-import PaidCard from "./PricePlanStatus/PaidCard";
-import FreeCard from "./PricePlanStatus/FreeCard";
 import PaidCardMobile from "./PricePlanStatus/PaidCardMobile";
 import FreeCardMobile from "./PricePlanStatus/FreeCardMobile";
+import PaymentCard from "./PricePlanStatus/PaymentCard";
 
 const EducationInfoPage = ({education}) => {
 
@@ -141,6 +140,7 @@ const EducationInfoPage = ({education}) => {
                                 }}
                             />
                             <div className={"attentionBlock"}>
+
                                 <h3>Please pay attention.</h3>
                                 <p style={{marginBottom: "10px"}}>The course is available only in Russian. English version is
                                     coming soon. </p>
@@ -261,9 +261,9 @@ const EducationInfoPage = ({education}) => {
                     <h2>Price plans</h2>
                     <ul className={"paidCardsContainer"}>
                         {
-                            pricePlans.map((plan) => plan.price > 0
-                                ? <li className={"paidCard"}><PaidCard coursePlan={plan} pricePlans={pricePlans}/></li>
-                                : <li className={"paidCard"}><FreeCard coursePlan={plan}/></li>)
+                            pricePlans.map((plan) =>
+                                <li className={"paidCard"}><PaymentCard plan={plan}/></li>
+                            )
                         }
                     </ul>
                 </section>
