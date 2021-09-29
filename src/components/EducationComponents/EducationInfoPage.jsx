@@ -139,15 +139,26 @@ const EducationInfoPage = ({education}) => {
                                     },
                                 }}
                             />
-                            <div className={"attentionBlock"}>
+                            {
+                                slug === "ms-dynamics-365-consultant" ?
+                                    <div className={"attentionBlock"}>
+                                        <h3>Please pay attention.</h3>
+                                        <p style={{marginBottom: "10px"}}>The course is available only in Russian. English version is
+                                            coming soon. </p>
+                                        <p>If you want to be notified about the launch of training in English,
+                                            contact us: <a className={"attentionLink"}
+                                                           href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
+                                    </div> :
+                                    <div className={"attentionBlock"}>
+                                        <h3>Please pay attention.</h3>
+                                        <p style={{marginBottom: "10px"}}>The part of course is available only in Russian. English version is
+                                            coming soon. </p>
+                                        <p>If you want to be notified about the launch of training in English,
+                                            contact us: <a className={"attentionLink"}
+                                                           href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
+                                    </div>
+                            }
 
-                                <h3>Please pay attention.</h3>
-                                <p style={{marginBottom: "10px"}}>The course is available only in Russian. English version is
-                                    coming soon. </p>
-                                <p>If you want to be notified about the launch of training in English,
-                                    contact us: <a className={"attentionLink"}
-                                                   href={"mailto:portal@uds.systems"}>portal@uds.systems.</a></p>
-                            </div>
                             {educationAccessStatus.coursePermissionState === "Allowed"
                                 ?
                                 <NavLink to={"/education/" + slug + "/video-course"}>
