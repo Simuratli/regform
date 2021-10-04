@@ -14,7 +14,7 @@ const EducationVideoLessons = ({education}) => {
     } = education;
 
     useEffect(() => {
-        document.title = `Free course | ${courseName} | Education | UDS Portal`;
+        document.title = `Video course | ${courseName} | Education | UDS Portal`;
     }, [courseName]);
 
     courseForPageBlockSections.sort((a, b) =>
