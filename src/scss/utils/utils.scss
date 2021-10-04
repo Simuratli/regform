@@ -97,6 +97,7 @@ button {
   width: 100%;
   height: 40px;
   transition: all .3s ease-in-out;
+  border-radius: 5px;
 }
 
 .watchCourseButton, .getAccessButton, .openButton, .takeCourseButton, .downloadButton,  .downloadFileButton, .downloadFileButtonCard{
@@ -149,7 +150,7 @@ button {
   height: 40px;
 }
 
-.moreInfoButton {
+.moreInfoButton, .goToWebsiteButton {
   border: 2px solid $orange;
   background-color: #ffffff;
   color: $orange;

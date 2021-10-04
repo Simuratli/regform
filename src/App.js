@@ -25,6 +25,7 @@ import AddonFullPageContainer from "./containers/Addons/AddonFullPageContainer";
 import Footer from "./components/NavigationComponents/Footer";
 import TicketChat from "./components/MyTicketComponents/TicketChat/TicketChat";
 import {getAuthoriseCheck} from "./store/reducers/userDataReducer/actions/userAuthorizeCheckAction";
+import WhatsappButton from "./components/ViewsComponents/WhatsappButton";
 
 
 const App = () => {
@@ -52,6 +53,7 @@ const App = () => {
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen}/>}
             <Cookie/>
+            <WhatsappButton/>
             {isEmpty(error)
                 ?
                 <Switch>

@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-top: 109px;
 }
 
 .carousel-root .carousel .control-dots .dot {
@@ -105,6 +106,11 @@
     padding: 0 113px;
   }
 }
+@media screen and (max-width: 1000px) {
+  .generalWrapper {
+   margin-top: 83px;
+  }
+}
 @media screen and (max-width: 880px) {
   .cookieContainer {
     padding: 0 78px;
@@ -116,6 +122,9 @@
   }
   .mobileNotification {
     display: block;
+  }
+  .generalWrapper {
+    margin-top: 60px;
   }
 }
 @media only screen and (max-width: 600px) {
