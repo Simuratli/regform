@@ -1,4 +1,4 @@
-import {NavLink, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import oldPrice from "../../../assets/images/education/old_price.svg";
 import shortid from "shortid";

@@ -28,7 +28,7 @@ const GetAccessButton = ({isPaid, price, currentPlanAccessStatus, currentPricePl
         case "Allowed":
             return (
                 <NavLink to={"/education/" + slug + "/" + currentPricePlanId}>
-                    <button className={"getAccessButton watchButton"}>Watch course</button>
+                    <button className={"watchCourseButton"}>Watch course</button>
                 </NavLink>
             )
         default:
