@@ -37,6 +37,9 @@
       width: 100%;
     }
   }
+  .addOn{
+    text-transform: capitalize;
+  }
 
   .mail, .phone, .skype {
     display: flex;
@@ -56,6 +59,7 @@
 
   .userMail {
     color: $blue;
+    cursor: text;
   }
 }
 

@@ -26,7 +26,7 @@ export const DropDownAddonList = ({isOpen}) => {
             <div className={isOpen ? 'dropdownList open' : 'dropdownList'}>
                 {
                     cards.map((item, index) => (
-                            <NavLink className={"dropdownItem"} to={"/add-ons/" + item.slug}>
+                            <NavLink className={"dropdownItem addOn"} to={"/add-ons/" + item.slug}>
                                 {item.name}
                             </NavLink>
                     ))
