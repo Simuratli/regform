@@ -48,7 +48,7 @@ const App = () => {
 
     return userAuth ? (
         <div className={"generalWrapper"}>
-            <ScrollArrow/>
+            {/*<ScrollArrow/>*/}
             <MainNavigation setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             <SideDrawer setSideDrawerOpen={setSideDrawerOpen} sideDrawerOpen={sideDrawerOpen}/>
             {sideDrawerOpen && <Backdrop setSideDrawerOpen={setSideDrawerOpen}/>}

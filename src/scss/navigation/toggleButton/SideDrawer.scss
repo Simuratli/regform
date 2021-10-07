@@ -1,7 +1,7 @@
 @import "../../utils/utils";
 
 .sideDrawer {
-  height: 270px;
+  //height: 270px;
   background: white;
   position: fixed;
   top: 72px;
@@ -13,14 +13,18 @@
 
   ul {
     list-style: none;
-    display: flex;
-    flex-direction: column;
+    //display: flex;
+    //flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 25px;
     padding-left: 0;
+    //margin-bottom: 31px;
   }
 
   li {
     color: $orange;
-    margin: 1rem 0;
+    //margin: 1rem 0;
   }
 
   .active {
@@ -32,39 +36,72 @@
     line-height: 15px;
     font-weight: 700;
   }
-
-  .bookACall {
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
+  .contactList{
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
-    border: 1px solid $orange;
-    color: #ffffff;
-    background-color: $orange;
-    padding: 7px 12.3px;
-    transition: 0.2s;
-    letter-spacing: 0.5px;
-    z-index: 1000;
-    height: 30px;
-    width: 143px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='8' viewBox='0 0 19 8' fill='none'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M19 3.99069L15 0V3H0V5H15V8L17.993 5H18V4.99302L19 3.99069Z' fill='white'/%3E%3C/svg%3E");
-    background-position: 91%;
-    background-repeat: no-repeat;
+    color: $education-text-color;
+    margin: 0;
   }
+  .sideDrawerButtons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: baseline;
+    grid-gap: 14px;
+    .bookACall {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 700;
+      border: 1px solid $orange;
+      color: #ffffff;
+      background-color: $orange;
+      transition: 0.2s;
+      letter-spacing: 0.5px;
+      z-index: 1000;
+      height: 30px;
+      width: 117px;
+    }
+    .goToWebsiteButton{
+      height: 30px;
+      max-width: 166px;
+      width: 100%;
+      box-shadow: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      letter-spacing: 0.4px;
+    }
+  }
+
+
 
   .logOut {
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
     color: $education-text-color;
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.3fr 7fr 1fr;
+    align-items: center;
+    justify-items: flex-start;
+    width: 100%;
+    .userMail{
+      font-size: 12px;
+      line-height: 15px;
+      color: $blue;
+      margin: 0;
+    }
   }
 }
 
 .open {
   transform: translateX(0);
+  padding-bottom: 31px;
 }
 
 @media screen and (max-width: 1000px) {
