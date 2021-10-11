@@ -1,7 +1,6 @@
 @import "../../utils/utils";
 
 .sideDrawer {
-  //height: 270px;
   background: white;
   position: fixed;
   top: 72px;
@@ -10,21 +9,19 @@
   width: 100%;
   z-index: 10000;
   transform: translateX(-100%);
+  max-height: 80%;
+  overflow: auto;
 
   ul {
     list-style: none;
-    //display: flex;
-    //flex-direction: column;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 25px;
     padding-left: 0;
-    //margin-bottom: 31px;
   }
 
   li {
     color: $orange;
-    //margin: 1rem 0;
   }
 
   .active {

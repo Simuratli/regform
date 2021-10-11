@@ -8,17 +8,36 @@
   padding: 29px 0 50px;
   margin: auto;
 
+  //.backButton {
+  //  max-width: 248px;
+  //  font-weight: 600;
+  //  font-size: 18px;
+  //  line-height: 28px;
+  //  color: $card-text-color;
+  //  letter-spacing: -0.1px;
+  //  padding-left: 30px;
+  //  border: transparent;
+  //  outline: transparent;
+  //  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M16.0002 6.99813V8.99813H4.00016L9.50016 14.4981L8.08016 15.9181L0.160156 7.99813L8.08016 0.078125L9.50016 1.49813L4.00016 6.99813H16.0002Z' fill='%2361626A'/%3E%3C/svg%3E") no-repeat left center;
+  //  transition: all 0.3s ease-in;
+  //  box-shadow: none;
+  //
+  //  &:hover {
+  //    box-shadow: none;
+  //    text-decoration: underline;
+  //  }
+  //}
   .backButton {
     max-width: 248px;
     font-weight: 600;
     font-size: 18px;
     line-height: 28px;
-    color: $card-text-color;
-    letter-spacing: -0.1px;
+    color: $blue-black;
     padding-left: 30px;
+    letter-spacing: -0.1px;
     border: transparent;
     outline: transparent;
-    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16' fill='none'%3E%3Cpath d='M16.0002 6.99813V8.99813H4.00016L9.50016 14.4981L8.08016 15.9181L0.160156 7.99813L8.08016 0.078125L9.50016 1.49813L4.00016 6.99813H16.0002Z' fill='%2361626A'/%3E%3C/svg%3E") no-repeat left center;
+    background: transparent url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15 8.42612V6L9 12L15 18V15.5739L11.426 12L15 8.42612Z' fill='%231E2432'/%3E%3C/svg%3E%0A") no-repeat left center;
     transition: all 0.3s ease-in;
     box-shadow: none;
 

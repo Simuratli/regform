@@ -248,6 +248,19 @@
     @include screen880;
   }
 }
+@media only screen and (max-width: 812px) {
+  .navigationBar {
+    padding: 0;
+    height: 60px;
+  }
+  .fixedNavbar{
+    height: 60px;
+    .navigationBar {
+      padding: 0;
+      height: 60px;
+    }
+  }
+}
 
 @media screen and (max-width: 768px) {
   .headerLogo {
@@ -257,14 +270,6 @@
   .navigationBar {
     padding: 0;
     height: 60px;
-  }
-
-  .fixedNavbar{
-    height: 60px;
-    .navigationBar {
-      padding: 0;
-      height: 60px;
-    }
   }
 
 }
