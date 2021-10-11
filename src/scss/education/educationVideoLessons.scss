@@ -325,13 +325,14 @@
           }
 
           &-content {
-            max-height: 0;
+            //max-height: 0;
             //padding: 20px 0;
-            font-weight: 600;
-            font-size: 16px;
-            line-height: 140%;
-            color: $education-text-color;
-            transition: all .35s;
+            //font-weight: 600;
+            //font-size: 16px;
+            //line-height: 140%;
+            //color: $education-text-color;
+            //transition: all .35s;
+            display: none;
           }
 
           &-close {
@@ -363,6 +364,12 @@
           ~ .tab-content {
             max-height: 250vh;
             padding: 20px 0;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 140%;
+            color: $education-text-color;
+            transition: all .35s;
+            display: block;
           }
         }
 
