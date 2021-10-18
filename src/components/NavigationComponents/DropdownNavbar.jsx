@@ -9,6 +9,7 @@ import skype from "../../assets/images/footer_icons/skype.svg";
 import authentication from "../../b2c";
 import logout from "../../assets/images/exit.svg";
 import {getUserData} from "../../store/reducers/userDataReducer/actions/userDataAction";
+import whatsappIcon from "../../assets/images/whatsapp_dropdown.svg";
 
 export const DropDownAddonList = ({isOpen}) => {
 
@@ -55,6 +56,12 @@ export const DropDownContactList = () => {
                 <li className={"dropdownItem skype"}>
                     <img src={skype} alt="skype"/>
                     <a href={"skype:live:uds_ddt?chat"}>uds.systems</a>
+                </li>
+                <li className={"dropdownItem skype"}>
+                    <img src={whatsappIcon} alt="Whatsapp"/>
+                    <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
+                        +380953839341
+                    </a>
                 </li>
             </ul>
         </>

@@ -16,7 +16,6 @@ import ErrorComponent from "./components/ErrorComponents/ErrorComponent";
 import Cookie from "./components/ViewsComponents/Cookie/Coockie";
 import Loader from "./components/ViewsComponents/Loader";
 import {DownloadFile} from "./components/ViewsComponents/DownloadFile";
-import ScrollArrow from "./components/NavigationComponents/ScrollArrow/ScrollArrow";
 import MainNavigation from "./components/NavigationComponents/MainNavigation";
 import SideDrawer from "./components/NavigationComponents/SideDrawer/SideDrawer";
 import Backdrop from "./components/NavigationComponents/Backdrop/Backdrop";

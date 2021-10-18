@@ -31,6 +31,10 @@
     &:hover {
       background-color: $light-blue;
       border-bottom: none;
+      color: $blue;
+      a{
+        color: $blue;
+      }
     }
     a {
       color: $education-text-color;
@@ -44,21 +48,13 @@
   .mail, .phone, .skype {
     display: flex;
     align-items: center;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
 
     img {
       margin-right: 11px;
     }
-
-    a {
-      color: $blue;
-    }
   }
 
   .userMail {
-    color: $blue;
     cursor: text;
   }
 }
@@ -75,10 +71,6 @@
 .userLogout {
   right: 2px;
   display: none;
-
-  p {
-    color: $blue;
-  }
 }
 
 .mouseHover {

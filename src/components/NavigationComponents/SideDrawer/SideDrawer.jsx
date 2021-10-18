@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {NavLink} from "react-router-dom";
 import '../../../scss/navigation/toggleButton/SideDrawer.scss';
 import authentication from "../../../b2c";
-import logout from "../../../assets/images/exit_mobile.svg";
+import logout from "../../../assets/images/exit.svg";
 import userLogoutIcon from "../../../assets/images/logout.svg";
 import {FormattedMessage} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";

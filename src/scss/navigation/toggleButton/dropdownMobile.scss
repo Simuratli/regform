@@ -16,10 +16,13 @@
     text-transform: capitalize;
     font-weight: 700;
     color: $education-text-color;
+    display: flex;
+    align-items: center;
 
     a{
       color: $education-text-color;
       text-transform: initial;
+      padding-left: 8px;
     }
   }
 
