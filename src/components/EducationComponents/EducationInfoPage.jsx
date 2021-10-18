@@ -165,9 +165,15 @@ const EducationInfoPage = ({education}) => {
                                     <button className={"watchCourseButton"}>Watch course</button>
                                 </NavLink>
                                 :
-                                <a href={'#takeCourse'}>
-                                    <button className={"takeCourseButton"}>Take Course</button>
-                                </a>
+                                <>
+                                    <a href={'#takeCourse'}>
+                                        <button className={"takeCourseButton"}>Take Course</button>
+                                    </a>
+                                    <a href={'#takeCourseMobile'}>
+                                        <button className={"takeCourseButtonMobile"}>Take Course</button>
+                                    </a>
+                                </>
+
                             }
                         </section>
                     </div>

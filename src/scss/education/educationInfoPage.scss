@@ -260,6 +260,9 @@ ul {
         height: 50px;
         letter-spacing: 1px;
       }
+      .takeCourseButtonMobile{
+        display: none;
+      }
     }
   }
 }
@@ -1304,6 +1307,26 @@ ul {
   }
 }
 @media screen and (max-width: 667px){
+  .takeCourseButton{
+    display: none;
+  }
+  .learnInfo{
+    .learnInfoContent{
+      .contentBar{
+        .takeCourseButtonMobile{
+          display: inherit;
+          margin-top: 29px;
+          max-width: 100%;
+          width: 280px;
+          height: 50px;
+          letter-spacing: 1px;
+          text-align: center;
+          @include orangeGradient;
+          color: #ffffff;
+        }
+      }
+    }
+  }
 
   .pricePlan {
     display: none;
@@ -1315,6 +1338,7 @@ ul {
     h2 {
       @include gradientTitleBlue;
     }
+
 
     .paidCard {
       display: flex;

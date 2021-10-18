@@ -318,9 +318,8 @@
         width: 99%;
       }
     }
-
-
   }
+
   .sortField {
     display: grid;
     grid-template-columns: 1fr;
@@ -330,14 +329,16 @@
     }
 
     .sortBox {
-      max-width: 344px;
+      max-width: 370px;
       padding-left: 20px;
     }
 
     .customSelect {
+      top: 86px;
       left: 0;
     }
   }
+
 }
 
 @media screen and (max-width: 450px) {
@@ -355,8 +356,11 @@
 @media screen and (max-width: 375px) {
   .main_container {
     @include screen400;
-
-
+  }
+  .sortField{
+    .sortBox{
+      max-width: 344px;
+    }
   }
 }
 

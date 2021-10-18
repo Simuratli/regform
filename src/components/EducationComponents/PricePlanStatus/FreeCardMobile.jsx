@@ -13,7 +13,7 @@ const FreeCardMobile = ({coursePlanMobile}) => {
 
     return (
         <>
-            <div className={"priceTitleBlock"}>
+            <div className={"priceTitleBlock"} >
                 <div className={"paidCardHeader"}>
                     <h3 className={"title free"}>FREE</h3>
                     {
