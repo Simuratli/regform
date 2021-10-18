@@ -2,13 +2,14 @@ import React from "react";
 import "../../scss/navigation/footer.scss";
 import "../../scss/utils/utils.scss";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../../assets/images/uds_logo/uds_logo_footer.svg";
+import logo from "../../assets/images/uds_logo/uds_logo_footer_new.svg";
 import logoDynamic365 from "../../assets/images/d365-logo.svg";
 import logoMicrosoft from "../../assets/images/microsoft_logo.svg";
 import phone from  '../../assets/images/footer_icons/phone.svg';
 import mail from '../../assets/images/footer_icons/mail.svg';
 import skype from '../../assets/images/footer_icons/skype.svg';
 import { FormattedMessage } from "react-intl";
+import whatsappIcon from "../../assets/images/whatsapp_dropdown.svg";
 
 function Footer() {
   return (
@@ -56,6 +57,12 @@ function Footer() {
               <li className={"skype"}>
                 <img src={skype} alt="skype"/>
                 <a href={"skype:live:uds_ddt?chat"}>uds.systems</a>
+              </li>
+              <li className={"whatsapp"}>
+                <img src={whatsappIcon} alt="Whatsapp"/>
+                <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
+                  +380953839341
+                </a>
               </li>
             </ul>
           </div>

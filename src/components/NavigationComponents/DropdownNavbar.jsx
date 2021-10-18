@@ -57,7 +57,7 @@ export const DropDownContactList = () => {
                     <img src={skype} alt="skype"/>
                     <a href={"skype:live:uds_ddt?chat"}>uds.systems</a>
                 </li>
-                <li className={"dropdownItem skype"}>
+                <li className={"dropdownItem whatsapp"}>
                     <img src={whatsappIcon} alt="Whatsapp"/>
                     <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
                         +380953839341

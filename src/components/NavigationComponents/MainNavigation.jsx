@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import "../../scss/navigation/mainNavigation.scss";
 import "../../scss/utils/utils.scss";
 import {Link, NavLink} from "react-router-dom";
-import logo from "../../assets/images/uds_logo/uds_logo_header.svg";
+import logo from "../../assets/images/uds_logo/uds_logo_header_new.svg";
 import logout from "../../assets/images/logout.svg";
 import "../../scss/navigation/toggleButton/DrawerToggleButton.scss";
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";

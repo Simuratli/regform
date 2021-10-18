@@ -46,6 +46,9 @@
   position: fixed;
   top:0;
   width: 100%;
+  .headerLogo{
+    width: 55px;
+  }
   .navigationBar{
     height: 75px;
   }
@@ -54,6 +57,7 @@
 .headerLogo {
   width: 73px;
   margin-right: 20px;
+  transition: all 0.3s ease-in-out;
 }
 
 .navigationBar {
@@ -264,7 +268,7 @@
 
 @media screen and (max-width: 768px) {
   .headerLogo {
-    width: 66px;
+    width: 47px;
     height: auto;
   }
   .navigationBar {
