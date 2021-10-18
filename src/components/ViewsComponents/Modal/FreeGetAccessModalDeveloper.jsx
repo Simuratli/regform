@@ -88,7 +88,7 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                 isValidFile ? "" : <span className={"errorInputMessage"}>The file is larger than 5 MB</span>
                             }
                             <div className="testTaskBlock">
-                                <label htmlFor="link">Add test task</label>
+                                <label htmlFor="link">Add assignments</label>
                                 <input type="text" name="link" id="link" required="required" onChange={changeHandlerForLink}
                                        placeholder={"Add a link to your file on GitHub or Google Disk"}/>
                             </div>

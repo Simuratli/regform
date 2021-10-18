@@ -109,7 +109,7 @@ const PaymentCard = ({plan}) => {
                         slug === "ms-dynamics-365-developer" && !isPaid ?
                             <a href={plan.technicalTaskUrl} target={"_blank"}>
                                 <button className={"downloadTestTaskButton"}>
-                                    Download test task
+                                    Download assignments
                                 </button>
                             </a> : ""
                     }
@@ -238,7 +238,7 @@ const PaymentCard = ({plan}) => {
                         slug === "ms-dynamics-365-developer" && !isPaid ?
                             <a href={plan.technicalTaskUrl} target={"_blank"}>
                                 <button className={"downloadTestTaskButton"}>
-                                    Download test task
+                                    Download assignments
                                 </button>
                             </a> : ""
                     }
