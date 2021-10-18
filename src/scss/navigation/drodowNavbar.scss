@@ -12,6 +12,7 @@
   top: 34px;
   padding-left: 0;
   display: none;
+  border-radius: 5px;
   &:hover{
     display: grid;
     grid-template-columns: 1fr;
@@ -70,7 +71,7 @@
 
 .userLogout {
   right: 2px;
-  display: none;
+  //display: none;
 }
 
 .mouseHover {

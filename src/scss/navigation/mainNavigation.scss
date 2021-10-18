@@ -253,6 +253,15 @@
   }
 }
 @media only screen and (max-width: 812px) {
+  .headerLogo {
+    width: 47px;
+    height: auto;
+  }
+  .fixedNavbar{
+    .headerLogo{
+      width: 47px;
+    }
+  }
   .navigationBar {
     padding: 0;
     height: 60px;
