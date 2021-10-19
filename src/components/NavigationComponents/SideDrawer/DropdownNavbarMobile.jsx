@@ -9,16 +9,7 @@ import skype from "../../../assets/images/footer_icons/skype.svg";
 import whatsappIcon from "../../../assets/images/whatsapp_dropdown.svg";
 // import skype from "../../../assets/images/skype.svg"
 
-export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setSideDrawerOpen}) => {
-
-    const {addon: {cards}} = useSelector((state) => state);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!cards.length) {
-            dispatch(getAddonCard(1));
-        }
-    }, []);
+export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setSideDrawerOpen, dropdownList}) => {
 
     const closeDropdownAndSideDrawer = () => {
         setIsOpenDropdown(false)
@@ -30,11 +21,11 @@ export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setS
             <div className={isOpenDropdown ? 'dropdownListMobile isOpen' : 'dropdownListMobile'}>
                 <NavLink onClick={closeDropdownAndSideDrawer}
                          className={"dropdownItem addOn"}
-                         to={"/add-ons/"}>
+                         to={"/add-ons"}>
                     All
                 </NavLink>
                 {
-                    cards.map((item, index) => (
+                    dropdownList.map((item, index) => (
                         <NavLink onClick={closeDropdownAndSideDrawer}
                                  className={"dropdownItem addOn"}
                                  to={"/add-ons/" + item.slug}>

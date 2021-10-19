@@ -8,6 +8,7 @@ import {FormattedMessage} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
 import {DropDownAddonListMobile, DropDownContactListMobile} from "./DropdownNavbarMobile";
+import {getAddonDropdownList} from "../../../store/reducers/addonReducer/actions/addonDropdownListAction";
 
 const SideDrawer = (props) => {
 
@@ -25,9 +26,11 @@ const SideDrawer = (props) => {
             email
         }
     } = useSelector(({user}) => user);
+    const {addon: {dropdownList}} = useSelector((state) => state);
 
     useEffect(() => {
         dispatch(getUserData());
+        dispatch(getAddonDropdownList());
     }, []);
 
     return (
@@ -41,7 +44,8 @@ const SideDrawer = (props) => {
                     </NavLink>
                     <DropDownAddonListMobile setIsOpenDropdown={setIsOpenDropdown}
                                              isOpenDropdown={isOpenDropdown}
-                                             setSideDrawerOpen={props.setSideDrawerOpen}/>
+                                             setSideDrawerOpen={props.setSideDrawerOpen}
+                                             dropdownList={dropdownList}/>
                 </li>
                 <li>
                     <NavLink className={"nav-link"}

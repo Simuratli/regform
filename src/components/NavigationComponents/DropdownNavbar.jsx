@@ -1,7 +1,6 @@
 import React, {useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import "../../scss/navigation/drodowNavbar.scss";
-import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 import {useDispatch, useSelector} from "react-redux";
 import phone from "../../assets/images/footer_icons/phone.svg";
 import mail from "../../assets/images/footer_icons/mail.svg";
@@ -11,28 +10,20 @@ import logout from "../../assets/images/exit.svg";
 import {getUserData} from "../../store/reducers/userDataReducer/actions/userDataAction";
 import whatsappIcon from "../../assets/images/whatsapp_dropdown.svg";
 
-export const DropDownAddonList = ({isOpen}) => {
 
-    const {addon: {cards}} = useSelector((state) => state);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (!cards.length) {
-            dispatch(getAddonCard(1));
-        }
-    }, []);
+export const DropDownAddonList = ({isOpen, dropdownList}) => {
 
     return (
         <>
             <div className={isOpen ? 'dropdownList open' : 'dropdownList'}>
-                <NavLink className={"dropdownItem addOn"} to={"/add-ons/"}>
-                   All
+                <NavLink className={"dropdownItem addOn"} to={"/add-ons"}>
+                    All
                 </NavLink>
                 {
-                    cards.map((item, index) => (
-                            <NavLink className={"dropdownItem addOn"} to={"/add-ons/" + item.slug}>
-                                {item.name}
-                            </NavLink>
+                    dropdownList.map((item, index) => (
+                        <NavLink className={"dropdownItem addOn"} to={"/add-ons/" + item.slug}>
+                            {item.name}
+                        </NavLink>
                     ))
                 }
             </div>

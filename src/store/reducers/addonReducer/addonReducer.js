@@ -1,11 +1,13 @@
 import {SET_CARDS_DATA, FULL_ADDON_PAGE_DATA_LOADED, FULL_ADDON_TYPES, TOTAL_PAGES, ALL_CARDS} from "./types";
+import {SET_ADDON_DROPDOWN_LIST} from "./actions/addonDropdownListAction";
 
 const initStore = {
   types: ["All", "Dynamics 365", "Portal"],
   cards: [],
   allCards: [],
   currentFullAddonPage: {},
-  totalPages: []
+  totalPages: [],
+  dropdownList: []
 };
 
 export const addonReducer = (initialState = initStore, action) => {
@@ -24,6 +26,9 @@ export const addonReducer = (initialState = initStore, action) => {
 
     case ALL_CARDS:
       return { ...initialState, allCards: action.payload }
+
+    case SET_ADDON_DROPDOWN_LIST:
+      return { ...initialState,  dropdownList: action.payload }
 
     default:
       return initialState;

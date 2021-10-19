@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import "../../scss/navigation/mainNavigation.scss";
 import "../../scss/utils/utils.scss";
 import {Link, NavLink} from "react-router-dom";
@@ -8,11 +8,14 @@ import "../../scss/navigation/toggleButton/DrawerToggleButton.scss";
 import DrawerToggleButton from "./SideDrawer/DrawerToggleButton";
 import {FormattedMessage} from "react-intl";
 import {DropDownAddonList, DropDownContactList, DropDownLogout} from "./DropdownNavbar";
+import {getAddonDropdownList} from "../../store/reducers/addonReducer/actions/addonDropdownListAction";
+import {useDispatch, useSelector} from "react-redux";
 
 function MainNavigation(props) {
 
     const [scrolled, setScrolled] = useState(false);
-
+    const dispatch = useDispatch();
+    const {addon: {dropdownList}} = useSelector((state) => state);
 
     const handleScroll = () => {
         if (window.scrollY >= 50) {
@@ -21,6 +24,10 @@ function MainNavigation(props) {
             setScrolled(false)
         }
     }
+
+    useEffect(() => {
+        dispatch(getAddonDropdownList());
+    }, []);
 
 
     window.addEventListener('scroll', handleScroll)
@@ -37,7 +44,7 @@ function MainNavigation(props) {
                             <li className={"mouseHover"}>
                                 <NavLink className={"nav-link"} to="/add-ons">
                                     ADD-ONS
-                                    <DropDownAddonList/>
+                                    <DropDownAddonList dropdownList={dropdownList}/>
                                 </NavLink>
                             </li>
                             <li className={"mouseHover"}>
