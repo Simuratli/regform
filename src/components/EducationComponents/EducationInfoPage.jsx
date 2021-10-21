@@ -122,7 +122,7 @@ const EducationInfoPage = ({education}) => {
                                     <div className={"topBarContent"}>
                                         <h4>Price</h4>
                                         <p>FREE / PAID</p>
-                                        <a className={'detailsButton'} href="#chck1">Details</a>
+                                        <a className={'detailsButton'} href="#faq">Details</a>
                                     </div>
                                 </li>
                             </ul>
@@ -294,7 +294,8 @@ const EducationInfoPage = ({education}) => {
                         }
                     </ul>
                 </section>
-                <section className={"educationFAQ"}>
+                <div id={"faq"} style={{opacity: 0, fontSize: "1px"}}>faq</div>
+                <section className={"educationFAQ"} >
                     <h2>FAQ</h2>
                     <div className={"questionList"}>
                         <div className={"tab"}>

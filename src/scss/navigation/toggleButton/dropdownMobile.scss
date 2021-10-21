@@ -6,11 +6,12 @@
   padding-top: 25px;
   padding-left: 20px;
   display: none;
-  .active{
+
+  .active {
     border-bottom: none;
   }
 
-  .dropdownItem{
+  .dropdownItem {
     font-size: 13px;
     line-height: 15px;
     text-transform: capitalize;
@@ -19,15 +20,24 @@
     display: flex;
     align-items: center;
 
-    a{
+    a {
       color: $education-text-color;
       text-transform: initial;
-      padding-left: 8px;
+    }
+
+      img{
+        margin-right: 12px;
+      }
+
+
+    span {
+      color: $blue;
     }
   }
 
 }
-.isOpen{
+
+.isOpen {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 15px;

@@ -24,7 +24,6 @@
   ul li {
     opacity: 0.8;
     transition: all 0.2s ease-in-out;
-    width: 120px;
 
     &:hover {
       opacity: 1;
@@ -36,10 +35,9 @@
     border-radius: 4px;
     bottom: 0;
     left: 0;
-    //width: 100%;
     padding: 10px 0;
     display: grid;
-    grid-template-columns: 1.7fr 1fr 1fr 1fr;
+    grid-template-columns: 1.5fr 0.8fr 1fr 0.7fr;
     grid-template-rows: auto;
     grid-gap: 30px;
 
@@ -49,11 +47,6 @@
 
     .footerLogo {
       padding-top: 22px;
-      //width: 100px;
-
-      //img {
-      //  height: 75px;
-      //}
     }
 
     h3 {
@@ -95,7 +88,7 @@
     }
 
     img:hover {
-      -webkit-filter: blur(0.6px); /* Chrome, Safari, Opera */
+      -webkit-filter: blur(0.6px);
       filter: blur(0.6px);
     }
   }
@@ -103,7 +96,7 @@
 
 .footerCopyrightInfo {
   display: grid;
-  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 0.8fr 1fr 0.7fr;
   grid-template-rows: auto;
   grid-gap: 30px;
   @include bigScreen;
@@ -179,10 +172,17 @@
 }
 
 @media screen and (max-width: 1350px) {
-  .phantom,
-  .footerCopyrightInfo {
-    @include screen1350;
+  .phantom{
+    .footerCopyrightInfo {
+      @include screen1350;
+      grid-gap: 5px;
+
+    }
+    .footerContainer{
+      grid-gap: 5px;
+    }
   }
+
 }
 
 @media screen and (max-width: 1200px) {
@@ -228,7 +228,7 @@
   }
 
   .phantom .footerContainer {
-    grid-template-columns: 1.7fr 1fr 1fr 2fr;
+    grid-template-columns: 1fr 1fr 2fr 1fr;
   }
 
   .footerCopyrightInfo {
@@ -398,12 +398,6 @@
     }
     .footerCopyrightInfo {
       @include screen500;
-      //.copyrightTitle{
-      //  font-weight: 600;
-      //  font-size: 16px;
-      //  line-height: 130%;
-      //  padding-bottom: 0;
-      //}
     }
   }
 }

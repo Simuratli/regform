@@ -48,22 +48,23 @@ function Footer() {
             <ul>
               <li className={"phone"}>
                 <img src={phone} alt="phone"/>
-                <a href={"tel:+38 095 383 9341"}>+380953839341</a>
+                <a href={"tel:+38 095 383 9341"}>phone: +380953839341</a>
+              </li>
+              <li className={"whatsapp"}>
+                <img src={whatsappIcon} alt="Whatsapp"/>
+                <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
+                  whatsapp: +380953839341
+                </a>
               </li>
               <li className={"email"}>
                 <img src={mail} alt="mail"/>
-                <a href={"mailto:portal@uds.systems"}>portal@uds.systems</a>
+                <a href={"mailto:portal@uds.systems"}>e-mail: portal@uds.systems</a>
               </li>
               <li className={"skype"}>
                 <img src={skype} alt="skype"/>
-                <a href={"skype:live:uds_ddt?chat"}>uds.systems</a>
+                <a href={"skype:live:uds_ddt?chat"}>skype: uds.systems</a>
               </li>
-              {/*<li className={"whatsapp"}>*/}
-              {/*  <img src={whatsappIcon} alt="Whatsapp"/>*/}
-              {/*  <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>*/}
-              {/*    +380953839341*/}
-              {/*  </a>*/}
-              {/*</li>*/}
+
             </ul>
           </div>
           <div className={"partnersContainer"}>

@@ -46,17 +46,33 @@
     text-transform: capitalize;
   }
 
-  .mail, .phone, .skype {
+  .mail, .phone, .skype, .whatsapp {
     display: flex;
     align-items: center;
-
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
     img {
       margin-right: 11px;
+    }
+    span{
+      color: $blue;
+    }
+  }
+  .whatsapp, .mail{
+    img{
+      margin-right: 8px;
     }
   }
 
   .userMail {
     cursor: text;
+  }
+
+  .userMail, .logoutItem{
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
   }
 }
 
@@ -64,15 +80,15 @@
   display: grid;
   grid-template-columns: 1fr;
 }
+.userLogout {
+  right: 2px;
+}
 
 .contacts {
   right: 20px;
 }
 
-.userLogout {
-  right: 2px;
-  //display: none;
-}
+
 
 .mouseHover {
   height: 35px;

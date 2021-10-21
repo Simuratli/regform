@@ -50,22 +50,22 @@ export const DropDownContactListMobile = ({isOpenDropdownContactList, setIsOpenD
             <div className={isOpenDropdownContactList ? "dropdownListMobile contacts isOpen" : "dropdownListMobile contacts"}>
                 <li className={"dropdownItem phone"}>
                     <img src={phone} alt="phone"/>
-                    <a href={"tel:+38 095 383 9341"} onClick={closeDropdownAndSideDrawer}>+380953839341</a>
+                    <a href={"tel:+38 095 383 9341"} onClick={closeDropdownAndSideDrawer}><span>phone:</span> +380953839341</a>
+                </li>
+                <li className={"dropdownItem whatsapp"}>
+                    <img src={whatsappIcon} alt="Whatsapp"/>
+                    <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"} onClick={closeDropdownAndSideDrawer}>
+                        <span>whatsapp:</span> +380953839341
+                    </a>
                 </li>
                 <li className={"dropdownItem mail"}>
                     <img src={mail} alt="mail"/>
-                    <a href={"mailto:portal@uds.systems"} onClick={closeDropdownAndSideDrawer}>portal@uds.systems</a>
+                    <a href={"mailto:portal@uds.systems"} onClick={closeDropdownAndSideDrawer}><span>e-mail:</span> portal@uds.systems</a>
                 </li>
                 <li className={"dropdownItem skype"}>
                     <img src={skype} alt="skype"/>
-                    <a href={"skype:live:uds_ddt?chat"} onClick={closeDropdownAndSideDrawer}>uds.systems</a>
+                    <a href={"skype:live:uds_ddt?chat"} onClick={closeDropdownAndSideDrawer}><span>skype:</span> uds.systems</a>
                 </li>
-                {/*<li className={"dropdownItem skype"}>*/}
-                {/*    <img src={whatsappIcon} alt="Whatsapp"/>*/}
-                {/*    <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"} onClick={closeDropdownAndSideDrawer}>*/}
-                {/*        +380953839341*/}
-                {/*    </a>*/}
-                {/*</li>*/}
             </div>
         </>
     );

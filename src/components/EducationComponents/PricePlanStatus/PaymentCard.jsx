@@ -13,8 +13,6 @@ const PaymentCard = ({plan}) => {
     const {educationAccessStatus} = useSelector(({education}) => education);
     const currentPlanAccessStatus = educationAccessStatus.filter(statusItem => statusItem.pricePlanId === plan.pricePlanId)[0]
 
-    console.log(currentPlanAccessStatus, "currentPlanAccessStatus")
-
     const [totalPrice, setTotalPrice] = useState(plan.price)
 
     const addExtras = (e) => {
