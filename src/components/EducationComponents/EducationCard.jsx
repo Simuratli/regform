@@ -1,6 +1,8 @@
-import React from "react"
+import React, {useEffect} from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 
 const EducationCard = ({educationCard}) => {
@@ -39,7 +41,7 @@ const EducationCard = ({educationCard}) => {
                         <div className={"cardBottomInfo"}>
                             <div className={"courseButtons"}>
                                 {accessStatus === true &&
-                                <NavLink to={"/education/" + slug + "/" + allowedPricePlanId}>
+                                 <NavLink to={"/education/" + slug + "/" + allowedPricePlanId}>
                                     <button className={"watchCourseButton"}>Watch course</button>
                                 </NavLink>
                                 }

@@ -10,22 +10,22 @@ const EducationVideoLessons = lazy(() => import("../../components/EducationCompo
 const EducationVideoLessonsContainer = () => {
     const {educationVideoLessons, educationAccessStatus} = useSelector(({education}) => education);
     const dispatch = useDispatch();
-    const {slug} = useParams();
+    const {slug, courseID} = useParams();
 
     useEffect(() => {
         dispatch(getEducationAccessStatus(slug))
         dispatch(getEducationVideoLessons(slug));
     }, [slug]);
 
-    let accessStatus = false;
+    let accessStatus;
 
     !isEmpty(educationAccessStatus) && educationAccessStatus.forEach(item => {
-        if(item.coursePermissionState === "Allowed") {
-            accessStatus = true;
+        if (item.coursePricePlanId === courseID){
+            accessStatus = item.coursePermissionState === "Allowed"
         }
     })
 
-    if(!accessStatus){
+    if(accessStatus === false){
         return <Redirect to={"/education/" + slug} />
     }
 

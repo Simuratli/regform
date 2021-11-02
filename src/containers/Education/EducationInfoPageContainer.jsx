@@ -16,16 +16,17 @@ const EducationInfoPageContainer = () => {
     const {slug} = useParams();
 
     useEffect(() => {
-         dispatch(getEducationInfoPage(slug));
-         dispatch(resetEducationInfoPage());
-         dispatch(getEducationAccessStatus(slug));
-    }, []);
+        dispatch(getEducationInfoPage(slug));
+        dispatch(resetEducationInfoPage());
+        dispatch(getEducationAccessStatus(slug));
+    }, [slug]);
+
 
     return (
         <div style={{minHeight: "70vh"}}>
-            {!isEmpty(educationInfoPage) && (
+            {!isEmpty(educationInfoPage) && educationInfoPage.slug === slug && !isEmpty(educationAccessStatus) && (
                 <Suspense fallback={null}>
-                    <EducationInfoPage education={educationInfoPage} accessStatus={educationAccessStatus}/>
+                    <EducationInfoPage education={educationInfoPage}/>
                 </Suspense>
             )}
         </div>

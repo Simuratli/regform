@@ -44,7 +44,7 @@ const EducationVideoLessons = ({education}) => {
     return (
         <>
             <div className="educationVideoComponent">
-                <NavLink to={"/education/" + slug}>
+                <NavLink to={"/education/" + slug} >
                     <button className={"backButton"}>Back to course page</button>
                 </NavLink>
                 <h2 className={"generalHeadingParagraph"}>{courseName}</h2>

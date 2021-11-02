@@ -131,18 +131,13 @@ const AddonCard = ({addon, className}) => {
                         </NavLink>
                         {resources?.length === 1 ? (
                                 <button style={{position: "relative"}}
-                                        onClick={applicationType === "Dynamics 365"
-                                            ? getAddonVersionFile
-                                            : HandlerTrackerCardOpen}
-                                        className={applicationType === "Dynamics 365"
-                                            ? "downloadButton"
-                                            : "openButton"}
+                                        onClick={applicationType === "Dynamics 365" ? getAddonVersionFile : HandlerTrackerCardOpen}
+                                        className={applicationType === "Dynamics 365" ? "downloadButton" : "openButton"}
                                         data-path={resources[0].filePath}>
                                     {file?.addonTypeDownloading === slug
                                         ? (<ButtonLoader/>)
-                                        : applicationType === "Dynamics 365"
-                                            ? (<FormattedMessage id="download"/>)
-                                            : (<FormattedMessage id="open"/>)}</button>)
+                                        : applicationType === "Dynamics 365" ? (<FormattedMessage id="download"/>) : (<FormattedMessage id="open"/>)}
+                                </button>)
                             : (<button
                                 style={{position: "relative"}}
                                 className={downloadModalActiveCard ? 'downloadFileButtonCardDisable' : 'downloadFileButtonCard'}
@@ -195,7 +190,7 @@ const AddonCard = ({addon, className}) => {
                                                         </div>
                                                     </button>
                                                 </section>
-                                            :  ""
+                                            : ""
                                         }
                                     </>
 

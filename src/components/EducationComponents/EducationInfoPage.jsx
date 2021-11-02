@@ -11,10 +11,11 @@ import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import {NavLink} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import PaidCardMobile from "./PricePlanStatus/PaidCardMobile";
 import FreeCardMobile from "./PricePlanStatus/FreeCardMobile";
 import PaymentCard from "./PricePlanStatus/PaymentCard";
+import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationInfoPage = ({education}) => {
 
@@ -44,12 +45,12 @@ const EducationInfoPage = ({education}) => {
 
     const intro = introVideoUrl.split("v=")[1].split("&")[0]
 
+    const {educationAccessStatus} = useSelector(({education}) => education);
+    pricePlans.sort((a, b) => (a.price > b.price ? 1 : b.price > a.price ? -1 : 0))
+
     useEffect(() => {
         document.title = `${header} | Education | UDS Portal`;
     }, [header]);
-
-    const {educationAccessStatus} = useSelector(({education}) => education);
-    pricePlans.sort((a, b) => (a.price > b.price ? 1 : b.price > a.price ? -1 : 0))
 
     return (
         <>

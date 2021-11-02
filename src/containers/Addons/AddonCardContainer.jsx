@@ -1,7 +1,6 @@
 import React from "react";
 import {useSelector} from "react-redux";
 import shortid from 'shortid';
-import AnimatedContainer from "../AnimatedContainer";
 import get from "lodash/get";
 import range from "lodash/range";
 import AddonCard from "../../components/AddonsComponents/AddonsCardsPage/AddonCard";

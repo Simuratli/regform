@@ -6,7 +6,7 @@ import {CHANGE_EDUCATION_ACCESS_STATUS} from "./actions/educationChangeAccessSta
 
 const initStore = {
     educationCards: [],
-    educationInfoPage: [],
+    educationInfoPage: {},
     educationAccessStatus: {},
 };
 

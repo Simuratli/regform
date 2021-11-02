@@ -1,10 +1,11 @@
 import {useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import oldPrice from "../../../assets/images/education/old_price.svg";
 import shortid from "shortid";
 import GetAccessButton from "../EducationGetAccessButton";
 import "../../../scss/education/paymentCard.scss";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import {getEducationAccessStatus} from "../../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const PaymentCard = ({plan}) => {
 

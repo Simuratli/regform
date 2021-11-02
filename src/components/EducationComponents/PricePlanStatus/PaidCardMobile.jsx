@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import shortid from "shortid";
 import oldPrice from "../../../assets/images/education/old_price.svg";
 import GetAccessButton from "../EducationGetAccessButton";
