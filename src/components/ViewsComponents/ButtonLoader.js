@@ -9,6 +9,7 @@ const Loader = styled.div`
   align-items: center;
   background: #E8EBFE;
   position: absolute;
+  border-radius: 5px;
   top: -1px;
   left: -1px;
 

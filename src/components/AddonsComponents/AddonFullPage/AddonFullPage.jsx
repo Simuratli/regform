@@ -86,7 +86,7 @@ const AddonFullPage = ({addon, intl, children}) => {
                             { slug === "uds-virtual-machine"?  <p className="virtualMashineWarningparagraph">
                                 <span dangerouslySetInnerHTML={{__html: get(intl, `messages["virtual.machine.text"]`)}}/>
                             </p>: ""}
-                            <div style={{position: "relative", width: "100%"}}>
+                            <div style={{position: "relative", width: "220px"}}>
                                 <DownloadAddonButton addon={addon}/>
                                 {slug === "uds-data-migration-tool" ?
                                     <p className={"chargeMessage"}>

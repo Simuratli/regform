@@ -9,7 +9,6 @@ export const getFile = (filePath, slug) => {
             .get(filePath)
             .then((res) => {
                 dispatch({type: DOWNLOADED_FILE, payload: res.data});
-                // dispatch(setIsLoading(false));
                 dispatch({type: SET_ADDON_DOWNLOADING, payload: null});
             })
             .catch((err) => {

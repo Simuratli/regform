@@ -53,12 +53,17 @@ const DownloadAddonButton = ({addon}) => {
         <>
             {applicationType === "Dynamics 365" ?
                 resources.length > 1 ?
-                    <button onClick={handleOpenVersionList}
-                            className={downloadAddonTooltipActive ? 'downloadFileButtonDisable' : 'downloadFileButton'}
-                            style={{position: "relative"}}
-                            disabled={downloadAddonTooltipActive && 'disabled'}>
-                        Download
-                    </button>
+                    file?.addonTypeDownloading === slug ?
+                        <div style={{height:"50px"}}>
+                            <ButtonLoader/>
+                        </div>
+                        :
+                        <button onClick={handleOpenVersionList}
+                                className={downloadAddonTooltipActive ? 'downloadFileButtonDisable' : 'downloadFileButton'}
+                                style={{position: "relative"}}
+                                disabled={downloadAddonTooltipActive && 'disabled'}>
+                            Download
+                        </button>
                     :
                     <button onClick={downloadFile}
                             className={'downloadFileButton'}
@@ -70,7 +75,6 @@ const DownloadAddonButton = ({addon}) => {
                             <FormattedMessage id="download"/>
                         )}
                     </button>
-
                 : (
                     <>
                         <button className="openButton" style={{position: "relative"}}

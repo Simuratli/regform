@@ -8,7 +8,6 @@ export const sendCvAndChangeAccessStatus = (courseSlug, file, taskUrl) => {
 
      let fd = new FormData()
     const currentPricePlanId = window.localStorage.getItem('currentPricePlanId')
-    console.log(currentPricePlanId, 'currentPricePlanId')
 
     fd.append('resume', file)
     if (taskUrl) {

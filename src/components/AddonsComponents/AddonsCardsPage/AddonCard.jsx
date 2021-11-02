@@ -44,17 +44,6 @@ const AddonCard = ({addon, className}) => {
         }
     }, [get(file, "file.rootAddOnFilePathWithAccessToken")]);
 
-    const HandlerTrackerCardDownloads = () => {
-        ReactGa.event({
-            category: "Button",
-            action: `${slug}_download_card_view_portal`,
-        });
-        ReactPixel.track("DownloadCardViewPortal", {
-            category: "Button",
-            action: `${slug}_DownloadCardViewPortal`,
-        });
-    };
-
     const HandlerTrackerCardMoreInfo = () => {
         ReactGa.event({
             category: "Button",
@@ -138,12 +127,16 @@ const AddonCard = ({addon, className}) => {
                                         ? (<ButtonLoader/>)
                                         : applicationType === "Dynamics 365" ? (<FormattedMessage id="download"/>) : (<FormattedMessage id="open"/>)}
                                 </button>)
-                            : (<button
-                                style={{position: "relative"}}
-                                className={downloadModalActiveCard ? 'downloadFileButtonCardDisable' : 'downloadFileButtonCard'}
-                                onClick={handleOpenVersionList}>
-                                Download
-                            </button>)}
+                            :
+                                file?.addonTypeDownloading === slug
+                                    ? (<ButtonLoader/>)
+                                    : <button
+                                        style={{position: "relative"}}
+                                        className={downloadModalActiveCard ? 'downloadFileButtonCardDisable' : 'downloadFileButtonCard'}
+                                        onClick={handleOpenVersionList}>
+                                        Download
+                                    </button>
+                            }
                     </div>
                 </div>
                 {downloadModalActiveCard && (
@@ -193,7 +186,6 @@ const AddonCard = ({addon, className}) => {
                                             : ""
                                         }
                                     </>
-
                             ))}
                         </div>
                     </div>

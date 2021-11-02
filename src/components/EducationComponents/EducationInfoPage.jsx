@@ -11,11 +11,10 @@ import ScrollSyllabus from "./ScrollSyllabus";
 import YouTube from "react-youtube";
 import shortid from 'shortid';
 import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 import PaidCardMobile from "./PricePlanStatus/PaidCardMobile";
 import FreeCardMobile from "./PricePlanStatus/FreeCardMobile";
 import PaymentCard from "./PricePlanStatus/PaymentCard";
-import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
 
 const EducationInfoPage = ({education}) => {
 

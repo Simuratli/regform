@@ -1,9 +1,6 @@
-import React, {useEffect} from "react"
+import React from "react"
 import "../../scss/education/educationCard.scss";
 import {NavLink} from "react-router-dom";
-import {useDispatch} from "react-redux";
-import {getEducationAccessStatus} from "../../store/reducers/educationReducer/actions/educationGetAccessAction";
-
 
 const EducationCard = ({educationCard}) => {
     const {
