@@ -204,7 +204,7 @@ const AddonFullPage = ({addon, intl, children}) => {
                                 <h2>
                                     <FormattedMessage id="ready.to.get.started"/>
                                 </h2>
-                                <div style={{position: "relative", width: "100%"}}>
+                                <div style={{position: "relative", width: "220px", margin: "auto"}}>
                                 <DownloadAddonButton addon={addon}/>
                                 </div>
                             </section>
