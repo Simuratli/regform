@@ -13,6 +13,7 @@ import AddonCardContainer from "../../../containers/Addons/AddonCardContainer";
 import ModalMobileNotification from "../../ViewsComponents/Modal/ModalMobileNotification";
 import get from "lodash/get";
 import AddonPaginationCont from "../../ViewsComponents/AddonPaginationCont";
+import PendingNotificationModal from "../../ViewsComponents/Modal/PendingNotificationModal";
 
 const AddonsCardsPage = () => {
     const [, setModalActive] = useState(true)
@@ -38,7 +39,6 @@ const AddonsCardsPage = () => {
         <div className="main_container">
             <ModalMobileNotification setActive={setModalActive}/>
             <Metadata metadata={addonsMetadata}/>
-
             <div className="generalTitleBlock">
                 <h1 className="headingParagraph">
                     <FormattedMessage id="enhance.system.text"/>

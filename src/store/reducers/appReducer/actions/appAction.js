@@ -4,6 +4,7 @@ import {
   SET_ADDONS_SORT_BY,
   SET_IS_LOADING,
   SET_ERROR,
+  OPEN_NOTIFICATION,
 } from "../types";
 
 export const changeAppLanguage = (lang) => {
@@ -25,3 +26,7 @@ export const setError = (payload) => {
 export const resetData = () => {
   return { type: RESET_DATA };
 };
+export const openNotification = (payload) => {
+  return { type: OPEN_NOTIFICATION, payload };
+};
+

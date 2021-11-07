@@ -1,8 +1,9 @@
 import { httpClient } from "../../../../services/services";
-import { setError, setIsLoading } from "../../appReducer/actions/appAction";
+import {openNotification, setError, setIsLoading} from "../../appReducer/actions/appAction";
 import {getEducationAccessStatus} from "./educationGetAccessAction";
 
 export const SET_EDUCATION_REQUEST_PAYMENT = "SET_EDUCATION_REQUEST_PAYMENT";
+
 
 export const educationRequestMailPayment = (paymentData) => {
     return (dispatch) => {
@@ -13,6 +14,7 @@ export const educationRequestMailPayment = (paymentData) => {
                 dispatch({ type: SET_EDUCATION_REQUEST_PAYMENT, payload: res.data });
                 dispatch(getEducationAccessStatus(paymentData.courseSlug))
                 dispatch(setIsLoading(false));
+                dispatch(openNotification(true));
             })
             .catch((err) => {
                 dispatch(setError(err))

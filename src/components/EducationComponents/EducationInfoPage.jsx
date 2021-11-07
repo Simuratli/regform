@@ -15,8 +15,11 @@ import {useSelector} from "react-redux";
 import PaidCardMobile from "./PricePlanStatus/PaidCardMobile";
 import FreeCardMobile from "./PricePlanStatus/FreeCardMobile";
 import PaymentCard from "./PricePlanStatus/PaymentCard";
+import PendingNotificationModal from "../ViewsComponents/Modal/PendingNotificationModal";
 
 const EducationInfoPage = ({education}) => {
+
+    const {isOpenNotification} = useSelector(({app}) => app);
 
     const {
         header = "",
@@ -42,6 +45,7 @@ const EducationInfoPage = ({education}) => {
         courseCertificateForPagePreview,
     } = education;
 
+
     const intro = introVideoUrl.split("v=")[1].split("&")[0]
 
     const {educationAccessStatus} = useSelector(({education}) => education);
@@ -53,6 +57,7 @@ const EducationInfoPage = ({education}) => {
 
     return (
         <>
+            {isOpenNotification ? <PendingNotificationModal /> : "" }
             <div className="educationInfoContent">
                 <div className={"educationTopWrapper"}>
                     <section className={"educationHeader"}>

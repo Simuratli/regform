@@ -43,6 +43,9 @@
         color: $blue-black;
       }
     }
+    .greenParagraph{
+      color: $green;
+    }
 
     .textContent {
       padding: 30px 43px;
@@ -255,6 +258,10 @@
 p {
   text-align: left;
 }
+.content{
+  padding: 30px;
+}
+
 
 .modalContent.active {
   transform: scale(1);

@@ -1,5 +1,5 @@
 import { httpClient } from "../../../../services/services";
-import { setError, setIsLoading } from "../../appReducer/actions/appAction";
+import {openNotification, setError, setIsLoading} from "../../appReducer/actions/appAction";
 import {getEducationAccessStatus} from "./educationGetAccessAction";
 
 export const SEND_FILE_AND_CHANGE_ACCESS_STATUS = "SEND_FILE_AND_CHANGE_ACCESS_STATUS";
@@ -24,6 +24,7 @@ export const sendCvAndChangeAccessStatus = (courseSlug, file, taskUrl) => {
                 dispatch({ type: SEND_FILE_AND_CHANGE_ACCESS_STATUS, payload: res.data });
                 dispatch(getEducationAccessStatus(courseSlug))
                 dispatch(setIsLoading(false));
+                dispatch(openNotification(true));
             })
             .catch((err) => {
                 dispatch(setError(err))
