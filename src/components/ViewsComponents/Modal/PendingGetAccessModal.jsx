@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import "../../../scss/modal/pendingGetAccessModal.scss";
 import info from "../../../assets/images/information_popup_icon.svg";
 import close from "../../../assets/images/window-close.svg";
@@ -9,6 +9,7 @@ import "../../../scss/views/editableInput.scss";
 import {educationRequestMailPayment} from "../../../store/reducers/educationReducer/actions/educationRequestMailPayment";
 import FreeGetAccessModalConsultant from "./FreeGetAccessModalConsultant";
 import FreeGetAccessModalDeveloper from "./FreeGetAccessModalDeveloper";
+import {ButtonLoader} from "../ButtonLoader";
 
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePlanId}) => {
@@ -21,6 +22,11 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
             email
         }
     } = useSelector(({user}) => user);
+
+    const {isOpenButtonLoader} = useSelector(({app}) => app);
+    const [isDisable, setIsDisable] = useState(false);
+
+
 
     useEffect(() => {
         dispatch(getUserData());
@@ -35,11 +41,13 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
         "coursePricePlanId": currentPricePlanId
     }
 
+    if( paymentData.firstName.length === 0 || paymentData.lastName.length === 0 || paymentData.email.length === 0){
+        setIsDisable(true);
+    }
 
     const handleChangeAccessStatusPaid = async (e) => {
         e.preventDefault();
         dispatch(educationRequestMailPayment(paymentData));
-        setActive(false);
     }
     //just close modal without changing status
     const closeModal = () => {
@@ -49,14 +57,18 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
 
     const inputDataChange = (e) => {
         const name = e.target.getAttribute('name')
-        paymentData[name] = e.target.value
+        paymentData[name] = e.target.value.trim()
+        if( e.target.value.trim() === ""){
+            setIsDisable(true);
+        } else {
+            setIsDisable(false);
+        }
     }
 
     return (
         isPaid
             ? <div className={active ? "pendingModal active" : "pendingModal"}>
                 <div className={active ? "modalContent active" : "modalContent"}>
-
                     <button className={"agreeButton"} onClick={closeModal}>
                         <img src={close} alt={"close"}/>
                     </button>
@@ -71,7 +83,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
                     <section className={"personalEditableBlock"}>
                         <form onSubmit={handleChangeAccessStatusPaid}>
                             <label htmlFor="firstName">First name</label>
-                            <input className={firstName ? "editableInput" : "emptyField"} type={"text"}
+                            <input className={firstName ? "editableInput" :  "emptyField"} type={"text"}
                                    defaultValue={firstName} onChange={inputDataChange}
                                    name={'firstName'} required={true}/>
                             <label htmlFor="lastName">Last name</label>
@@ -86,7 +98,16 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
                                 Make sure the fields Name, Last name and
                                 Email are filled in correctly. <b>Thank you!</b>
                             </p>
-                            <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
+
+                            {
+                                isOpenButtonLoader
+                                    ? <div style={{width: "127px", height: "40px", marginBottom: "30px"}}>
+                                        <ButtonLoader/>
+                                    </div>
+                                    : isDisable ?  <button className={"disableButton"} disabled={true}>Send</button>
+                                    : <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
+                            }
+
                         </form>
                     </section>
                 </div>
@@ -94,8 +115,10 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
             :
             <>
                 {slug === "ms-dynamics-365-consultant" ?
-                    <FreeGetAccessModalConsultant email={email} active={active} setActive={setActive} currentPricePlanId={currentPricePlanId}/> :
-                    <FreeGetAccessModalDeveloper email={email} active={active} setActive={setActive} currentPricePlanId={currentPricePlanId}/>
+                    <FreeGetAccessModalConsultant email={email} active={active} setActive={setActive}
+                                                  currentPricePlanId={currentPricePlanId}/> :
+                    <FreeGetAccessModalDeveloper email={email} active={active} setActive={setActive}
+                                                 currentPricePlanId={currentPricePlanId}/>
                 }
             </>
 

@@ -1,9 +1,10 @@
 import React, {useState} from "react";
 import close from "../../../assets/images/window-close.svg";
 import info from "../../../assets/images/information_popup_icon.svg";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {sendCvAndChangeAccessStatus} from "../../../store/reducers/educationReducer/actions/educationSendCvAndChangeAccessStatusAction";
 import {useParams} from "react-router-dom";
+import {ButtonLoader} from "../ButtonLoader";
 
 const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePlanId}) => {
     const dispatch = useDispatch();
@@ -11,6 +12,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
     const [selectedFile, setSelectedFile] = useState();
     const [isValidFile, setIsValidFile] = useState(true);
     const [isFilePicked, setIsFilePicked] = useState(false);
+    const {isOpenButtonLoader} = useSelector(({app}) => app);
 
     const changeHandler = (event) => {
         const file = event.target.files[0]
@@ -32,7 +34,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
     const handleSubmission = async (e) => {
         e.preventDefault();
         dispatch(sendCvAndChangeAccessStatus(slug, selectedFile))
-        setActive(false)
+        // setActive(false)
     }
     //just close modal without changing status
     const closeModal = () => {
@@ -83,10 +85,12 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
                             Our manager will contact you via email <b>{email}</b> shortly.
                         </p>
                         {
-                            selectedFile ?
-                                <button className={"gotInfoButton"} type={"submit"}>Send</button> :
-                                <button className={"disableButton"} disabled={true}>Send</button>
+                            isOpenButtonLoader ?<div style={{width: "127px", height: "40px", marginBottom: "30px"}}> <ButtonLoader/></div>
+                                : selectedFile ?
+                                    <button className={"gotInfoButton"} type={"submit"}>Send</button> :
+                                    <button className={"disableButton"} disabled={true}>Send</button>
                         }
+
                     </form>
                 </section>
             </div>

@@ -1,5 +1,5 @@
 import { httpClient } from "../../../../services/services";
-import {openNotification, setError, setIsLoading} from "../../appReducer/actions/appAction";
+import {buttonLoader, openNotification, setError, setIsLoading} from "../../appReducer/actions/appAction";
 import {getEducationAccessStatus} from "./educationGetAccessAction";
 
 export const SEND_FILE_AND_CHANGE_ACCESS_STATUS = "SEND_FILE_AND_CHANGE_ACCESS_STATUS";
@@ -17,13 +17,13 @@ export const sendCvAndChangeAccessStatus = (courseSlug, file, taskUrl) => {
     }
 
     return (dispatch) => {
-        dispatch(setIsLoading(true));
+        dispatch(buttonLoader(true));
         httpClient
             .post(`/education/courses/${courseSlug}/permission-state/${currentPricePlanId}/call-for-access`, fd)
             .then((res) => {
                 dispatch({ type: SEND_FILE_AND_CHANGE_ACCESS_STATUS, payload: res.data });
                 dispatch(getEducationAccessStatus(courseSlug))
-                dispatch(setIsLoading(false));
+                dispatch(buttonLoader(false));
                 dispatch(openNotification(true));
             })
             .catch((err) => {

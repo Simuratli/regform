@@ -4,12 +4,13 @@ import {
   SET_ADDONS_SORT_BY,
   ADDON_LOADING_STATE,
   SET_ERROR,
-  RESET_DATA, OPEN_NOTIFICATION,
+  RESET_DATA, OPEN_NOTIFICATION, OPEN_BUTTON_LOADER,
 } from "./types";
 
 const initStore = {
   isLoading: false,
   isOpenNotification: false,
+  isOpenButtonLoader: false,
   error: {},
   lang: "en",
   addonsSortBy: "All",
@@ -22,6 +23,8 @@ export const appReducer = (initialState = initStore, action) => {
       return { ...initialState, isLoading: action.payload };
     case OPEN_NOTIFICATION:
       return { ...initialState, isOpenNotification: action.payload };
+    case OPEN_BUTTON_LOADER:
+      return { ...initialState, isOpenButtonLoader: action.payload };
 
     case SET_ADDONS_SORT_BY:
       return { ...initialState, addonsSortBy: action.payload };

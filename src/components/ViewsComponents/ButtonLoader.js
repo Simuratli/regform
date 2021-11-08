@@ -8,10 +8,10 @@ const Loader = styled.div`
   justify-content: center;
   align-items: center;
   background: #E8EBFE;
-  position: absolute;
+  //position: absolute;
   border-radius: 5px;
-  top: -1px;
-  left: -1px;
+  //top: -1px;
+  //left: -1px;
 
   .sp-2balls {
     margin: 0 10px;

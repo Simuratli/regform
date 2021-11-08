@@ -30,7 +30,7 @@ const PendingNotificationModal = () => {
     return (
         <div className={isOpenNotification ? "pendingModal active" : "pendingModal"}>
             <div className={isOpenNotification ? "modalContent active" : "modalContent"}>
-                <div className={"content"}>
+                <div className={"contentWithoutFields"}>
                     <img src={info} alt={"info"} style={{margin: "auto"}}/>
                     <h5 className={"mobileModalTitle boldText"}>Thank you!</h5>
                     <p className={"greenParagraph"}>

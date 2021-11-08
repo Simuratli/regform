@@ -1,9 +1,10 @@
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {useParams} from "react-router-dom";
 import React, {useState} from "react";
 import {sendCvAndChangeAccessStatus} from "../../../store/reducers/educationReducer/actions/educationSendCvAndChangeAccessStatusAction";
 import close from "../../../assets/images/window-close.svg";
 import info from "../../../assets/images/information_popup_icon.svg";
+import {ButtonLoader} from "../ButtonLoader";
 
 const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
     const [isFilePicked, setIsFilePicked] = useState(false);
     const [isLinkPicked, setIsLinkPicked] = useState(false);
     const [isValidFile, setIsValidFile] = useState(true);
+    const {isOpenButtonLoader} = useSelector(({app}) => app);
 
     const changeHandler = (event) => {
         const file = event.target.files[0]
@@ -41,8 +43,8 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
     //close modal and change status from Forbidden to Pending
     const handleSubmission = async (e) => {
         e.preventDefault();
-        dispatch(sendCvAndChangeAccessStatus(slug, selectedFile, selectedLink ))
-        setActive(false)
+        dispatch(sendCvAndChangeAccessStatus(slug, selectedFile, selectedLink))
+        // setActive(false)
     }
     //just close modal without changing status
     const closeModal = () => {
@@ -97,7 +99,8 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                             Our manager will contact you via email <b>{email}</b> shortly.
                         </p>
                         {
-                            selectedFile && isLinkPicked ?
+                            isOpenButtonLoader ? <div style={{width: "127px", height: "40px", marginBottom: "30px"}}><ButtonLoader/></div>
+                                :  selectedFile && isLinkPicked ?
                                 <button className={"gotInfoButton"} type={"submit"}>Send</button> :
                                 <button className={"disableButton"} disabled={true}>Send</button>
                         }
