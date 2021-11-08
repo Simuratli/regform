@@ -41,6 +41,7 @@ const SideDrawer = (props) => {
                              className={"nav-link"}
                              onClick={() => setIsOpenDropdown(!isOpenDropdown)}>
                         Add-ons
+                        <div className={isOpenDropdown ? "arrowTestOpen" : "arrowTest"}/>
                     </NavLink>
                     <DropDownAddonListMobile setIsOpenDropdown={setIsOpenDropdown}
                                              isOpenDropdown={isOpenDropdown}
@@ -58,6 +59,7 @@ const SideDrawer = (props) => {
                     <p className={"contactList"}
                        onClick={() => setIsOpenDropdownContactList(!isOpenDropdownContactList)}>
                         CONTACT US
+                        <div className={isOpenDropdownContactList ? "arrowTestOpen" : "arrowTest"}/>
                     </p>
                     <DropDownContactListMobile isOpenDropdownContactList={isOpenDropdownContactList}
                                                setIsOpenDropdownContactList={setIsOpenDropdownContactList}

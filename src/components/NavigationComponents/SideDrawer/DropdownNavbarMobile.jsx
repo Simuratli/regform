@@ -1,13 +1,10 @@
-import {useDispatch, useSelector} from "react-redux";
-import React, {useEffect} from "react";
-import {getAddonCard} from "../../../store/reducers/addonReducer/actions/addonCardAction";
+import React from "react";
 import {NavLink} from "react-router-dom";
 import "../../../scss/navigation/toggleButton/dropdownMobile.scss";
 import phone from "../../../assets/images/footer_icons/phone.svg";
 import mail from "../../../assets/images/footer_icons/mail.svg";
 import skype from "../../../assets/images/footer_icons/skype.svg";
 import whatsappIcon from "../../../assets/images/whatsapp_dropdown.svg";
-// import skype from "../../../assets/images/skype.svg"
 
 export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setSideDrawerOpen, dropdownList}) => {
 

@@ -35,10 +35,33 @@
     }
   }
 
+
 }
+
 
 .isOpen {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 15px;
 }
+
+
+  .arrowTest{
+    padding-left: 10px;
+    &::after {
+      content: url("../../../assets/images/arrow.svg");
+      width: 1em;
+      height: 1em;
+      text-align: center;
+      transition: all .35s;
+    }
+  }
+.arrowTestOpen{
+  padding-left: 10px;
+  &::after {
+    content: url("../../../assets/images/arrowOpened.svg");
+    transform: rotate(180deg);
+    transition: all .35s;
+  }
+}
+

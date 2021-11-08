@@ -32,6 +32,7 @@
     font-size: 12px;
     line-height: 15px;
     font-weight: 700;
+    display: inline-flex;
   }
   .contactList{
     font-size: 12px;
@@ -39,6 +40,7 @@
     font-weight: 700;
     color: $education-text-color;
     margin: 0;
+    display: inline-flex;
   }
   .sideDrawerButtons{
     display: grid;
