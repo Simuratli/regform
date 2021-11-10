@@ -6,7 +6,6 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import "./css/index.css";
 import Webfont from "webfontloader";
-
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import "./config/authentication";
