@@ -10,6 +10,7 @@ import {educationRequestMailPayment} from "../../../store/reducers/educationRedu
 import FreeGetAccessModalConsultant from "./FreeGetAccessModalConsultant";
 import FreeGetAccessModalDeveloper from "./FreeGetAccessModalDeveloper";
 import {ButtonLoader} from "../ButtonLoader";
+import {isEmpty} from "lodash";
 
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePlanId}) => {
@@ -25,8 +26,9 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
 
     const {isOpenButtonLoader} = useSelector(({app}) => app);
     const [isDisable, setIsDisable] = useState(false);
-
-
+    const [isDisableF, setIsDisableF] = useState(false);
+    const [isDisableL, setIsDisableL] = useState(false);
+    const [isDisableE, setIsDisableE] = useState(false);
 
     useEffect(() => {
         dispatch(getUserData());
@@ -54,16 +56,36 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
         setActive(false)
         window.localStorage.removeItem('currentPricePlanId')
     }
+    const process = (name , state) => {
+        switch (name) {
+            case 'firstName':
+                setIsDisableF(state)
+                break
+            case "lastName":
+                setIsDisableL(state)
+                break
+            case "email":
+                setIsDisableE(state)
+
+        }
+    }
 
     const inputDataChange = (e) => {
         const name = e.target.getAttribute('name')
         paymentData[name] = e.target.value.trim()
         if( e.target.value.trim() === ""){
             setIsDisable(true);
+            process(name, true)
+            e.target.className = "emptyField";
         } else {
             setIsDisable(false);
+            process(name, false)
+            e.target.className = "editableInput";
         }
+        console.log(isEmpty(paymentData.firstName), "isEmpty(paymentData.firstName)")
+        console.log(paymentData.firstName, "paymentData.firstName")
     }
+
 
     return (
         isPaid
@@ -86,14 +108,23 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
                             <input className={firstName ? "editableInput" :  "emptyField"} type={"text"}
                                    defaultValue={firstName} onChange={inputDataChange}
                                    name={'firstName'} required={true}/>
+                            {
+                                isDisableF ? <span className={"errorInputMessage"}>Please, enter your First Name</span> : ""
+                            }
                             <label htmlFor="lastName">Last name</label>
                             <input className={lastName ? "editableInput" : "emptyField"} type={"text"}
                                    defaultValue={lastName} onChange={inputDataChange}
                                    name={'lastName'} required={true}/>
+                            {
+                                isDisableL ? <span className={"errorInputMessage"}>Please, enter your Last Name</span> : ""
+                            }
                             <label htmlFor="email">Email</label>
                             <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email}
                                    onChange={inputDataChange}
                                    name={'email'} id="mail" required={true}/>
+                            {
+                                isDisableE ? <span className={"errorInputMessage"}>Please, enter your Email</span> : ""
+                            }
                             <p>
                                 Make sure the fields Name, Last name and
                                 Email are filled in correctly. <b>Thank you!</b>
@@ -104,7 +135,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
                                     ? <div style={{width: "127px", height: "40px", marginBottom: "30px"}}>
                                         <ButtonLoader/>
                                     </div>
-                                    : isDisable ?  <button className={"disableButton"} disabled={true}>Send</button>
+                                    : isDisable ? <button className={"disableButton"} disabled={true}>Send</button>
                                     : <button className={"gotInfoButton"} type={"submit"}>Confirm</button>
                             }
 

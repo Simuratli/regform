@@ -184,9 +184,13 @@
 .errorInputMessage{
   color: $error;
   display: flex;
-  margin-top: 10px;
   font-size: 12px;
   line-height: 120%;
+  justify-self: left;
+  margin-bottom: -10px;
+  &:focus{
+    outline: none;
+  }
 }
 .errorInput{
   border: 1px solid $error !important;
