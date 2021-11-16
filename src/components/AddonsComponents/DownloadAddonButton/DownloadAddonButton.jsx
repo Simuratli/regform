@@ -71,9 +71,9 @@ const DownloadAddonButton = ({addon}) => {
                             data-path={resources[0].filePath}>
                         {file?.addonTypeDownloading === slug ? (
                             <ButtonLoader/>
-                        ) : (
+                        ) :
                             <FormattedMessage id="download"/>
-                        )}
+                        }
                     </button>
                 : (
                     <>

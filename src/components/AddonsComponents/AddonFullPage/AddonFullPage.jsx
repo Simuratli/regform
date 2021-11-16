@@ -88,12 +88,12 @@ const AddonFullPage = ({addon, intl, children}) => {
                             </p>: ""}
                             <div style={{position: "relative", width: "220px"}}>
                                 <DownloadAddonButton addon={addon}/>
-                                {slug === "uds-data-migration-tool" ?
-                                    <p className={"chargeMessage"}>
-                                        <FormattedMessage id="free.of.charge"/>
-                                    </p> : ""
-                                }
                             </div>
+                            {slug === "uds-data-migration-tool" ?
+                                <p className={"chargeMessage"}>
+                                    <FormattedMessage id="free.of.charge"/>
+                                </p> : ""
+                            }
                         </div>
                     </AnimatedContainer>
                     <div className="headerRightSide">

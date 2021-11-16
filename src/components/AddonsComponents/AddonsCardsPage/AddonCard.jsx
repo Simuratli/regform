@@ -119,13 +119,13 @@ const AddonCard = ({addon, className}) => {
                             </button>
                         </NavLink>
                         {file?.addonTypeDownloading === slug ?
-                            <ButtonLoader/> :
+                            <div style={{position: "relative", width: "122px"}}>
+                                <ButtonLoader /> </div> :
                             resources?.length === 1 ?
                                 <button style={{position: "relative"}}
                                         onClick={applicationType === "Dynamics 365" ? getAddonVersionFile : HandlerTrackerCardOpen}
                                         className={applicationType === "Dynamics 365" ? "downloadButton" : "openButton"}
                                         data-path={resources[0].filePath}>
-
                                     {applicationType === "Dynamics 365" ? (<FormattedMessage id="download"/>) :
                                     (<FormattedMessage id="open"/>)}
                                 </button> :

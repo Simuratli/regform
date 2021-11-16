@@ -38,21 +38,29 @@ export const DropDownContactList = () => {
             <ul className={"dropdownList contacts"}>
                 <li className={"dropdownItem phone"}>
                     <img src={phone} alt="phone"/>
+                    <span>
                     <a href={"tel:+38 095 383 9341"}><span>phone:</span> +380953839341</a>
+                    </span>
                 </li>
                 <li className={"dropdownItem whatsapp"}>
                     <img src={whatsappIcon} alt="Whatsapp"/>
+                    <span>
                     <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
                         <span>whatsapp:</span> +380953839341
                     </a>
+                    </span>
                 </li>
                 <li className={"dropdownItem mail"}>
                     <img src={mail} alt="mail"/>
-                    <a href={"mailto:portal@uds.systems"}><span>e-mail:</span> portal@uds.systems</a>
+                    <span>
+                        <a href={"mailto:portal@uds.systems"}><span>e-mail:</span> portal@uds.systems</a>
+                    </span>
                 </li>
                 <li className={"dropdownItem skype"}>
                     <img src={skype} alt="skype"/>
-                    <a href={"skype:live:uds_ddt?chat"}><span>skype:</span> uds.systems</a>
+                    <span>
+                        <a href={"skype:live:uds_ddt?chat"}><span>skype:</span> uds.systems</a>
+                    </span>
                 </li>
 
             </ul>
