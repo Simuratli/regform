@@ -11,6 +11,7 @@
   border: 1px solid $education-text-color;
   padding-left: 18px;
   color: $blue-black;
+  transition: all 0.3s ease-in-out;
 }
 .emptyField{
   width: 100%;
@@ -27,8 +28,9 @@
 
 input:focus {
   outline: none !important;
+  background-color: $dark-bg;
   //border-color: $blue;
-  //box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08);
+  box-shadow: 0 3px 6px rgba(235, 164, 82, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 14px 24px rgba(14, 31, 53, 0.08);
 }
 textarea:focus {
   outline: none !important;

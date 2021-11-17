@@ -18,7 +18,9 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
 
     const changeHandler = (event) => {
         const file = event.target.files[0]
-        if (file.size > 5242880){
+        if (file && file.size > 5242880) {
+            setIsFilePicked(true);
+            setSelectedFile(file);
             setIsValidFile(false);
         } else {
             setIsValidFile(true);
@@ -30,6 +32,15 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
             }
         }
     };
+
+    const deleteFile = (event) => {
+        setIsFilePicked(false);
+        setIsValidFile(true);
+        setSelectedFile(null);
+        const testInput = document.getElementById("file")
+        testInput.value = ""
+    }
+
     const changeHandlerForLink = (event) => {
         const link = event.target.value
         setSelectedLink(link);
@@ -40,12 +51,14 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
         }
     };
 
+
+
     //close modal and change status from Forbidden to Pending
     const handleSubmission = async (e) => {
         e.preventDefault();
         dispatch(sendCvAndChangeAccessStatus(slug, selectedFile, selectedLink))
-        // setActive(false)
     }
+
     //just close modal without changing status
     const closeModal = () => {
         setActive(false)
@@ -76,9 +89,17 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                 <div className={"uploadField"}>
                                     <div className={isValidFile ? "file-dummy" : " file-dummy errorInput"}>
                                         {isFilePicked ? (
-                                            selectedFile.name.length > 35 ?
-                                                <div className="success">{selectedFile.name.slice(0, 35)}...</div> :
-                                                <div className="success">{selectedFile.name}</div>
+                                            selectedFile.name.length > 25 ?
+                                                <div className={"upload"}>
+                                                    <div className="success">{selectedFile.name.slice(0, 25)}...</div>
+                                                    <button className={"deleteFile"} onClick={deleteFile}/>
+                                                </div>
+                                                :
+                                                <div className={"upload"}>
+                                                    <div className="success">{selectedFile.name}</div>
+                                                    <button className={"deleteFile"} onClick={deleteFile}/>
+                                                </div>
+
                                         ) : (
                                             <div className="default">Use PDF or DOCX format</div>
                                         )}
@@ -87,11 +108,11 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                 </div>
                             </div>
                             {
-                                isValidFile ? "" : <span className={"errorInputMessage"}>The file is larger than 5 MB</span>
+                                isValidFile ? "" : <span className={"errorInputMessage"} style={{marginTop: "6px", marginBottom: "0"}}>The file is larger than 5 MB</span>
                             }
                             <div className="testTaskBlock">
                                 <label htmlFor="link">Add assignments</label>
-                                <input type="text" name="link" id="link" required="required" onChange={changeHandlerForLink}
+                                <input type="url" name="link" id="link" required="required" onChange={changeHandlerForLink}
                                        placeholder={"Add a link to your file on GitHub or Google Disk"}/>
                             </div>
                         </div>

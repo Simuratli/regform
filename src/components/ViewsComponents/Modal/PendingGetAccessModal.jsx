@@ -10,8 +10,6 @@ import {educationRequestMailPayment} from "../../../store/reducers/educationRedu
 import FreeGetAccessModalConsultant from "./FreeGetAccessModalConsultant";
 import FreeGetAccessModalDeveloper from "./FreeGetAccessModalDeveloper";
 import {ButtonLoader} from "../ButtonLoader";
-import {isEmpty} from "lodash";
-
 
 const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePlanId}) => {
     const dispatch = useDispatch();
@@ -82,8 +80,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
             process(name, false)
             e.target.className = "editableInput";
         }
-        console.log(isEmpty(paymentData.firstName), "isEmpty(paymentData.firstName)")
-        console.log(paymentData.firstName, "paymentData.firstName")
     }
 
 
