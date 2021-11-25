@@ -13,7 +13,6 @@ export const getEducationCard = () => {
                 localStorage.setItem("cardsArr", JSON.stringify(res.data));
             })
             .catch((err) => {
-
                 dispatch(setError(err))
                 dispatch(setIsLoading(false));
             });

@@ -5,7 +5,7 @@ function WhatsappButton() {
 
     return (
         <div style={{position: "fixed", right: "43px", bottom: "43px", zIndex: "998"}}>
-            <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
+            <a href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
                 <img style={{width: 45}} src={whatsappIcon} alt="Whatsapp"/>
             </a>
         </div>

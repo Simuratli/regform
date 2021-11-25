@@ -105,21 +105,21 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
                                    defaultValue={firstName} onChange={inputDataChange}
                                    name={'firstName'} required={true}/>
                             {
-                                isDisableF ? <span className={"errorInputMessage"}>Please, enter your First Name</span> : ""
+                                isDisableF ? <span className={"errorInputMessage"}>This field is required</span> : ""
                             }
                             <label htmlFor="lastName">Last name</label>
                             <input className={lastName ? "editableInput" : "emptyField"} type={"text"}
                                    defaultValue={lastName} onChange={inputDataChange}
                                    name={'lastName'} required={true}/>
                             {
-                                isDisableL ? <span className={"errorInputMessage"}>Please, enter your Last Name</span> : ""
+                                isDisableL ? <span className={"errorInputMessage"}>This field is required</span> : ""
                             }
                             <label htmlFor="email">Email</label>
                             <input className={email ? "editableInput" : "emptyField"} type={"email"} defaultValue={email}
                                    onChange={inputDataChange}
                                    name={'email'} id="mail" required={true}/>
                             {
-                                isDisableE ? <span className={"errorInputMessage"}>Please, enter your Email</span> : ""
+                                isDisableE ? <span className={"errorInputMessage"}>This field is required</span> : ""
                             }
                             <p>
                                 Make sure the fields Name, Last name and
@@ -128,7 +128,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
 
                             {
                                 isOpenButtonLoader
-                                    ? <div style={{width: "127px", height: "40px", marginBottom: "30px"}}>
+                                    ? <div style={{width: "127px", height: "40px", marginBottom: "30px", position: "relative"}}>
                                         <ButtonLoader/>
                                     </div>
                                     : isDisable ? <button className={"disableButton"} disabled={true}>Send</button>

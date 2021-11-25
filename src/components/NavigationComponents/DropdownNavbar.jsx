@@ -80,9 +80,28 @@ export const DropDownLogout = () => {
         dispatch(getUserData());
     }, []);
 
+    // const coursePlaceholder = [
+    //     "Your access to {Microsoft Dynamics 365 Consultant} course is {in pending}",
+    //     "Your access to { Microsoft Dynamics 365 Developer} course is {verified}"
+    // ]
+
     return (
         <>
             <div className={"dropdownList userLogout"}>
+                {/*{ coursePlaceholder.length ?*/}
+                {/*    <div className={"dropdownItem coursePlaceholder"}>*/}
+                {/*        You have:*/}
+                {/*        {*/}
+                {/*            coursePlaceholder.map(message => {*/}
+                {/*                return <p>{message}</p>*/}
+                {/*            })*/}
+
+                {/*        }*/}
+                {/*    </div> : ""*/}
+                {/*}*/}
+
+
+
                 <div className={"dropdownItem userMail"}>
                     {email}
                 </div>

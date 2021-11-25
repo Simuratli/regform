@@ -19,12 +19,13 @@
   bottom: 91px;
   width: 100%;
   max-width: 389px;
-  max-height: 100vh;
+  max-height: 250vh;
   background-color: #fff;
   margin-top: 10px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 3px 6px rgba(14, 31, 53, 0.08), 0 6px 12px rgba(14, 31, 53, 0.12), 0 8px 24px rgba(14, 31, 53, 0.08);
+  z-index: 2;
 
   .closeBtn {
     box-shadow: none;

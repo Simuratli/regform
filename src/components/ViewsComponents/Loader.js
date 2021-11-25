@@ -262,7 +262,7 @@ const Loader = () => {
   const { app } = state;
   const { isLoading } = app;
 
-//  const isLoading = true;
+// const isLoading = true;
   if (!isLoading) {
     document.body.style.overflow = "visible";
     return null;

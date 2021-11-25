@@ -20,10 +20,10 @@
   }
 
   .dropdownItem {
-    padding: 6px 6px 6px 14px;
+    padding: 8px 8px 8px 20px;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 140%;
+    font-size: 16px;
+    line-height: 18px;
     color: $education-text-color;
     &:hover {
       background-color: $light-blue;
@@ -38,6 +38,9 @@
       width: 100%;
     }
   }
+  .orangeText{
+    color: $orange;
+  }
   .addOn{
     text-transform: capitalize;
   }
@@ -45,9 +48,6 @@
   .mail, .phone, .skype, .whatsapp {
     display: flex;
     align-items: center;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
     img {
       margin-right: 11px;
     }

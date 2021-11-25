@@ -87,7 +87,7 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                                 <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                        onChange={changeHandler}/>
                                 <div className={"uploadField"}>
-                                    <div className={isValidFile ? "file-dummy" : " file-dummy errorInput"}>
+                                    <div className={isValidFile ? isFilePicked ? "file-dummy focus" : "file-dummy" : " file-dummy errorInput focus"}>
                                         {isFilePicked ? (
                                             selectedFile.name.length > 25 ?
                                                 <div className={"upload"}>
@@ -120,10 +120,11 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                             Our manager will contact you via email <b>{email}</b> shortly.
                         </p>
                         {
-                            isOpenButtonLoader ? <div style={{width: "127px", height: "40px", marginBottom: "30px"}}><ButtonLoader/></div>
-                                :  selectedFile && isLinkPicked ?
-                                <button className={"gotInfoButton"} type={"submit"}>Send</button> :
-                                <button className={"disableButton"} disabled={true}>Send</button>
+                            isOpenButtonLoader ? <div style={{width: "127px", height: "40px", marginBottom: "30px", position: "relative"}}><ButtonLoader/></div>
+                                :   selectedFile && isLinkPicked ?
+                                    <button className={"gotInfoButton"} type={"submit"}>Send</button> :
+                                    <button className={"disableButton"} disabled={true}>Send</button>
+
                         }
                     </form>
                 </section>

@@ -71,7 +71,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
                                 <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                        onChange={changeHandler}/>
                                 <div className={"uploadField"}>
-                                    <div className={isValidFile ? "file-dummy" : " file-dummy errorInput"}>
+                                    <div className={isValidFile ? isFilePicked ? "file-dummy focus" : "file-dummy" : " file-dummy errorInput focus"}>
                                         {isFilePicked ? (
                                             selectedFile.name.length > 25 ?
                                                 <div className={"upload"}>
@@ -101,7 +101,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
                         </p>
                         {
                             isOpenButtonLoader ?
-                                <div style={{width: "127px", height: "40px", marginBottom: "30px"}}><ButtonLoader/>
+                                <div style={{width: "127px", height: "40px", marginBottom: "30px", position: "relative"}}><ButtonLoader/>
                                 </div>
                                 : selectedFile &&  isValidFile ?
                                     <button className={"gotInfoButton"} type={"submit"}>Send</button> :
