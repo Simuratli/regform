@@ -12,6 +12,8 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
+  - name: system.debug
+    value: 'true' 
   - name: command
     ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
       value: 'npm run-script build-prod'
