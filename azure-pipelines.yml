@@ -14,13 +14,13 @@ pool:
 variables:
 - name: system.debug
   value: 'true' 
-#- name: command
-#  ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}:
-#   value: $(devCommand)
-#  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: 
-#   value: run-script build-prod
-#  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}: 
-#   value: run-script build-stage
+- name: command
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
+   value: 'run-script build-dev'
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}: 
+   value: 'run-script build-prod'
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}: 
+   value: 'run-script build-stage'
 
 stages:
   - stage: buildSoution
@@ -28,15 +28,6 @@ stages:
     jobs:
       - job: BuildPortalSPA
         displayName: Build Portal SPA
-        variables:
-          - name: command
-            ${{ if startsWith(variables['Build.SourceBranchName'], 'dev') }}:
-              value: 'run-script build-dev'
-            ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: 
-              value: 'run-script build-prod'
-            ${{ if startsWith(variables['Build.SourceBranchName'], 'stage') }}: 
-              value: 'run-script build-stage'
-
         steps:
       #  - checkout: self
       #    submodules: true
