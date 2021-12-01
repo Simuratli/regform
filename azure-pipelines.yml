@@ -16,11 +16,11 @@ variables:
     value: 'true' 
   - name: command
     ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-      value: 'npm run-script build-prod'
+      value: 'run-script build-prod'
     ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-      value: 'npm run-script build-stage'
+      value: 'run-script build-stage'
     ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-      value: 'npm run-script build-stage'
+      value: 'run-script build-stage'
 
 steps:
 - checkout: self
@@ -36,7 +36,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(System.DefaultWorkingDirectory)'
-    customCommand: 'npm run-script build-dev'
+    customCommand: '$(command)'
   displayName: "NPM Run"
 
 
