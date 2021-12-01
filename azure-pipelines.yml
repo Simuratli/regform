@@ -34,7 +34,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(System.DefaultWorkingDirectory)'
-    customCommand: 'cache clean'
+    customCommand: 'cache clean --force'
 
 - task: Npm@1
   inputs:
