@@ -56,7 +56,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)\UDS-Portal-API\Src\UDS.Portal.Api\wwwroot'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)\src'
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: "Publish artifacts to drop"
