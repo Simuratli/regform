@@ -30,13 +30,13 @@ steps:
   inputs:
     versionSpec: '12.x'
 
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: '$(System.DefaultWorkingDirectory)'
-    customRegistry: 'useFeed'
-    customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
-  displayName: "NPM Install"
+#- task: Npm@1
+#  inputs:
+#    command: 'install'
+#    workingDir: '$(System.DefaultWorkingDirectory)'
+#    customRegistry: 'useFeed'
+#    customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+#  displayName: "NPM Install"
 
 - task: Npm@1
   inputs:
