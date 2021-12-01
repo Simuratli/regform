@@ -20,25 +20,30 @@ variables:
     command: 'npm run-script build-stage'
 
 steps:
-- checkout: self
-  submodules: true
-
-- task: Npm@1
-  inputs:
-    command: 'install'
-    workingDir: '$(System.DefaultWorkingDirectory)'
-  displayName: "NPM Install"
-
-- task: Npm@1
-  inputs:
-    command: 'custom'
-    workingDir: '$(System.DefaultWorkingDirectory)'
-    customCommand: '${{variables.command}}'
-
-
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\netcoreapp5.0\UDS.Portal.Api.dll'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+  - bash: |
+       echo ${{ variables.command }}
+#steps:
+#- checkout: self
+#  submodules: true
+#
+#- task: Npm@1
+#  inputs:
+#    command: 'install'
+#    workingDir: '$(System.DefaultWorkingDirectory)'
+#  displayName: "NPM Install"
+#
+#- task: Npm@1
+#  inputs:
+#    command: 'custom'
+#    workingDir: '$(System.DefaultWorkingDirectory)'
+#    customCommand: '${{variables.command}}'
+#  displayName: "NPM Run"
+#
+#
+#- task: PublishBuildArtifacts@1
+#  inputs:
+#    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\netcoreapp5.0\UDS.Portal.Api.dll'
+#    ArtifactName: 'drop'
+#    publishLocation: 'Container'
+#  displayName: "Publish artifacts to drop"
 
