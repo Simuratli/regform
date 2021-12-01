@@ -30,11 +30,11 @@ stages:
         displayName: Build Portal SPA
         variables:
           - name: command
-            ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}:
+            ${{ if startsWith(variables['Build.SourceBranchName'], 'dev') }}:
               value: 'run-script build-dev'
             ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: 
               value: 'run-script build-prod'
-            ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}: 
+            ${{ if startsWith(variables['Build.SourceBranchName'], 'stage') }}: 
               value: 'run-script build-stage'
 
         steps:
