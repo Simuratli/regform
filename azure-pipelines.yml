@@ -32,25 +32,18 @@ stages:
         - checkout: self
           submodules: true
 
-      - job: NodeTool
-        displayName: Install Node 12.x
-        steps:
         - task: NodeTool@0
           inputs:
             versionSpec: '12.x'
+          displayName: Install Node 12.x
 
-      - job: NpmCleanCache
-        displayName: Clean NPM cache
-        steps:
         - task: Npm@1
           inputs:
             command: 'custom'
             workingDir: '$(System.DefaultWorkingDirectory)'
             customCommand: 'cache clean --force'
+          displayName: Clean NPM cache
 
-      - job: NpmInstall
-        displayName: NPM install
-        steps:
         - task: Npm@1
           inputs:
             command: 'install'
@@ -59,9 +52,6 @@ stages:
             customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
           displayName: "NPM Install"
 
-      - job: NpmBuild
-        displayName: NPM build solution for environment
-        steps:
         - task: Npm@1
           inputs:
             command: 'custom'
@@ -71,9 +61,6 @@ stages:
             customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
           displayName: "NPM Run"
 
-      - job: PublishArtifactToDrop
-        displayName: Publish artifacts to drop
-        steps:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)\src'
