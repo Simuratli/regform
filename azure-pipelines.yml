@@ -23,8 +23,9 @@ variables:
       value: 'npm run-script build-stage'
 
 steps:
-  - bash: |
-       echo ${{ variables.command }}
+- task: CmdLine@2
+  inputs:
+    script: 'echo ${{ variables.command }}'
 #steps:
 #- checkout: self
 #  submodules: true
