@@ -26,11 +26,12 @@ stages:
   - stage: buildSoution
     displayName: Build Solution
     jobs:
-      - job: Checkout
-        displayName: Checkout self, with submodules
+      - job: BuildPortalSPA
+        displayName: Build Portal SPA
         steps:
         - checkout: self
           submodules: true
+          displayName: Checkout self, with submodules
 
         - task: NodeTool@0
           inputs:
