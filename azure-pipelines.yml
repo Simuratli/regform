@@ -19,8 +19,8 @@ variables:
    value: "run-script build-dev"
   ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
    value: "run-script build-prod"
-  #${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-  # value: "run-script build-stage"
+  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
+   value: "run-script build-stage"
 
 stages:
   - stage: buildSoution
@@ -47,7 +47,7 @@ stages:
 
         - task: Npm@1
           inputs:
-            command: 'ci'
+            command: 'install'
             workingDir: '$(System.DefaultWorkingDirectory)'
             customRegistry: 'useFeed'
             customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
