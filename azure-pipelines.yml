@@ -14,16 +14,15 @@ pool:
 variables:
   - name: system.debug
     value: 'true' 
-  
+  - name: command
     ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-      command: 'run-script build-prod'
+      value: 'run-script build-prod'
     ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-      command: 'run-script build-stage'
+      value: 'run-script build-stage'
     ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-      command: 'run-script build-stage'
+      value: 'run-script build-stage'
 
 steps:
-
 - checkout: self
   submodules: true
 
@@ -57,7 +56,7 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(System.DefaultWorkingDirectory)'
+    PathtoPublish: '$(System.DefaultWorkingDirectory)\UDS-Portal-API\Src\UDS.Portal.Api\wwwroot'
     ArtifactName: 'drop'
     publishLocation: 'Container'
   displayName: "Publish artifacts to drop"
