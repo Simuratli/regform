@@ -23,12 +23,6 @@ variables:
       value: 'run-script build-stage'
 
 steps:
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-    value: 'run-script build-prod'
-  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-    value: 'run-script build-stage'
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-    value: 'run-script build-stage'
 
 - checkout: self
   submodules: true
