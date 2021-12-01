@@ -4,42 +4,31 @@ trigger:
             - dev/*
             - master
             - stage/*
-    paths:
-      include:
-        - Src/UDS.Portal.Api/*
+    #paths:
+    #  include:
+    #    - Src/UDS.Portal.Api/*
 
 pool:
   vmImage: 'windows-latest'
 
 variables:
-  projectPath: '$(System.DefaultWorkingDirectory)\Src\UDS.Portal.Api\UDS.Portal.Api.csproj'
-  buildPlatform: 'Any CPU'
-  system.debug: 'true'
   ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-    args: '/p:EnvironmentName=Development'
+    command: 'npm run-script build-prod'
   ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-    args: '/p:EnvironmentName=Production'
+    command: 'npm run-script build-stage'
   ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-    args: '/p:EnvironmentName=Stage'
+    command: 'npm run-script build-stage'
 
 steps:
 - checkout: self
   submodules: true
 
-- task: DotNetCoreCLI@2
+- task: Npm@1
   inputs:
-    command: 'build'
-    projects: '${{variables.projectPath}}'
-    arguments: '${{variables.args}}'
+    command: 'install'
+    workingDir: '$(System.DefaultWorkingDirectory)'
 
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    zipAfterPublish: false
-
-    
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\netcoreapp5.0\UDS.Portal.Api.dll'
