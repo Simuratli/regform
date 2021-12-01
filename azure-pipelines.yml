@@ -36,7 +36,7 @@ steps:
   inputs:
     command: 'custom'
     workingDir: '$(System.DefaultWorkingDirectory)'
-    customCommand: '$(command)'
+    customCommand: 'run-script build-dev'
   displayName: "NPM Run"
 
 
