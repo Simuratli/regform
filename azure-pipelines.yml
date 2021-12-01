@@ -22,7 +22,7 @@ variables:
 
 steps:
   - bash: |
-       echo ${{variables.command}}
+       echo ${{ variables.command }}
 #steps:
 #- checkout: self
 #  submodules: true
