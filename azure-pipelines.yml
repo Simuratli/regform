@@ -23,27 +23,23 @@ variables:
       value: 'npm run-script build-stage'
 
 steps:
-- task: CmdLine@2
+- checkout: self
+  submodules: true
+
+- task: Npm@1
   inputs:
-    script: 'echo ${{ variables.command }}'
-#steps:
-#- checkout: self
-#  submodules: true
-#
-#- task: Npm@1
-#  inputs:
-#    command: 'install'
-#    workingDir: '$(System.DefaultWorkingDirectory)'
-#  displayName: "NPM Install"
-#
-#- task: Npm@1
-#  inputs:
-#    command: 'custom'
-#    workingDir: '$(System.DefaultWorkingDirectory)'
-#    customCommand: '${{variables.command}}'
-#  displayName: "NPM Run"
-#
-#
+    command: 'install'
+    workingDir: '$(System.DefaultWorkingDirectory)'
+  displayName: "NPM Install"
+
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    workingDir: '$(System.DefaultWorkingDirectory)'
+    customCommand: '${{ variables.command }}'
+  displayName: "NPM Run"
+
+
 #- task: PublishBuildArtifacts@1
 #  inputs:
 #    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\netcoreapp5.0\UDS.Portal.Api.dll'
