@@ -25,11 +25,15 @@ variables:
 steps:
 - checkout: self
   submodules: true
-
+- task: NodeTool@0
+  inputs:
+    versionSpec: '6.x'
 - task: Npm@1
   inputs:
     command: 'install'
     workingDir: '$(System.DefaultWorkingDirectory)'
+    customRegistry: 'useFeed'
+    customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
   displayName: "NPM Install"
 
 - task: Npm@1
@@ -37,6 +41,8 @@ steps:
     command: 'custom'
     workingDir: '$(System.DefaultWorkingDirectory)'
     customCommand: 'run-script build-dev'
+    customRegistry: 'useFeed'
+    customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
   displayName: "NPM Run"
 
 
