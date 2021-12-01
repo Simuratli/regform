@@ -15,12 +15,9 @@ variables:
 - name: system.debug
   value: 'true' 
 - name: command
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-   value: "run-script build-dev"
-  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
-   value: "run-script build-prod"
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
-   value: "run-script build-stage"
+  ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}:  "run-script build-dev"
+  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: "run-script build-prod"
+  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}: "run-script build-stage"
 
 stages:
   - stage: buildSoution
@@ -29,30 +26,30 @@ stages:
       - job: BuildPortalSPA
         displayName: Build Portal SPA
         steps:
-        - checkout: self
-          submodules: true
-          displayName: Checkout self, with submodules
-
-        - task: NodeTool@0
-          inputs:
-            versionSpec: '12.x'
-          displayName: Install Node 12.x
-
-        - task: Npm@1
-          inputs:
-            command: 'custom'
-            workingDir: '$(System.DefaultWorkingDirectory)'
-            customCommand: 'cache clean --force'
-          displayName: Clean NPM cache
-
-        - task: Npm@1
-          inputs:
-            command: 'install'
-            workingDir: '$(System.DefaultWorkingDirectory)'
-            customRegistry: 'useFeed'
-            customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
-          displayName: "NPM Install"
-
+      #  - checkout: self
+      #    submodules: true
+      #    displayName: Checkout self, with submodules
+#
+      #  - task: NodeTool@0
+      #    inputs:
+      #      versionSpec: '12.x'
+      #    displayName: Install Node 12.x
+#
+      #  - task: Npm@1
+      #    inputs:
+      #      command: 'custom'
+      #      workingDir: '$(System.DefaultWorkingDirectory)'
+      #      customCommand: 'cache clean --force'
+      #    displayName: Clean NPM cache
+#
+      #  - task: Npm@1
+      #    inputs:
+      #      command: 'install'
+      #      workingDir: '$(System.DefaultWorkingDirectory)'
+      #      customRegistry: 'useFeed'
+      #      customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+      #    displayName: "NPM Install"
+#
         - task: Npm@1
           inputs:
             command: 'custom'
@@ -61,11 +58,11 @@ stages:
             customRegistry: 'useFeed'
             customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
           displayName: "NPM Run"
-
-        - task: PublishBuildArtifacts@1
-          inputs:
-            PathtoPublish: '$(System.DefaultWorkingDirectory)\src'
-            ArtifactName: 'drop'
-            publishLocation: 'Container'
-          displayName: "Publish artifacts to drop"
-
+#
+      #  - task: PublishBuildArtifacts@1
+      #    inputs:
+      #      PathtoPublish: '$(System.DefaultWorkingDirectory)\src'
+      #      ArtifactName: 'drop'
+      #      publishLocation: 'Container'
+      #    displayName: "Publish artifacts to drop"
+#
