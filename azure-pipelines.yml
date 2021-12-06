@@ -56,7 +56,7 @@ stages:
 
         - task: Npm@1
           inputs:
-            command: 'install'
+            command: 'ci'
             workingDir: '$(System.DefaultWorkingDirectory)'
             customRegistry: 'useFeed'
             customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
