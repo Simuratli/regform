@@ -8,6 +8,8 @@ trigger:
     #  include:
     #    - Src/UDS.Portal.Api/*
 
+
+
 pool:
   vmImage: 'windows-latest'
 
@@ -21,6 +23,13 @@ variables:
    value: 'run-script build-prod'
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}: 
    value: 'run-script build-stage'
+- name: dropName
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
+   value: 'drop-dev'
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}: 
+   value: 'drop-prod'
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}: 
+   value: 'drop-stage'
 
 stages:
   - stage: buildSoution
@@ -65,6 +74,6 @@ stages:
         - task: PublishBuildArtifacts@1
           inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)\src'
-            ArtifactName: 'drop'
+            ArtifactName: '${{variables.dropName}}'
             publishLocation: 'Container'
           displayName: "Publish artifacts to drop"
