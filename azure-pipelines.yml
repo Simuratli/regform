@@ -25,11 +25,11 @@ variables:
    value: 'run-script build-stage'
 - name: dropName
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
-   value: 'drop-dev'
+   value: 'SPA-dev'
   ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}: 
-   value: 'drop-prod'
+   value: 'SPA-prod'
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}: 
-   value: 'drop-stage'
+   value: 'SPA-stage'
 
 stages:
   - stage: buildSoution
