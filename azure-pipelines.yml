@@ -42,7 +42,7 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\netcoreapp5.0\UDS.Portal.Api.dll'
+    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
