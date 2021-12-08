@@ -17,10 +17,16 @@ variables:
   system.debug: 'true'
   ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
     args: '/p:EnvironmentName=Stage'
+    path: 
+      apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
   ${{ if eq(variables['Build.SourceBranchName'], 'master') }}:
     args: '/p:EnvironmentName=Production'
+    path: 
+      apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Release\net6.0\UDS.Portal.Api.dll'
   ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}:
     args: '/p:EnvironmentName=Stage'
+      path: 
+        apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
 
 steps:
 - checkout: self
@@ -42,7 +48,7 @@ steps:
     
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
+    PathtoPublish: '${{variables.path.apiBuildDirectionEntrypoint}}'
     ArtifactName: 'drop'
     publishLocation: 'Container'
 
