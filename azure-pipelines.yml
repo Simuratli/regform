@@ -1,13 +1,13 @@
-#trigger:
-#  branches:
-#    include:
-#      - dev/*
-#      - master
-#      - stage/*
+trigger:
+  branches:
+    include:
+      - dev/*
+      - master
+      - stage/*
 
 resources:
   repositories:
-    - repository: PortalSPA
+    - repository: PortalApi
       type: git
       name: UDS-Maps-Portal/UDS-Portal-Api
       ref: $(Build.SourceBranch)
@@ -117,11 +117,13 @@ stages:
   - stage: buildSoution
     displayName: Build Solution
     jobs:
+
       - job: BuildPortalApi
         displayName: Build Portal Api
         steps:
-          - checkout: self
+          - checkout: PortalApi
             submodules: true
+            displayName: Checkout API repo, with submodules
 
           - task: UseDotNet@2
             inputs:
