@@ -48,7 +48,7 @@ const ErrorComponent = () => {
 
     return (
         <section className={"errorContainer"}>
-            <h1 className={"statusCode"}>{responseError.statusCode }</h1>
+            <h1 className={"statusCode"}>{responseError.statusCode}</h1>
             <h5 className={"errorMessage"}>{responseError.message}</h5>
             <h5 className={"errorDescription"}>{responseError.description}</h5>
             <button className={"actionButton"} onClick={handleBackToHomePage}>Back to Home Page</button>
