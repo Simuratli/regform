@@ -121,7 +121,7 @@ const FreeGetAccessModalDeveloper = ({email, active, setActive}) => {
                         </p>
                         {
                             isOpenButtonLoader ? <div style={{width: "127px", height: "40px", marginBottom: "30px", position: "relative"}}><ButtonLoader/></div>
-                                :   selectedFile && isLinkPicked ?
+                                :   selectedFile && isValidFile && isLinkPicked ?
                                     <button className={"gotInfoButton"} type={"submit"}>Send</button> :
                                     <button className={"disableButton"} disabled={true}>Send</button>
 
