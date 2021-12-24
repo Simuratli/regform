@@ -99,11 +99,10 @@ export const DropDownLogout = () => {
                 {/*        }*/}
                 {/*    </div> : ""*/}
                 {/*}*/}
-
-
-
                 <div className={"dropdownItem userMail"}>
-                    {email}
+                    {email && email.length > 25 ?
+                        email.slice(0, 25) + "..." :
+                    email}
                 </div>
                 <div className={"dropdownItem logoutItem"}>
                     <a style={{display: "flex", justifyContent: "space-between"}}
