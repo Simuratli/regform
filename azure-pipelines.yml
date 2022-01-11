@@ -1,51 +1,211 @@
 trigger:
   branches:
-      include:
-          - dev/*
-          - master
-          - stage/*
-  paths:
     include:
-      - Src/UDS.Portal.Api/*
+      - dev/*
+      - master
+      - stage/*
+
+resources:
+  repositories:
+    - repository: PortalApi
+      type: git
+      name: UDS-Maps-Portal/UDS-Portal-Api
+      ref: $(Build.SourceBranch)
+      trigger:
+        branches:
+          include:
+            - master
+            - dev/*
+            - stage/*
 
 pool:
   vmImage: 'windows-latest'
 
+parameters:
+  - name: TestCoverageThreshold
+    default: '50'
+    displayName: Test coverage threshold
+
 variables:
-  projectPath: '$(System.DefaultWorkingDirectory)\Src\UDS.Portal.Api\UDS.Portal.Api.csproj'
-  buildPlatform: 'Any CPU'
-  system.debug: 'true'
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'dev/') }}: 
-    args: '/p:EnvironmentName=Stage'
-    path: 
-      apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
-  ${{ if eq(variables['Build.SourceBranchName'], 'master') }}: 
-    args: '/p:EnvironmentName=Production'
-    path: 
-      apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Release\net6.0\UDS.Portal.Api.dll'
-  ${{ if startsWith(variables['Build.SourceBranchName'], 'stage/') }}: 
-    args: '/p:EnvironmentName=Stage'
-    path: 
-      apiBuildDirectionEntrypoint: 'Src\UDS.Portal.Api\bin\Debug\net6.0\UDS.Portal.Api.dll'
+  - name: projectPath
+    value: '$(System.DefaultWorkingDirectory)\Src\UDS.Portal.Api\UDS.Portal.Api.csproj'
+  - name: buildPlatform
+    value: 'Any CPU'
+  - name: system.debug
+    value: 'true'
+  - name: args
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
+      value: '/p:EnvironmentName=Stage -p:Version=6.0 --output $(System.DefaultWorkingDirectory)/publish'
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      value: '/p:EnvironmentName=Production -p:Version=6.0--output $(System.DefaultWorkingDirectory)/publish'
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}:
+      value: '/p:EnvironmentName=Stage -p:Version=6.0 --output $(System.DefaultWorkingDirectory)/publish'
+  - name: deployTarget
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
+      value: 'my-uds-systems-website-development'
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      value: 'my-uds-systems-website-production'
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}:
+      value: 'my-uds-systems-website-development'
+  - name: command
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
+      value: 'run-script build-stage'
+    ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+      value: 'run-script build-prod'
+    ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}:
+      value: 'run-script build-stage'
 
-steps:
-- checkout: self
-  submodules: true
+stages:
+  - stage: buildSpaSoution
+    displayName: Build SPA Solution
+    jobs:
+      - job: BuildPortalSPA
+        displayName: Build Portal SPA
+        steps:
+          - checkout: self
+            submodules: true
+            displayName: Checkout self, with submodules
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'build'
-    projects: '${{variables.projectPath}}'
-    arguments: '${{variables.args}}'
+          - task: NodeTool@0
+            inputs:
+              versionSpec: '12.19.x'
+            displayName: Install Node 12.x
 
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'publish'
-    publishWebProjects: true
-    zipAfterPublish: false
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customCommand: 'cache clean --force'
+              customRegistry: 'useFeed'
+              customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+            displayName: Clean NPM cache
 
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '${{variables.path.apiBuildDirectionEntrypoint}}'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customCommand: 'cache verify'
+              customRegistry: 'useFeed'
+              customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+            displayName: 'NPM Verify cache'
+
+          - task: Npm@1
+            inputs:
+              command: 'install'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customRegistry: 'useFeed'
+              customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+            displayName: 'NPM Install'
+            retryCountOnTaskFailure: 2
+
+          - task: Npm@1
+            inputs:
+              command: 'custom'
+              workingDir: '$(System.DefaultWorkingDirectory)'
+              customCommand: '${{ variables.command }}'
+              customRegistry: 'useFeed'
+              customFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+            displayName: 'NPM Run'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Agent.BuildDirectory)/UDS-Portal-API/Src/UDS.Portal.Api'
+              ArtifactName: 'SPA'
+              publishLocation: 'Container'
+            displayName: 'Publish artifacts to drop'
+
+  - stage: buildSoution
+    displayName: Build Solution
+    jobs:
+      - job: BuildPortalApi
+        displayName: Build Portal Api
+        steps:
+          - checkout: PortalApi
+            submodules: true
+            displayName: Checkout API repo, with submodules
+
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '6.0.x'
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'build'
+              projects: '${{variables.projectPath}}'
+              arguments: '${{variables.args}}'
+            displayName: '.Net Build project'
+
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(System.DefaultWorkingDirectory)/publish/'
+              ArtifactName: 'API'
+              publishLocation: 'Container'
+            displayName: 'Publish build artifacts'
+
+  - stage: runTests
+    displayName: Run tests
+    dependsOn: buildSoution
+    jobs:
+      - job: RunTests
+        displayName: Run API tests
+        steps:
+          - task: UseDotNet@2
+            inputs:
+              packageType: 'sdk'
+              version: '6.0.x'
+          - task: DotNetCoreCLI@2
+            inputs:
+              command: 'test'
+              projects: |
+                **/*Tests/*.csproj
+              arguments: '--collect "Code coverage"'
+            continueOnError: true
+            displayName: 'Run XUnit test and publish results'
+
+          - task: BuildQualityChecks@8
+            inputs:
+              checkCoverage: true
+              coverageFailOption: 'fixed'
+              coverageType: 'blocks'
+              coverageThreshold: '2'
+            enabled: false
+
+  - stage: DeployWebApp
+    displayName: Deploy Web App
+    dependsOn: runTests
+    jobs:
+      - job:
+        displayName: Deploy Web App
+        steps:
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'API'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          - task: DownloadBuildArtifacts@1
+            inputs:
+              buildType: 'current'
+              downloadType: 'single'
+              artifactName: 'SPA'
+              downloadPath: '$(System.ArtifactsDirectory)'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(System.ArtifactsDirectory)/API'
+              Contents: '**'
+              TargetFolder: '$(System.DefaultWorkingDirectory)/publish'
+
+          - task: CopyFiles@2
+            inputs:
+              SourceFolder: '$(System.ArtifactsDirectory)/SPA'
+              Contents: '**'
+              TargetFolder: '$(System.DefaultWorkingDirectory)/publish/'
+          - task: AzureWebApp@1
+            inputs:
+              azureSubscription: 'Silver Cloud Platform Subscription'
+              appType: 'webApp'
+              appName: '${{variables.deployTarget}}'
+              package: '$(System.DefaultWorkingDirectory)/publish'
+              deploymentMethod: 'auto'
