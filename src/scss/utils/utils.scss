@@ -104,6 +104,7 @@ button {
   position: relative;
   z-index: 100;
   transition: all ease-in-out .5s;
+  font-size: 14px;
 
   &:before {
     border-radius: inherit;

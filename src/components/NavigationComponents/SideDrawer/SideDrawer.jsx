@@ -3,7 +3,7 @@ import {NavLink} from "react-router-dom";
 import '../../../scss/navigation/toggleButton/SideDrawer.scss';
 import authentication from "../../../b2c";
 import logout from "../../../assets/images/exit.svg";
-import userLogoutIcon from "../../../assets/images/new_year/new_year_logout.svg";
+import userLogoutIcon from "../../../assets/images/logout.svg";
 import {FormattedMessage} from "react-intl";
 import {useDispatch, useSelector} from "react-redux";
 import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";

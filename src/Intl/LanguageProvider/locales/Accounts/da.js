@@ -11,7 +11,7 @@ const translations = {
   price: "price DA",
   "virtual.machine.text":
     "*UDS Virtual Machine exceeds 20.1 GB. <br /> We recommend using Download Master to avoid breakdowns. DA",
-  "free.of.charge": "Free of charge until December, 2021 DA",
+  "free.of.charge": "Free of charge until April, 2022 DA",
   "about.add.on": "About add-on DA",
   "how.to.install.and.uninstall": "How to install and uninstall DA",
   "dmt.text":

@@ -12,8 +12,6 @@ import {ButtonLoader} from "../../ViewsComponents/ButtonLoader";
 import closeButton from "../../../assets/images/close_download_btn.svg";
 import attachedFile from "../../../assets/images/attached_file.svg";
 import appSource from "../../../assets/images/web_icon.svg";
-import socks from "../../../assets/images/new_year/socks.png";
-
 
 const AddonCard = ({addon, className}) => {
     const [downloadModalActiveCard, setDownloadModalActiveCard] = useState(false);
@@ -79,7 +77,7 @@ const AddonCard = ({addon, className}) => {
     return (
         <div className={'addonsCardWrapper'}>
             <div key={slug} className={`addonsCard ${className}`}>
-                <img src={socks} alt={"Happy New Year"} className={"newYearSocks"}/>
+                {/*<img src={socks} alt={"Happy New Year"} className={"newYearSocks"}/>*/}
                 <NavLink to={"/add-ons/" + slug}>
                     <div className={"cardLogo"}>
                         <img
