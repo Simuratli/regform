@@ -37,7 +37,7 @@ variables:
     ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/dev/') }}:
       value: '/p:EnvironmentName=Stage -p:Version=6.0 --output $(System.DefaultWorkingDirectory)/publish'
     ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
-      value: '/p:EnvironmentName=Production -p:Version=6.0--output $(System.DefaultWorkingDirectory)/publish'
+      value: '/p:EnvironmentName=Production -p:Version=6.0 --output $(System.DefaultWorkingDirectory)/publish'
     ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/stage/') }}:
       value: '/p:EnvironmentName=Stage -p:Version=6.0 --output $(System.DefaultWorkingDirectory)/publish'
   - name: deployTarget
