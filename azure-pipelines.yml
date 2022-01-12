@@ -134,6 +134,7 @@ stages:
               projects: '${{variables.projectPath}}'
               feedsToUse: 'select'
               vstsFeed: '9df1d1b4-3153-4acf-a38f-98ad42ca09b5'
+            displayName: '.Net restore'
           - task: DotNetCoreCLI@2
             inputs:
               command: 'build'
