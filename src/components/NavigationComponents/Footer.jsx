@@ -12,6 +12,9 @@ import { FormattedMessage } from "react-intl";
 import whatsappIcon from "../../assets/images/whatsapp_dropdown.svg";
 
 function Footer() {
+
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className={"fullWidthWrapperFooter"}>
       <div className={"phantom"}>
@@ -90,7 +93,7 @@ function Footer() {
       <div className={"footerCopyrightWrapper"}>
         <div className={"footerCopyrightInfo"}>
           <h4 className={"copyrightTitle"}>
-            <FormattedMessage id="UDS.systems.reserved" />
+            UDS Systems © {currentYear} All Rights reserved
           </h4>
           <a
             className={"privacyPolicy copyrightLinks"}
