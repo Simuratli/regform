@@ -16,6 +16,7 @@ const EducationInfoPageContainer = () => {
     const {slug} = useParams();
 
     useEffect(() => {
+        // if()
         dispatch(getEducationInfoPage(slug));
         dispatch(resetEducationInfoPage());
         dispatch(getEducationAccessStatus(slug));

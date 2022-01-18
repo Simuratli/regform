@@ -68,7 +68,10 @@ export const FilterAddonsComponent = () => {
     };
 
     return (
-        <section className={'sortField'} onClick={handleOpenOptions} isOpenSelect={isOpenSelect} ref={wrapperRef}>
+        <section className={'sortField'}
+                 onClick={handleOpenOptions}
+                 // isOpenSelect={isOpenSelect}
+                 ref={wrapperRef}>
                 <div className="title">
                     <FormattedMessage id="sort.by"/>
                 </div>

@@ -157,7 +157,6 @@ const PaymentCard = ({plan}) => {
                     </section>
                 </>
             )
-
         case "Allowed":
             return (
                 <>

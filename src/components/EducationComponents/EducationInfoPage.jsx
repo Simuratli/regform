@@ -73,7 +73,7 @@ const EducationInfoPage = ({education}) => {
                             </a>
                         </div>
                         <div className={"headerRightSide"}>
-                            <video autostart autoPlay loop src={logoGifPath} type="video/mp4"/>
+                            <video autostart={"true"} autoPlay loop src={logoGifPath} type="video/mp4"/>
                         </div>
                     </section>
                 </div>
@@ -384,6 +384,7 @@ const EducationInfoPage = ({education}) => {
                     </div>
                 </section>
             </div>
+
         </>
     );
 };
