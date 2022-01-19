@@ -32,9 +32,6 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
     }, []);
 
     let paymentData = {
-        // "firstName": firstName,
-        // "lastName": lastName,
-        // "email": email,
         "courseSlug": slug,
         "paymentMessage": price?.toString(),
         "coursePricePlanId": currentPricePlanId
@@ -68,7 +65,7 @@ const PendingGetAccessModal = ({active, setActive, isPaid, price, currentPricePl
 
     const inputDataChange = (e) => {
         const name = e.target.getAttribute('name')
-        // paymentData[name] = e.target.value.trim()
+
         if (e.target.value.trim() === "") {
             process(name, false)
             e.target.className = "emptyField";
