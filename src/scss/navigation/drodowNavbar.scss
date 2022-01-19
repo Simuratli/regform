@@ -20,13 +20,13 @@
   }
 
   .dropdownItem {
-    padding: 8px 8px 8px 20px;
+    padding: 11px 11px 10px 20px;
     font-weight: 500;
     font-size: 16px;
     line-height: 18px;
     color: $education-text-color;
     &:hover {
-      background-color: $light-blue;
+      background-color: $light_bg;
       border-bottom: none;
       color: $blue;
       a{
@@ -70,6 +70,15 @@
     font-size: 16px;
     line-height: 18px;
   }
+  .coursePlaceholder{
+    .courseName{
+      color: $orange;
+    }
+    &:hover{
+      background: #ffffff;
+      color: $education-text-color;
+    }
+  }
 }
 
 .open {
@@ -79,11 +88,6 @@
 .userLogout {
   right: 2px;
 }
-
-.contacts {
-  right: 20px;
-}
-
 
 
 .mouseHover {

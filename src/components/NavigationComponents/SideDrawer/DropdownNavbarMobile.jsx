@@ -5,6 +5,7 @@ import phone from "../../../assets/images/footer_icons/phone.svg";
 import mail from "../../../assets/images/footer_icons/mail.svg";
 import skype from "../../../assets/images/footer_icons/skype.svg";
 import whatsappIcon from "../../../assets/images/whatsapp_dropdown.svg";
+import shortid from "shortid";
 
 export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setSideDrawerOpen, dropdownList}) => {
 
@@ -23,7 +24,7 @@ export const DropDownAddonListMobile = ({isOpenDropdown, setIsOpenDropdown, setS
                 </NavLink>
                 {
                     dropdownList.map((item, index) => (
-                        <NavLink onClick={closeDropdownAndSideDrawer}
+                        <NavLink key={shortid.generate()} onClick={closeDropdownAndSideDrawer}
                                  className={"dropdownItem addOn"}
                                  to={"/add-ons/" + item.slug}>
                             {item.name}

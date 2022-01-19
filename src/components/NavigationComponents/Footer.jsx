@@ -8,8 +8,8 @@ import logoMicrosoft from "../../assets/images/microsoft_logo.svg";
 import phone from  '../../assets/images/footer_icons/phone.svg';
 import mail from '../../assets/images/footer_icons/mail.svg';
 import skype from '../../assets/images/footer_icons/skype.svg';
+import whatsappIcon from "../../assets/images/footer_icons/whatsapp.svg";
 import { FormattedMessage } from "react-intl";
-import whatsappIcon from "../../assets/images/whatsapp_dropdown.svg";
 
 function Footer() {
 

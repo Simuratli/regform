@@ -37,7 +37,9 @@ const PendingNotificationModal = () => {
                         We have received your request. <br/>Your course is in pending now.
                     </p>
                     <p>
-                        Our manager will contact you via email <b>{email}</b> shortly.
+                        Our manager will contact you via your email
+                        {/*<b>{email}</b> */}
+                        shortly.
                     </p>
                     <button className={"agreeButton"} onClick={closeNotification}>
                         <img src={close} alt={"close"}/>
