@@ -1,25 +1,13 @@
-import info from "../../../assets/images/information_popup_icon.svg";
-import close from "../../../assets/images/window-close.svg";
-import "../../../scss/modal/pendingGetAccessModal.scss";
-import React, {useEffect} from "react";
+import React from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {openNotification} from "../../../store/reducers/appReducer/actions/appAction";
-import {useParams} from "react-router-dom";
-import {getUserData} from "../../../store/reducers/userDataReducer/actions/userDataAction";
+import "../../../scss/modal/pendingGetAccessModal.scss";
+import info from "../../../assets/images/information_popup_icon.svg";
+import close from "../../../assets/images/window-close.svg";
 
 const PendingNotificationModal = () => {
 
     const dispatch = useDispatch();
-
-    const {
-        userData: {
-            email
-        }
-    } = useSelector(({user}) => user);
-
-    useEffect(() => {
-        dispatch(getUserData());
-    }, []);
 
     const {isOpenNotification} = useSelector(({app}) => app);
 
@@ -37,9 +25,7 @@ const PendingNotificationModal = () => {
                         We have received your request. <br/>Your course is in pending now.
                     </p>
                     <p>
-                        Our manager will contact you via your email
-                        {/*<b>{email}</b> */}
-                        shortly.
+                        Our manager will contact you via your email shortly.
                     </p>
                     <button className={"agreeButton"} onClick={closeNotification}>
                         <img src={close} alt={"close"}/>

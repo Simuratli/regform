@@ -91,8 +91,6 @@ const SideDrawer = (props) => {
                         </a>
                     </li>
                 </div>
-
-
             </ul>
         </nav>
     );

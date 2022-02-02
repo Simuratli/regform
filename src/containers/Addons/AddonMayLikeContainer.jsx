@@ -1,12 +1,10 @@
 import React, {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import shortid from 'shortid';
 import AnimatedContainer from "../AnimatedContainer";
-import {getAddonCard} from "../../store/reducers/addonReducer/actions/addonCardAction";
 import get from "lodash/get";
 import range from "lodash/range";
 import {useParams} from "react-router-dom";
-import AddonMayLikeComponent from "../../components/AddonsComponents/AddonMayLikeComponent/AddonMayLikeComponent";
+import AddonMayLikeComponent from "../../components/AddonsComponents/AddonMayLikeComponent";
 import {FakeCardRow} from "../../components/ViewsComponents/FakeCardRow";
 import {getAllAddonCard} from "../../store/reducers/addonReducer/actions/allAddonCardAction";
 
@@ -34,7 +32,7 @@ const AddonMayLikeContainer = () => {
         <>
             {
                 get(addon, "allCards", []).length
-                    ? <AnimatedContainer key={shortid.generate()} withScale>
+                    ? <AnimatedContainer withScale>
                         <AddonMayLikeComponent addons={filteredAddons}/>
                      </AnimatedContainer>
                     : range(0, 6, 1).map((r) => <FakeCardRow key={r}/>)

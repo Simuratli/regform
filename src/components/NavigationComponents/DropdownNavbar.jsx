@@ -1,74 +1,58 @@
 import React, {useEffect} from "react";
 import {NavLink} from "react-router-dom";
-import "../../scss/navigation/drodowNavbar.scss";
 import {useDispatch, useSelector} from "react-redux";
+
+import {getUserData} from "../../store/reducers/userDataReducer/actions/userDataAction";
+// import {getEducationCard} from "../../store/reducers/educationReducer/actions/educationCardAction";
+import "../../scss/navigation/drodowNavbar.scss";
+
 import phone from "../../assets/images/footer_icons/phone.svg";
 import mail from "../../assets/images/footer_icons/mail.svg";
 import skype from "../../assets/images/footer_icons/skype.svg";
 import whatsappIcon from "../../assets/images/footer_icons/whatsapp.svg";
 import authentication from "../../b2c";
 import logout from "../../assets/images/exit.svg";
-import {getUserData} from "../../store/reducers/userDataReducer/actions/userDataAction";
-import shortid from "shortid";
-
-// import {getEducationCard} from "../../store/reducers/educationReducer/actions/educationCardAction";
+import _ from "lodash";
 
 
 export const DropDownAddonList = ({isOpen, dropdownList}) => {
 
-    return (
-        <>
-            <div className={isOpen ? 'dropdownList open' : 'dropdownList'}>
-                <NavLink className={"dropdownItem addOn"} to={"/add-ons"}>
-                    All
+    return <div className={isOpen ? 'dropdownList open' : 'dropdownList'}>
+        <NavLink className={"dropdownItem addOn"} to={"/add-ons"}>
+            All
+        </NavLink>
+        {
+            dropdownList.map((item) => (
+                <NavLink key={_.uniqueId('addOnLink_')} className={"dropdownItem addOn"} to={"/add-ons/" + item.slug}>
+                    {item.name}
                 </NavLink>
-                {
-                    dropdownList.map((item, index) => (
-                        <NavLink key={shortid.generate()} className={"dropdownItem addOn"} to={"/add-ons/" + item.slug}>
-                            {item.name}
-                        </NavLink>
-                    ))
-                }
-            </div>
-        </>
-    );
+            ))
+        }
+    </div>
 }
 
 export const DropDownContactList = () => {
 
-    return (
-        <>
-            <ul className={"dropdownList contacts"}>
-                <li className={"dropdownItem phone"}>
-                    <img src={phone} alt="phone"/>
-                    <span>
-                    <a href={"tel:+38 095 383 9341"}> +380953839341</a>
-                    </span>
-                </li>
-                <li className={"dropdownItem whatsapp"}>
-                    <img src={whatsappIcon} alt="Whatsapp"/>
-                    <span>
-                    <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>
-                        +380953839341
-                    </a>
-                    </span>
-                </li>
-                <li className={"dropdownItem mail"}>
-                    <img src={mail} alt="mail"/>
-                    <span>
-                        <a href={"mailto:portal@uds.systems"}> portal@uds.systems</a>
-                    </span>
-                </li>
-                <li className={"dropdownItem skype"}>
-                    <img src={skype} alt="skype"/>
-                    <span>
-                        <a href={"skype:live:uds_ddt?chat"}> uds.systems</a>
-                    </span>
-                </li>
-
-            </ul>
-        </>
-    );
+    return <ul className={"dropdownList contacts"}>
+        <li className={"dropdownItem phone"}>
+            <img src={phone} alt="phone"/>
+            <span><a href={"tel:+38 095 383 9341"}> +38 095 383 9341</a></span>
+        </li>
+        <li className={"dropdownItem whatsapp"}>
+            <img src={whatsappIcon} alt="Whatsapp"/>
+            <span>
+                <a target={"_blank"} href={"https://api.whatsapp.com/send/?phone=+380953839341"}>+38 095 383 9341</a>
+            </span>
+        </li>
+        <li className={"dropdownItem mail"}>
+            <img src={mail} alt="mail"/>
+            <span><a href={"mailto:portal@uds.systems"}> portal@uds.systems</a></span>
+        </li>
+        <li className={"dropdownItem skype"}>
+            <img src={skype} alt="skype"/>
+            <span> <a href={"skype:live:uds_ddt?chat"}> uds.systems</a> </span>
+        </li>
+    </ul>
 }
 
 export const DropDownLogout = () => {
@@ -164,38 +148,45 @@ export const DropDownLogout = () => {
     //     }
     // })
 
+    const haveEmail = email && !!email.length
+
     useEffect(() => {
         dispatch(getUserData());
         // dispatch(getEducationCard());
     }, []);
 
-    return (
-        <>
-            <div className={"dropdownList userLogout"}>
-                {/*{ coursePlaceholder.length ?*/}
-                {/*    <div className={"dropdownItem coursePlaceholder"}>*/}
-                {/*        {*/}
-                {/*            coursePlaceholder.map(message => {*/}
-                {/*                return <p>{message}</p>*/}
-                {/*            })*/}
 
-                {/*        }*/}
-                {/*    </div> : ""*/}
-                {/*}*/}
-                <div className={"dropdownItem userMail"}>
-                    {email && email.length > 25 ?
-                        email.slice(0, 25) + "..." :
+    if (haveEmail) {
+        return <div className={"dropdownList userLogout"}>
+            {/*{ coursePlaceholder.length ?*/}
+            {/*    <div className={"dropdownItem coursePlaceholder"}>*/}
+            {/*        {*/}
+            {/*            coursePlaceholder.map(message => {*/}
+            {/*                return <p>{message}</p>*/}
+            {/*            })*/}
+
+            {/*        }*/}
+            {/*    </div> : ""*/}
+            {/*}*/}
+            <div className={"dropdownItem userMail"}>
+                {email.length > 25 ?
+                    email.slice(0, 25) + "..." :
                     email}
-                </div>
-                <div className={"dropdownItem logoutItem"}>
-                    <a style={{display: "flex", justifyContent: "space-between"}}
-                       onClick={() => authentication.signOut()}>
-                        <p style={{margin: "0"}}>Logout</p>
-                        <img alt={"logout"} src={logout}/>
-                    </a>
-                </div>
             </div>
-        </>
-    );
+            <Logout/>
+        </div>
+    }
+
+    return <div className={"dropdownList userLogout"}><Logout/></div>;
+}
+
+const Logout = () => {
+    return <div className={"dropdownItem logoutItem"}>
+        <a style={{display: "flex", justifyContent: "space-between"}}
+           onClick={() => authentication.signOut()}>
+            <p style={{margin: "0"}}>Logout</p>
+            <img alt={"logout"} src={logout}/>
+        </a>
+    </div>
 }
 
