@@ -10,6 +10,7 @@
   color: $education-text-color;
   transition: opacity 150ms ease-in-out;
   position: relative;
+  cursor: pointer;
 }
 
 .nav-link:not(.active)::before {
