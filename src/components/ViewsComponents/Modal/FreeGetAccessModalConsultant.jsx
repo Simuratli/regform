@@ -67,7 +67,7 @@ const FreeGetAccessModalConsultant = ({email, active, setActive, currentPricePla
                     <form onSubmit={handleSubmission}>
                         <div>
                             <div className="form-group file-area">
-                                <label htmlFor="file">Add your CV (no more than 5 MB)</label>
+                                <label htmlFor="file">Your CV (no more than 5 MB)</label>
                                 <input type="file" name="file" id="file" required="required" accept=".pdf, .docx"
                                        onChange={changeHandler}/>
                                 <div className={"uploadField"}>

@@ -59,7 +59,7 @@ const App = () => {
                     <Route path={"/"} exact component={AddonsCardsPage}>
                         <Redirect to={"/add-ons"}/>
                     </Route>
-                    <Route path={"/migration"} exact component={RedirectToMigrationTool}/>
+                    {/*<Route path={"/migration"} exact component={RedirectToMigrationTool}/>*/}
                     <Route path={"/add-ons"} exact component={AddonsCardsPage}/>
                     <Route path={"/add-ons/:slug"} exact component={AddonFullPageContainer}/>
                     <Route path={"/education"} exact component={EducationCardsPage}/>
